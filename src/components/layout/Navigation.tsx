@@ -16,7 +16,7 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="/projekter" className="hover:text-blue-600">
+          <Link href="/projects" className="hover:text-blue-600">
             Projekter
           </Link>
         </li>
