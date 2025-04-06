@@ -2,8 +2,9 @@
 import Image from "next/image";
 
 export const metadata = {
-  title: "About Us | Your Company",
-  description: "Learn about our company history, values, and team.",
+  title: "Om oss | Kristiansen Utvikling",
+  description:
+    "Lær mer om bedriften, hvordan jeg jobber og få en større forståelse for hva Kristiansen Utvikling egentlig er.",
 };
 
 export default function AboutPage() {
