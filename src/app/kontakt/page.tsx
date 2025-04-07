@@ -4,6 +4,10 @@ export const metadata = {
 };
 
 export default function kontaktPage() {
-  return;
-  <div>Hellow</div>;
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold mb-6">Ta en prat</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12"></div>
+    </div>
+  );
 }
