@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Navigation() {
   return (
     <nav>
-      <ul className="flex gap-6">
+      <ul className="flex gap-8">
         <li>
           <Link href="/" className="hover:text-blue-600">
             Hjem
@@ -21,8 +21,8 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="/kontakt" className="hover:text-blue-600">
-            Ta en prat
+          <Link href="/kontakt" className="bg-amber-600 p-3 text-black">
+            Kom i kontakt
           </Link>
         </li>
       </ul>
