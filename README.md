@@ -1,6 +1,6 @@
 # Kristiansen Utvikling Nettside
 
-Dette er nettsiden for Kristiansen Utvikling, alt av innhold fra design, code og info relatert til oppbygningen er tilgjenlig her på README.md filen for senere gjennomlesning eller oppdatering.
+Dette er nettsiden for Kristiansen Utvikling, alt av innhold fra design, code og info relatert til oppbygningen er tilgjenglig her på README.md filen for senere gjennomlesning eller oppdatering.
 
 Nettsiden er laget med **Next.js**, **React**, **Typescript** og **Tailwind**.
 
