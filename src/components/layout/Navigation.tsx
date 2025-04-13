@@ -21,8 +21,11 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link href="/kontakt" className="bg-amber-600 p-3 text-black">
-            Kom i kontakt
+          <Link
+            href="/kontakt"
+            className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto"
+          >
+            Ta en prat
           </Link>
         </li>
       </ul>
