@@ -278,25 +278,6 @@ export default function ServicesSection() {
       },
     },
     {
-      id: "app",
-      title: "App Utvikling",
-      shortDescription: "Skreddersydde mobilapplikasjoner for iOS og Android.",
-      expandedContent: {
-        description:
-          "Jeg utvikler native og hybrid mobilapplikasjoner som gir verdi for dine brukere. Fra idé til lansering i App Store og Google Play, jeg tar hånd om hele prosessen.",
-        pricing:
-          "Fra 150.000 kr for grunnleggende apper. 250.000-500.000+ kr for avanserte løsninger med backend-systemer.",
-        features: [
-          "Utvikling for både iOS og Android",
-          "Brukervennlig og intuitivt grensesnitt",
-          "API-integrasjoner mot dine eksisterende systemer",
-          "Offline-funksjonalitet og datasynkronisering",
-          "Push-varsler og brukerengasjement",
-          "Grundig testing og kvalitetssikring",
-        ],
-      },
-    },
-    {
       id: "maintenance",
       title: "Vedlikehold og Support",
       shortDescription:
