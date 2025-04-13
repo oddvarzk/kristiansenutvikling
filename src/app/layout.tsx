@@ -32,9 +32,46 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "Kristiansen Utvikling",
+  metadataBase: new URL("https://kristiansenutvikling.no"), // Replace with your actual domain
+  title: {
+    default: "Kristiansen Utvikling - Skreddersydde Webløsninger",
+    template: "%s | Kristiansen Utvikling",
+  },
   description:
-    "Web utvikling bedrift som hjelper med alle nett relaterte problemer, hjelper kunder å finne løsninger til sitt projekt.",
+    "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online. Skreddersydde nettsider, responsivt design og moderne teknologi.",
+  keywords: [
+    "webutvikling",
+    "nettside design",
+    "responsiv nettside",
+    "digital løsning",
+    "nettsider Norge",
+    "web design",
+    "nettside optimalisering",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    url: "https://kristiansenutvikling.no",
+    siteName: "Kristiansen Utvikling",
+    title: "Kristiansen Utvikling - Skreddersydde Webløsninger",
+    description:
+      "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online.",
+    images: [
+      {
+        url: "/og-image.png", // Create an Open Graph image
+        width: 1200,
+        height: 630,
+        alt: "Kristiansen Utvikling - Webløsninger",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kristiansen Utvikling - Skreddersydde Webløsninger",
+    description:
+      "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online.",
+    images: ["/twitter-image.png"], // Create a Twitter-specific image
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -43,6 +80,24 @@ export const metadata: Metadata = {
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png" }],
+  },
+  alternates: {
+    canonical: "https://kristiansenutvikling.no",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE", // Optional
+    // Add other verification codes if needed
   },
 };
 
