@@ -42,7 +42,6 @@ h6 {
 /* Layout Components */
 header,
 footer {
-  background-color: var(--header-footer-color);
   color: var(--text-color);
 }
 
