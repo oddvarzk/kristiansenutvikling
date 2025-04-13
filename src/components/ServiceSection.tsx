@@ -81,14 +81,14 @@ const ExpandableServiceItem = ({
   return (
     <div className="mb-6">
       <div
-        className={`w-full cursor-pointer rounded-lg transition-all duration-300 overflow-hidden ${
+        className={`w-full cursor-pointer rounded-lg transition-all duration-300 overflow-hidden backdrop-blur-sm ${
           isOpen
-            ? "bg-black bg-opacity-70 shadow-lg shadow-cyan-900/20"
-            : "bg-black bg-opacity-50 hover:bg-opacity-60"
+            ? "bg-gradient-to-r from-zinc-900/90 to-black/95 border-l-2 border-cyan-500 shadow-lg"
+            : "bg-zinc-900/80 hover:bg-zinc-900/90 hover:border-l hover:border-cyan-500/30"
         }`}
       >
         {/* Header section */}
-        <div onClick={toggleOpen} className="p-4 flex flex-col">
+        <div onClick={toggleOpen} className="p-5 flex flex-col">
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-bold">
               <AnimatedKeyword delay={delay} highlightColor="text-cyan-400">
@@ -97,52 +97,103 @@ const ExpandableServiceItem = ({
             </h3>
             <div className="flex items-center">
               {!isOpen && (
-                <span className="text-sm text-gray-400 mr-2">Se detaljer</span>
+                <span className="text-sm text-gray-400 mr-2 hidden md:inline">
+                  Vis detaljer
+                </span>
               )}
-              <svg
-                className={`w-5 h-5 text-cyan-400 transition-transform duration-300 ${
-                  isOpen ? "rotate-180" : ""
+              <div
+                className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
+                  isOpen ? "bg-cyan-500/20" : "bg-zinc-800"
                 }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+                <svg
+                  className={`w-4 h-4 ${
+                    isOpen ? "text-cyan-400" : "text-gray-400"
+                  } transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
-          <p className="text-gray-300 mt-1">{service.shortDescription}</p>
+          <p className="text-gray-300 mt-2">{service.shortDescription}</p>
         </div>
 
         {/* Expanded content */}
         <div
           className={`overflow-hidden transition-all duration-500 ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="p-5 border-t border-gray-800">
-            <p className="text-gray-200 mb-4">
+          <div className="p-5 pt-0">
+            <div className="border-t border-gray-800 pt-5 mb-5"></div>
+            <p className="text-gray-200 mb-6 leading-relaxed">
               {service.expandedContent.description}
             </p>
 
-            <div className="bg-gradient-to-r from-gray-800/70 to-cyan-900/30 p-4 rounded-lg mb-4">
-              <h4 className="text-cyan-400 font-medium mb-2">Prising:</h4>
+            <div className="bg-gradient-to-r from-zinc-800/70 to-zinc-900/70 p-5 rounded-lg mb-6 border border-zinc-700/30">
+              <h4 className="text-cyan-400 font-medium mb-2 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Prising:
+              </h4>
               <p className="text-gray-200">{service.expandedContent.pricing}</p>
             </div>
 
             <div>
-              <h4 className="text-cyan-400 font-medium mb-2">
+              <h4 className="text-cyan-400 font-medium mb-3 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
                 Dette inkluderer:
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3 ml-6">
                 {service.expandedContent.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-cyan-400 mr-2">✓</span>
+                    <svg
+                      className="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                     <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}
@@ -164,25 +215,25 @@ export default function ServicesSection() {
     setOpenServiceId(openServiceId === serviceId ? null : serviceId);
   };
 
-  // Service data
+  // Service data with updated Norwegian pricing
   const services: ServiceItem[] = [
     {
       id: "website",
       title: "Nettside Utvikling",
       shortDescription:
-        "Moderne, responsive nettsider skreddersydd for dine behov.",
+        "Skreddersydde, responsive nettsider for din virksomhet.",
       expandedContent: {
         description:
-          "Vi utvikler profesjonelle nettsider som representerer din merkevare på best mulig måte. Alle våre nettsider er responsiv for mobil og tablet, og er optimalisert for hastighet og søkemotorer.",
+          "Jeg utvikler profesjonelle nettsider som representerer din merkevare på best mulig måte. Alle nettsidene er responsive for mobil og tablet, og er optimalisert for hastighet og søkemotorer.",
         pricing:
-          "Fra 15.000 kr for enkle nettsider, 25.000+ kr for større prosjekter med omfattende funksjonalitet.",
+          "Fra 20.000 kr for enkle nettsider. 40.000-90.000 kr for større prosjekter med tilpasset funksjonalitet.",
         features: [
           "Responsivt design som fungerer på alle enheter",
           "SEO-optimalisert struktur og innhold",
           "Brukervennlig administrasjonspanel",
-          "Tilkobling til ditt domene",
-          "Gratis teknisk support i 3 måneder",
-          "Grundig opplæring i hvordan du kan oppdatere din nettside",
+          "Tilkobling til ditt domene og e-postoppsett",
+          "Gratis teknisk support i 6 måneder",
+          "Grundig opplæring i innholdshåndtering",
         ],
       },
     },
@@ -193,16 +244,16 @@ export default function ServicesSection() {
         "Komplette e-handelsløsninger med betalingsintegrering og lagerstyring.",
       expandedContent: {
         description:
-          "Vi bygger skreddersydde nettbutikker som konverterer besøkende til kunder. Med intuitiv navigasjon, sikker betaling og effektiv lagerstyring får du alt du trenger for å selge dine produkter online.",
+          "Jeg bygger skreddersydde nettbutikker som konverterer besøkende til kunder. Med intuitiv navigasjon, sikker betaling og effektiv lagerstyring får du alt du trenger for å selge dine produkter online.",
         pricing:
-          "Fra 30.000 kr for grunnleggende nettbutikker, 50.000+ kr for avanserte løsninger med integrasjoner.",
+          "Fra 60.000 kr for standard nettbutikker. 90.000-150.000 kr for avanserte løsninger med spesialtilpassede integrasjoner.",
         features: [
-          "Brukervennlig produktadministrasjon",
-          "Integrerte betalingsløsninger (Vipps, kort, faktura)",
-          "Automatisert lagerbehandling",
-          "Rabatt- og kupongfunksjonalitet",
-          "Detaljert salgsstatistikk og rapporter",
-          "Mobile betalingsløsninger",
+          "Integrerte betalingsløsninger (Vipps, Nets, Stripe, PayPal)",
+          "Fullstendig produktadministrasjon",
+          "Automatisert lagerbehandling og ordrestyring",
+          "Kunde- og medlemssystem",
+          "Rapportering og salgsanalyse",
+          "Fraktkalkulasjon og rabattmodul",
         ],
       },
     },
@@ -210,39 +261,38 @@ export default function ServicesSection() {
       id: "seo",
       title: "SEO Optimalisering",
       shortDescription:
-        "Forbedre synligheten din på søkemotorer og få mer organisk trafikk.",
+        "Øk synligheten på søkemotorer og få mer organisk trafikk.",
       expandedContent: {
         description:
-          "Vi hjelper din bedrift med å klatre i søkeresultatene og bli mer synlig for potensielle kunder. Vår tilnærming til SEO er basert på beste praksis og langsiktige resultater.",
+          "Jeg hjelper din bedrift med å klatre i søkeresultatene og bli mer synlig for potensielle kunder. Min tilnærming til SEO er basert på beste praksis og langsiktige resultater som passer det norske markedet.",
         pricing:
-          "Fra 7.500 kr for grunnleggende SEO-pakke, 15.000+ kr for omfattende optimalisering og kontinuerlig vedlikehold.",
+          "Fra 12.000 kr for grunnleggende SEO-pakke. 6.000-15.000 kr/mnd for kontinuerlig optimalisering og vedlikehold.",
         features: [
-          "Omfattende nøkkelordanalyse",
-          "Optimalisering av innhold og struktur",
-          "Teknisk SEO og feilretting",
+          "Omfattende nøkkelordanalyse tilpasset norske søkemønstre",
+          "Teknisk SEO-gjennomgang og feilretting",
           "Lokal SEO for bedrifter med fysisk tilstedeværelse",
-          "Månedlige rapporter med nøkkeltall og framgang",
-          "Link building-strategi",
+          "Optimalisering for Google My Business",
+          "Månedlige rapporter med nøkkeltall og anbefalinger",
+          "Innholdsoptimalisering og rådgivning",
         ],
       },
     },
     {
       id: "app",
       title: "App Utvikling",
-      shortDescription:
-        "Skreddersydde applikasjoner for iOS og Android med fokus på brukervennlighet.",
+      shortDescription: "Skreddersydde mobilapplikasjoner for iOS og Android.",
       expandedContent: {
         description:
-          "Vi utvikler native og hybrid mobilapplikasjoner som gir verdi for dine brukere. Fra idé til lansering i App Store og Google Play, vi tar hånd om hele prosessen.",
+          "Jeg utvikler native og hybrid mobilapplikasjoner som gir verdi for dine brukere. Fra idé til lansering i App Store og Google Play, jeg tar hånd om hele prosessen.",
         pricing:
-          "Fra 100.000 kr for enklere apper, 250.000+ kr for mer komplekse løsninger med backend-integrasjoner.",
+          "Fra 150.000 kr for grunnleggende apper. 250.000-500.000+ kr for avanserte løsninger med backend-systemer.",
         features: [
-          "Utvikling for iOS og Android",
+          "Utvikling for både iOS og Android",
           "Brukervennlig og intuitivt grensesnitt",
           "API-integrasjoner mot dine eksisterende systemer",
-          "Offline-funksjonalitet ved behov",
-          "Automatiserte oppdateringer",
-          "Grundig testing på ulike enheter",
+          "Offline-funksjonalitet og datasynkronisering",
+          "Push-varsler og brukerengasjement",
+          "Grundig testing og kvalitetssikring",
         ],
       },
     },
@@ -250,18 +300,18 @@ export default function ServicesSection() {
       id: "maintenance",
       title: "Vedlikehold og Support",
       shortDescription:
-        "Løpende vedlikehold, oppdateringer og støtte for eksisterende digitale løsninger.",
+        "Pålitelig drift, oppdateringer og teknisk støtte for dine digitale løsninger.",
       expandedContent: {
         description:
-          "Vi tilbyr løpende vedlikehold og support for å sikre at dine digitale løsninger alltid er oppdatert, sikre og fungerer optimalt for dine brukere.",
+          "Jeg tilbyr løpende vedlikehold og support for å sikre at dine digitale løsninger alltid er oppdatert, sikre og fungerer optimalt for dine brukere.",
         pricing:
-          "Fra 1.500 kr/mnd for grunnleggende vedlikehold, tilpassede pakker basert på dine behov.",
+          "Fra 2.500 kr/mnd for grunnleggende vedlikehold. Tilpassede pakker basert på dine behov.",
         features: [
           "Regelmessige sikkerhetsoppdateringer",
-          "Teknisk support via e-post og telefon",
-          "Overvåking av ytelse og oppetid",
-          "Månedlig sikkerhetskopiering",
-          "Mindre innholdsoppdateringer",
+          "Dedikert teknisk support med rask responstid",
+          "Proaktiv overvåking av ytelse og sikkerhet",
+          "Månedlig sikkerhetskopiering og systemgjennomgang",
+          "Innholdsoppdateringer og mindre designjusteringer",
           "Prioritert responstid ved kritiske problemer",
         ],
       },
@@ -269,13 +319,10 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-cyan-950">
+    <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">
-          <AnimatedKeyword delay={200} highlightColor="text-cyan-400">
-            Tjenester
-          </AnimatedKeyword>{" "}
-          jeg{" "}
+          Tjenester jeg{" "}
           <AnimatedKeyword delay={600} highlightColor="text-cyan-400">
             tilbyr
           </AnimatedKeyword>

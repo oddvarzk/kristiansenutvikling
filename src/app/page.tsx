@@ -1,9 +1,12 @@
 "use client";
+import Link from "next/link";
 
 import point from "../../public/images/point.svg";
 import Image from "next/image";
 import AnimatedKeyword from "../components/AnimtertText";
 import ServicesSection from "../components/ServiceSection";
+import WhyChooseMe from "../components/HvorforMeg";
+import BackToTop from "../components/BackToTop";
 import { useEffect, useState, useRef, ReactNode } from "react";
 
 // Define interface for AnimatedListItem props
@@ -46,7 +49,10 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section with Video Background */}
-      <section className="relative text-white min-h-[80vh] items-center flex">
+      <section
+        className="relative text-white min-h-[80vh] items-center flex"
+        id="top"
+      >
         {/* Simple video approach that works */}
         <video
           src="/videos/background.mp4"
@@ -131,17 +137,26 @@ export default function HomePage() {
               </AnimatedListItem>
 
               <div className="flex justify-center mt-10 gap-10 md:gap-16 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto">
-                  Hva kan jeg tilby?
-                </button>
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto">
-                  Mine projekter
-                </button>
+                <Link href="/tjenester" className="w-full md:w-auto">
+                  <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 hover:translate-y-[-2px] hover:shadow-xl active:translate-y-[1px] active:shadow-md active:from-cyan-700 active:to-cyan-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto cursor-pointer relative overflow-hidden group">
+                    <span className="absolute -inset-x-1 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    Hva kan jeg tilby?
+                  </button>
+                </Link>
+                <Link href="/projekter" className="w-full md:w-auto">
+                  <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 hover:translate-y-[-2px] hover:shadow-xl active:translate-y-[1px] active:shadow-md active:from-cyan-700 active:to-cyan-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto cursor-pointer relative overflow-hidden group">
+                    <span className="absolute -inset-x-1 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    Mine projekter
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Why Choose Me Section */}
+      <WhyChooseMe />
 
       {/* Services Section */}
       <ServicesSection />
@@ -163,11 +178,17 @@ export default function HomePage() {
             </AnimatedKeyword>{" "}
             som gir resultater for din virksomhet.
           </p>
-          <button className="mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 opacity-0 animate-[fadeUp_0.8s_ease-out_1s_forwards]">
-            Ta kontakt i dag
-          </button>
+          <Link href="/kontakt">
+            <button className="mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 hover:translate-y-[-2px] hover:shadow-xl active:translate-y-[1px] active:shadow-md active:from-cyan-700 active:to-cyan-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 cursor-pointer relative overflow-hidden group opacity-0 animate-[fadeUp_0.8s_ease-out_1s_forwards]">
+              <span className="absolute -inset-x-1 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              Ta kontakt i dag
+            </button>
+          </Link>
         </div>
       </section>
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </>
   );
 }
