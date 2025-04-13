@@ -35,6 +35,15 @@ export const metadata: Metadata = {
   title: "Kristiansen Utvikling",
   description:
     "Web utvikling bedrift som hjelper med alle nett relaterte problemer, hjelper kunder å finne løsninger til sitt projekt.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
 };
 
 export default function RootLayout({
