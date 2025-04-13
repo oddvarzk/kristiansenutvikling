@@ -38,7 +38,7 @@ export default function HomePage() {
                 ></Image>
                 <p className="text-l mb-4 max-w-2xl font-light ml-3">
                   Med sterk kompetanse med alt relatert til nettsider,
-                  applikasjoner, SEO så kan du trygt stole på at vi leverer hva
+                  applikasjoner, SEO så kan du trygt stole på at jeg leverer hva
                   du trenger.
                 </p>
               </div>
@@ -57,10 +57,10 @@ export default function HomePage() {
 
               <div className="flex justify-center mt-10 gap-10 md:gap-16">
                 <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto">
-                  Hva kan vi tilby?
+                  Hva kan jeg tilby?
                 </button>
                 <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto">
-                  Våre projekter
+                  Mine projekter
                 </button>
               </div>
             </div>
