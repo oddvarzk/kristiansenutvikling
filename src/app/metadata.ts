@@ -1,30 +1,25 @@
 // src/app/metadata.ts
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 export const defaultMetadata: Metadata = {
   title: {
-    template: '%s | Your Company',
-    default: 'Your Company | Professional Services'
+    template: "%s | Your Company",
+    default: "Kristiansen Utvikling | Web Utvikling Bedrift",
   },
-  description: 'Your company provides professional services in [your industry].',
+  description:
+    "Dette selskapet lager nettsider, forbedrer SEO, utvikler applikasjoner samt designer det du trenger.",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://yourcompany.com',
-    siteName: 'Your Company',
+    type: "website",
+    locale: "no_NOR",
+    url: "https://kristiansenutvikling.no",
+    siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'Your Company'
-      }
-    ]
+        alt: "Your Company",
+      },
+    ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Your Company',
-    description: 'Professional services in [your industry]',
-    images: ['/images/twitter-image.jpg']
-  }
-}
+};
