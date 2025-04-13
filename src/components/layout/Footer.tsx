@@ -1,4 +1,6 @@
-// src/components/layout/Footer.tsx
+import Image from "next/image";
+import LogoImage from "../../../public/images/logo.svg";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-8">
@@ -22,10 +24,19 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-4 border-t border-gray-700 text-center">
-          <p>
-            © {new Date().getFullYear()} Kristiansen Utvikling. All rights
-            reserved.
-          </p>
+          <div className="flex justify-center items-center">
+            <Image
+              src={LogoImage}
+              alt="Kristiansen Utvikling Logo"
+              width={56}
+              height={56}
+              className="inline-block w-24 h-18"
+            />
+            <p className=" ml-4">
+              {" "}
+              All rights reserved. {new Date().getFullYear()}{" "}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

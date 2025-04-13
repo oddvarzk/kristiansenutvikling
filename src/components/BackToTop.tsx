@@ -36,6 +36,7 @@ export default function BackToTop() {
           aria-label="Scroll to top"
           className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-r from-cyan-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20 hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 z-50 group"
         >
+          {" "}
           <svg
             className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-300"
             fill="none"

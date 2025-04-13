@@ -34,7 +34,7 @@ function AnimatedListItem({ children, delay = 0 }: AnimatedListItemProps) {
       }`}
     >
       <Image
-        alt="bullet point"
+        alt="Point that showcases text"
         src={point}
         className={`w-4 h-4 pt-1.5 transition-transform duration-500 ${
           isVisible ? "scale-100" : "scale-0"
