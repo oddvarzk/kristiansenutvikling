@@ -1,13 +1,11 @@
-// src/app/metadata.ts
 import type { Metadata } from "next";
 
 export const defaultMetadata: Metadata = {
   title: {
-    template: "%s | Your Company",
+    template: "%s | Kristiansen Utvikling",
     default: "Kristiansen Utvikling | Web Utvikling Bedrift",
   },
-  description:
-    "Dette selskapet lager nettsider, forbedrer SEO, utvikler applikasjoner samt designer det du trenger.",
+  description: "Web utvikling bedrift.",
   openGraph: {
     type: "website",
     locale: "no_NOR",
@@ -15,10 +13,10 @@ export const defaultMetadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "../../public/images/logo.svg",
         width: 1200,
         height: 630,
-        alt: "Your Company",
+        alt: "Kristiansen Utvikling Logo",
       },
     ],
   },

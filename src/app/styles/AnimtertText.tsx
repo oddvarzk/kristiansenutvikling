@@ -15,7 +15,6 @@ export default function AnimatedKeyword({
   children,
   className = "",
   delay = 0,
-  duration = 1500,
   highlightColor = "text-cyan-400",
 }: AnimatedKeywordProps) {
   const keywordRef = useRef<HTMLSpanElement>(null);
