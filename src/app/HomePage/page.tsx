@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "applikasjonsutvikling",
     "SEO optimalisering",
     "digital transformasjon",
+    "nettside utvikling",
+    "webdesign tjenester",
+    "digital forretningsløsning",
   ],
   openGraph: {
     title: "Hjemmeside | Kristiansen Utvikling | Skreddersydde Webløsninger",
@@ -27,10 +30,10 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/openGraph.svg",
         width: 1200,
         height: 630,
-        alt: "Kristiansen Utvikling - Profesjonell Webutvikling",
+        alt: "Kristiansen Utvikling - Profesjonell Webutvikling og Digitale Løsninger",
       },
     ],
   },
@@ -40,6 +43,20 @@ export const metadata: Metadata = {
     description:
       "Profesjonell webutviklingsbyrå som leverer skreddersydde digitale løsninger for din virksomhet.",
     images: ["/images/twitter-image.png"],
+  },
+  alternates: {
+    canonical: "https://kristiansenutvikling.no",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   other: {
     'script[type="application/ld+json"]': JSON.stringify({
@@ -70,6 +87,16 @@ export const metadata: Metadata = {
           email: "hei@kristiansenutvikling.com",
           contactType: "Kundeservice",
         },
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "NO",
+          addressLocality: "Norge",
+        },
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://kristiansenutvikling.no/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
       },
     }),
   },

@@ -17,10 +17,14 @@ export const defaultMetadata: Metadata = {
     "web design",
     "nettside optimalisering",
     "profesjonell webløsning",
+    "digital transformasjon",
+    "webdesign tjenester",
+    "applikasjonsutvikling",
+    "SEO optimalisering",
   ],
   openGraph: {
     type: "website",
-    locale: "nb_NO", // Corrected to standard Norwegian locale
+    locale: "nb_NO",
     url: "https://kristiansenutvikling.no",
     siteName: "Kristiansen Utvikling",
     title: "Kristiansen Utvikling | Web Utvikling Bedrift",
@@ -28,12 +32,19 @@ export const defaultMetadata: Metadata = {
       "Profesjonell webutvikling som leverer skreddersydde digitale løsninger for din bedrift.",
     images: [
       {
-        url: "/images/og-image.png", // Recommended: Create a specific Open Graph image
+        url: "/images/openGraph.svg",
         width: 1200,
         height: 630,
-        alt: "Kristiansen Utvikling - Profesjonell Webutvikling",
+        alt: "Kristiansen Utvikling - Profesjonell Webutvikling og Digitale Løsninger",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kristiansen Utvikling | Web Utvikling Bedrift",
+    description:
+      "Profesjonell webutvikling som leverer skreddersydde digitale løsninger for din bedrift.",
+    images: ["/images/twitter-image.png"],
   },
   alternates: {
     canonical: "https://kristiansenutvikling.no",
@@ -61,5 +72,20 @@ export const defaultMetadata: Metadata = {
   verification: {
     // Add Google Search Console verification code when available
     // google: 'YOUR_VERIFICATION_CODE',
+  },
+  other: {
+    'script[type="application/ld+json"]': JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Kristiansen Utvikling",
+      url: "https://kristiansenutvikling.no",
+      description:
+        "Profesjonell webutvikling som leverer skreddersydde digitale løsninger",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://kristiansenutvikling.no/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    }),
   },
 };
