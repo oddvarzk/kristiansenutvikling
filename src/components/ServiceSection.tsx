@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, ReactNode } from "react";
-import AnimatedKeyword from "../components/AnimtertText";
+import AnimatedKeyword from "../app/styles/AnimtertText";
 
 // Type for the AnimatedSection props
 interface AnimatedSectionProps {

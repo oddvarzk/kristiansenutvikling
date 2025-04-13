@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import point from "../../public/images/point.svg";
 import Image from "next/image";
-import AnimatedKeyword from "../components/AnimtertText";
+import AnimatedKeyword from "./styles/AnimtertText";
 import ServicesSection from "../components/ServiceSection";
 import WhyChooseMe from "../components/HvorforMeg";
 import BackToTop from "../components/BackToTop";

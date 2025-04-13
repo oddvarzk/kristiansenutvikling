@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import AnimatedKeyword from "./AnimtertText";
+import AnimatedKeyword from "../app/styles/AnimtertText";
 
 interface FeatureCardProps {
   icon: React.ReactNode;
