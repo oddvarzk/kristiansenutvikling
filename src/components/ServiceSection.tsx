@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, ReactNode } from "react";
 import AnimatedKeyword from "../app/styles/AnimtertText";
+import Link from "next/link";
 
 // Type for the AnimatedSection props
 interface AnimatedSectionProps {
@@ -319,6 +320,16 @@ export default function ServicesSection() {
               delay={400 + index * 200}
             />
           ))}
+          <div className="flex justify-center">
+            {" "}
+            {/* Add this wrapper */}
+            <Link href="/tjenester">
+              <button className="mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 hover:translate-y-[-2px] hover:shadow-xl active:translate-y-[1px] active:shadow-md active:from-cyan-700 active:to-cyan-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 cursor-pointer relative overflow-hidden ">
+                <span className="absolute -inset-x-1 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                Se mer tjenester og informasjon
+              </button>
+            </Link>
+          </div>
         </AnimatedSection>
       </div>
     </section>
