@@ -4,6 +4,8 @@ import { Montserrat, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/CookieBanner";
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -113,6 +115,8 @@ export default function RootLayout({
       >
         <Header />
         <main className="flex-grow">{children}</main>
+        <CookieBanner />
+
         <Footer />
         <SpeedInsights />
         <Analytics />
