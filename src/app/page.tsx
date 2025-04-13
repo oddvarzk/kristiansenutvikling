@@ -143,7 +143,7 @@ export default function HomePage() {
                     Hva kan jeg tilby?
                   </button>
                 </Link>
-                <Link href="/projekter" className="w-full md:w-auto">
+                <Link href="/projects" className="w-full md:w-auto">
                   <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 hover:translate-y-[-2px] hover:shadow-xl active:translate-y-[1px] active:shadow-md active:from-cyan-700 active:to-cyan-600 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto cursor-pointer relative overflow-hidden group">
                     <span className="absolute -inset-x-1 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     Mine projekter
