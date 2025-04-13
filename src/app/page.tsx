@@ -72,13 +72,13 @@ export default function HomePage() {
         {/* Content (positioned above the video) */}
         <div className="container mx-auto px-3 z-10 relative">
           <div className="flex flex-col md:flex-row gap-20 items-center">
-            <div>
+            <div className="text-gray-400">
               <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
-                <AnimatedKeyword delay={200} highlightColor="text-cyan-500">
+                <AnimatedKeyword delay={200} highlightColor="text-white">
                   Webutviklings
                 </AnimatedKeyword>
                 -byrå med fokus på kundens{" "}
-                <AnimatedKeyword delay={600} highlightColor="text-cyan-500">
+                <AnimatedKeyword delay={600} highlightColor="text-white">
                   behov
                 </AnimatedKeyword>
                 .
@@ -86,21 +86,21 @@ export default function HomePage() {
 
               <AnimatedListItem delay={800}>
                 Med{" "}
-                <AnimatedKeyword delay={1000} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1000} highlightColor="text-white">
                   sterk kompetanse
                 </AnimatedKeyword>{" "}
                 med alt relatert til
-                <AnimatedKeyword delay={1200} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1200} highlightColor="text-white">
                   {" "}
                   nettsider
                 </AnimatedKeyword>
                 ,
-                <AnimatedKeyword delay={1400} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1400} highlightColor="text-white">
                   {" "}
                   applikasjoner
                 </AnimatedKeyword>
                 ,
-                <AnimatedKeyword delay={1600} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1600} highlightColor="text-white">
                   {" "}
                   SEO
                 </AnimatedKeyword>{" "}
@@ -109,26 +109,26 @@ export default function HomePage() {
 
               <AnimatedListItem delay={1200}>
                 Fra{" "}
-                <AnimatedKeyword delay={1400} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1400} highlightColor="text-white">
                   idé
                 </AnimatedKeyword>{" "}
                 og
-                <AnimatedKeyword delay={1600} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1600} highlightColor="text-white">
                   {" "}
                   konseptutvikling
                 </AnimatedKeyword>
                 , til
-                <AnimatedKeyword delay={1800} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={1800} highlightColor="text-white">
                   {" "}
                   design
                 </AnimatedKeyword>
                 ,
-                <AnimatedKeyword delay={2000} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={2000} highlightColor="text-white">
                   {" "}
                   programmering
                 </AnimatedKeyword>{" "}
                 og
-                <AnimatedKeyword delay={2200} highlightColor="text-cyan-400">
+                <AnimatedKeyword delay={2200} highlightColor="text-white">
                   {" "}
                   lansering
                 </AnimatedKeyword>
