@@ -78,7 +78,7 @@ export default function HomePage() {
                   Webutviklings
                 </AnimatedKeyword>
                 -byrå med fokus på kundens{" "}
-                <AnimatedKeyword delay={600} highlightColor="text-white">
+                <AnimatedKeyword delay={600} highlightColor="text-cyan-500">
                   behov
                 </AnimatedKeyword>
                 .
