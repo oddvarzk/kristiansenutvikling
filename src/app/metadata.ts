@@ -39,13 +39,6 @@ export const defaultMetadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kristiansen Utvikling | Web Utvikling Bedrift",
-    description:
-      "Profesjonell webutvikling som leverer skreddersydde digitale løsninger for din bedrift.",
-    images: ["/images/twitter-image.png"],
-  },
   alternates: {
     canonical: "https://kristiansenutvikling.no",
   },

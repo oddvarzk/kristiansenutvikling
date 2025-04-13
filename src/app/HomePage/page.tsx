@@ -37,13 +37,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hjemmeside | Kristiansen Utvikling | Skreddersydde Webløsninger",
-    description:
-      "Profesjonell webutviklingsbyrå som leverer skreddersydde digitale løsninger for din virksomhet.",
-    images: ["/images/twitter-image.png"],
-  },
   alternates: {
     canonical: "https://kristiansenutvikling.no",
   },
