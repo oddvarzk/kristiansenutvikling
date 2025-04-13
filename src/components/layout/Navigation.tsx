@@ -6,17 +6,23 @@ export default function Navigation() {
     <nav>
       <ul className="flex gap-8">
         <li>
-          <Link href="/" className="hover:text-blue-600">
+          <Link href="/" className="hover:border-b-cyan-400 hover:border-b-2">
             Hjem
           </Link>
         </li>
         <li>
-          <Link href="/tjenester" className="hover:text-blue-600">
+          <Link
+            href="/tjenester"
+            className="hover:border-b-cyan-400 hover:border-b-2"
+          >
             Tjenester
           </Link>
         </li>
         <li>
-          <Link href="/projects" className="hover:text-blue-600">
+          <Link
+            href="/projects"
+            className="hover:border-b-cyan-400 hover:border-b-2"
+          >
             Projekter
           </Link>
         </li>

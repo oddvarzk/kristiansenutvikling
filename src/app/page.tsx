@@ -34,7 +34,7 @@ export default function HomePage() {
                 <Image
                   alt="bullet point"
                   src={point}
-                  className="w-4 h-4 pt-1"
+                  className="w-4 h-4 pt-1.5"
                 ></Image>
                 <p className="text-l mb-4 max-w-2xl font-light ml-3">
                   Med sterk kompetanse med alt relatert til nettsider,
@@ -46,7 +46,7 @@ export default function HomePage() {
                 <Image
                   alt="bullet point"
                   src={point}
-                  className="w-4 h-4 pt-1"
+                  className="w-4 h-4 pt-1.5"
                 ></Image>
                 <p className="text-l mb-4 max-w-2xl font-light ml-3">
                   Fra idé og konseptutvikling, til design, programmering og
