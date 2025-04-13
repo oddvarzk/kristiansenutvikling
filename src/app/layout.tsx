@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,6 +17,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-merriweather",
+});
+
 export const metadata: Metadata = {
   title: "Kristiansen Utvikling",
   description:
@@ -28,9 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="no">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${merriweather.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
         <main className="flex-grow">{children}</main>

@@ -28,7 +28,7 @@ export default function HomePage() {
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
                 Webutviklings-byrå med fokus på kundens{" "}
-                <span className="text-cyan-500">behov.</span>{" "}
+                <span className="text-cyan-500">behov</span>.
               </h1>
               <div className="flex">
                 <Image
@@ -36,7 +36,7 @@ export default function HomePage() {
                   src={point}
                   className="w-4 h-4 pt-1.5"
                 ></Image>
-                <p className="text-l mb-4 max-w-2xl font-light ml-3">
+                <p className="text-l mb-4 max-w-2xl ml-3">
                   Med sterk kompetanse med alt relatert til nettsider,
                   applikasjoner, SEO så kan du trygt stole på at jeg leverer hva
                   du trenger.
