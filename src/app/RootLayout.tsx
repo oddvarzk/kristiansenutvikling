@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.montserrat.variable} ${fonts.merriweather.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <main className="flex-grow">{isLoading ? <Loader /> : children}</main>
+        <main className="flex-grow">{children}</main>
         <CookieBanner />
         <Footer />
         <SpeedInsights />
