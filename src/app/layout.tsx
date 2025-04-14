@@ -5,7 +5,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
-
+import Loader from "@/components/Loader";
+import { useState, useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -34,7 +35,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kristiansenutvikling.no"), // Replace with your actual domain
+  metadataBase: new URL("https://kristiansenutvikling.no"),
   title: {
     default: "Kristiansen Utvikling - Skreddersydde Webløsninger",
     template: "%s | Kristiansen Utvikling",
@@ -60,19 +61,12 @@ export const metadata: Metadata = {
       "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online.",
     images: [
       {
-        url: "/og-image.png", // Create an Open Graph image
+        url: "/images/openGraph.svg",
         width: 1200,
         height: 630,
         alt: "Kristiansen Utvikling - Webløsninger",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kristiansen Utvikling - Skreddersydde Webløsninger",
-    description:
-      "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online.",
-    images: ["/twitter-image.png"], // Create a Twitter-specific image
   },
   icons: {
     icon: [
@@ -108,13 +102,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate page load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <html lang="no">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${merriweather.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">{isLoading ? <Loader /> : children}</main>
         <CookieBanner />
 
         <Footer />
