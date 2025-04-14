@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Merriweather } from "next/font/google";
+import RootLayout from "./RootLayout";
+import { defaultMetadata } from "./metadata";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import CookieBanner from "@/components/CookieBanner";
-import Loader from "@/components/Loader";
-import { useState, useEffect } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,97 +28,23 @@ const merriweather = Merriweather({
   variable: "--font-merriweather",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://kristiansenutvikling.no"),
-  title: {
-    default: "Kristiansen Utvikling - Skreddersydde Webløsninger",
-    template: "%s | Kristiansen Utvikling",
-  },
-  description:
-    "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online. Skreddersydde nettsider, responsivt design og moderne teknologi.",
-  keywords: [
-    "webutvikling",
-    "nettside design",
-    "responsiv nettside",
-    "digital løsning",
-    "nettsider Norge",
-    "web design",
-    "nettside optimalisering",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "nb_NO",
-    url: "https://kristiansenutvikling.no",
-    siteName: "Kristiansen Utvikling",
-    title: "Kristiansen Utvikling - Skreddersydde Webløsninger",
-    description:
-      "Profesjonell webutvikling og digitale løsninger som hjelper bedrifter å lykkes online.",
-    images: [
-      {
-        url: "/images/openGraph.svg",
-        width: 1200,
-        height: 630,
-        alt: "Kristiansen Utvikling - Webløsninger",
-      },
-    ],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png" }],
-  },
-  alternates: {
-    canonical: "https://kristiansenutvikling.no",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE", // Optional
-    // Add other verification codes if needed
-  },
-};
+export const metadata = defaultMetadata;
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate page load
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // Adjust time as needed
-
-    return () => clearTimeout(timer);
-  }, []);
   return (
-    <html lang="no">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${merriweather.variable} antialiased flex flex-col min-h-screen`}
-      >
-        <Header />
-        <main className="flex-grow">{isLoading ? <Loader /> : children}</main>
-        <CookieBanner />
-
-        <Footer />
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+    <RootLayout
+      fonts={{
+        geistSans,
+        geistMono,
+        montserrat,
+        merriweather,
+      }}
+    >
+      {children}
+    </RootLayout>
   );
 }
