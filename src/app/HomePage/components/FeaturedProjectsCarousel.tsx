@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     id: "community Museum",
-    title: "Community Museum Nettside",
+    title: "Samfunns Museum Nettside",
     image: "/images/projects/museumHome.png",
     slug: "museum-site",
   },
@@ -127,7 +127,7 @@ export default function FeaturedProjectsCarousel() {
                 </div>
                 {/* Title Box */}
                 <div className="p-3 sm:p-4 md:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-0">
+                  <h3 className="text-lg text-center justify-center sm:text-xl md:text-2xl font-medium mb-0">
                     {p.title}
                   </h3>
                 </div>
