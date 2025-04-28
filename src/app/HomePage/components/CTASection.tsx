@@ -5,7 +5,7 @@ import AnimatedKeyword from "../../styles/AnimtertText";
 
 export default function CTASection() {
   return (
-    <section className="py-16 bg-gradient-to-r from-gray-900 to-black">
+    <section className="py-16 from-gray-900 to-black">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">
           Klar til å starte ditt neste{" "}
