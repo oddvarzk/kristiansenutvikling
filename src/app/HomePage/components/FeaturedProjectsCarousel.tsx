@@ -1,3 +1,4 @@
+// src/app/HomePage/components/FeaturedProjectsCarousel.tsx
 "use client";
 
 import { useRef } from "react";
@@ -8,44 +9,38 @@ interface Project {
   id: string;
   title: string;
   image: string;
-  slug: string; // for linking to /projects/[slug]
+  slug: string;
 }
 
 const projects: Project[] = [
   {
     id: "holidaze",
-    title: "OzK Holidayze",
-    image: "/images/projects/ozkholidayze.png",
+    title: "Holidaze (Ferie Booking)",
+    image: "/images/projects/holidazeHome.png",
     slug: "holidaze",
   },
   {
     id: "droomvillaspanje",
-    title: "DroomvillaSpanje",
-    image: "/images/projects/spain-rentals.png",
+    title: "Droomvillaspanje.no",
+    image: "/images/projects/droomvillaHome.png",
     slug: "droomvillaspanje",
   },
   {
     id: "auction",
-    title: "Auction Site",
-    image: "/images/projects/auction.png",
+    title: "Auksjon Nettside",
+    image: "/images/projects/auctionHome.png",
     slug: "auction-site",
   },
   {
-    id: "carblog",
-    title: "Car Blog",
-    image: "/images/projects/car-blog.png",
-    slug: "car-blog",
-  },
-  {
-    id: "socialmedia",
-    title: "Social Media",
-    image: "/images/projects/social-media.png",
-    slug: "social-media",
+    id: "community Museum",
+    title: "Community Museum Nettside",
+    image: "/images/projects/museumHome.png",
+    slug: "museum-site",
   },
   {
     id: "raindays",
-    title: "RainyDays Resell",
-    image: "/images/projects/raindays.png",
+    title: "RainyDays E-com (Første projekt)",
+    image: "/images/projects/rainyDaysHome.png",
     slug: "raindays-resell",
   },
 ];
@@ -53,26 +48,35 @@ const projects: Project[] = [
 export default function FeaturedProjectsCarousel() {
   const ref = useRef<HTMLDivElement>(null);
 
-  const scrollBy = (offset: number) => {
-    ref.current?.scrollBy({ left: offset, behavior: "smooth" });
+  const scrollByCard = (dir: 1 | -1) => {
+    const container = ref.current;
+    if (!container) return;
+    const gap = 24; // Tailwind gap-6
+    const card = container.firstElementChild as HTMLElement;
+    if (!card) return;
+    container.scrollBy({
+      left: (card.clientWidth + gap) * dir,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <section className="py-20 bg-gray-900 text-white relative">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">
+    <section className="py-24 mb-16 bg-gray-900 text-white">
+      <div className="container max-w-screen-xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-12">
           Noen av mine <span className="text-cyan-400">prosjekter</span>
         </h2>
-        <div className="relative">
-          {/* Prev button */}
+
+        <div className="flex items-center space-x-4">
+          {/* Prev Button */}
           <button
-            onClick={() => scrollBy(-300)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/60 rounded-full hover:bg-black/80 transition"
+            onClick={() => scrollByCard(-1)}
             aria-label="Forrige"
+            className="p-3 bg-cyan-600 rounded-full hover:bg-cyan-500 transition flex-shrink-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-cyan-400"
+              className="w-6 h-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -86,41 +90,60 @@ export default function FeaturedProjectsCarousel() {
             </svg>
           </button>
 
-          {/* Scroll container */}
+          {/* Scroll Container */}
           <div
             ref={ref}
-            className="flex space-x-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
+            className="flex-1 flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
           >
             {projects.map((p) => (
               <Link
                 key={p.id}
                 href={`/projects/${p.slug}`}
-                className="snap-start min-w-[250px] md:min-w-[300px] bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className={`
+                  snap-start flex-shrink-0
+                  w-full max-w-[300px]       /* mobile: full up to 300px */
+                  sm:max-w-none sm:w-[60vw]   /* small: ~1.5 cards */
+                  md:w-[40vw]                 /* medium: ~2.5 cards */
+                  lg:w-[35vw]                 /* large: ~3 cards */
+                  xl:w-[30vw]                 /* xl: ~3.3 cards */
+                  bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl
+                  hover:bg-zinc-700 transition duration-300
+                `}
               >
-                <div className="relative h-40 md:h-48">
+                {/* Image Box with Hover Zoom Effect */}
+                <div className="relative h-40 sm:h-56 md:h-64 lg:h-72 bg-black flex items-center justify-center overflow-hidden">
                   <Image
                     src={p.image}
                     alt={p.title}
                     fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    quality={90}
+                    sizes="(min-width:1280px) 30vw,
+                           (min-width:1024px) 35vw,
+                           (min-width:768px) 40vw,
+                           (min-width:640px) 60vw,
+                           100vw"
+                    className="object-contain transition-transform duration-500 ease-in-out hover:scale-110"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                {/* Title Box */}
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-0">
+                    {p.title}
+                  </h3>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* Next button */}
+          {/* Next Button */}
           <button
-            onClick={() => scrollBy(300)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/60 rounded-full hover:bg-black/80 transition"
+            onClick={() => scrollByCard(1)}
             aria-label="Neste"
+            className="p-3 bg-cyan-600 rounded-full hover:bg-cyan-500 transition flex-shrink-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-cyan-400"
+              className="w-6 h-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
