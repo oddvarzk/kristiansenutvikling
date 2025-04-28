@@ -21,7 +21,7 @@ const projects: Project[] = [
   },
   {
     id: "droomvillaspanje",
-    title: "Droomvillaspanje.no",
+    title: "Droomvillaspanje.no (Videreutviklet Wix Nettside)",
     image: "/images/projects/droomvillaHome.png",
     slug: "droomvillaspanje",
   },
