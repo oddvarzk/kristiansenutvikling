@@ -1,7 +1,7 @@
 // src/app/HomePage/components/FeaturedProjectsCarousel.tsx
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -47,18 +47,96 @@ const projects: Project[] = [
 
 export default function FeaturedProjectsCarousel() {
   const ref = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [maxIndex, setMaxIndex] = useState(0);
 
-  const scrollByCard = (dir: 1 | -1) => {
+  // Calculate dimensions and max index on mount and resize
+  useEffect(() => {
+    const calculateDimensions = () => {
+      const container = ref.current;
+      if (!container) return;
+
+      const firstCard = container.firstElementChild as HTMLElement;
+      if (!firstCard) return;
+
+      const cardWidth = firstCard.offsetWidth;
+      const gap = 24; // Tailwind gap-6
+      const containerWidth = container.offsetWidth;
+      const visibleCards = containerWidth / (cardWidth + gap);
+
+      // Max index is the total number of cards minus the number of visible cards
+      const maxIdx = Math.max(0, projects.length - Math.floor(visibleCards));
+
+      setCardWidth(cardWidth + gap);
+      setContainerWidth(containerWidth);
+      setMaxIndex(maxIdx);
+    };
+
+    // Initial calculation
+    calculateDimensions();
+
+    // Recalculate when window resizes
+    window.addEventListener("resize", calculateDimensions);
+    return () => window.removeEventListener("resize", calculateDimensions);
+  }, []);
+
+  const scrollTo = (index: number) => {
     const container = ref.current;
-    if (!container) return;
-    const gap = 24; // Tailwind gap-6
-    const card = container.firstElementChild as HTMLElement;
-    if (!card) return;
-    container.scrollBy({
-      left: (card.clientWidth + gap) * dir,
+    if (!container || cardWidth === 0) return;
+
+    // Handle circular scrolling
+    let targetIndex = index;
+    if (index < 0) {
+      targetIndex = projects.length - 1; // Go to end
+    } else if (index >= projects.length) {
+      targetIndex = 0; // Go to start
+    }
+
+    container.scrollTo({
+      left: targetIndex * cardWidth,
       behavior: "smooth",
     });
+
+    setCurrentIndex(targetIndex);
   };
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const newIndex = currentIndex + dir;
+
+    if (dir > 0 && newIndex >= projects.length) {
+      // If going past the end, loop to the beginning
+      scrollTo(0);
+    } else if (dir < 0 && newIndex < 0) {
+      // If going past the beginning, loop to the end
+      scrollTo(projects.length - 1);
+    } else {
+      // Normal scroll
+      scrollTo(newIndex);
+    }
+  };
+
+  // Track scroll position to update currentIndex
+  useEffect(() => {
+    const handleScroll = () => {
+      const container = ref.current;
+      if (!container || cardWidth === 0) return;
+
+      const scrollPosition = container.scrollLeft;
+      const newIndex = Math.round(scrollPosition / cardWidth);
+
+      if (newIndex !== currentIndex) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    const container = ref.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+      return () => container.removeEventListener("scroll", handleScroll);
+    }
+  }, [currentIndex, cardWidth]);
 
   return (
     <section className="py-24 mb-16 bg-gray-900 text-white">
