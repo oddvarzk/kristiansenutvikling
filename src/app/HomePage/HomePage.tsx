@@ -2,8 +2,8 @@
 "use client";
 
 import HeroSection from "./components/HeroSection";
-import WhyChooseMe from "../../components/HvorforMeg";
-import ServicesSection from "../../components/ServiceSection";
+import WhyChooseMe from "./components/HvorforMeg";
+import ServicesSection from "../../app/HomePage/components/ServiceSection";
 import FeaturedProjectsCarousel from "./components/FeaturedProjectsCarousel";
 import CTASection from "./components/CTASection";
 import BackToTop from "../../components/BackToTop";
