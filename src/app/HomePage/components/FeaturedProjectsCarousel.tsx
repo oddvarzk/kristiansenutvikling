@@ -41,7 +41,7 @@ const projects: Project[] = [
     id: "raindays",
     title: "RainyDays E-com (Første projekt)",
     image: "/images/projects/rainyDaysHome.png",
-    slug: "raindays-resell",
+    slug: "rainydays-site",
   },
 ];
 
