@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Merriweather } from "next/font/google";
 import RootLayout from "./RootLayout";
 import { defaultMetadata } from "./metadata";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,16 +36,41 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
-    <RootLayout
-      fonts={{
-        geistSans,
-        geistMono,
-        montserrat,
-        merriweather,
-      }}
-    >
-      {children}
-    </RootLayout>
+    <>
+      {GA_ID && (
+        <>
+          {/* 1) Load GA library */}
+          <Script
+            id="gtag-base"
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          {/* 2) Initialize & configure */}
+          <Script id="gtag-config" strategy="afterInteractive">
+            {`
+             window.dataLayer = window.dataLayer || [];
+             function gtag(){dataLayer.push(arguments);}
+             gtag('js', new Date());
+             gtag('config', '${GA_ID}', {
+               page_path: window.location.pathname,
+             });
+           `}
+          </Script>
+        </>
+      )}
+      <RootLayout
+        fonts={{
+          geistSans,
+          geistMono,
+          montserrat,
+          merriweather,
+        }}
+      >
+        {children}
+      </RootLayout>
+    </>
   );
 }
