@@ -1,104 +1,136 @@
+// src/app/personvern/page.tsx
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Personvernerklæring | Kristiansen Utvikling",
   description:
-    "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler.",
+    "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler, inkludert Google Analytics.",
 };
 
 export default function PrivacyPolicy() {
+  const updatedDate = new Date().toLocaleDateString("nb-NO");
+
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6 text-cyan-700">
-        Personvernerklæring
-      </h1>
+    <div className="container mx-auto px-4 py-12 max-w-4xl space-y-12">
+      {/* Page Title */}
+      <h1 className="text-4xl font-bold text-cyan-700">Personvernerklæring</h1>
 
-      <section className="mb-8 bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">
-          Informasjonskapsler (Cookies)
+      {/* Cookies & Analytics (Light) */}
+      <section className="bg-gray-50 p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+          Informasjonskapsler (Cookies) & Analyseverktøy
         </h2>
-        <p className="mb-4 text-gray-600">
-          Vår nettside bruker Vercel Analytics for å samle grunnleggende
-          informasjon om besøkende. Dette hjelper oss med å forbedre
-          brukeropplevelsen og forstå hvordan folk bruker nettstedet vårt.
+        <p className="mb-4 text-gray-700">
+          Vi bruker både Vercel Analytics <em>og</em> Google Analytics for å
+          samle anonymisert informasjon om besøkende:
         </p>
-
-        <h3 className="text-xl font-medium mb-3 text-gray-700">
-          Hva samler vi inn?
-        </h3>
-        <ul className="list-disc list-inside mb-4 text-gray-600 space-y-2">
-          <li>Antall besøkende</li>
-          <li>Sidevisninger</li>
+        <ul className="list-disc list-inside mb-4 text-gray-700 space-y-2">
+          <li>Antall besøkende og sidevisninger</li>
           <li>Generell geografisk lokasjon</li>
-          <li>Enhetstype</li>
+          <li>Enhetstype (mobil, desktop, nettbrett)</li>
+          <li>Henvisende kilde og trafikkilder</li>
         </ul>
-
-        <p className="mb-4 text-gray-600">
-          Du kan når som helst velge å akseptere eller avvise
-          informasjonskapsler ved å bruke valget nederst på nettsiden.
+        <p className="text-gray-700">
+          Du kan når som helst godta eller avvise informasjonskapsler via
+          banneret nederst på siden. Les mer om våre praksiser i{" "}
+          <a href="/personvern" className="underline text-cyan-600">
+            personvernerklæringen
+          </a>
+          .
         </p>
       </section>
 
-      <section className="mb-8 bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">
-          Dine rettigheter
-        </h2>
-        <p className="mb-4 text-gray-600">
-          I henhold til personopplysningsloven og GDPR har du følgende
-          rettigheter:
+      {/* Data Subject Rights (Dark) */}
+      <section className="bg-gray-900 text-white p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">Dine rettigheter</h2>
+        <p className="mb-4">
+          I henhold til personopplysningsloven og GDPR har du disse
+          rettighetene:
         </p>
-        <ul className="list-disc list-inside mb-4 text-gray-600 space-y-2">
-          <li>Rett til innsyn i hvilke personopplysninger som er registrert</li>
-          <li>Rett til å få rettet uriktige opplysninger</li>
-          <li>Rett til å slette unødvendige personopplysninger</li>
-          <li>Rett til å begrense behandlingen av dine opplysninger</li>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Innsyn i hvilke personopplysninger vi har lagret</li>
+          <li>Rett til korrigering av unøyaktige data</li>
+          <li>Rett til sletting av unødvendige opplysninger</li>
+          <li>Rett til begrensning av behandlingen</li>
           <li>Rett til dataportabilitet</li>
-          <li>Rett til å trekke samtykke tilbake</li>
+          <li>Rett til å trekke tilbake samtykke</li>
         </ul>
       </section>
 
-      <section className="mb-8 bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">
+      {/* Legal Basis (Light) */}
+      <section className="bg-gray-50 p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
           Behandlingsgrunnlag
         </h2>
-        <p className="text-gray-600 mb-4">
-          Vår behandling av personopplysninger er basert på:
+        <p className="text-gray-700 mb-4">
+          Vi behandler dine opplysninger basert på:
         </p>
-        <ul className="list-disc list-inside text-gray-600 space-y-2">
-          <li>Uttrykkelig samtykke</li>
+        <ul className="list-disc list-inside space-y-2 text-gray-700">
+          <li>Uttrykkelig samtykke (for informasjonskapsler & nyhetsbrev)</li>
           <li>Berettiget interesse i å forbedre vår nettside og tjenester</li>
+          <li>Oppfyllelse av kontrakt eller rettslig forpliktelse</li>
         </ul>
       </section>
 
-      <section className="mb-8 bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">
-          Datalagring
-        </h2>
-        <p className="text-gray-600 mb-4">
-          Vi lagrer personopplysninger kun så lenge det er nødvendig for å
-          oppfylle formålet med innsamlingen. Analytiske data beholdes i henhold
-          til Vercel Analytics' standard lagringsperioder.
+      {/* Data Retention (Dark) */}
+      <section className="bg-gray-900 text-white p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">Datalagring</h2>
+        <p className="text-white mb-4">
+          Vi lagrer personopplysninger kun så lenge det er nødvendig for
+          formålet:
         </p>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Analyser via Vercel & Google: opptil 12 måneder</li>
+          <li>Kontaktinformasjon (fra skjema): inntil du ber om sletting</li>
+          <li>Serverlogger: roteres og slettes månedlig</li>
+        </ul>
       </section>
 
+      {/* Contact (Light) */}
       <section className="bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">Kontakt</h2>
-        <p className="text-gray-600">
-          Har du spørsmål om vår personvernerklæring eller hvordan vi behandler
-          dine personopplysninger, kan du kontakte oss på:
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Kontakt</h2>
+        <p className="text-gray-700 mb-2">
+          Har du spørsmål om vår personvernerklæring eller ønsker å utøve
+          rettighetene dine, ta kontakt på:
         </p>
-        <div className="mt-4 text-gray-700">
-          <p>
-            E-post:{" "}
-            <a
-              href="mailto:hei@kristiansenutvikling.com"
-              className="text-cyan-600 hover:underline"
-            >
-              hei@kristiansenutvikling.com
-            </a>
-          </p>
-          <p>Sist oppdatert: {new Date().toLocaleDateString("nb-NO")}</p>
-        </div>
+        <p className="text-gray-700">
+          E-post:{" "}
+          <a
+            href="mailto:hei@kristiansenutvikling.com"
+            className="text-cyan-600 hover:underline"
+          >
+            hei@kristiansenutvikling.com
+          </a>
+        </p>
+        <p className="text-gray-700">Sist oppdatert: {updatedDate}</p>
+      </section>
+
+      {/* Tips for Webutviklingsbedrift (Dark) */}
+      <section className="bg-gray-900 text-white p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">
+          Tips for Webutviklingsbedrifter
+        </h2>
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            Legg inn en klar **cookie policy** med kategorier (f.eks.
+            funksjonelle, statistikk, markedføring).
+          </li>
+          <li>
+            Dokumenter tredjepartsverktøy (CDN, form-backend, chatbots) og deres
+            databehandling.
+          </li>
+          <li>
+            Oppgi **SSL/TLS**-bruk og sikkerhetsrutiner for å beskytte
+            kundedata.
+          </li>
+          <li>
+            Ha en plan for **brudd på personopplysningssikkerhet** og varsling.
+          </li>
+          <li>
+            Inkluder informasjon om **cookies**, lokale og tredjeparts, og
+            hvordan brukeren kan administrere dem.
+          </li>
+        </ul>
       </section>
     </div>
   );
