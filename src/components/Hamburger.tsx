@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 interface HamburgerProps {
@@ -9,6 +9,13 @@ interface HamburgerProps {
 }
 
 export default function Hamburger({ isOpen, toggle }: HamburgerProps) {
+  // only render after hydration
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+
   return (
     <StyledWrapper>
       <label className="hamburger">
