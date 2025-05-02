@@ -18,11 +18,14 @@ export default function CTASection() {
           La oss sammen skape en digital løsning som gir resultater for din
           virksomhet.
         </p>
-        <Link href="/kontakt">
-          <button className="mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg">
-            Ta kontakt i dag
-          </button>
-        </Link>
+        <div className="mt-8 text-center">
+          <Link
+            href="/kontakt"
+            className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"
+          >
+            Ta en prat
+          </Link>
+        </div>
       </div>
     </section>
   );
