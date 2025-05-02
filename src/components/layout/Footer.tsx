@@ -88,7 +88,7 @@ export default function Footer() {
 
         {/* Social & Cookie Reset */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Følg oss</h3>
+          <h3 className="text-lg font-semibold mb-4">Følg meg</h3>
           <div className="flex space-x-4 mb-6">
             <a href="#" aria-label="LinkedIn" className="hover:text-blue-400">
               LinkedIn
