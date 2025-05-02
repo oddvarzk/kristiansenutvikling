@@ -1,56 +1,56 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const STORAGE_KEY = "cookie_consent";
 
   useEffect(() => {
-    // Check if user has previously made a choice
-    const cookieConsent = localStorage.getItem("vercelAnalyticsConsent");
-
-    // Show banner if no previous choice
-    if (cookieConsent === null) {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) {
       setIsVisible(true);
     }
   }, []);
 
-  const handleAcceptCookies = () => {
-    // Enable Vercel Analytics
-    localStorage.setItem("vercelAnalyticsConsent", "accepted");
+  const giveConsent = () => {
+    localStorage.setItem(STORAGE_KEY, "accepted");
+    // initialize analytics here, e.g. window.analytics?.enable();
     setIsVisible(false);
   };
 
-  const handleRejectCookies = () => {
-    // Disable Vercel Analytics (if possible)
-    localStorage.setItem("vercelAnalyticsConsent", "rejected");
+  const declineConsent = () => {
+    localStorage.setItem(STORAGE_KEY, "declined");
+    // disable analytics here, e.g. window.analytics?.disable();
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 shadow-lg">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <p className="mb-2 md:mb-0 text-sm">
-          Dette nettstedet bruker Vercel Analytics for å forbedre
-          brukeropplevelsen. Les mer i vår{" "}
-          <a href="/personvern" className="underline text-cyan-400">
+    <div className="fixed bottom-0 inset-x-0 bg-gray-900 text-gray-100 p-4 md:p-6 shadow-lg z-50">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-sm md:text-base">
+          Vi bruker informasjonskapsler (cookies) for å gi deg best mulig
+          opplevelse og for å samle anonymisert statistikk. Se vår{" "}
+          <Link href="/personvern" className="underline text-cyan-400">
             personvernerklæring
-          </a>
+          </Link>
           .
         </p>
-        <div className="flex space-x-2">
+        <div className="flex gap-2 md:gap-4">
           <button
-            onClick={handleAcceptCookies}
-            className="bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-700 transition"
-          >
-            Godta
-          </button>
-          <button
-            onClick={handleRejectCookies}
-            className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+            onClick={declineConsent}
+            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-md text-sm md:text-base transition"
           >
             Avvis
+          </button>
+          <button
+            onClick={giveConsent}
+            className="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 rounded-md text-sm md:text-base font-medium transition"
+          >
+            Aksepter
           </button>
         </div>
       </div>
