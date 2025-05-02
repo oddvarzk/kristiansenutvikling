@@ -7,6 +7,14 @@ import Link from "next/link";
 import LogoImage from "../../../public/images/logo.svg";
 
 export default function Footer() {
+  // Handler to reset cookie consent and show banner again
+  const resetCookieConsent = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("cookie_consent");
+      window.location.reload();
+    }
+  };
+
   return (
     <footer className="bg-gray-800 text-white py-12">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -40,7 +48,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="tel:+4747207143" className="hover:text-white">
-                Telefon: +47 472 07 1 43
+                +47 47 20 71 43
               </a>
             </li>
           </ul>
@@ -70,13 +78,18 @@ export default function Footer() {
                 Kontakt
               </Link>
             </li>
+            <li>
+              <Link href="/personvern" className="hover:text-white">
+                Personvern
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Social Media */}
+        {/* Social & Cookie Reset */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Følg oss</h3>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mb-6">
             <a href="#" aria-label="LinkedIn" className="hover:text-blue-400">
               LinkedIn
             </a>
@@ -87,7 +100,13 @@ export default function Footer() {
               Facebook
             </a>
           </div>
-          <p className="mt-6 text-gray-500 text-xs">
+          <button
+            onClick={resetCookieConsent}
+            className="text-gray-400 hover:text-white text-sm mb-4"
+          >
+            Endre cookie-innstillinger
+          </button>
+          <p className="text-gray-500 text-xs mt-4">
             © {new Date().getFullYear()} Kristiansen Utvikling. Alle rettigheter
             reservert.
           </p>
