@@ -281,7 +281,19 @@ export default function ServicesSection() {
           ))}
           <div className="flex justify-center">
             <Link href="/tjenester">
-              <button className="mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg">
+              <button
+                className="
+                  cursor-pointer                    /* show pointer */
+                  mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500
+                  text-white px-8 py-4 rounded-md font-medium
+                  shadow-lg
+                  transform transition duration-150 ease-out
+                  hover:scale-105
+                  active:scale-95
+                  focus:outline-none focus:ring-2 focus:ring-cyan-400
+                  hover:from-cyan-500 hover:to-cyan-400
+                "
+              >
                 Se flere tjenester
               </button>
             </Link>

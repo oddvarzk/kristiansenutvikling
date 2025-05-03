@@ -113,16 +113,16 @@ export default function HeroSection() {
               <Link href="/tjenester" className="w-full md:w-auto">
                 <button
                   className="
-        cursor-pointer                                /* show pointer */
-        bg-gradient-to-r from-cyan-600 to-cyan-500
-        text-white px-6 py-3 rounded-md font-medium
-        shadow-lg
-        transform transition duration-150 ease-out
-        hover:scale-105
-        active:scale-95
-        focus:outline-none focus:ring-2 focus:ring-cyan-400
-        w-full md:w-auto
-      "
+                    cursor-pointer                                /* show pointer */
+                    bg-gradient-to-r from-cyan-600 to-cyan-500
+                    text-white px-6 py-3 rounded-md font-medium
+                    shadow-lg
+                    transform transition duration-150 ease-out
+                    hover:scale-105
+                    active:scale-95
+                    focus:outline-none focus:ring-2 focus:ring-cyan-400
+                    w-full md:w-auto
+                  "
                 >
                   Hva kan jeg tilby?
                 </button>
@@ -131,16 +131,16 @@ export default function HeroSection() {
               <Link href="/projects" className="w-full md:w-auto">
                 <button
                   className="
-        cursor-pointer                                /* show pointer */
-        bg-gradient-to-r from-cyan-600 to-cyan-500
-        text-white px-6 py-3 rounded-md font-medium
-        shadow-lg
-        transform transition duration-150 ease-out
-        hover:scale-105
-        active:scale-95
-        focus:outline-none focus:ring-2 focus:ring-cyan-400
-        w-full md:w-auto
-      "
+                    cursor-pointer                                /* show pointer */
+                    bg-gradient-to-r from-cyan-600 to-cyan-500
+                    text-white px-6 py-3 rounded-md font-medium
+                    shadow-lg
+                    transform transition duration-150 ease-out
+                    hover:scale-105
+                    active:scale-95
+                    focus:outline-none focus:ring-2 focus:ring-cyan-400
+                    w-full md:w-auto
+                  "
                 >
                   Mine prosjekter
                 </button>
