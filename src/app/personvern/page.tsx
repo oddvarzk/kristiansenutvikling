@@ -104,34 +104,6 @@ export default function PrivacyPolicy() {
         </p>
         <p className="text-gray-700">Sist oppdatert: {updatedDate}</p>
       </section>
-
-      {/* Tips for Webutviklingsbedrift (Dark) */}
-      <section className="bg-gray-900 text-white p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">
-          Tips for Webutviklingsbedrifter
-        </h2>
-        <ul className="list-disc list-inside space-y-2">
-          <li>
-            Legg inn en klar **cookie policy** med kategorier (f.eks.
-            funksjonelle, statistikk, markedføring).
-          </li>
-          <li>
-            Dokumenter tredjepartsverktøy (CDN, form-backend, chatbots) og deres
-            databehandling.
-          </li>
-          <li>
-            Oppgi **SSL/TLS**-bruk og sikkerhetsrutiner for å beskytte
-            kundedata.
-          </li>
-          <li>
-            Ha en plan for **brudd på personopplysningssikkerhet** og varsling.
-          </li>
-          <li>
-            Inkluder informasjon om **cookies**, lokale og tredjeparts, og
-            hvordan brukeren kan administrere dem.
-          </li>
-        </ul>
-      </section>
     </div>
   );
 }
