@@ -38,7 +38,7 @@ export default function Header() {
 
       {/* Mobile dropdown: pass isMobile */}
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-gray-800">
+        <div className="md:hidden border-t mt-5 text-right border-gray-800">
           <Navigation isMobile />
         </div>
       )}
