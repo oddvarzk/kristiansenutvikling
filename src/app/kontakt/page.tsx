@@ -19,7 +19,7 @@ export default function KontaktPage() {
         <p className="mt-4 leading-relaxed">
           Enten du ønsker en ny nettside, en app eller å styrke din synlighet på
           nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk alternativ
-          kontakt nedenfor, så tar jeg kontakt innen 1–2 virkedager.
+          kontakt nedenfor.
         </p>
       </div>
 
