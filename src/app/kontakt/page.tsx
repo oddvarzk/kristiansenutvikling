@@ -1,25 +1,55 @@
 // src/app/kontakt/page.tsx
-
 import ContactForm from "../../components/KontaktForm";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kontakt | Kristiansen Utvikling",
   description:
-    "Ta kontakt med Kristiansen Utvikling for å få hjelp med nettside, app eller SEO-optimalisering.",
+    "Kontakt Kristiansen Utvikling for skreddersydde nettsider, apper og SEO-optimalisering. Få en gratis konsultasjon i dag.",
+  keywords: [
+    "webutvikling",
+    "kontakt",
+    "Kristiansen Utvikling",
+    "SEO",
+    "nettsted",
+    "apputvikling",
+  ],
+  authors: [
+    { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
+  ],
+  openGraph: {
+    title: "Kontakt | Kristiansen Utvikling",
+    description:
+      "Kontakt oss for en uforpliktende prat om ditt neste web- eller app-prosjekt, eller for å styrke din synlighet på nett.",
+    url: "https://kristiansenutvikling.no/kontakt",
+    siteName: "Kristiansen Utvikling",
+    type: "website",
+    locale: "nb_NO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kontakt | Kristiansen Utvikling",
+    description:
+      "Kontakt oss for webutvikling, app-løsninger og SEO. Rask respons og personlig oppfølging.",
+    site: "@kristiansenutv",
+  },
+  alternates: {
+    canonical: "https://kristiansenutvikling.no/kontakt",
+  },
 };
 
 export default function KontaktPage() {
   return (
-    <div className="container mx-auto px-4 py-12 space-y-16">
+    <div className="container mx-auto px-4 py-12 space-y-16 mb-10">
       {/* Header Intro */}
-      <div className="max-w-2xl">
+      <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold">
           La oss <span className="text-cyan-400">snakke</span>
         </h1>
-        <p className="mt-4 leading-relaxed">
+        <p className="mt-4 text-gray-200 leading-relaxed pb-5">
           Enten du ønsker en ny nettside, en app eller å styrke din synlighet på
           nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk alternativ
-          kontakt nedenfor.
+          kontakt nedenfor, så tar jeg kontakt innen 1–2 virkedager.
         </p>
       </div>
 
