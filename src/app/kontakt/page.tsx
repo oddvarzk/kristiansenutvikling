@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "Kristiansen Utvikling",
     "SEO",
     "nettsted",
+    "nettside",
     "apputvikling",
   ],
   authors: [
