@@ -13,7 +13,7 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
 
   // desktop: horizontal & centered; mobile: vertical
   const ulClass = isMobile
-    ? "flex flex-col gap-4 p-4"
+    ? "flex flex-col gap-6 p-4"
     : "flex items-center gap-8";
 
   return (
@@ -53,7 +53,7 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
               px-6 py-3 rounded-md font-medium
               hover:from-cyan-500 hover:to-cyan-400
               transition-all duration-300 shadow-lg shadow-cyan-500/20
-              ${isMobile ? "block" : "inline-block"}
+              ${isMobile ? "inline-block w-42 text-center" : "inline-block"}
             `}
           >
             Ta en prat
