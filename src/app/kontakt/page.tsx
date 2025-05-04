@@ -2,7 +2,8 @@ import ContactForm from "../../components/KontaktForm";
 
 export const metadata = {
   title: "Kontakt | Kristiansen Utvikling",
-  description: "Learn about our company history, values, and team.",
+  description:
+    "Ta kontakt med Kristiansen Utvikling for å kunne få på plass din nettside, app eller ordne synligere SEO for din nettside",
 };
 
 export default function kontaktPage() {
