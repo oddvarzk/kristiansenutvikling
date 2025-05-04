@@ -3,8 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Projekter | Your Company",
-  description: "Learn about our company history, values, and team.",
+  title: "Projekter | Kristiansen Utvikling",
+  description:
+    "Se andre nettsider jeg har utviklet, designet, kodet. En smake bit av hva en kunde kan forvente fra dettee web utvikling firmaet",
 };
 
 interface Project {
