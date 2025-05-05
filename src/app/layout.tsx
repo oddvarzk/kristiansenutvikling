@@ -4,6 +4,7 @@ import RootLayout from "./RootLayout";
 import { defaultMetadata } from "./metadata";
 import Script from "next/script";
 import "./globals.css";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,6 +70,7 @@ export default function Layout({
           merriweather,
         }}
       >
+        <Breadcrumb />
         {children}
       </RootLayout>
     </>
