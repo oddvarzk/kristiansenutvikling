@@ -41,6 +41,13 @@ const featuredProjects: Project[] = [
     href: "/projects/rainydays-site",
     image: "/images/projects/rainyDaysHome.png",
   },
+  {
+    id: "Museum-site",
+    title: "Museum Nettside",
+    description: "Samfunns Museum Nettide med timeless design og sleak UI/UX.",
+    href: "/projects/museumHome.png",
+    image: "/images/projects/museumHome.png",
+  },
 ];
 
 export default function projectPage() {
