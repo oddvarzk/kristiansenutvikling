@@ -22,7 +22,7 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
         {[
           { href: "/", label: "Hjem" },
           { href: "/tjenester", label: "Tjenester" },
-          { href: "/projects", label: "Projekter" },
+          { href: "/projects", label: "Prosjekter" },
         ].map(({ href, label }) => (
           <li key={href}>
             <Link
