@@ -48,6 +48,14 @@ const featuredProjects: Project[] = [
     href: "/projects/museumHome.png",
     image: "/images/projects/museumHome.png",
   },
+  {
+    id: "Droomvillaspanje",
+    title: "Droomvillaspanje Wix Nettside",
+    description:
+      "Etterutviklet nettside for utleie av ferieboliger i Spania. (Droomvillaspanje.no)",
+    href: "/projects/droomvillaHome.png",
+    image: "/images/projects/droomvillaHome.png",
+  },
 ];
 
 export default function projectPage() {
