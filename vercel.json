@@ -1,0 +1,16 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "has": [
+          {
+            "type": "host",
+            "value": "kristiansenutvikling.com"
+          }
+        ],
+        "destination": "https://kristiansenutvikling.no/$1",
+        "permanent": true
+      }
+    ]
+  }
+  
