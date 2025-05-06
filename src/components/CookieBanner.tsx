@@ -42,13 +42,13 @@ export default function CookieBanner() {
         <div className="flex gap-2 md:gap-4">
           <button
             onClick={declineConsent}
-            className="px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-md text-sm md:text-base transition"
+            className="px-3 py-2 cursor-pointer bg-gray-700 hover:bg-gray-600 rounded-md text-sm md:text-base transition"
           >
             Avvis
           </button>
           <button
             onClick={giveConsent}
-            className="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 rounded-md text-sm md:text-base font-medium transition"
+            className="px-3 py-2 cursor-pointer bg-cyan-600 hover:bg-cyan-500 rounded-md text-sm md:text-base font-medium transition"
           >
             Aksepter
           </button>
