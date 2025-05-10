@@ -1,10 +1,53 @@
-// src/app/projects/auction-site/page.tsx
 import type { Metadata } from "next";
 import AuctionPage from "./AuctionPage";
 
 export const metadata: Metadata = {
-  title: "Auction Site | Kristiansen Utvikling",
-  description: "Auksjonssiden – detaljer, funksjoner og demo.",
+  title: "Auksjon Nettside | Kristiansen Utvikling",
+  description:
+    "Sanntids auksjonsplattform med enkel budgivning, administrasjonsgrensesnitt og demonstrasjon.",
+  keywords: [
+    "auksjon",
+    "budgivning",
+    "sanntid",
+    "Next.js",
+    "React",
+    "Socket.IO",
+    "MongoDB",
+    "Kristiansen Utvikling",
+  ],
+  authors: [
+    { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
+  ],
+  alternates: {
+    canonical: "https://kristiansenutvikling.no/projects/auction-site",
+  },
+  openGraph: {
+    title: "Auksjon Nettside | Kristiansen Utvikling",
+    description:
+      "Opplev vår sanntids auksjonsplattform – budgivning, live oppdateringer og administrasjonsgrensesnitt i ett.",
+    url: "https://kristiansenutvikling.no/projects/auction-site",
+    siteName: "Kristiansen Utvikling",
+    images: [
+      {
+        url: "/images/projects/auctionHome.png",
+        width: 1200,
+        height: 630,
+        alt: "Auksjon Nettside skjermbilde",
+      },
+    ],
+    locale: "nb_NO",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auksjon Nettside | Kristiansen Utvikling",
+    description:
+      "Sanntids auksjonsplattform – enkel budgivning og administrasjon, bygget med Next.js, Socket.IO og MongoDB.",
+    site: "@kristiansenutv",
+  },
+  robots: { index: true, follow: true },
 };
 
-export default AuctionPage;
+export default function Page() {
+  return <AuctionPage />;
+}
