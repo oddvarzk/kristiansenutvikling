@@ -119,7 +119,7 @@ export default function ProjectPage() {
       </Script>
 
       {/* Intro Section */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-16 text-white">
         <div className="container mx-auto px-6">
           <h1 className="text-4xl font-bold mb-4">
             Utforsk mine <span className="text-cyan-400">prosjekter</span>
