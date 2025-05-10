@@ -26,13 +26,15 @@ const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
       { threshold: 0.1 }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    // Capture the element reference for both observe and cleanup
+    const element = cardRef.current;
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, [delay]);

@@ -40,9 +40,10 @@ export default function ContactForm() {
 
       setStatus("success");
       formElement.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Send error:", err);
-      setErrorMessage(err.message ?? "Nettverksfeil");
+      const msg = err instanceof Error ? err.message : String(err);
+      setErrorMessage(msg ?? "Nettverksfeil");
       setStatus("error");
     }
   };

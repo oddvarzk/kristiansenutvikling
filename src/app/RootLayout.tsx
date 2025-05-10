@@ -1,37 +1,38 @@
 "use client";
-import { useState, useEffect } from "react";
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
-export default function RootLayout({
-  children,
-  fonts,
-}: Readonly<{
+interface FontVariable {
+  variable: string;
+}
+
+interface Fonts {
+  geistSans: FontVariable;
+  geistMono: FontVariable;
+  montserrat: FontVariable;
+  merriweather: FontVariable;
+}
+
+type RootLayoutProps = Readonly<{
   children: React.ReactNode;
-  fonts: {
-    geistSans: any;
-    geistMono: any;
-    montserrat: any;
-    merriweather: any;
-  };
-}>) {
-  const [isLoading, setIsLoading] = useState(true);
+  fonts: Fonts;
+}>;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // Adjust time as needed
-
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function RootLayout({ children, fonts }: RootLayoutProps) {
   return (
     <html lang="no">
       <body
-        className={`${fonts.geistSans.variable} ${fonts.geistMono.variable} ${fonts.montserrat.variable} ${fonts.merriweather.variable} antialiased flex flex-col min-h-screen`}
+        className={`
+          ${fonts.geistSans.variable}
+          ${fonts.geistMono.variable}
+          ${fonts.montserrat.variable}
+          ${fonts.merriweather.variable}
+          antialiased flex flex-col min-h-screen
+        `}
       >
         <Header />
         <main className="flex-grow">{children}</main>
