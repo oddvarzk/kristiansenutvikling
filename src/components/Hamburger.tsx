@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
     display: none;
   }
   .hamburger svg {
-    height: 2.5rem;
+    height: 3rem;
     transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .line {
