@@ -7,12 +7,24 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Prosjekter | Kristiansen Utvikling",
   description:
-    "Se andre nettsider jeg har utviklet, dette gir deg en smakebit av hva en kunde kan forvente fra dette webutviklingsfirmaet.",
+    "Utforsk våre webutviklingsprosjekter: responsive nettsider, e-handelsløsninger og skreddersydde applikasjoner bygget med React, Next.js og moderne teknologi.",
+  keywords: [
+    "webutvikling",
+    "prosjekter",
+    "React",
+    "Next.js",
+    "e-handel",
+    "responsive design",
+    "Kristiansen Utvikling",
+  ],
+  authors: [
+    { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
+  ],
   alternates: { canonical: "https://kristiansenutvikling.no/prosjekter" },
   openGraph: {
     title: "Prosjekter | Kristiansen Utvikling",
     description:
-      "Se andre nettsider jeg har utviklet dette gir deg en smakebit av hva en kunde kan forvente fra dette webutviklingsfirmaet.",
+      "Utforsk våre webutviklingsprosjekter: responsive nettsider, e-handelsløsninger og skreddersydde applikasjoner.",
     url: "https://kristiansenutvikling.no/prosjekter",
     siteName: "Kristiansen Utvikling",
     images: [
@@ -26,10 +38,14 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
+  twitter: {
+    card: "summary_large_image",
+    title: "Prosjekter | Kristiansen Utvikling",
+    description:
+      "Se våre webprosjekter i React, Next.js og Tailwind: e-handel, booking, bedriftsnettsider.",
+    site: "@kristiansenutv",
   },
+  robots: { index: true, follow: true },
 };
 
 interface Project {
@@ -45,7 +61,7 @@ const featuredProjects: Project[] = [
     id: "holidaze",
     title: "Holidaze (Ferie Booking)",
     description:
-      "Moderne booking-løsning for ferieboliger med full oversikt og responsivt design.",
+      "En moderne, brukerfokusert bookingløsning for ferieboliger med interaktive kart og kalender.",
     href: "/projects/holidaze",
     image: "/images/projects/holidazeHome.png",
   },
@@ -53,7 +69,7 @@ const featuredProjects: Project[] = [
     id: "auction-site",
     title: "Auksjon Nettside",
     description:
-      "Sanntids auksjonsplattform med smidig budgivning og administrasjon.",
+      "Sanntids auksjonsplattform med enkel budgivning og administrasjonsgrensesnitt.",
     href: "/projects/auction-site",
     image: "/images/projects/auctionHome.png",
   },
@@ -61,21 +77,23 @@ const featuredProjects: Project[] = [
     id: "rainydays-site",
     title: "RainyDays E-com",
     description:
-      "Elegant nettbutikk med produktgalleri, handlekurv og betalingsløsning.",
+      "Fullverdig nettbutikk med handlekurv, produktvisning og betalingsintegrasjon.",
     href: "/projects/rainydays-site",
     image: "/images/projects/rainyDaysHome.png",
   },
   {
     id: "museum-site",
     title: "Museum Nettside",
-    description: "Samfunnsmuseum med tidløst design og strømlinjeformet UI/UX.",
+    description:
+      "Informativt og estetisk nettsted for samfunnsmuseet med historiefortelling.",
     href: "/projects/museum",
     image: "/images/projects/museumHome.png",
   },
   {
     id: "droomvillaspanje",
     title: "DroomvillaSpanje Wix Nettside",
-    description: "Etterutviklet nettside for utleie av ferieboliger i Spania.",
+    description:
+      "Videreutviklet Wix-løsning for ferieboligutleie med SEO-optimalisering.",
     href: "/projects/droomvillaspanje",
     image: "/images/projects/droomvillaHome.png",
   },
@@ -100,13 +118,26 @@ export default function ProjectPage() {
         })}
       </Script>
 
+      {/* Intro Section */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl font-bold mb-4">
+            Utforsk mine <span className="text-cyan-400">prosjekter</span>
+          </h1>
+          <p className="text-gray-300 leading-relaxed">
+            Her finner du et utvalg av nettsider, e-handelsløsninger og
+            applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er
+            bygget med moderne rammeverk som React, Next.js og Tailwind, og
+            viser bredden i vår kompetanse: fra responsive designs og
+            SEO-optimalisering til komplekse funksjonaliteter.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Grid */}
       <section className="py-24 text-white">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-bold mb-12">
-            Alle <span className="text-cyan-400">prosjekter</span>
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
             {featuredProjects.map((project) => (
               <Link
                 key={project.id}
