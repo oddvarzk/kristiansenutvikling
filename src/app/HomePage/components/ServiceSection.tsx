@@ -1,3 +1,4 @@
+// src/components/ServicesSection.tsx
 "use client";
 
 import React, { useState, useRef, useEffect, ReactNode } from "react";
@@ -37,7 +38,7 @@ const AnimatedSection = ({
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-1000 ${
+      className={`${className} transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -181,7 +182,7 @@ export default function ServicesSection() {
         description:
           "Jeg utvikler profesjonelle nettsider som representerer din merkevare på best mulig måte. Optimalisert for hastighet og SEO.",
         pricing:
-          "Fra 18 000 kr (eks. mva). Større prosjekter 36 000–81 000 kr.",
+          "Fra 20 000-30 000 kr (eks. mva) for enkel landingsside, 40 000-100 000 kr for full bedriftsnettside.",
         features: [
           "Responsivt design",
           "SEO-optimalisert struktur",
@@ -194,11 +195,12 @@ export default function ServicesSection() {
     {
       id: "wix",
       title: "Wix-nettside",
-      shortDescription: "Rask oppsett og tilpasning med Wix’ dra-og-slipp.",
+      shortDescription: "Rask oppsett og tilpasning med Wix' dra-og-slipp.",
       expandedContent: {
         description:
-          "Settes opp raskt med Wix’ dra-og-slipp, skreddersydd design og SEO-grunnpakke.",
-        pricing: "Fra 10 800 kr (eks. mva). Komplett oppsett 16 200 kr.",
+          "Jeg setter opp profesjonelle Wix-nettsider med skreddersydd design, responsiv layout og grunnleggende SEO-optimalisering. Prisen kan variere basert på tilpasset kode og funksjonsutvidelser. Kan bli høyere ved avanserte funksjoner og tilpasset kode.",
+        pricing:
+          "Fra 10 000-20 000 kr (eks. mva), avhengig av omfang - kan bli høyere ved avanserte funksjoner og tilpasset kode.",
         features: [
           "Tilpasset Wix-template",
           "SEO-grunnpakke",
@@ -213,12 +215,13 @@ export default function ServicesSection() {
       shortDescription: "Fleksible WP-løsninger for innholdsrike sider.",
       expandedContent: {
         description:
-          "WordPress med tilpassede temaer og plugins, for skalerbarhet og ytelse.",
-        pricing: "Fra 14 400 kr (eks. mva). Premium­løsning 25 200 kr.",
+          "Jeg leverer skreddersydde WordPress-nettsider med tilpassede temaer, plugin-installasjoner og sikkerhets-optimalisering. Prisen kan variere basert på spesialutviklet funksjonalitet og avanserte integrasjoner. Kan bli høyere ved avanserte funksjoner og tilpasset kode.",
+        pricing:
+          "Fra 15 000-30 000 kr (eks. mva), avhengig av kompleksitet og tilpasninger - kan bli høyere ved avanserte funksjoner og tilpasset kode.",
         features: [
           "Skreddersydd WP-tema",
           "Plugin-installasjon",
-          "Ytelses- & sikkerhets­optimalisering",
+          "Ytelses- & sikkerhetsoptimalisering",
           "Brukeropplæring",
         ],
       },
@@ -230,7 +233,7 @@ export default function ServicesSection() {
       expandedContent: {
         description:
           "Langsiktig SEO for norske søkemønstre med teknisk gjennomgang og innholdsoptimalisering.",
-        pricing: "Fra 11 000 kr (eks. mva). Månedsabonnement 5 400–13 500 kr.",
+        pricing: "Fra 11 000-15 000 kr/mnd (eks. mva), avhengig av omfang.",
         features: [
           "Nøkkelordanalyse",
           "Teknisk SEO-gjennomgang",
@@ -247,8 +250,7 @@ export default function ServicesSection() {
       expandedContent: {
         description:
           "Løpende vedlikehold for sikker, rask og stabil drift av dine løsninger.",
-        pricing:
-          "Fra 2 250 kr/mnd (eks. mva). Skreddersydde pakker tilgjengelig.",
+        pricing: "Fra 1 000-3 000 kr/mnd (eks. mva), avhengig av nivå.",
         features: [
           "Sikkerhetsoppdateringer",
           "Rask teknisk support",
@@ -262,7 +264,7 @@ export default function ServicesSection() {
   return (
     <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 text-white">
           Tjenester jeg{" "}
           <AnimatedKeyword delay={600} highlightColor="text-cyan-400">
             tilbyr
@@ -276,24 +278,12 @@ export default function ServicesSection() {
               service={svc}
               isOpen={openServiceId === svc.id}
               toggleOpen={() => toggleService(svc.id)}
-              delay={400 + idx * 200}
+              delay={400 + idx * 100}
             />
           ))}
           <div className="flex justify-center">
             <Link href="/tjenester">
-              <button
-                className="
-                  cursor-pointer                    /* show pointer */
-                  mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500
-                  text-white px-8 py-4 rounded-md font-medium
-                  shadow-lg
-                  transform transition duration-150 ease-out
-                  hover:scale-105
-                  active:scale-95
-                  focus:outline-none focus:ring-2 focus:ring-cyan-400
-                  hover:from-cyan-500 hover:to-cyan-400
-                "
-              >
+              <button className="cursor-pointer mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 hover:from-cyan-500 hover:to-cyan-400">
                 Se flere tjenester
               </button>
             </Link>
