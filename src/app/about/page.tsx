@@ -1,5 +1,4 @@
 // src/app/about/page.tsx
-import Image from "next/image";
 
 export const metadata = {
   title: "Om oss | Kristiansen Utvikling",
