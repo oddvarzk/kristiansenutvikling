@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import Script from "next/script";
+import BackToTop from "../../components/BackToTop";
 
 export const metadata: Metadata = {
   title: "Prosjekter | Kristiansen Utvikling",
@@ -166,6 +167,7 @@ export default function ProjectPage() {
           </div>
         </div>
       </section>
+      <BackToTop />
     </>
   );
 }

@@ -2,6 +2,7 @@
 import React from "react";
 import { Metadata } from "next";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
+import BackToTop from "../../components/BackToTop";
 
 export const metadata: Metadata = {
   title: "Tjenester | Kristiansen Utvikling",
@@ -41,8 +42,8 @@ export default function TjenesterPage() {
           <p className="text-gray-300 leading-relaxed">
             Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter
             som ønsker å vokse online. Fra skreddersydde responsive nettsider og
-            moderne e‑handelsløsninger, til kraftfulle applikasjoner,
-            SEO‑optimalisering og vedlikeholdspakker – jeg har løsningen som
+            moderne e-handelsløsninger, til kraftfulle applikasjoner,
+            SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som
             passer dine behov.
           </p>
         </div>
@@ -63,22 +64,22 @@ export default function TjenesterPage() {
                 Hva koster en standard nettside?
               </summary>
               <p className="mt-3 text-gray-300 leading-relaxed">
-                En enkel én‑sides landingsside ligger typisk på{" "}
-                <strong>20 000–30 000 kr</strong> (eks. mva). For en vanlig
-                bedriftsnettside med 3–6 undersider ser man ofte priser rundt{" "}
-                <strong>40 000–100 000 kr</strong> (eks. mva).
+                En enkel én-sides landingsside ligger typisk på{" "}
+                <strong>20 000-30 000kr</strong> (eks. mva). For en vanlig
+                bedriftsnettside med 3-6 undersider ser man ofte priser rundt{" "}
+                <strong>40 000-100 000 kr</strong> (eks. mva).
               </p>
             </details>
 
             <details className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <summary className="cursor-pointer font-semibold text-white">
-                Hvor lang tid tar utvikling av en e‑handelsløsning?
+                Hvor lang tid tar utvikling av en e-handelsløsning?
               </summary>
               <p className="mt-3 text-gray-300 leading-relaxed">
-                En komplett e‑handelsløsning tar som regel{" "}
-                <strong>4–6 uker</strong>, avhengig av produktmengde og
+                En komplett e-handelsløsning tar som regel{" "}
+                <strong>4-6 uker</strong>, avhengig av produktmengde og
                 tilpasninger. Priser starter typisk på{" "}
-                <strong>40 000–80 000 kr</strong> (eks. mva).
+                <strong>40 000-80 000 kr</strong> (eks. mva).
               </p>
             </details>
 
@@ -88,7 +89,7 @@ export default function TjenesterPage() {
               </summary>
               <p className="mt-3 text-gray-300 leading-relaxed">
                 Ja, jeg tilbyr fleksible vedlikeholdsavtaler fra{" "}
-                <strong>1 000–3 000 kr/mnd</strong> (eks. mva). Avtalen
+                <strong>1 000-3 000 kr/mnd</strong> (eks. mva). Avtalen
                 inkluderer sikkerhetsoppdateringer, månedlige backuper og
                 prioritert teknisk support.
               </p>
@@ -130,6 +131,7 @@ export default function TjenesterPage() {
           </div>
         </div>
       </section>
+      <BackToTop />
     </div>
   );
 }
