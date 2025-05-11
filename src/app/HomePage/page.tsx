@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
-  title: "Hjemmeside | Kristiansen Utvikling | Skreddersydde Webløsninger",
+  title: "Hjemmeside | Kristiansen Utvikling",
   description:
-    "Profesjonell webutviklingsbyrå som leverer skreddersydde digitale løsninger for din virksomhet.",
+    "Profesjonell webutviklingsbyrå som leverer digitale løsninger for din virksomhet.",
   keywords: [
     "webutvikling",
     "nettside design",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     "digital forretningsløsning",
   ],
   openGraph: {
-    title: "Hjemmeside | Kristiansen Utvikling | Skreddersydde Webløsninger",
+    title: "Hjemmeside | Kristiansen Utvikling",
     description:
-      "Profesjonell webutviklingsbyrå som leverer skreddersydde digitale løsninger for din virksomhet. Spesialisert i nettsider, applikasjoner og SEO.",
+      "Profesjonell webutviklingsbyrå som leverer digitale løsninger for din virksomhet. Spesialisert i nettsider, applikasjoner og SEO.",
     type: "website",
     locale: "nb_NO",
     url: "https://kristiansenutvikling.no",
