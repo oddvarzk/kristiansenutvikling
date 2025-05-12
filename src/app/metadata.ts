@@ -4,7 +4,7 @@ export const defaultMetadata: Metadata = {
   metadataBase: new URL("https://kristiansenutvikling.no"),
   title: {
     template: "%s | Kristiansen Utvikling",
-    default: "Kristiansen Utvikling | Web Utvikling Bedrift",
+    default: "Kristiansen Utvikling | Web Utvikling",
   },
   description:
     "Profesjonell webutvikling som leverer skreddersydde digitale løsninger. Vi hjelper bedrifter med å skape sterke online tilstedeværelser gjennom innovative nettsider og webløsninger.",
