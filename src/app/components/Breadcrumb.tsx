@@ -7,8 +7,11 @@ import { usePathname } from "next/navigation";
 // Map your slugs to human-readable labels
 const slugToLabel: Record<string, string> = {
   tjenester: "Tjenester",
-  projects: "Prosjekter",
+  prosjekter: "Prosjekter",
   kontakt: "Kontakt",
+  FAQ: "FAQ",
+  about: "about",
+  personvern: "personvern",
   // Note: individual project pages will be grouped under "Prosjekter"
 };
 
