@@ -180,7 +180,7 @@ export default function TjenesterServicesSection() {
         description:
           "Enten du trenger en enkel landingsside eller en omfattende bedriftsportal, skreddersyr jeg Next.js-baserte løsninger som er lynraske, tilgjengelige for alle og optimalisert for søkemotorer.",
         pricing:
-          "Prosjekter starter på 20 000-30 000 kr (eks. mva) for en enkel side. For 3–6 sider ligger prislappen på 40 000–100 000 kr, avhengig av funksjonalitet og kompleksitet.",
+          "Prosjekter starter på 20 000-30 000 kr (eks. mva) for en enkel side. For 3-6 sider ligger prislappen på 40 000-100 000 kr, avhengig av funksjonalitet og kompleksitet.",
         features: [
           "Workshop for UX/UI-design og visuelle skisser",
           "Fullt responsivt oppsett for desktop, nettbrett og mobil",
@@ -199,7 +199,7 @@ export default function TjenesterServicesSection() {
         description:
           "Jeg tilpasser profesjonelle Wix-temaer med ditt budskap i fokus. Oppsettet inkluderer responsiv design, grunnleggende SEO og nødvendige apper for chat, booking eller nettbutikk.",
         pricing:
-          "Pakker fra 10 000–20 000 kr (eks. mva), avhengig av tilpasning og ekstra funksjoner som tilpasset kode eller e-handelsmoduler.",
+          "Pakker fra 10 000-20 000 kr (eks. mva), avhengig av tilpasning og ekstra funksjoner som tilpasset kode eller e-handelsmoduler.",
         features: [
           "Personlig tilpasset Wix-template",
           "Grunnleggende SEO-oppsett for bedre synlighet",
@@ -212,12 +212,12 @@ export default function TjenesterServicesSection() {
       id: "wordpress",
       title: "WordPress-nettside",
       shortDescription:
-        "Fleksible og skalerbare WordPress-løsninger – ideelt for innholdsrike nettsteder.",
+        "Fleksible og skalerbare WordPress-løsninger - ideelt for innholdsrike nettsteder.",
       expandedContent: {
         description:
           "Fullt tilpasset WordPress-tema med plugin-konfigurasjon, slik at du får et brukervennlig CMS med høy ytelse og topp sikkerhet.",
         pricing:
-          "Prosjekter fra 15 000–30 000 kr (eks. mva), med mulighet for tilleggstjenester som e-handelsintegrasjon eller avansert funksjonalitet.",
+          "Prosjekter fra 15 000-30 000 kr (eks. mva), med mulighet for tilleggstjenester som e-handelsintegrasjon eller avansert funksjonalitet.",
         features: [
           "Skreddersydd temautvikling",
           "Installasjon og konfigurering av nødvendige plugins",
@@ -234,7 +234,7 @@ export default function TjenesterServicesSection() {
         description:
           "Fra idé til produksjon: Frontend i React/Next.js eller React Native, backend med Node.js. Jeg sørger for sikker autentisering, API-integrasjoner og publisering i App Store/Play Store.",
         pricing:
-          "Utviklingskostnad: 30 000–70 000 kr (eks. mva), avhengig av funksjonsomfang og kompleksitet.",
+          "Utviklingskostnad: 30 000-70 000 kr (eks. mva), avhengig av funksjonsomfang og kompleksitet.",
         features: [
           "Arkitektur- og designplan",
           "Fullstack-integrasjon frontend/backend",
@@ -250,9 +250,9 @@ export default function TjenesterServicesSection() {
         "En komplett nettbutikk med betaling, frakt, lagerstyring og analyse.",
       expandedContent: {
         description:
-          "Implementasjon av WooCommerce, Shopify eller egen Next.js-løsning – med fokus på brukervennlighet, sikkerhet og enkel administrasjon.",
+          "Implementasjon av WooCommerce, Shopify eller egen Next.js-løsning - med fokus på brukervennlighet, sikkerhet og enkel administrasjon.",
         pricing:
-          "Fra 40 000–80 000 kr (eks. mva), avhengig av antall produkter, betalingsløsninger og tilpasninger.",
+          "Fra 40 000-80 000 kr (eks. mva), avhengig av antall produkter, betalingsløsninger og tilpasninger.",
         features: [
           "Produktoppsett og bulkimport",
           "Integrasjon mot betalingsgateway og frakt",
@@ -269,7 +269,7 @@ export default function TjenesterServicesSection() {
         description:
           "Teknisk SEO, nøkkelordanalyse, innholdsanbefalinger og lenkebygging. Jeg leverer konkrete tiltak og rapporter som gir målbare resultater over tid.",
         pricing:
-          "Månedsabonnement fra 11 000–15 000 kr (eks. mva), med rapportering og oppfølging.",
+          "Månedsabonnement fra 11 000-15 000 kr (eks. mva), med rapportering og oppfølging.",
         features: [
           "Detaljert nøkkelordanalyse",
           "On-page optimalisering",
@@ -286,7 +286,7 @@ export default function TjenesterServicesSection() {
         description:
           "Løpende oppdateringer, sikkerhetskopier og overvåking. Jeg tar hånd om teknisk drift slik at du kan fokusere på kjernevirksomheten.",
         pricing:
-          "Fra 1 000–3 000 kr/mnd (eks. mva), avhengig av omfang og responstid.",
+          "Fra 1 000-3 000 kr/mnd (eks. mva), avhengig av omfang og responstid.",
         features: [
           "Regelmessige sikkerhets- og plugin-oppdateringer",
           "Daglige eller ukentlige backup-løsninger",
