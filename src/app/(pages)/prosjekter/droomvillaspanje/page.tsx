@@ -36,13 +36,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "DroomVillaSpanje | Kristiansen Utvikling",
-    description:
-      "DroomVillaSpanje - ferieboligutleie på Wix med fokus på SEO og responsivitet.",
-    site: "@kristiansenutv",
-  },
   robots: { index: true, follow: true },
 };
 

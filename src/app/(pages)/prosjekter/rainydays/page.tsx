@@ -38,13 +38,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "RainyDays Nettbutikk | Kristiansen Utvikling",
-    description:
-      "RainyDays - netthandelsplattform for gjenbruk av klær med Next.js og Stripe-integrasjon.",
-    site: "@kristiansenutv",
-  },
   robots: { index: true, follow: true },
 };
 

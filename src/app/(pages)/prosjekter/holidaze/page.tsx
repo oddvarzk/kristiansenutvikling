@@ -37,13 +37,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Holidaze | Kristiansen Utvikling",
-    description:
-      "Skreddersydd bookingplattform for ferieboliger med Next.js, kart og kalender.",
-    site: "@kristiansenutv",
-  },
   robots: { index: true, follow: true },
 };
 

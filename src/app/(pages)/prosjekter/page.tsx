@@ -39,13 +39,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Prosjekter | Kristiansen Utvikling",
-    description:
-      "Se våre webprosjekter i React, Next.js og Tailwind: e-handel, booking, bedriftsnettsider.",
-    site: "@kristiansenutv",
-  },
   robots: { index: true, follow: true },
 };
 

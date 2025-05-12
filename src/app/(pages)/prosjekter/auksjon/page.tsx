@@ -38,13 +38,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Auksjon Nettside | Kristiansen Utvikling",
-    description:
-      "Sanntids auksjonsplattform - enkel budgivning og administrasjon, bygget med Next.js, Socket.IO og MongoDB.",
-    site: "@kristiansenutv",
-  },
   robots: { index: true, follow: true },
 };
 

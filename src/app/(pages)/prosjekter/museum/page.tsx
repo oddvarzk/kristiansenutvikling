@@ -37,13 +37,6 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Museum Nettside | Kristiansen Utvikling",
-    description:
-      "Digital museumsopplevelse med moderne webdesign - responsive, brukervennlig og visuelt engasjerende.",
-    site: "@kristiansenutv",
-  },
   robots: {
     index: true,
     follow: true,
