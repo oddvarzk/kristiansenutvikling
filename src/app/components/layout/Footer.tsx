@@ -29,8 +29,7 @@ export default function Footer() {
             priority
           />
           <p className="text-gray-400 text-sm">
-            Skreddersydde web- og app-løsninger med fokus på kvalitet og
-            brukeropplevelse.
+            Web utvikling bedrift med fokus på kundens behov.
           </p>
         </div>
 
