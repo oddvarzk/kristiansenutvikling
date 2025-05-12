@@ -56,7 +56,7 @@ export default function ContactForm() {
           Takk for din henvendelse!
         </h2>
         <p className="text-white">
-          Din melding er sendt, og jeg vil kontakte deg innen 1–2 virkedager.
+          Din melding er sendt, og jeg vil kontakte deg innen 1-2 virkedager.
         </p>
       </div>
     );
