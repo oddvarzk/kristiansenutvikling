@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import RainydaysPage from "./RainydaysPage";
 
 export const metadata: Metadata = {
-  title: "RainyDays Nettbutikk | Kristiansen Utvikling",
+  title: "RainyDays | Kristiansen Utvikling",
   description:
-    "RainyDays – en fullverdig netthandelsplattform for gjenbruk av klær med handlekurv og betalingsintegrasjon.",
+    "RainyDays - en fullverdig netthandelsplattform for gjenbruk av klær med handlekurv og betalingsintegrasjon.",
   keywords: [
     "RainyDays",
     "netthandel",
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/rainydays-site",
+    canonical: "https://kristiansenutvikling.no/prosjekter/rainydays",
   },
   openGraph: {
-    title: "RainyDays Nettbutikk | Kristiansen Utvikling",
+    title: "RainyDays | Kristiansen Utvikling",
     description:
       "Opplev RainyDays: en responsiv netthandelsplattform for gjenbruk av klær, bygget med Next.js og Stripe.",
-    url: "https://kristiansenutvikling.no/projects/rainydays-site",
+    url: "https://kristiansenutvikling.no/prosjekter/rainydays",
     siteName: "Kristiansen Utvikling",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RainyDays Nettbutikk | Kristiansen Utvikling",
     description:
-      "RainyDays – netthandelsplattform for gjenbruk av klær med Next.js og Stripe-integrasjon.",
+      "RainyDays - netthandelsplattform for gjenbruk av klær med Next.js og Stripe-integrasjon.",
     site: "@kristiansenutv",
   },
   robots: { index: true, follow: true },

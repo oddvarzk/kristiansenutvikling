@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/auction-site",
+    canonical: "https://kristiansenutvikling.no/projects/auksjon",
   },
   openGraph: {
     title: "Auksjon Nettside | Kristiansen Utvikling",
     description:
-      "Opplev vår sanntids auksjonsplattform – budgivning, live oppdateringer og administrasjonsgrensesnitt i ett.",
-    url: "https://kristiansenutvikling.no/projects/auction-site",
+      "Opplev vår sanntids auksjonsplattform budgivning, live oppdateringer og administrasjonsgrensesnitt i ett.",
+    url: "https://kristiansenutvikling.no/prosjekter/auksjon",
     siteName: "Kristiansen Utvikling",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Auksjon Nettside | Kristiansen Utvikling",
     description:
-      "Sanntids auksjonsplattform – enkel budgivning og administrasjon, bygget med Next.js, Socket.IO og MongoDB.",
+      "Sanntids auksjonsplattform - enkel budgivning og administrasjon, bygget med Next.js, Socket.IO og MongoDB.",
     site: "@kristiansenutv",
   },
   robots: { index: true, follow: true },

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HolidazePage from "./HolidazePage";
 
 export const metadata: Metadata = {
-  title: "Holidaze (Ferie Booking) | Kristiansen Utvikling",
+  title: "Holidaze | Kristiansen Utvikling",
   description:
-    "Holidaze – en skreddersydd bookingløsning for ferieboliger med interaktivt kart og kalender.",
+    "Holidaze - en skreddersydd bookingløsning for ferieboliger med interaktivt kart og kalender.",
   keywords: [
     "Holidaze",
     "feriebolig booking",
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/holidaze",
+    canonical: "https://kristiansenutvikling.no/prosjekter/holidaze",
   },
   openGraph: {
     title: "Holidaze (Ferie Booking) | Kristiansen Utvikling",
     description:
       "Opplev Holidaze: en moderne bookingplattform for ferieboliger, bygget med Next.js, Mapbox og FullCalendar.",
-    url: "https://kristiansenutvikling.no/projects/holidaze",
+    url: "https://kristiansenutvikling.no/prosjekter/holidaze",
     siteName: "Kristiansen Utvikling",
     images: [
       {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Holidaze (Ferie Booking) | Kristiansen Utvikling",
+    title: "Holidaze | Kristiansen Utvikling",
     description:
       "Skreddersydd bookingplattform for ferieboliger med Next.js, kart og kalender.",
     site: "@kristiansenutv",

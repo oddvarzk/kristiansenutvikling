@@ -4,7 +4,7 @@ import Museum from "./MuseumPage";
 export const metadata: Metadata = {
   title: "Museum Nettside | Kristiansen Utvikling",
   description:
-    "Museum – digital presentasjon av museets samlinger og utstillinger med moderne webteknologi.",
+    "Museum - digital presentasjon av museets samlinger og utstillinger med moderne webteknologi.",
   keywords: [
     "museum",
     "nettside",
@@ -18,20 +18,20 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/museum",
+    canonical: "https://kristiansenutvikling.no/prosjekter/museum",
   },
   openGraph: {
     title: "Museum Nettside | Kristiansen Utvikling",
     description:
       "Utforsk vårt digitale museumsnettsted med interaktiv historiefortelling og rik mediavisning.",
-    url: "https://kristiansenutvikling.no/projects/museum",
+    url: "https://kristiansenutvikling.no/prosjekter/museum",
     siteName: "Kristiansen Utvikling",
     images: [
       {
         url: "/images/projects/museumHome.png",
         width: 1200,
         height: 630,
-        alt: "Museum Nettside – forsidebilde",
+        alt: "Museum Nettside - forsidebilde",
       },
     ],
     locale: "nb_NO",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Museum Nettside | Kristiansen Utvikling",
     description:
-      "Digital museumsopplevelse med moderne webdesign – responsive, brukervennlig og visuelt engasjerende.",
+      "Digital museumsopplevelse med moderne webdesign - responsive, brukervennlig og visuelt engasjerende.",
     site: "@kristiansenutv",
   },
   robots: {

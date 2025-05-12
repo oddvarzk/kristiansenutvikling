@@ -7,7 +7,7 @@ import BackToTop from "../../components/BackToTop";
 export const metadata: Metadata = {
   title: "Tjenester | Kristiansen Utvikling",
   description:
-    "Oppdag mine webutviklingstjenester: fra responsive nettsider og e‑handelsløsninger til SEO‑optimalisering og vedlikehold.",
+    "Oppdag mine webutviklingstjenester: fra responsive nettsider og e-handelsløsninger til SEO-optimalisering og vedlikehold.",
   keywords: [
     "webutvikling",
     "nettside",

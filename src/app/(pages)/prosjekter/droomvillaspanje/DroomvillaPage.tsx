@@ -30,7 +30,7 @@ export default function DroomvillaspanjePage() {
           "@type": "WebPage",
           name: "DroomVillaSpanje | Kristiansen Utvikling",
           description:
-            "DroomVillaSpanje – ferieboligutleie på Wix med SEO-optimalisering.",
+            "DroomVillaSpanje - Wix Custom Velo Ratings system + SEO forbedringer.",
           url: "https://kristiansenutvikling.no/projects/droomvillaspanje",
         })}
       </Script>

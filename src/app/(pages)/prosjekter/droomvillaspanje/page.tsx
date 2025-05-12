@@ -4,7 +4,7 @@ import DroomvillaspanjePage from "./DroomvillaPage";
 export const metadata: Metadata = {
   title: "DroomVillaSpanje | Kristiansen Utvikling",
   description:
-    "DroomVillaSpanje – skreddersydd Wix-nettside for ferieboligutleie i Spania med SEO-optimalisering.",
+    "DroomVillaSpanje - Unik Wix-nettside for ferieboligutleie i Spania med SEO-optimalisering.",
   keywords: [
     "DroomVillaSpanje",
     "feriebolig Spania",
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/droomvillaspanje",
+    canonical: "https://kristiansenutvikling.no/prosjekter/droomvillaspanje",
   },
   openGraph: {
     title: "DroomVillaSpanje | Kristiansen Utvikling",
     description:
       "Utforsk DroomVillaSpanje: en moderne Wix-løsning for ferieboligutleie i Spania, optimalisert for SEO og rask lastetid.",
-    url: "https://kristiansenutvikling.no/projects/droomvillaspanje",
+    url: "https://kristiansenutvikling.no/prosjekter/droomvillaspanje",
     siteName: "Kristiansen Utvikling",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DroomVillaSpanje | Kristiansen Utvikling",
     description:
-      "DroomVillaSpanje – ferieboligutleie på Wix med fokus på SEO og responsivitet.",
+      "DroomVillaSpanje - ferieboligutleie på Wix med fokus på SEO og responsivitet.",
     site: "@kristiansenutv",
   },
   robots: { index: true, follow: true },
