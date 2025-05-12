@@ -42,7 +42,7 @@ const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
   return (
     <div
       ref={cardRef}
-      className={`bg-zinc-900/80 backdrop-blur-sm rounded-lg p-6 transition-all duration-700 ${
+      className={`bg-gradient-to-bl from-zinc-900/90 to-black/95 p-8 shadow-lg rounded-4xl transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
@@ -69,7 +69,7 @@ export default function WhyChooseMe() {
           ?
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           <FeatureCard
             icon={
               <svg

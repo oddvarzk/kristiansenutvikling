@@ -125,7 +125,7 @@ export default function Projekter() {
           <h1 className="text-4xl font-bold mb-4">
             Utforsk mine <span className="text-cyan-400">prosjekter</span>
           </h1>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300">
             Her finner du et utvalg av nettsider, e-handelsløsninger og
             applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er
             bygget med moderne rammeverk som React, Next.js og Tailwind, og
@@ -136,7 +136,7 @@ export default function Projekter() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-24 text-white">
+      <section className="py-12 mb-20 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
             {featuredProjects.map((project) => (
