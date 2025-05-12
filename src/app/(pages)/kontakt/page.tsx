@@ -27,23 +27,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nb_NO",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kontakt | Kristiansen Utvikling",
-    description:
-      "Kontakt oss for webutvikling, app-løsninger og SEO. Rask respons og personlig oppfølging.",
-    site: "@kristiansenutv",
-  },
-  alternates: {
-    canonical: "https://kristiansenutvikling.no/kontakt",
-  },
 };
 
 export default function KontaktPage() {
   return (
     <div className="container mx-auto px-4 py-12 space-y-16 mb-10">
       {/* Header Intro */}
-      <div className="text-center max-w-2xl mx-auto">
+      <div className="max-w-2xl p-5">
         <h1 className="text-4xl font-bold">
           La oss <span className="text-cyan-400">snakke</span>
         </h1>
@@ -54,7 +44,7 @@ export default function KontaktPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 w-full p-5 md:w-full lg:w-fit gap-12">
         {/* Form Column */}
         <div>
           <ContactForm />
