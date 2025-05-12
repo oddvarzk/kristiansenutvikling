@@ -41,7 +41,7 @@ export default function ContactForm() {
       if (!res.ok) {
         // on server error, still wait 3 s total
         const elapsed = Date.now() - start;
-        if (elapsed < 3000) await delay(3000 - elapsed);
+        if (elapsed < 4000) await delay(4000 - elapsed);
 
         console.error("Server error:", data.error);
         setErrorMessage(data.error ?? "Ukjent serverfeil");
@@ -51,8 +51,8 @@ export default function ContactForm() {
 
       // on success, wait the rest of the 3 s
       const elapsed = Date.now() - start;
-      if (elapsed < 3000) {
-        await delay(3000 - elapsed);
+      if (elapsed < 4000) {
+        await delay(4000 - elapsed);
       }
 
       setStatus("success");
@@ -60,7 +60,7 @@ export default function ContactForm() {
     } catch (err: unknown) {
       // on network error, still obey the 3 s minimum
       const elapsed = Date.now() - start;
-      if (elapsed < 3000) await delay(3000 - elapsed);
+      if (elapsed < 4000) await delay(4000 - elapsed);
 
       console.error("Send error:", err);
       const msg = err instanceof Error ? err.message : String(err);
@@ -79,6 +79,13 @@ export default function ContactForm() {
         <p className="text-white">
           Din melding er sendt, og jeg vil kontakte deg innen 1-2 virkedager.
         </p>
+      </div>
+    );
+  }
+  if (status === "sending") {
+    return (
+      <div className="mt-4">
+        <Loader />
       </div>
     );
   }
@@ -171,17 +178,10 @@ export default function ContactForm() {
           <button
             type="submit"
             className="bg-gradient-to-r cursor-pointer from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto disabled:opacity-50"
-            disabled={status === "sending"}
           >
             Send henvendelse →
           </button>
         </div>
-
-        {status === "sending" && (
-          <div className="mt-4">
-            <Loader />
-          </div>
-        )}
 
         {status === "error" && errorMessage && (
           <p className="mt-2 text-sm text-red-400">{errorMessage}</p>
