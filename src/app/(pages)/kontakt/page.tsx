@@ -1,5 +1,5 @@
 // src/app/kontakt/page.tsx
-import ContactForm from "../../components/KontaktForm";
+import KontaktForm from "../../components/KontaktForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function KontaktPage() {
       <div className="grid grid-cols-1 w-full p-5 md:w-full lg:w-fit gap-12">
         {/* Form Column */}
         <div>
-          <ContactForm />
+          <KontaktForm />
         </div>
 
         {/* Info Column */}
