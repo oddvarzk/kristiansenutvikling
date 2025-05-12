@@ -19,23 +19,23 @@ const featuredProjects: Project[] = [
     title: "Holidaze (Ferie Booking)",
     description:
       "Moderne booking-løsning for ferieboliger med full oversikt og responsivt design.",
-    href: "/projects/holidaze",
+    href: "/prosjekter/holidaze",
     image: "/images/projects/holidazeHome.png",
   },
   {
-    id: "auction-site",
+    id: "auksjon",
     title: "Auksjon Nettside",
     description:
       "Sanntids auksjonsplattform med smidig budgivning og administrasjon.",
-    href: "/projects/auction-site",
+    href: "/prosjekter/auksjon",
     image: "/images/projects/auctionHome.png",
   },
   {
-    id: "rainydays-site",
+    id: "rainydays",
     title: "RainyDays E-com",
     description:
       "Elegant nettbutikk med produktgalleri, handlekurv og betalingsløsning.",
-    href: "/projects/rainydays-site",
+    href: "/prosjekter/rainydays",
     image: "/images/projects/rainyDaysHome.png",
   },
 ];
