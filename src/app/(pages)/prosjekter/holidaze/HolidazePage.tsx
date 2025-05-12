@@ -25,7 +25,7 @@ export default function HolidazePage() {
           name: "Holidaze | Kristiansen Utvikling",
           description:
             "Detaljer om Holidaze-prosjektet: bookingløsning for ferieboliger med kart og kalender.",
-          url: "https://kristiansenutvikling.no/projects/holidaze",
+          url: "https://kristiansenutvikling.no/prosjekter/holidaze",
         })}
       </Script>
 

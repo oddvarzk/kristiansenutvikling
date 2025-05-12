@@ -25,7 +25,7 @@ export default function RainydaysPage() {
           name: "RainyDays E-com | Kristiansen Utvikling",
           description:
             "RainyDays – fullverdig nettbutikk med handlekurv og betalingsløsning.",
-          url: "https://kristiansenutvikling.no/projects/rainydays-site",
+          url: "https://kristiansenutvikling.no/prosjekter/rainydays",
         })}
       </Script>
 

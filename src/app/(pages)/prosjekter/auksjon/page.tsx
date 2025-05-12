@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   alternates: {
-    canonical: "https://kristiansenutvikling.no/projects/auksjon",
+    canonical: "https://kristiansenutvikling.no/prosjekter/auksjon",
   },
   openGraph: {
     title: "Auksjon Nettside | Kristiansen Utvikling",

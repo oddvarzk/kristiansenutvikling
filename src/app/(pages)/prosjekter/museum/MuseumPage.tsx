@@ -11,7 +11,7 @@ const galleryImages = [
   { src: "/images/projects/museum2.png", alt: "Museum Nettside - utstilling" },
   {
     src: "/images/projects/museum3.png",
-    alt: "Museum Nettside - historiefortelling",
+    alt: "Museum Nettside - Samfunns Museum for alle små til eldre mennesker",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Museum() {
           name: "Museum Nettside | Kristiansen Utvikling",
           description:
             "Informativt og estetisk nettsted for samfunnsmuseet med historiefortelling.",
-          url: "https://kristiansenutvikling.no/projects/museum",
+          url: "https://kristiansenutvikling.no/prosjekter/museum",
         })}
       </Script>
 

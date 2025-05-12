@@ -28,7 +28,7 @@ export default function AuctionPage() {
           name: "Auksjon Nettside | Kristiansen Utvikling",
           description:
             "Sanntids auksjonsplattform med enkel budgivning og administrasjonsgrensesnitt.",
-          url: "https://kristiansenutvikling.no/projects/auction-site",
+          url: "https://kristiansenutvikling.no/prosjekter/auksjon",
         })}
       </Script>
 

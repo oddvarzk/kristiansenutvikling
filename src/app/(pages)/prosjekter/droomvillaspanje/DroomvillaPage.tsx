@@ -31,7 +31,7 @@ export default function DroomvillaspanjePage() {
           name: "DroomVillaSpanje | Kristiansen Utvikling",
           description:
             "DroomVillaSpanje - Wix Custom Velo Ratings system + SEO forbedringer.",
-          url: "https://kristiansenutvikling.no/projects/droomvillaspanje",
+          url: "https://kristiansenutvikling.no/prosjekter/droomvillaspanje",
         })}
       </Script>
 
