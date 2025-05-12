@@ -73,7 +73,7 @@ const ExpandableServiceItem = ({
         className={`cursor-pointer rounded-lg transition-all duration-300 overflow-hidden backdrop-blur-sm ${
           isOpen
             ? "bg-gradient-to-r from-zinc-900/90 to-black/95 border-l-2 border-cyan-500 shadow-lg"
-            : "bg-zinc-900/80 hover:bg-zinc-900/90 hover:border-l hover:border-cyan-500/30"
+            : "bg-zinc-800/80 hover:bg-zinc-900/90 hover:border-l hover:border-cyan-500/30"
         }`}
       >
         {/* Header */}
