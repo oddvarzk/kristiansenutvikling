@@ -4,7 +4,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import LogoImage from "../../../public/images/logo.svg";
+import LogoImage from "../../../../public/images/logo.svg";
 
 export default function Footer() {
   // Handler to reset cookie consent and show banner again

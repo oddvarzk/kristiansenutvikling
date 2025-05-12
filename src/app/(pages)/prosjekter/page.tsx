@@ -100,7 +100,7 @@ const featuredProjects: Project[] = [
   },
 ];
 
-export default function ProjectPage() {
+export default function Projekter() {
   return (
     <>
       {/* Structured Data for SEO */}

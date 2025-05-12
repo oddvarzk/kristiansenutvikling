@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import point from "../../../../public/images/point.svg";
-import AnimatedKeyword from "../../styles/AnimtertText";
+import point from "../../../../../public/images/point.svg";
+import AnimatedKeyword from "../../../styles/AnimtertText";
 import { useEffect, useState, ReactNode } from "react";
 
 interface AnimatedListItemProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import AnimatedKeyword from "../../styles/AnimtertText";
+import AnimatedKeyword from "../../../styles/AnimtertText";
 
 export default function CTASection() {
   return (

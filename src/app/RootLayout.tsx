@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import CookieBanner from "@/components/CookieBanner";
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
+import CookieBanner from "@/app/components/CookieBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 

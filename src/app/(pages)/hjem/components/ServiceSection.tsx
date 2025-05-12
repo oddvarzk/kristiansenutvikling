@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect, ReactNode } from "react";
-import AnimatedKeyword from "../../../app/styles/AnimtertText";
+import AnimatedKeyword from "../../../styles/AnimtertText";
 import Link from "next/link";
 
 // --- AnimatedSection ---
