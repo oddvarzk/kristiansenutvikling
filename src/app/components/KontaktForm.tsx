@@ -1,8 +1,12 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
+import Loader from "./Loader";
 
 type Status = "idle" | "sending" | "success" | "error";
+
+// simple promise that resolves after `ms` milliseconds
+const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -13,7 +17,10 @@ export default function ContactForm() {
     setStatus("sending");
     setErrorMessage(null);
 
-    // Capture the form before asynchronous operations
+    // start timer
+    const start = Date.now();
+
+    // grab the form data synchronously
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
     const payload = {
@@ -29,26 +36,40 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-
       const data = await res.json();
+
       if (!res.ok) {
+        // on server error, still wait 3 s total
+        const elapsed = Date.now() - start;
+        if (elapsed < 3000) await delay(3000 - elapsed);
+
         console.error("Server error:", data.error);
         setErrorMessage(data.error ?? "Ukjent serverfeil");
         setStatus("error");
         return;
       }
 
+      // on success, wait the rest of the 3 s
+      const elapsed = Date.now() - start;
+      if (elapsed < 3000) {
+        await delay(3000 - elapsed);
+      }
+
       setStatus("success");
       formElement.reset();
     } catch (err: unknown) {
+      // on network error, still obey the 3 s minimum
+      const elapsed = Date.now() - start;
+      if (elapsed < 3000) await delay(3000 - elapsed);
+
       console.error("Send error:", err);
       const msg = err instanceof Error ? err.message : String(err);
-      setErrorMessage(msg ?? "Nettverksfeil");
+      setErrorMessage(msg || "Nettverksfeil");
       setStatus("error");
     }
   };
 
-  // If form was sent successfully, show confirmation message
+  // success view
   if (status === "success") {
     return (
       <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-6 shadow-xl text-center">
@@ -68,7 +89,7 @@ export default function ContactForm() {
         <span className="text-white">Kontakt skjema</span>
         <p className="text-sm font-light mt-2">
           Beskriv hva du trenger—nettside, forbedringer eller annet—så kontakter
-          jeg deg iløpet av 1–2 virkedager.
+          jeg deg iløpet av 1-2 virkedager.
         </p>
       </h2>
 
@@ -149,19 +170,19 @@ export default function ContactForm() {
         <div className="pt-2">
           <button
             type="submit"
-            disabled={status === "sending"}
             className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto disabled:opacity-50"
+            disabled={status === "sending"}
           >
-            {status === "sending"
-              ? "Sender…"
-              : status === "error"
-              ? "Feil, prøv igjen"
-              : "Send henvendelse"}
-            <span className="ml-2">→</span>
+            Send henvendelse →
           </button>
         </div>
 
-        {/* Error message display */}
+        {status === "sending" && (
+          <div className="mt-4">
+            <Loader />
+          </div>
+        )}
+
         {status === "error" && errorMessage && (
           <p className="mt-2 text-sm text-red-400">{errorMessage}</p>
         )}
