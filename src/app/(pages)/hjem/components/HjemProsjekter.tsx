@@ -82,7 +82,7 @@ export default function FeaturedProjects() {
         {/* "Se alle prosjekter" button */}
         <div className="mt-8 text-center">
           <Link
-            href="/projects"
+            href="/prosjekter"
             className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"
           >
             Se alle prosjekter
