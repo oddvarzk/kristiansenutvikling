@@ -99,11 +99,11 @@ export default function KontaktPage() {
               Åpningstider
             </h2>
             <p className="text-gray-300">
-              Hverdager: 09:00 – 21:00
+              Hverdager: 09:00 - 21:00
               <br />
-              Helg: 10:00 – 18:00
+              Helg: 10:00 - 18:00
               <br />
-              (Stengt hvert døgn: 21:00 – 09:00)
+              (Stengt hvert døgn: 21:00 - 09:00)
             </p>
           </section>
         </div>
