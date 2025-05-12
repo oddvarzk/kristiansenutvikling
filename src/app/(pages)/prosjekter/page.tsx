@@ -138,7 +138,7 @@ export default function Projekter() {
       {/* Projects Grid */}
       <section className="py-12 mb-20 text-white">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-fit mx-auto">
             {featuredProjects.map((project) => (
               <Link
                 key={project.id}

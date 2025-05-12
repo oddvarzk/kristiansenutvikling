@@ -49,7 +49,7 @@ export default function FeaturedProjects() {
         </h2>
 
         {/* Grid of featured project cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-fit mx-auto align-middle mt-12">
           {featuredProjects.map((project) => (
             <Link
               key={project.id}
