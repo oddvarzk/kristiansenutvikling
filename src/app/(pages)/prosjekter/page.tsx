@@ -63,7 +63,7 @@ const featuredProjects: Project[] = [
     title: "Holidaze (Ferie Booking)",
     description:
       "En moderne, brukerfokusert bookingløsning for ferieboliger med interaktive kart og kalender.",
-    href: "/projects/holidaze",
+    href: "/prosjekter/holidaze",
     image: "/images/projects/holidazeHome.png",
   },
   {
@@ -71,7 +71,7 @@ const featuredProjects: Project[] = [
     title: "Auksjon Nettside",
     description:
       "Sanntids auksjonsplattform med enkel budgivning og administrasjonsgrensesnitt.",
-    href: "/projects/auction-site",
+    href: "/prosjekter/auksjon",
     image: "/images/projects/auctionHome.png",
   },
   {
@@ -79,7 +79,7 @@ const featuredProjects: Project[] = [
     title: "RainyDays E-com",
     description:
       "Fullverdig nettbutikk med handlekurv, produktvisning og betalingsintegrasjon.",
-    href: "/projects/rainydays-site",
+    href: "/prosjekter/rainydays",
     image: "/images/projects/rainyDaysHome.png",
   },
   {
@@ -87,7 +87,7 @@ const featuredProjects: Project[] = [
     title: "Museum Nettside",
     description:
       "Informativt og estetisk nettsted for samfunnsmuseet med historiefortelling.",
-    href: "/projects/museum",
+    href: "/prosjekter/museum",
     image: "/images/projects/museumHome.png",
   },
   {
@@ -95,7 +95,7 @@ const featuredProjects: Project[] = [
     title: "DroomvillaSpanje Wix Nettside",
     description:
       "Videreutviklet Wix-løsning for ferieboligutleie med SEO-optimalisering.",
-    href: "/projects/droomvillaspanje",
+    href: "/prosjekter/droomvillaspanje",
     image: "/images/projects/droomvillaHome.png",
   },
 ];

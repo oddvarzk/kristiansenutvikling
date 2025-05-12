@@ -15,7 +15,7 @@ const galleryImages = [
   },
 ];
 
-export default function MuseumPage() {
+export default function Museum() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   return (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MuseumPage from "./MuseumPage";
+import Museum from "./MuseumPage";
 
 export const metadata: Metadata = {
   title: "Museum Nettside | Kristiansen Utvikling",
@@ -51,5 +51,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <MuseumPage />;
+  return <Museum />;
 }
