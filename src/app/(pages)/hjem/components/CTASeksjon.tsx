@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AnimatedKeyword from "../../../styles/AnimtertText";
 
-export default function CTASection() {
+export default function CTASeksjon() {
   return (
     <section className="py-16 from-gray-900 to-black">
       <div className="container mx-auto px-4 text-center">

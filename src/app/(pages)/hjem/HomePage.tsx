@@ -1,21 +1,21 @@
 // src/app/HomePage/HomePage.tsx
 "use client";
 
-import HeroSection from "./components/HeroSection";
+import HeroSeksjon from "./components/HeroSeksjon";
 import WhyChooseMe from "./components/HvorforMeg";
-import ServicesSection from "../hjem/components/ServiceSection";
-import FeaturedProjectsCarousel from "./components/FeaturedProjectsCarousel";
-import CTASection from "./components/CTASection";
+import TjenesterSeksjon from "./components/TjenesterSeksjon";
+import HjemProsjekter from "./components/HjemProsjekter";
+import CTASeksjon from "./components/CTASeksjon";
 import BackToTop from "../../components/BackToTop";
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <HeroSeksjon />
       <WhyChooseMe />
-      <ServicesSection />
-      <FeaturedProjectsCarousel />
-      <CTASection />
+      <TjenesterSeksjon />
+      <HjemProsjekter />
+      <CTASeksjon />
       <BackToTop />
     </>
   );

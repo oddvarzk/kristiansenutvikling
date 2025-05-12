@@ -35,7 +35,7 @@ function AnimatedListItem({ children, delay = 0 }: AnimatedListItemProps) {
   );
 }
 
-export default function HeroSection() {
+export default function HeroSeksjon() {
   return (
     <section
       id="top"

@@ -166,8 +166,8 @@ const ExpandableServiceItem = ({
   </div>
 );
 
-// --- ServicesSection ---
-export default function ServicesSection() {
+// --- Tjenester Seksjon ---
+export default function TjenesterSeksjon() {
   const [openServiceId, setOpenServiceId] = useState<string | null>(null);
   const toggleService = (id: string) =>
     setOpenServiceId(openServiceId === id ? null : id);
@@ -177,7 +177,7 @@ export default function ServicesSection() {
       id: "website",
       title: "Nettside Utvikling",
       shortDescription:
-        "Skreddersydde, responsive nettsider for din virksomhet.",
+        "Responsive og attraktive nettsider for din virksomhet.",
       expandedContent: {
         description:
           "Jeg utvikler profesjonelle nettsider som representerer din merkevare på best mulig måte. Optimalisert for hastighet og SEO.",
