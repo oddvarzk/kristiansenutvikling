@@ -97,7 +97,7 @@ export default function Museum() {
           )}
 
           <div className="mt-12">
-            <Link href="/projects" className="text-cyan-400 hover:underline">
+            <Link href="/prosjekter" className="text-cyan-400 hover:underline">
               &larr; Tilbake til prosjekter
             </Link>
           </div>
