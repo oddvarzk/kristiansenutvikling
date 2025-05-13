@@ -17,7 +17,7 @@ export default function Navigation({
 
   const ulClass = isMobile
     ? "flex flex-col gap-6 px-6"
-    : "flex items-center gap-8";
+    : "flex items-center gap-14";
 
   return (
     <nav>
