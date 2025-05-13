@@ -39,7 +39,7 @@ export default function TjenesterPage() {
           <h1 className="text-4xl font-bold text-white mb-4">
             Mine <span className="text-cyan-400">tjenester</span>
           </h1>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-300 leading-relaxed w-auto lg:w-3/4 md:w-full">
             Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter
             som ønsker å vokse online. Fra skreddersydde responsive nettsider og
             moderne e-handelsløsninger, til kraftfulle applikasjoner,
