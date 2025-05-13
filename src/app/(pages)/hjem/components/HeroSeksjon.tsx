@@ -51,7 +51,7 @@ export default function HeroSeksjon() {
       />
       <div className="absolute inset-0 bg-black/80" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
+        <div className="flex px-10 flex-col md:flex-row items-center">
           <div className="text-gray-400">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
               <AnimatedKeyword delay={200} highlightColor="text-white">

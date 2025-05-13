@@ -1,19 +1,22 @@
-// components/Navigation.tsx
 "use client";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 interface NavigationProps {
   isMobile?: boolean;
+  onClose?: () => void;
 }
 
-export default function Navigation({ isMobile = false }: NavigationProps) {
+export default function Navigation({
+  isMobile = false,
+  onClose,
+}: NavigationProps) {
   const pathname = usePathname();
-  const isActive = (path: string) => pathname === path;
+  const isActive = (p: string) => pathname === p;
 
-  // desktop: horizontal & centered; mobile: vertical
   const ulClass = isMobile
-    ? "flex flex-col gap-6 p-4"
+    ? "flex flex-col gap-6 px-6"
     : "flex items-center gap-8";
 
   return (
@@ -27,12 +30,13 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
           <li key={href}>
             <Link
               href={href}
+              onClick={() => onClose?.()}
               className={`
-                hover:border-b-cyan-400 hover:border-b-2
+                block text-lg py-2 transition-colors duration-200
                 ${
                   isActive(href)
-                    ? "border-b-2 border-b-cyan-400 text-cyan-400"
-                    : ""
+                    ? "text-cyan-400 border-b-2 border-cyan-400"
+                    : "text-white hover:text-cyan-300"
                 }
               `}
             >
@@ -44,19 +48,14 @@ export default function Navigation({ isMobile = false }: NavigationProps) {
         <li>
           <Link
             href="/kontakt"
+            onClick={() => onClose?.()}
             className={`
-              ${
-                isActive("/kontakt")
-                  ? "bg-cyan-600 text-white"
-                  : "bg-gradient-to-r from-cyan-600 to-cyan-500 text-white"
-              }
-              px-6 py-3 rounded-md font-medium
-              hover:from-cyan-500 hover:to-cyan-400
-              transition-all duration-300 shadow-lg shadow-cyan-500/20
-              ${isMobile ? "inline-block w-42 text-center" : "inline-block"}
+              inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium
+              bg-gradient-to-r from-cyan-500 to-cyan-600 text-white
+              hover:from-cyan-600 hover:to-cyan-700 transition
             `}
           >
-            Ta en prat
+            Ta kontakt <ArrowRight size={16} />
           </Link>
         </li>
       </ul>

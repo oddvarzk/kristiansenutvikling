@@ -1,54 +1,21 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import AnimatedKeyword from "../../../styles/AnimtertText";
+import React from "react";
 
 interface FeatureCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  delay: number;
 }
 
-const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    // Capture the element reference for both observe and cleanup
-    const element = cardRef.current;
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, [delay]);
-
+const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div
-      ref={cardRef}
-      className={`bg-gradient-to-bl from-zinc-900/90 to-black/95 p-8 shadow-lg rounded-4xl transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      <div className="text-cyan-400 mb-4 flex justify-center">{icon}</div>
-      <h3 className="text-xl font-bold mb-3 text-center">{title}</h3>
-      <p className="text-gray-300 text-center">{description}</p>
+    <div className="h-full p-[1px] rounded-4xl bg-gradient-to-r from-cyan-400 to-transparent animate-gradient-shift">
+      <div className="h-full rounded-4xl bg-gradient-to-bl from-zinc-900/90 to-black/95 p-8 shadow-lg">
+        <div className="text-cyan-400 mb-4 flex justify-center">{icon}</div>
+        <h3 className="text-xl font-bold mb-3 text-center">{title}</h3>
+        <p className="text-gray-300 text-center">{description}</p>
+      </div>
     </div>
   );
 };
@@ -58,18 +25,10 @@ export default function WhyChooseMe() {
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-14">
-          Hvorfor velge{" "}
-          <AnimatedKeyword delay={200} highlightColor="text-cyan-400">
-            meg
-          </AnimatedKeyword>{" "}
-          som din{" "}
-          <AnimatedKeyword delay={600} highlightColor="text-cyan-400">
-            partner
-          </AnimatedKeyword>
-          ?
+          Hvorfor velge meg som din partner?
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch max-w-6xl mx-auto">
           <FeatureCard
             icon={
               <svg
@@ -88,7 +47,6 @@ export default function WhyChooseMe() {
             }
             title="Pålitelig kvalitet"
             description="Dedikert til å levere høykvalitetsløsninger som møter eller overgår dine forventninger, alltid til avtalt tid."
-            delay={300}
           />
 
           <FeatureCard
@@ -109,7 +67,6 @@ export default function WhyChooseMe() {
             }
             title="Klar kommunikasjon"
             description="Tett dialog gjennom hele prosessen med rask responstid og forståelige forklaringer uten teknisk sjargong."
-            delay={500}
           />
 
           <FeatureCard
@@ -129,8 +86,7 @@ export default function WhyChooseMe() {
               </svg>
             }
             title="Skreddersydde løsninger"
-            description="Hver prosjekt er unikt. Jeg lager tilpassede løsninger basert på dine spesifikke behov og forretningsmål."
-            delay={700}
+            description="Hvert prosjekt er unikt. Jeg lager tilpassede løsninger basert på dine spesifikke behov og forretningsmål."
           />
         </div>
       </div>
