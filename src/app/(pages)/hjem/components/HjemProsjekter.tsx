@@ -57,14 +57,18 @@ export default function FeaturedProjects() {
               className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Project image */}
-              <div className="relative h-56 w-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              <div className="mockup-laptop w-full sm:w-full md:w-full lg:w-[100%] border-4 border-gray-700 rounded-xl shadow-md mx-auto">
+                <div className="camera" />
+                {/* Display container adjusted to image dimensions */}
+                <div className="display p-0">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={500}
+                    height={300}
+                    className="object-contain w-full rounded-lg"
+                  />
+                </div>
               </div>
               {/* Project title & description */}
               <div className="p-6">

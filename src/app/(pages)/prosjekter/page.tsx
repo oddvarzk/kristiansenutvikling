@@ -131,27 +131,33 @@ export default function Projekter() {
       {/* Projects Grid */}
       <section className="py-12 mb-20 text-white">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-fit mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 w-full max-w-6xl mx-auto">
             {featuredProjects.map((project) => (
               <Link
                 key={project.id}
                 href={project.href}
                 className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="relative h-56 w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                {/* Device mockup wrapper with responsive width */}
+                <div className="mockup-laptop w-full sm:w-full md:w-full lg:w-[100%] border-4 border-gray-700 rounded-xl shadow-md mx-auto">
+                  <div className="camera" />
+                  {/* Display container adjusted to image dimensions */}
+                  <div className="display p-0">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={500}
+                      height={300}
+                      className="object-contain w-full rounded-lg"
+                    />
+                  </div>
                 </div>
+
                 <div className="p-6">
                   <h2 className="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                     {project.title}
                   </h2>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
