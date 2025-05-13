@@ -36,7 +36,7 @@ function ExpandableServiceItem({
         {/* Header */}
         <div className="p-5 flex flex-col">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold text-white">{service.title}</h3>
+            <h3 className="text-xl text-cyan-400 font-bold">{service.title}</h3>
             <div className="flex items-center">
               {!isOpen && (
                 <span className="text-sm text-gray-400 mr-2 hidden md:inline">
@@ -250,9 +250,9 @@ export default function TjenesterServicesSection() {
   return (
     <section className="py-2">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-3xl font-bold text-center text-white mb-8">
-          Mine <span className="text-cyan-400">tjenester</span> i detalj
-        </h2>
+        <h1 className="text-3xl font-bold text-center text-white mb-8">
+          Alle tilgjengelige <span className="text-cyan-400">tjenester</span>
+        </h1>
         <div className="space-y-12">
           {services.map((svc) => (
             <ExpandableServiceItem
