@@ -1,47 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, ReactNode } from "react";
-import AnimatedKeyword from "../../../styles/AnimtertText";
-
-// --- AnimatedSection ---
-interface AnimatedSectionProps {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}
-const AnimatedSection = ({
-  children,
-  className = "",
-  delay = 0,
-}: AnimatedSectionProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    const el = ref.current;
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-
-  return (
-    <div
-      ref={ref}
-      className={`${className} transition-all duration-500 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      {children}
-    </div>
-  );
-};
+import React, { useState } from "react";
 
 // --- Types & ExpandableServiceItem ---
 interface ServiceItem {
@@ -54,18 +13,17 @@ interface ServiceItem {
     features: string[];
   };
 }
-const ExpandableServiceItem = ({
+
+function ExpandableServiceItem({
   service,
   isOpen,
   toggleOpen,
-  delay,
 }: {
   service: ServiceItem;
   isOpen: boolean;
   toggleOpen: () => void;
-  delay: number;
-}) => (
-  <AnimatedSection delay={delay}>
+}) {
+  return (
     <div className="mb-6">
       <div
         onClick={toggleOpen}
@@ -78,11 +36,7 @@ const ExpandableServiceItem = ({
         {/* Header */}
         <div className="p-5 flex flex-col">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold">
-              <AnimatedKeyword delay={delay} highlightColor="text-cyan-400">
-                {service.title}
-              </AnimatedKeyword>
-            </h3>
+            <h3 className="text-xl font-bold text-white">{service.title}</h3>
             <div className="flex items-center">
               {!isOpen && (
                 <span className="text-sm text-gray-400 mr-2 hidden md:inline">
@@ -115,7 +69,7 @@ const ExpandableServiceItem = ({
           <p className="text-gray-300 mt-2">{service.shortDescription}</p>
         </div>
 
-        {/* Expanded */}
+        {/* Expanded Content */}
         <div
           className={`overflow-hidden transition-all duration-500 ${
             isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
@@ -127,17 +81,15 @@ const ExpandableServiceItem = ({
               {service.expandedContent.description}
             </p>
             <div className="bg-gradient-to-r from-zinc-800/70 to-zinc-900/70 p-5 rounded-lg mb-6 border border-zinc-700/30">
-              <h4 className="text-cyan-400 font-medium mb-2 flex items-center">
-                Prising:
-              </h4>
+              <h4 className="text-cyan-400 font-medium mb-2">Prising:</h4>
               <p className="text-gray-200">{service.expandedContent.pricing}</p>
             </div>
             <div>
-              <h4 className="text-cyan-400 font-medium mb-3 flex items-center">
+              <h4 className="text-cyan-400 font-medium mb-3">
                 Dette inkluderer:
               </h4>
               <ul className="space-y-3 ml-6">
-                {service.expandedContent.features.map((f, i) => (
+                {service.expandedContent.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <svg
                       className="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5"
@@ -152,7 +104,7 @@ const ExpandableServiceItem = ({
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-gray-300">{f}</span>
+                    <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -161,8 +113,8 @@ const ExpandableServiceItem = ({
         </div>
       </div>
     </div>
-  </AnimatedSection>
-);
+  );
+}
 
 // --- Main Section ---
 export default function TjenesterServicesSection() {
@@ -297,22 +249,20 @@ export default function TjenesterServicesSection() {
 
   return (
     <section className="py-2">
-      <div className="container mx-auto px-4 max-w-3xl space-y-12">
-        <h2 className="text-3xl font-bold text-center text-white">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <h2 className="text-3xl font-bold text-center text-white mb-8">
           Mine <span className="text-cyan-400">tjenester</span> i detalj
         </h2>
-
-        <AnimatedSection delay={300}>
-          {services.map((svc, idx) => (
+        <div className="space-y-12">
+          {services.map((svc) => (
             <ExpandableServiceItem
               key={svc.id}
               service={svc}
               isOpen={openId === svc.id}
               toggleOpen={() => toggleOpen(svc.id)}
-              delay={200 + idx * 100}
             />
           ))}
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

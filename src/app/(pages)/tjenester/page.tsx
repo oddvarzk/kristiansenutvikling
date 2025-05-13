@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function TjenesterPage() {
   return (
-    <div className="space-y-24">
+    <div className="space-y-12">
       {/* Intro Section */}
       <section className="py-16">
         <div className="container mx-auto px-6">
