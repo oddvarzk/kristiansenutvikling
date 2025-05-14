@@ -6,10 +6,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
 
   return [
-    { url: `${base}/`,            lastModified: today },
-    { url: `${base}/tjenester`,   lastModified: today },
-    { url: `${base}/prosjekter`,  lastModified: today },
-    { url: `${base}/kontakt`,     lastModified: today },
-    { url: `${base}/personvern`,  lastModified: today },
+    // Core site pages
+    { url: `${base}/`, lastModified: today },
+    { url: `${base}/tjenester`, lastModified: today },
+    { url: `${base}/prosjekter`, lastModified: today },
+    { url: `${base}/kontakt`, lastModified: today },
+    { url: `${base}/personvern`, lastModified: today },
+
+    // Project detail pages
+    { url: `${base}/prosjekter/holidaze`, lastModified: today },
+    { url: `${base}/prosjekter/auksjon`, lastModified: today },
+    { url: `${base}/prosjekter/rainydays`, lastModified: today },
+    { url: `${base}/prosjekter/museum`, lastModified: today },
+    { url: `${base}/prosjekter/droomvillaspanje`, lastModified: today },
   ];
 }

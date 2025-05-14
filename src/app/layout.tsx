@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Merriweather } from "next/font/google";
 import RootLayout from "./RootLayout";
@@ -6,23 +7,17 @@ import Script from "next/script";
 import "./globals.css";
 import Breadcrumb from "@/app/components/Breadcrumb";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-montserrat",
 });
-
 const merriweather = Merriweather({
   subsets: ["latin"],
   display: "swap",
@@ -50,16 +45,17 @@ export default function Layout({
           {/* 2) Initialize & configure */}
           <Script id="gtag-config" strategy="afterInteractive">
             {`
-             window.dataLayer = window.dataLayer || [];
-             function gtag(){dataLayer.push(arguments);}
-             gtag('js', new Date());
-             gtag('config', '${GA_ID}', {
-               page_path: window.location.pathname,
-             });
-           `}
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}', {
+                page_path: window.location.pathname,
+              });
+            `}
           </Script>
         </>
       )}
+
       <RootLayout
         fonts={{
           geistSans,
@@ -71,24 +67,6 @@ export default function Layout({
         <Breadcrumb />
         {children}
       </RootLayout>
-
-      {/* Structured data JSON-LD for WebSite/SearchAction */}
-      <Script id="ld-json" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Kristiansen Utvikling",
-          url: "https://kristiansenutvikling.no",
-          description:
-            "Profesjonell webutvikling som leverer skreddersydde digitale løsninger",
-          potentialAction: {
-            "@type": "SearchAction",
-            target:
-              "https://kristiansenutvikling.no/search?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
-        })}
-      </Script>
     </>
   );
 }
