@@ -42,7 +42,7 @@ const featuredProjects: Project[] = [
 
 export default function FeaturedProjects() {
   return (
-    <section className="py-24 bg-gray-900 text-white">
+    <section className="py-24 bg-black text-white">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12">
           Utvalgte prosjekter

@@ -262,7 +262,7 @@ export default function TjenesterSeksjon() {
   ];
 
   return (
-    <section className="py-10 bg-gradient-to-b from-black via-gray-900 to-gray-900">
+    <section className="py-10 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
           Tjenester jeg{" "}
