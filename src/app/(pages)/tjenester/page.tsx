@@ -36,9 +36,7 @@ export default function TjenesterPage() {
       {/* Intro Section */}
       <section className="py-16 px-10">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Mine <span className="text-cyan-400">tjenester</span>
-          </h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Mine tjenester</h1>
           <p className="text-gray-300 lg:w-3/4 md:w-full p-4">
             Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter
             som ønsker å vokse online. Fra skreddersydde responsive nettsider og

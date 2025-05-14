@@ -266,7 +266,7 @@ export default function TjenesterSeksjon() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
           Tjenester jeg{" "}
-          <AnimatedKeyword delay={600} highlightColor="text-cyan-400">
+          <AnimatedKeyword delay={600} highlightColor="text-white">
             tilbyr
           </AnimatedKeyword>
         </h2>

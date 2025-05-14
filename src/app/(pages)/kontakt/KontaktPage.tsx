@@ -5,9 +5,7 @@ export default function KontaktPage() {
     <div className="container mx-auto px-4 py-12 space-y-16 mb-10">
       {/* Header Intro */}
       <div className="max-w-2xl p-2">
-        <h1 className="text-4xl font-bold">
-          La oss <span className="text-cyan-400">snakke</span>
-        </h1>
+        <h1 className="text-4xl font-bold">La oss snakke</h1>
         <p className="mt-4 text-gray-200 leading-relaxed">
           Enten du ønsker en ny nettside, en app eller å styrke din synlighet på
           nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk alternativ

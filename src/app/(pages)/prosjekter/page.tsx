@@ -115,9 +115,7 @@ export default function Projekter() {
       {/* Intro Section */}
       <section className="py-16 px-10 text-white">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-bold mb-4">
-            Utforsk mine <span className="text-cyan-400">prosjekter</span>
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Utforsk mine prosjekter</h1>
           <p className="text-gray-300 lg:w-3/4 md:w-full p-4">
             Her finner du et utvalg av nettsider, e-handelsløsninger og
             applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er

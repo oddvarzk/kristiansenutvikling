@@ -45,7 +45,7 @@ export default function FeaturedProjects() {
     <section className="py-24 bg-gray-900 text-white">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Utvalgte <span className="text-cyan-400">prosjekter</span>
+          Utvalgte prosjekter
         </h2>
 
         {/* Grid of featured project cards */}
