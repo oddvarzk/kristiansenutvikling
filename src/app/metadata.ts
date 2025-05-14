@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 
+const googleVerif = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
+if (!googleVerif) {
+  throw new Error("Missing NEXT_PUBLIC_GOOGLE_VERIFICATION env var");
+}
+
 export const defaultMetadata: Metadata = {
   metadataBase: new URL("https://kristiansenutvikling.no"),
   title: {
@@ -50,6 +55,6 @@ export const defaultMetadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png" }],
   },
   verification: {
-    google: "5J99ns8t1qtOtD9IVqlFymmtwRjG5RXVygvNkhfurRQ",
+    google: googleVerif,
   },
 };
