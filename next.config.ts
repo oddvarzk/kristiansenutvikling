@@ -1,9 +1,7 @@
-// next.config.js
+// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* your other config options here */
-
   async redirects() {
     return [
       // 1. Redirect kristiansenutvikling.com → kristiansenutvikling.no
@@ -30,6 +28,12 @@ const nextConfig: NextConfig = {
       // 4. Redirect any /index.html → /
       {
         source: "/index.html",
+        destination: "https://kristiansenutvikling.no/",
+        permanent: true,
+      },
+      // 5. Redirect any /index.php → /
+      {
+        source: "/index.php",
         destination: "https://kristiansenutvikling.no/",
         permanent: true,
       },
