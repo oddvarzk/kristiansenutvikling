@@ -1,13 +1,12 @@
 // src/app/HomePage/page.tsx
 import type { Metadata } from "next";
-import Head from "next/head";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
   title: "Hjemmeside | Kristiansen Utvikling",
   description:
     "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
-  alternates: { canonical: "https://kristiansenutvikling.no" },
+  alternates: { canonical: "https://kristiansenutvikling.no/" },
   robots: {
     index: true,
     follow: true,
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     title: "Hjemmeside | Kristiansen Utvikling",
     description:
       "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
-    url: "https://kristiansenutvikling.no",
+    url: "https://kristiansenutvikling.no/",
     siteName: "Kristiansen Utvikling",
     locale: "nb_NO",
     type: "website",
@@ -36,48 +35,38 @@ export const metadata: Metadata = {
       },
     ],
   },
+  other: {
+    'script[type="application/ld+json"]': JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      url: "https://kristiansenutvikling.no/",
+      name: "Kristiansen Utvikling",
+      description:
+        "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://kristiansenutvikling.no/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+      provider: {
+        "@type": "Organization",
+        name: "Kristiansen Utvikling",
+        url: "https://kristiansenutvikling.no",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+47 472 07 143",
+          email: "hei@kristiansenutvikling.com",
+          contactType: "Customer Service",
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "NO",
+        },
+      },
+    }),
+  },
 };
 
 export default function Page() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    url: "https://kristiansenutvikling.no",
-    name: "Kristiansen Utvikling",
-    description:
-      "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://kristiansenutvikling.no/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-    provider: {
-      "@type": "Organization",
-      name: "Kristiansen Utvikling",
-      url: "https://kristiansenutvikling.no",
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+47 472 07 143",
-        email: "hei@kristiansenutvikling.no",
-        contactType: "Customer Service",
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "NO",
-      },
-    },
-  };
-
-  return (
-    <>
-      <Head>
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
-      <HomePage />
-    </>
-  );
+  return <HomePage />;
 }
