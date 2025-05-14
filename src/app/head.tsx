@@ -1,7 +1,5 @@
-// src/app/(pages)/hjem/head.tsx
-import React from "react";
-
-export default function Head() {
+// src/app/head.tsx
+export default function RootHead() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -34,6 +32,7 @@ export default function Head() {
   return (
     <script
       type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
