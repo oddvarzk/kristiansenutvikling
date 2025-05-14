@@ -64,7 +64,8 @@ export const defaultMetadata: Metadata = {
   },
   verification: {
     // Add Google Search Console verification code when available
-    // google: 'YOUR_VERIFICATION_CODE',
+    google:
+      "google-site-verification=5J99ns8t1qtOtD9IVqlFymmtwRjG5RXVygvNkhfurRQ",
   },
   other: {
     'script[type="application/ld+json"]': JSON.stringify({
