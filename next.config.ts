@@ -10,6 +10,22 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async headers() {
+    return [
+      {
+        // Apply this header on all routes
+        source: "/:path*",
+        headers: [
+          {
+            key: "Link",
+            // HTTP-level canonical URL for every path
+            value: `<https://kristiansenutvikling.no/:path*>; rel="canonical"`,
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

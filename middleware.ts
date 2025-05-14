@@ -22,7 +22,6 @@ export function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// Apply to all routes
 export const config = {
   matcher: ["/:path*"],
 };
