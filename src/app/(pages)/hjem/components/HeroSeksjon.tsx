@@ -128,7 +128,7 @@ export default function HeroSeksjon() {
                 </button>
               </Link>
 
-              <Link href="/projects" className="w-full md:w-100">
+              <Link href="/prosjekter" className="w-full md:w-100">
                 <button
                   className="
                     cursor-pointer                                /* show pointer */

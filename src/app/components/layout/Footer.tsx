@@ -68,7 +68,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/projects" className="hover:text-white">
+              <Link href="/prosjekter" className="hover:text-white">
                 Prosjekter
               </Link>
             </li>
