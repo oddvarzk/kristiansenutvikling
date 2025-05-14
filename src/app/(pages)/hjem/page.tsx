@@ -1,6 +1,5 @@
-// src/app/HomePage/page.tsx
+// src/app/(pages)/hjem/page.tsx
 import type { Metadata } from "next";
-import Head from "next/head";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
@@ -39,47 +38,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  // Build your JSON-LD object
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    url: "https://kristiansenutvikling.no/",
-    name: "Kristiansen Utvikling",
-    description:
-      "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://kristiansenutvikling.no/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-    provider: {
-      "@type": "Organization",
-      name: "Kristiansen Utvikling",
-      url: "https://kristiansenutvikling.no",
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+47 472 07 143",
-        email: "hei@kristiansenutvikling.no",
-        contactType: "Customer Service",
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "NO",
-      },
-    },
-  };
-
-  return (
-    <>
-      <Head>
-        <script
-          type="application/ld+json"
-          // dangerouslySetInnerHTML is required to inline raw JSON in SSR
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
-
-      <HomePage />
-    </>
-  );
+  return <HomePage />;
 }
