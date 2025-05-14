@@ -34,9 +34,7 @@ export const metadata = defaultMetadata;
 
 export default function Layout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
@@ -73,6 +71,24 @@ export default function Layout({
         <Breadcrumb />
         {children}
       </RootLayout>
+
+      {/* Structured data JSON-LD for WebSite/SearchAction */}
+      <Script id="ld-json" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Kristiansen Utvikling",
+          url: "https://kristiansenutvikling.no",
+          description:
+            "Profesjonell webutvikling som leverer skreddersydde digitale løsninger",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://kristiansenutvikling.no/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        })}
+      </Script>
     </>
   );
 }

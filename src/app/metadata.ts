@@ -8,20 +8,7 @@ export const defaultMetadata: Metadata = {
   },
   description:
     "Profesjonell webutvikling som leverer skreddersydde digitale løsninger. Vi hjelper bedrifter med å skape sterke online tilstedeværelser gjennom innovative nettsider og webløsninger.",
-  keywords: [
-    "webutvikling",
-    "nettside design",
-    "responsiv nettside",
-    "digital løsning",
-    "nettsider Norge",
-    "web design",
-    "nettside optimalisering",
-    "profesjonell webløsning",
-    "digital transformasjon",
-    "webdesign tjenester",
-    "applikasjonsutvikling",
-    "SEO optimalisering",
-  ],
+  // keywords removed
   openGraph: {
     type: "website",
     locale: "nb_NO",
@@ -63,23 +50,6 @@ export const defaultMetadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png" }],
   },
   verification: {
-    // Add Google Search Console verification code when available
-    google:
-      "google-site-verification=5J99ns8t1qtOtD9IVqlFymmtwRjG5RXVygvNkhfurRQ",
-  },
-  other: {
-    'script[type="application/ld+json"]': JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "Kristiansen Utvikling",
-      url: "https://kristiansenutvikling.no",
-      description:
-        "Profesjonell webutvikling som leverer skreddersydde digitale løsninger",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: "https://kristiansenutvikling.no/search?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
-    }),
+    google: "5J99ns8t1qtOtD9IVqlFymmtwRjG5RXVygvNkhfurRQ",
   },
 };
