@@ -1,5 +1,5 @@
 // src/app/head.tsx
-export default function RootHead() {
+export default function Head() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
