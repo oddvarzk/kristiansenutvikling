@@ -1,103 +1,75 @@
 // src/app/kontakt/page.tsx
-import KontaktForm from "../../components/KontaktForm";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import Script from "next/script";
+import KontaktPage from "./KontaktPage";
 
 export const metadata: Metadata = {
   title: "Kontakt | Kristiansen Utvikling",
   description:
-    "Kontakt Kristiansen Utvikling for skreddersydde nettsider, apper og SEO-optimalisering. Få en gratis konsultasjon i dag.",
-  keywords: [
-    "webutvikling",
-    "kontakt",
-    "Kristiansen Utvikling",
-    "SEO",
-    "nettsted",
-    "nettside",
-    "apputvikling",
-  ],
+    "Trenger du en ny nettside, app eller hjelp med SEO? Kontakt Kristiansen Utvikling for en uforpliktende prat og gratis tilbud.",
+  alternates: { canonical: "https://kristiansenutvikling.no/kontakt" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   authors: [
     { name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" },
   ],
   openGraph: {
     title: "Kontakt | Kristiansen Utvikling",
     description:
-      "Kontakt oss for en uforpliktende prat om ditt neste web- eller app-prosjekt, eller for å styrke din synlighet på nett.",
+      "Ta kontakt for et skreddersydd tilbud på nettsider, apper eller SEO-optimalisering – uten binding.",
     url: "https://kristiansenutvikling.no/kontakt",
     siteName: "Kristiansen Utvikling",
     type: "website",
     locale: "nb_NO",
+    images: [
+      {
+        url: "/images/openGraph-contact.svg",
+        width: 1200,
+        height: 630,
+        alt: "Kontakt Kristiansen Utvikling for web- og app-prosjekter",
+      },
+    ],
   },
 };
 
-export default function KontaktPage() {
+export default function Page() {
   return (
-    <div className="container mx-auto px-4 py-12 space-y-16 mb-10">
-      {/* Header Intro */}
-      <div className="max-w-2xl p-2">
-        <h1 className="text-4xl font-bold">
-          La oss <span className="text-cyan-400">snakke</span>
-        </h1>
-        <p className="mt-4 text-gray-200 leading-relaxed">
-          Enten du ønsker en ny nettside, en app eller å styrke din synlighet på
-          nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk alternativ
-          kontakt nedenfor.
-        </p>
-      </div>
+    <>
+      {/* Inline JSON-LD so it's part of the SSR HTML */}
+      <Script id="ld-json" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          url: "https://kristiansenutvikling.no/kontakt",
+          name: "Kontakt Kristiansen Utvikling",
+          description:
+            "Fyll ut skjemaet eller bruk alternativ kontakt for en uforpliktende prat om nettside-, app- eller SEO-prosjekt.",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Kristiansen Utvikling",
+            url: "https://kristiansenutvikling.no",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+47-472-07-143",
+              email: "hei@kristiansenutvikling.no",
+              contactType: "Customer Service",
+              areaServed: "NO",
+              availableLanguage: ["nb", "en"],
+            },
+          },
+        })}
+      </Script>
 
-      <div className="grid grid-cols-1 w-full p-5 md:w-full lg:w-fit gap-12">
-        {/* Form Column */}
-        <div>
-          <KontaktForm />
-        </div>
-
-        {/* Info Column */}
-        <div className="space-y-8">
-          {/* Contact Info Card */}
-          <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-              Kontaktinformasjon
-            </h2>
-            <ul className="space-y-3">
-              <li>
-                <strong className="inline-block w-24">E-post:</strong>{" "}
-                <a
-                  href="mailto:hei@kristiansenutvikling.no"
-                  className="underline hover:text-cyan-300"
-                >
-                  hei@kristiansenutvikling.no
-                </a>
-              </li>
-              <li>
-                <strong className="inline-block w-24">Telefon:</strong>{" "}
-                <a
-                  href="tel:+4747207143"
-                  className="underline hover:text-cyan-300"
-                >
-                  +47 472 07 143
-                </a>
-              </li>
-              <li>
-                <strong className="inline-block w-24">Lokasjon:</strong>
-                Oslo, Norge
-              </li>
-            </ul>
-          </section>
-
-          {/* Opening Hours Card */}
-          <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-              Åpningstider
-            </h2>
-            <p className="text-gray-300">
-              Hverdager: 09:00 - 21:00
-              <br />
-              Helg: 10:00 - 18:00
-              <br />
-              (Stengt hvert døgn: 21:00 - 09:00)
-            </p>
-          </section>
-        </div>
-      </div>
-    </div>
+      <KontaktPage />
+    </>
   );
 }

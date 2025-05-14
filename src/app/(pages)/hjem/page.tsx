@@ -1,101 +1,81 @@
 // src/app/HomePage/page.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
   title: "Hjemmeside | Kristiansen Utvikling",
   description:
-    "Profesjonell webutviklingsbyrå som leverer digitale løsninger for din virksomhet.",
-  keywords: [
-    "webutvikling",
-    "nettside design",
-    "responsiv nettside",
-    "digital løsning",
-    "nettsider Norge",
-    "web design",
-    "nettside optimalisering",
-    "applikasjonsutvikling",
-    "SEO optimalisering",
-    "digital transformasjon",
-    "nettside utvikling",
-    "webdesign tjenester",
-    "digital forretningsløsning",
-  ],
-  openGraph: {
-    title: "Hjemmeside | Kristiansen Utvikling",
-    description:
-      "Profesjonell webutviklingsbyrå som leverer digitale løsninger for din virksomhet. Spesialisert i nettsider, applikasjoner og SEO.",
-    type: "website",
-    locale: "nb_NO",
-    url: "https://kristiansenutvikling.no",
-    siteName: "Kristiansen Utvikling",
-    images: [
-      {
-        url: "/images/openGraph.svg",
-        width: 1200,
-        height: 630,
-        alt: "Kristiansen Utvikling - Profesjonell Webutvikling og Digitale Løsninger",
-      },
-    ],
-  },
-  alternates: {
-    canonical: "https://kristiansenutvikling.no",
-  },
+    "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+  alternates: { canonical: "https://kristiansenutvikling.no" },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
-  other: {
-    'script[type="application/ld+json"]': JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "Kristiansen Utvikling - Hjemmeside",
-      url: "https://kristiansenutvikling.no",
-      description:
-        "Profesjonell webutviklingsbyrå som leverer skreddersydde digitale løsninger",
-      mainEntity: {
-        "@type": "WebSite",
-        name: "Kristiansen Utvikling",
-        description: "Profesjonell webutvikling og digitale løsninger",
-        serviceType: [
-          "Webutvikling",
-          "Nettside Design",
-          "Applikasjonsutvikling",
-          "SEO Optimalisering",
-        ],
+  openGraph: {
+    title: "Hjemmeside | Kristiansen Utvikling",
+    description:
+      "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+    url: "https://kristiansenutvikling.no",
+    siteName: "Kristiansen Utvikling",
+    locale: "nb_NO",
+    type: "website",
+    images: [
+      {
+        url: "/images/openGraph.svg",
+        width: 1200,
+        height: 630,
+        alt: "Kristiansen Utvikling - Profesjonell webutvikling og digitale løsninger",
       },
-      about: {
-        "@type": "Organization",
-        name: "Kristiansen Utvikling",
-        url: "https://kristiansenutvikling.no",
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+47 472 07 143",
-          email: "hei@kristiansenutvikling.com",
-          contactType: "Kundeservice",
-        },
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "NO",
-          addressLocality: "Norge",
-        },
-      },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: "https://kristiansenutvikling.no/search?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
-    }),
+    ],
   },
 };
 
 export default function Page() {
-  return <HomePage />;
+  return (
+    <>
+      {/* Inlined JSON-LD so crawlers see it in the SSR HTML */}
+      <Script id="schema-org" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: "https://kristiansenutvikling.no",
+          name: "Kristiansen Utvikling",
+          description:
+            "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://kristiansenutvikling.no/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+          provider: {
+            "@type": "Organization",
+            name: "Kristiansen Utvikling",
+            url: "https://kristiansenutvikling.no",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+47 472 07 143",
+              email: "hei@kristiansenutvikling.com",
+              contactType: "Customer Service",
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressCountry: "NO",
+              addressLocality: "Norge",
+            },
+          },
+        })}
+      </Script>
+
+      <HomePage />
+    </>
+  );
 }
