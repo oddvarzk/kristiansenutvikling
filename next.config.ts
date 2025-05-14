@@ -25,16 +25,16 @@ const nextConfig: NextConfig = {
         destination: "https://kristiansenutvikling.no/:path*",
         permanent: true,
       },
-      // 4. Redirect any /index.html → /
+      // 4. Unconditional redirect any /index.html → /
       {
         source: "/index.html",
-        destination: "https://kristiansenutvikling.no/",
+        destination: "/",
         permanent: true,
       },
-      // 5. Redirect any /index.php → /
+      // 5. Unconditional redirect any /index.php → /
       {
         source: "/index.php",
-        destination: "https://kristiansenutvikling.no/",
+        destination: "/",
         permanent: true,
       },
     ];
