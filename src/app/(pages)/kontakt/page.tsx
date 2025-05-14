@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt | Kristiansen Utvikling",
     description:
-      "Ta kontakt for et skreddersydd tilbud på nettsider, apper eller SEO-optimalisering – uten binding.",
+      "Ta kontakt for et skreddersydd tilbud på nettsider, apper eller SEO-optimalisering - uten binding.",
     url: "https://kristiansenutvikling.no/kontakt",
     siteName: "Kristiansen Utvikling",
     type: "website",

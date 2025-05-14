@@ -50,7 +50,7 @@ export default function HeroSeksjon() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/80" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto sm:px-6 lg:px-8 relative z-10">
         <div className="flex px-10 flex-col md:flex-row items-center">
           <div className="text-gray-400">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
@@ -109,7 +109,7 @@ export default function HeroSeksjon() {
               jeg her for å gjøre prosessen smidig.
             </AnimatedListItem>
 
-            <div className="flex justify-center mt-10 gap-10 md:gap-16 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
+            <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
               <Link href="/tjenester" className="w-full md:w-auto">
                 <button
                   className="
@@ -128,7 +128,7 @@ export default function HeroSeksjon() {
                 </button>
               </Link>
 
-              <Link href="/projects" className="w-full md:w-auto">
+              <Link href="/projects" className="w-full md:w-100">
                 <button
                   className="
                     cursor-pointer                                /* show pointer */
