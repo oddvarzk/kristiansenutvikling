@@ -4,9 +4,9 @@ import Script from "next/script";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
-  title: "Hjemmeside | Kristiansen Utvikling",
+  title: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
   description:
-    "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
+    "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
   alternates: { canonical: "https://kristiansenutvikling.no/" },
   robots: {
     index: true,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hjemmeside | Kristiansen Utvikling",
+    title: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
     description:
-      "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
+      "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
     url: "https://kristiansenutvikling.no/",
     siteName: "Kristiansen Utvikling",
     locale: "nb_NO",
@@ -45,7 +45,7 @@ export default function Page() {
     url: "https://kristiansenutvikling.no/",
     name: "Kristiansen Utvikling",
     description:
-      "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
+      "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
     provider: {
       "@type": "Organization",
       name: "Kristiansen Utvikling",

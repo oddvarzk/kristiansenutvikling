@@ -9,10 +9,10 @@ export const defaultMetadata: Metadata = {
   metadataBase: new URL("https://kristiansenutvikling.no"),
   title: {
     template: "%s | Kristiansen Utvikling",
-    default: "Kristiansen Utvikling | Web Utvikling",
+    default: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
   },
   description:
-    "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
+    "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
 
   // keywords removed
   openGraph: {
@@ -22,7 +22,7 @@ export const defaultMetadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     title: "Kristiansen Utvikling | Web Utvikling Bedrift",
     description:
-      "Profesjonell webutvikling som leverer skreddersydde digitale løsninger for din bedrift.",
+      "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
     images: [
       {
         url: "/images/openGraph.svg",
