@@ -18,6 +18,14 @@ export default function HolidazePage() {
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
+        {/* Page Title */}
+        <h1 className="text-4xl font-bold mb-8">Holidaze (Ferie Booking)</h1>
+        <p className="text-gray-300 mb-12 leading-relaxed">
+          Holidaze er en moderne bookingplattform for ferieboliger. Brukere kan
+          søke, filtrere og booke overnattinger via et interaktivt kart og
+          kalender.
+        </p>
+
         {/* Bildegalleri */}
         <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
@@ -40,16 +48,9 @@ export default function HolidazePage() {
           ))}
         </div>
 
-        {/* Prosjektoversikt */}
-        <h1 className="text-4xl font-bold mb-4">Holidaze (Ferie Booking)</h1>
-        <p className="text-gray-300 mb-8 leading-relaxed">
-          Holidaze er en moderne bookingplattform for ferieboliger. Brukere kan
-          søke, filtrere og booke overnattinger via et interaktivt kart og
-          kalender.
-        </p>
-
-        <h2 className="text-2xl font-semibold mb-2">Teknologier brukt</h2>
-        <ul className="list-disc list-inside text-gray-300 mb-8">
+        {/* Teknologier brukt */}
+        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Next.js & React</li>
           <li>Tailwind CSS for styling</li>
           <li>Mapbox GL JS for kart</li>
@@ -78,6 +79,7 @@ export default function HolidazePage() {
           </div>
         )}
 
+        {/* Back link */}
         <div className="mt-12">
           <Link href="/prosjekter" className="text-cyan-400 hover:underline">
             &larr; Tilbake til prosjekter

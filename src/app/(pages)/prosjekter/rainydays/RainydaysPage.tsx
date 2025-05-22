@@ -18,6 +18,14 @@ export default function RainydaysPage() {
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
+        {/* Page Title */}
+        <h1 className="text-4xl font-bold mb-8">RainyDays E-com</h1>
+        <p className="text-gray-300 mb-12 leading-relaxed">
+          RainyDays er en komplett nettbutikk-løsning med produktkatalog,
+          handlekurv og integrert betalingsgate som gir kundene en sømløs
+          kjøpsopplevelse.
+        </p>
+
         {/* Bildegalleri */}
         <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
@@ -40,16 +48,9 @@ export default function RainydaysPage() {
           ))}
         </div>
 
-        {/* Prosjektoversikt */}
-        <h1 className="text-4xl font-bold mb-4">RainyDays E-com</h1>
-        <p className="text-gray-300 mb-8 leading-relaxed">
-          RainyDays er en komplett nettbutikk-løsning med produktkatalog,
-          handlekurv, og integrert betalingsgate som gir kundene en sømløs
-          kjøpsopplevelse.
-        </p>
-
-        <h2 className="text-2xl font-semibold mb-2">Teknologier brukt</h2>
-        <ul className="list-disc list-inside text-gray-300 mb-8">
+        {/* Teknologier brukt */}
+        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Next.js & React</li>
           <li>Tailwind CSS</li>
           <li>Stripe API for betaling</li>
@@ -78,6 +79,7 @@ export default function RainydaysPage() {
           </div>
         )}
 
+        {/* Back link */}
         <div className="mt-12">
           <Link href="/prosjekter" className="text-cyan-400 hover:underline">
             &larr; Tilbake til prosjekter

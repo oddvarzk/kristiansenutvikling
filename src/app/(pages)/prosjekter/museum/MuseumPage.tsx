@@ -11,16 +11,24 @@ const galleryImages = [
   { src: "/images/projects/museum2.png", alt: "Museum Nettside - utstilling" },
   {
     src: "/images/projects/museum3.png",
-    alt: "Museum Nettside - Samfunns Museum for alle små til eldre mennesker",
+    alt: "Museum Nettside - Samfunnsmuseum, fra barneaktiviteter til eldre beskrivelser",
   },
 ];
 
-export default function Museum() {
+export default function MuseumPage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
+        {/* Page Title */}
+        <h1 className="text-4xl font-bold mb-8">Museum Nettside</h1>
+        <p className="text-gray-300 mb-12 leading-relaxed">
+          En informativ og visuelt engasjerende nettside for samfunnsmuseet, med
+          fokus på historiefortelling, dynamiske utstillinger og
+          brukervennlighet.
+        </p>
+
         {/* Bildegalleri */}
         <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
@@ -43,16 +51,9 @@ export default function Museum() {
           ))}
         </div>
 
-        {/* Prosjektoversikt */}
-        <h1 className="text-4xl font-bold mb-4">Museum Nettside</h1>
-        <p className="text-gray-300 mb-8 leading-relaxed">
-          En informativ og visuelt engasjerende nettside for samfunnsmuseet, med
-          fokus på historiefortelling, dynamiske utstillinger og
-          brukervennlighet.
-        </p>
-
-        <h2 className="text-2xl font-semibold mb-2">Teknologier brukt</h2>
-        <ul className="list-disc list-inside text-gray-300 mb-8">
+        {/* Teknologier brukt */}
+        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Next.js & React</li>
           <li>Tailwind CSS for styling</li>
           <li>Framer Motion for animasjoner</li>
@@ -81,6 +82,7 @@ export default function Museum() {
           </div>
         )}
 
+        {/* Back link */}
         <div className="mt-12">
           <Link href="/prosjekter" className="text-cyan-400 hover:underline">
             &larr; Tilbake til prosjekter
