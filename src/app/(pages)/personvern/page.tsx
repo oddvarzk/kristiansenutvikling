@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      {/* JSON-LD for this page */}
+      {/* JSON-LD for SEO */}
       <Script id="ld-json-page" type="application/ld+json">
         {JSON.stringify(pageJsonLd)}
       </Script>
@@ -69,10 +69,10 @@ export default function PrivacyPolicy() {
           Personvernerklæring
         </h1>
 
-        {/* Cookies & Analytics (Light) */}
+        {/* Cookies & Analytics */}
         <section className="bg-gray-50 p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            Informasjonskapsler (Cookies) & Analyseverktøy
+            Personvernerklæring: Cookies & Analyse
           </h2>
           <p className="mb-4 text-gray-700">
             Vi bruker både Vercel Analytics <em>og</em> Google Analytics for å
@@ -86,17 +86,15 @@ export default function PrivacyPolicy() {
           </ul>
           <p className="text-gray-700">
             Du kan når som helst godta eller avvise informasjonskapsler via
-            banneret nederst på siden. Les mer om våre praksiser i{" "}
-            <a href="/personvern" className="underline text-cyan-600">
-              personvernerklæringen
-            </a>
-            .
+            banneret nederst på siden.
           </p>
         </section>
 
-        {/* Data Subject Rights (Dark) */}
+        {/* Data Subject Rights */}
         <section className="bg-gray-900 text-white p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Dine rettigheter</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Personvernerklæring: Dine rettigheter
+          </h2>
           <p className="mb-4">
             I henhold til personopplysningsloven og GDPR har du disse
             rettighetene:
@@ -111,24 +109,26 @@ export default function PrivacyPolicy() {
           </ul>
         </section>
 
-        {/* Legal Basis (Light) */}
+        {/* Legal Basis */}
         <section className="bg-gray-50 p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-            Behandlingsgrunnlag
+            Personvernerklæring: Behandlingsgrunnlag
           </h2>
           <p className="text-gray-700 mb-4">
             Vi behandler dine opplysninger basert på:
           </p>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
-            <li>Uttrykkelig samtykke (for informasjonskapsler & nyhetsbrev)</li>
+            <li>Uttrykkelig samtykke (informasjonskapsler & nyhetsbrev)</li>
             <li>Berettiget interesse i å forbedre vår nettside og tjenester</li>
             <li>Oppfyllelse av kontrakt eller rettslig forpliktelse</li>
           </ul>
         </section>
 
-        {/* Data Retention (Dark) */}
+        {/* Data Retention */}
         <section className="bg-gray-900 text-white p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Datalagring</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Personvernerklæring: Datalagring
+          </h2>
           <p className="text-white mb-4">
             Vi lagrer personopplysninger kun så lenge det er nødvendig for
             formålet:
@@ -140,12 +140,14 @@ export default function PrivacyPolicy() {
           </ul>
         </section>
 
-        {/* Contact (Light) */}
+        {/* Contact Information */}
         <section className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Kontakt</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+            Personvernerklæring: Kontaktinformasjon
+          </h2>
           <p className="text-gray-700 mb-2">
-            Har du spørsmål om vår personvernerklæring eller ønsker å utøve
-            rettighetene dine, ta kontakt på:
+            Har du spørsmål eller ønsker å utøve dine rettigheter, ta kontakt
+            på:
           </p>
           <p className="text-gray-700">
             E-post:{" "}
