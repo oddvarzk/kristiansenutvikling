@@ -12,7 +12,8 @@ export const defaultMetadata: Metadata = {
     default: "Kristiansen Utvikling | Web Utvikling",
   },
   description:
-    "Profesjonell webutvikling som leverer skreddersydde digitale løsninger. Vi hjelper bedrifter med å skape sterke online tilstedeværelser gjennom innovative nettsider og webløsninger.",
+    "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
+
   // keywords removed
   openGraph: {
     type: "website",
