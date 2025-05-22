@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "nb_NO",
     images: [
       {
-        url: "/images/openGraph-contact.svg",
+        url: "/images/openGraph.svg",
         width: 1200,
         height: 630,
         alt: "Kontakt Kristiansen Utvikling for web- og app-prosjekter",
@@ -52,7 +52,7 @@ export default function Page() {
           url: "https://kristiansenutvikling.no/kontakt",
           name: "Kontakt Kristiansen Utvikling",
           description:
-            "Fyll ut skjemaet eller bruk alternativ kontakt for en uforpliktende prat om nettside-, app- eller SEO-prosjekt.",
+            "Fyll ut skjemaet eller bruk alternativ kontakt for en uforpliktende prat om nettside, app eller SEO-prosjektet ditt.",
           mainEntity: {
             "@type": "Organization",
             name: "Kristiansen Utvikling",

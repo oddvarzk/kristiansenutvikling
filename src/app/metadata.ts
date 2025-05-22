@@ -1,3 +1,4 @@
+// src/app/metadata.ts
 import type { Metadata } from "next";
 
 const googleVerif = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
@@ -14,7 +15,6 @@ export const defaultMetadata: Metadata = {
   description:
     "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
 
-  // keywords removed
   openGraph: {
     type: "website",
     locale: "nb_NO",
@@ -58,4 +58,7 @@ export const defaultMetadata: Metadata = {
   verification: {
     google: googleVerif,
   },
+
+  // Explicitly disable Twitter card metadata
+  twitter: null,
 };
