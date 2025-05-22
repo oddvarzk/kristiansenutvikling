@@ -1,4 +1,6 @@
+// src/app/prosjekter/holidaze/page.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import HolidazePage from "./HolidazePage";
 
 export const metadata: Metadata = {
@@ -41,5 +43,51 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HolidazePage />;
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id": "https://kristiansenutvikling.no/prosjekter/holidaze#webpage",
+      url: "https://kristiansenutvikling.no/prosjekter/holidaze",
+      name: "Holidaze | Kristiansen Utvikling",
+      description:
+        "Holidaze - en skreddersydd bookingløsning for ferieboliger med interaktivt kart og kalender.",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kristiansenutvikling.no/prosjekter/holidaze#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Hjem",
+          item: "https://kristiansenutvikling.no/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Prosjekter",
+          item: "https://kristiansenutvikling.no/prosjekter",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Holidaze",
+          item: "https://kristiansenutvikling.no/prosjekter/holidaze",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <Script id="ld-json" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": graph,
+        })}
+      </Script>
+
+      <HolidazePage />
+    </>
+  );
 }

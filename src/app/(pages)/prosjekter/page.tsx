@@ -1,3 +1,4 @@
+// src/app/prosjekter/page.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -96,19 +97,50 @@ const featuredProjects: Project[] = [
 export default function Projekter() {
   return (
     <>
-      {/* Structured Data for SEO */}
-      <Script type="application/ld+json" id="ld-json">
+      {/* Combined JSON-LD: WebPage, BreadcrumbList, ItemList */}
+      <Script id="ld-json" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: "Prosjekter | Kristiansen Utvikling",
-          url: "https://kristiansenutvikling.no/prosjekter",
-          itemListElement: featuredProjects.map((proj, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            url: `https://kristiansenutvikling.no${proj.href}`,
-            name: proj.title,
-          })),
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://kristiansenutvikling.no/prosjekter#webpage",
+              url: "https://kristiansenutvikling.no/prosjekter",
+              name: "Prosjekter | Kristiansen Utvikling",
+              description:
+                "Utforsk våre webutviklingsprosjekter: responsive nettsider, e-handelsløsninger og skreddersydde applikasjoner bygget med React, Next.js og moderne teknologi.",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://kristiansenutvikling.no/prosjekter#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Hjem",
+                  item: "https://kristiansenutvikling.no/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Prosjekter",
+                  item: "https://kristiansenutvikling.no/prosjekter",
+                },
+              ],
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://kristiansenutvikling.no/prosjekter#projects",
+              name: "Prosjekter | Kristiansen Utvikling",
+              url: "https://kristiansenutvikling.no/prosjekter",
+              itemListElement: featuredProjects.map((proj, idx) => ({
+                "@type": "ListItem",
+                position: idx + 1,
+                url: `https://kristiansenutvikling.no${proj.href}`,
+                name: proj.title,
+              })),
+            },
+          ],
         })}
       </Script>
 
@@ -136,10 +168,8 @@ export default function Projekter() {
                 href={project.href}
                 className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                {/* Device mockup wrapper with responsive width */}
-                <div className="mockup-laptop w-full sm:w-full md:w-full lg:w-[100%] border-4 border-gray-700 rounded-xl shadow-md mx-auto">
+                <div className="mockup-laptop w-full border-4 border-gray-700 rounded-xl shadow-md mx-auto">
                   <div className="camera" />
-                  {/* Display container adjusted to image dimensions */}
                   <div className="display p-0">
                     <Image
                       src={project.image}
@@ -150,7 +180,6 @@ export default function Projekter() {
                     />
                   </div>
                 </div>
-
                 <div className="p-6">
                   <h2 className="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                     {project.title}
@@ -164,6 +193,7 @@ export default function Projekter() {
           </div>
         </div>
       </section>
+
       <BackToTop />
     </>
   );

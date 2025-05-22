@@ -1,4 +1,6 @@
+// src/app/prosjekter/droomvillaspanje/page.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import DroomvillaspanjePage from "./DroomvillaPage";
 
 export const metadata: Metadata = {
@@ -40,5 +42,53 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <DroomvillaspanjePage />;
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id":
+        "https://kristiansenutvikling.no/prosjekter/droomvillaspanje#webpage",
+      url: "https://kristiansenutvikling.no/prosjekter/droomvillaspanje",
+      name: "DroomVillaSpanje | Kristiansen Utvikling",
+      description:
+        "DroomVillaSpanje - Unik Wix-nettside for ferieboligutleie i Spania med SEO-optimalisering.",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id":
+        "https://kristiansenutvikling.no/prosjekter/droomvillaspanje#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Hjem",
+          item: "https://kristiansenutvikling.no/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Prosjekter",
+          item: "https://kristiansenutvikling.no/prosjekter",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "DroomVillaSpanje",
+          item: "https://kristiansenutvikling.no/prosjekter/droomvillaspanje",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <Script id="ld-json" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": graph,
+        })}
+      </Script>
+
+      <DroomvillaspanjePage />
+    </>
+  );
 }

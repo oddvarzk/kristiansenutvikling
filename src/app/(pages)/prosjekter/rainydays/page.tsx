@@ -1,4 +1,6 @@
+// src/app/prosjekter/rainydays/page.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import RainydaysPage from "./RainydaysPage";
 
 export const metadata: Metadata = {
@@ -42,5 +44,51 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <RainydaysPage />;
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id": "https://kristiansenutvikling.no/prosjekter/rainydays#webpage",
+      url: "https://kristiansenutvikling.no/prosjekter/rainydays",
+      name: "RainyDays | Kristiansen Utvikling",
+      description:
+        "RainyDays - en fullverdig netthandelsplattform for gjenbruk av klær med handlekurv og betalingsintegrasjon.",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kristiansenutvikling.no/prosjekter/rainydays#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Hjem",
+          item: "https://kristiansenutvikling.no/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Prosjekter",
+          item: "https://kristiansenutvikling.no/prosjekter",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "RainyDays",
+          item: "https://kristiansenutvikling.no/prosjekter/rainydays",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <Script id="ld-json" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": graph,
+        })}
+      </Script>
+
+      <RainydaysPage />
+    </>
+  );
 }

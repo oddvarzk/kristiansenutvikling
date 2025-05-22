@@ -1,9 +1,9 @@
+// src/app/prosjekter/auksjon/AuctionPage.tsx
 "use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 
 // Bilder for galleriet
 const galleryImages = [
@@ -20,21 +20,9 @@ export default function AuctionPage() {
 
   return (
     <>
-      {/* Structured Data for SEO */}
-      <Script type="application/ld+json" id="auction-json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "Auksjon Nettside | Kristiansen Utvikling",
-          description:
-            "Sanntids auksjonsplattform med enkel budgivning og administrasjonsgrensesnitt.",
-          url: "https://kristiansenutvikling.no/prosjekter/auksjon",
-        })}
-      </Script>
-
       <section className="py-16 bg-black text-white">
         <div className="container mx-auto px-6">
-          {/* Bildegalleri først */}
+          {/* Bildegalleri */}
           <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
             {galleryImages.map((img, idx) => (
