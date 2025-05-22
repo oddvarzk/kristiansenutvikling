@@ -1,16 +1,23 @@
+// src/app/components/Header.tsx
 "use client";
+
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../../../public/images/logo.svg";
-import Navigation from "./Navigation";
+import dynamic from "next/dynamic";
 import Hamburger from "../Hamburger";
+
+// Dynamically load the desktop nav only on the client,
+// so its images/links don’t slow down the initial render.
+const Navigation = dynamic(() => import("./Navigation"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close when clicking outside header + dropdown
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (
@@ -25,32 +32,28 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [isOpen]);
 
-  const toggleMenu = () => {
-    setIsOpen((o) => !o);
-  };
-
   return (
     <div ref={containerRef} className="relative z-50">
       <header className="w-full p-5 bg-zinc-950">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="font-bold text-xl">
             <Image
-              src={Logo}
+              src="/images/logo.svg"
               alt="Kristiansen Utvikling logo"
               width={120}
               height={76}
-              priority
+              priority // keep your critical logo eager
             />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav: lazy-loaded via dynamic import */}
           <div className="hidden md:block">
             <Navigation />
           </div>
 
           {/* Hamburger on mobile */}
           <div className="md:hidden">
-            <Hamburger isOpen={isOpen} toggle={toggleMenu} />
+            <Hamburger isOpen={isOpen} toggle={() => setIsOpen((o) => !o)} />
           </div>
         </div>
       </header>

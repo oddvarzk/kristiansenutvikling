@@ -45,6 +45,7 @@ export default function HeroSeksjon() {
         src="/videos/background.mp4"
         autoPlay
         loop
+        preload="auto" // eager load for LCP
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
