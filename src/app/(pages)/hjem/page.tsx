@@ -6,7 +6,7 @@ import HomePage from "./HomePage";
 export const metadata: Metadata = {
   title: "Hjemmeside | Kristiansen Utvikling",
   description:
-    "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+    "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
   alternates: { canonical: "https://kristiansenutvikling.no/" },
   robots: {
     index: true,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hjemmeside | Kristiansen Utvikling",
     description:
-      "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+      "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
     url: "https://kristiansenutvikling.no/",
     siteName: "Kristiansen Utvikling",
     locale: "nb_NO",
@@ -45,7 +45,7 @@ export default function Page() {
     url: "https://kristiansenutvikling.no/",
     name: "Kristiansen Utvikling",
     description:
-      "Kristiansen Utvikling leverer skreddersydde nettsider, nettbutikker og webapplikasjoner som løfter din virksomhet.",
+      "Profesjonell webutviklingsbedrift som utvikler moderne nettsider og applikasjoner med fokus på brukervennlighet, ytelse og responsivt design. Vi tilbyr grundig SEO-optimalisering, sikker hosting og vedlikehold. Fra konsept til lansering sørger vi for skalerbare, sikre og søkemotorvennlige løsninger som hjelper din bedrift å vokse på nett.",
     provider: {
       "@type": "Organization",
       name: "Kristiansen Utvikling",
