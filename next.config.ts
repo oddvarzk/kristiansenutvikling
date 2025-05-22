@@ -18,11 +18,6 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: [
           {
-            key: "Link",
-            // HTTP-level canonical URL for every path
-            value: `<https://kristiansenutvikling.no/:path*>; rel="canonical"`,
-          },
-          {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
