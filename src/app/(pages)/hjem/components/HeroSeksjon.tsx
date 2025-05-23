@@ -1,3 +1,4 @@
+// src/app/components/HeroSeksjon.tsx
 "use client";
 
 import Link from "next/link";
@@ -55,14 +56,7 @@ export default function HeroSeksjon() {
         <div className="flex px-10 flex-col md:flex-row items-center">
           <div className="text-gray-400">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center md:text-left">
-              <AnimatedKeyword delay={200} highlightColor="text-white">
-                Webutviklings
-              </AnimatedKeyword>
-              -byrå med fokus på kundens{" "}
-              <AnimatedKeyword delay={600} highlightColor="text-cyan-500">
-                behov
-              </AnimatedKeyword>
-              .
+              Webutviklingsbyrå med fokus på kundens behov.
             </h1>
 
             <AnimatedListItem delay={800}>
@@ -112,37 +106,13 @@ export default function HeroSeksjon() {
 
             <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
               <Link href="/tjenester" className="w-full md:w-auto">
-                <button
-                  className="
-                    cursor-pointer                                /* show pointer */
-                    bg-gradient-to-r from-cyan-600 to-cyan-500
-                    text-white px-6 py-3 rounded-md font-medium
-                    shadow-lg
-                    transform transition duration-150 ease-out
-                    hover:scale-105
-                    active:scale-95
-                    focus:outline-none focus:ring-2 focus:ring-cyan-400
-                    w-full md:w-auto
-                  "
-                >
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Hva kan jeg tilby?
                 </button>
               </Link>
 
-              <Link href="/prosjekter" className="w-full md:w-100">
-                <button
-                  className="
-                    cursor-pointer                                /* show pointer */
-                    bg-gradient-to-r from-cyan-600 to-cyan-500
-                    text-white px-6 py-3 rounded-md font-medium
-                    shadow-lg
-                    transform transition duration-150 ease-out
-                    hover:scale-105
-                    active:scale-95
-                    focus:outline-none focus:ring-2 focus:ring-cyan-400
-                    w-full md:w-auto
-                  "
-                >
+              <Link href="/prosjekter" className="w-full md:w-auto">
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Mine prosjekter
                 </button>
               </Link>
