@@ -11,6 +11,11 @@
       "has": [{ "type": "host", "value": "kristiansenutvikling.com" }],
       "destination": "https://kristiansenutvikling.no/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*/index:ext(html|php)",
+      "destination": "/:path*",
+      "permanent": true
     }
   ]
 }
