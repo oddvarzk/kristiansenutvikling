@@ -81,7 +81,6 @@ button.primary,
 .font-bold {
   font-weight: 700 !important;
 }
-/* Add these styles to your globals.css file */
 
 /* Text glow animation */
 @keyframes textGlow {
