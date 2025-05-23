@@ -104,9 +104,9 @@ export default function TjenesterPage() {
         {/* FAQ Section */}
         <section className="py-16">
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-6 pb-10 text-white">
+            <h3 className="text-3xl font-bold mb-6 pb-10 text-white">
               Ofte stilte spørsmål
-            </h2>
+            </h3>
             <div className="space-y-6">
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">

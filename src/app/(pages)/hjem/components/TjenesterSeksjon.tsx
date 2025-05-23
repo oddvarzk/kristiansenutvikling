@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect, ReactNode } from "react";
-import AnimatedKeyword from "../../../styles/AnimtertText";
 import Link from "next/link";
 
 // --- AnimatedSection ---
@@ -62,7 +61,6 @@ const ExpandableServiceItem = ({
   service,
   isOpen,
   toggleOpen,
-  delay,
 }: {
   service: ServiceItem;
   isOpen: boolean;
