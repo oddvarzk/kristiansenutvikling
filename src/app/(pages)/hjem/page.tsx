@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
   description:
     "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
-  alternates: { canonical: "https://kristiansenutvikling.no/" },
+  alternates: { canonical: "https://kristiansenutvikling.no" },
   robots: {
     index: true,
     follow: true,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
     description:
       "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
-    url: "https://kristiansenutvikling.no/",
+    url: "https://kristiansenutvikling.no",
     siteName: "Kristiansen Utvikling",
     locale: "nb_NO",
     type: "website",
@@ -42,7 +42,7 @@ export default function Page() {
   const pageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    url: "https://kristiansenutvikling.no/",
+    url: "https://kristiansenutvikling.no",
     name: "Kristiansen Utvikling",
     description:
       "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
