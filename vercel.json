@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/:path*/index:(html|php)",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.kristiansenutvikling.no" }],
       "destination": "https://kristiansenutvikling.no/:path*",
@@ -10,16 +15,6 @@
       "source": "/:path*",
       "has": [{ "type": "host", "value": "kristiansenutvikling.com" }],
       "destination": "https://kristiansenutvikling.no/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/index.php",
-      "destination": "/",
       "permanent": true
     }
   ]
