@@ -99,14 +99,14 @@ export default function HeroSeksjon() {
               <AnimatedKeyword delay={800} highlightColor="text-white">
                 lansering
               </AnimatedKeyword>
-              . Enten du trenger en enkel
+              . Enten du trenger en enkel{" "}
               <AnimatedKeyword delay={850} highlightColor="text-white">
-                nettside
-              </AnimatedKeyword>
-              eller et avansert
+                nettside{" "}
+              </AnimatedKeyword>{" "}
+              eller et{" "}
               <AnimatedKeyword delay={900} highlightColor="text-white">
-                system
-              </AnimatedKeyword>
+                avansert system{" "}
+              </AnimatedKeyword>{" "}
               er jeg her for å gjøre prosessen smidig.
             </AnimatedListItem>
 
