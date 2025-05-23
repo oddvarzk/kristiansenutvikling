@@ -1,4 +1,4 @@
-// src/app/api/robots.txt/route.ts
+// src/app/robots.txt/route.ts    ← note: *not* under /api
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
     `Sitemap: https://${host}/sitemap.xml`,
   ];
 
-  const res = NextResponse.json(lines.join("\n"), {
+  return new Response(lines.join("\n"), {
     status: 200,
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
@@ -32,6 +32,4 @@ export async function GET(request: Request) {
         : { "Cache-Control": "no-store" }),
     },
   });
-
-  return res;
 }
