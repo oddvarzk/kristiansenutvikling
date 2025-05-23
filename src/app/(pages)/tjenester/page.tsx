@@ -8,26 +8,24 @@ import BackToTop from "../../components/BackToTop";
 export const metadata: Metadata = {
   title: "Tjenester | Kristiansen Utvikling",
   description:
-    "Oppdag mine webutviklingstjenester: fra responsive nettsider og e-handelsløsninger til SEO-optimalisering og vedlikehold.",
-  keywords: [
-    "webutvikling",
-    "nettside",
-    "apputvikling",
-    "SEO",
-    "support",
-    "Kristiansen Utvikling",
-    "Wix",
-    "WordPress",
-  ],
+    "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
   alternates: { canonical: "https://kristiansenutvikling.no/tjenester" },
   openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    url: "https://kristiansenutvikling.no/tjenester",
+    siteName: "Kristiansen Utvikling",
     title: "Tjenester | Kristiansen Utvikling",
     description:
       "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
-    url: "https://kristiansenutvikling.no/tjenester",
-    siteName: "Kristiansen Utvikling",
-    locale: "nb_NO",
-    type: "website",
+    images: [
+      {
+        url: "https://kristiansenutvikling.no/images/openGraph.svg",
+        width: 1200,
+        height: 630,
+        alt: "Illustrasjon som viser Kristiansen Utvikling",
+      },
+    ],
   },
 };
 

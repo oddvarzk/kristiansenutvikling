@@ -7,18 +7,26 @@ export const metadata: Metadata = {
   description:
     "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler, inkludert Google Analytics.",
   alternates: { canonical: "https://kristiansenutvikling.no/personvern" },
+  openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    url: "https://kristiansenutvikling.no/personvern",
+    siteName: "Kristiansen Utvikling",
+    title: "Personvernerklæring | Kristiansen Utvikling",
+    description:
+      "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler, inkludert Google Analytics.",
+    images: [
+      {
+        url: "https://kristiansenutvikling.no/images/openGraph.svg",
+        width: 1200,
+        height: 630,
+        alt: "Illustrasjon som viser Kristiansen Utvikling",
+      },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
-  },
-  openGraph: {
-    title: "Personvernerklæring | Kristiansen Utvikling",
-    description:
-      "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler.",
-    url: "https://kristiansenutvikling.no/personvern",
-    siteName: "Kristiansen Utvikling",
-    type: "website",
-    locale: "nb_NO",
   },
 };
 
@@ -55,7 +63,6 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      {/* JSON-LD for SEO */}
       <Script id="ld-json-page" type="application/ld+json">
         {JSON.stringify(pageJsonLd)}
       </Script>
