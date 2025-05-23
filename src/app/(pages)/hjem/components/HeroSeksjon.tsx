@@ -106,13 +106,13 @@ export default function HeroSeksjon() {
 
             <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
               <Link href="/tjenester" className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Hva kan jeg tilby?
                 </button>
               </Link>
 
               <Link href="/prosjekter" className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+                <button className="bg-gradient-to-r cursor-pointer from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Mine prosjekter
                 </button>
               </Link>
