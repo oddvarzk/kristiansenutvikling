@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/projects/auctionHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/auctionHome.png",
         width: 1200,
         height: 630,
         alt: "Auksjon Nettside skjermbilde",

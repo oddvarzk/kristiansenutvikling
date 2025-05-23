@@ -6,7 +6,7 @@ import HolidazePage from "./HolidazePage";
 export const metadata: Metadata = {
   title: "Holidaze | Kristiansen Utvikling",
   description:
-    "Holidaze - en skreddersydd bookingløsning for ferieboliger med interaktivt kart og kalender.",
+    "Holidaze – en bookingplattform for ferieboliger med interaktivt kart og kalender.",
   keywords: [
     "Holidaze",
     "feriebolig booking",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/projects/holidazeHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/holidazeHome.png",
         width: 1200,
         height: 630,
         alt: "Holidaze bookingløsning skjermbilde",

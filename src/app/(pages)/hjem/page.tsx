@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/openGraph.svg",
+        url: "https://kristiansenutvikling.no/images/openGraph.svg",
         width: 1200,
         height: 630,
         alt: "Kristiansen Utvikling - Profesjonell webutvikling og digitale løsninger",

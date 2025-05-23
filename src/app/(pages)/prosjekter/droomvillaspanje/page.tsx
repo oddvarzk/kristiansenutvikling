@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/projects/droomvillaHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/droomvillaHome.png",
         width: 1200,
         height: 630,
         alt: "DroomVillaSpanje forsidebilde",

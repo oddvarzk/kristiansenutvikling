@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/openGraph.svg",
+        url: "https://kristiansenutvikling.no/openGraph.svg",
         width: 1200,
         height: 630,
         alt: "Prosjekter hos Kristiansen Utvikling",

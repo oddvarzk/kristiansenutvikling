@@ -6,7 +6,7 @@ import RainydaysPage from "./RainydaysPage";
 export const metadata: Metadata = {
   title: "RainyDays | Kristiansen Utvikling",
   description:
-    "RainyDays - en fullverdig netthandelsplattform for gjenbruk av klær med handlekurv og betalingsintegrasjon.",
+    "RainyDays – en netthandelsplattform for gjenbruk av klær med handlekurv og betalingsintegrasjon.",
   keywords: [
     "RainyDays",
     "netthandel",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/projects/rainyDaysHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/rainyDaysHome.png",
         width: 1200,
         height: 630,
         alt: "RainyDays nettbutikk skjermbilde",

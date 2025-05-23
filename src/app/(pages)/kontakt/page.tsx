@@ -25,17 +25,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt | Kristiansen Utvikling",
     description:
-      "Ta kontakt for et skreddersydd tilbud på nettsider, apper eller SEO-optimalisering - uten binding.",
+      "Ta kontakt for et uforpliktende tilbud på nettsider, apper eller SEO-optimalisering, uten binding.",
     url: "https://kristiansenutvikling.no/kontakt",
     siteName: "Kristiansen Utvikling",
     type: "website",
     locale: "nb_NO",
     images: [
       {
-        url: "/images/openGraph.svg",
+        url: "https://kristiansenutvikling.no/images/openGraph.svg",
         width: 1200,
         height: 630,
-        alt: "Kontakt Kristiansen Utvikling for web- og app-prosjekter",
+        alt: "Kristiansen Utvikling - Profesjonell webutvikling og digitale løsninger",
       },
     ],
   },

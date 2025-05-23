@@ -6,7 +6,7 @@ import Museum from "./MuseumPage";
 export const metadata: Metadata = {
   title: "Museum Nettside | Kristiansen Utvikling",
   description:
-    "Museum - digital presentasjon av museets samlinger og utstillinger med moderne webteknologi.",
+    "Museum – digital presentasjon av museets samlinger og utstillinger med moderne webteknologi.",
   keywords: [
     "museum",
     "nettside",
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "/images/projects/museumHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/museumHome.png",
         width: 1200,
         height: 630,
-        alt: "Museum Nettside - forsidebilde",
+        alt: "Museum Nettside – forsidebilde",
       },
     ],
     locale: "nb_NO",
