@@ -59,52 +59,52 @@ export default function HeroSeksjon() {
               Webutviklingsbyrå med fokus på kundens behov.
             </h1>
 
-            <AnimatedListItem delay={800}>
+            <AnimatedListItem delay={300}>
               Med{" "}
-              <AnimatedKeyword delay={1000} highlightColor="text-white">
+              <AnimatedKeyword delay={350} highlightColor="text-white">
                 sterk kompetanse
               </AnimatedKeyword>{" "}
               med alt relatert til{" "}
-              <AnimatedKeyword delay={1200} highlightColor="text-white">
+              <AnimatedKeyword delay={400} highlightColor="text-white">
                 nettsider
               </AnimatedKeyword>
               ,{" "}
-              <AnimatedKeyword delay={1400} highlightColor="text-white">
+              <AnimatedKeyword delay={450} highlightColor="text-white">
                 applikasjoner
               </AnimatedKeyword>
               ,{" "}
-              <AnimatedKeyword delay={1600} highlightColor="text-white">
+              <AnimatedKeyword delay={500} highlightColor="text-white">
                 SEO
               </AnimatedKeyword>{" "}
               så kan du trygt stole på at jeg leverer hva du trenger.
             </AnimatedListItem>
 
-            <AnimatedListItem delay={1200}>
+            <AnimatedListItem delay={550}>
               Fra{" "}
-              <AnimatedKeyword delay={1400} highlightColor="text-white">
+              <AnimatedKeyword delay={600} highlightColor="text-white">
                 idé
               </AnimatedKeyword>{" "}
               og{" "}
-              <AnimatedKeyword delay={1600} highlightColor="text-white">
+              <AnimatedKeyword delay={650} highlightColor="text-white">
                 konseptutvikling
               </AnimatedKeyword>
               , til{" "}
-              <AnimatedKeyword delay={1800} highlightColor="text-white">
+              <AnimatedKeyword delay={700} highlightColor="text-white">
                 design
               </AnimatedKeyword>
               ,{" "}
-              <AnimatedKeyword delay={2000} highlightColor="text-white">
+              <AnimatedKeyword delay={750} highlightColor="text-white">
                 programmering
               </AnimatedKeyword>{" "}
               og{" "}
-              <AnimatedKeyword delay={2200} highlightColor="text-white">
+              <AnimatedKeyword delay={800} highlightColor="text-white">
                 lansering
               </AnimatedKeyword>
               . Enten du trenger en enkel nettside eller et avansert system, er
               jeg her for å gjøre prosessen smidig.
             </AnimatedListItem>
 
-            <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.8s_ease-out_2.5s_forwards]">
+            <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
               <Link href="/tjenester" className="w-full md:w-auto">
                 <button className="bg-gradient-to-r from-cyan-600 cursor-pointer to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Hva kan jeg tilby?

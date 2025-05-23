@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import Script from "next/script";
+import point from "../../../../public/images/point.svg";
 import BackToTop from "../../components/BackToTop";
 
 export const metadata: Metadata = {
@@ -148,13 +149,17 @@ export default function Projekter() {
       <section className="py-16 px-10 text-white">
         <div className="container mx-auto px-6">
           <h1 className="text-4xl font-bold mb-4">Utforsk mine prosjekter</h1>
-          <p className="text-gray-300 lg:w-3/4 md:w-full p-4">
-            Her finner du et utvalg av nettsider, e-handelsløsninger og
-            applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er
-            bygget med moderne rammeverk som React, Next.js og Tailwind, og
-            viser bredden i vår kompetanse: fra responsive designs og
-            SEO-optimalisering til komplekse funksjonaliteter.
-          </p>
+
+          <div className="mt-4 flex items-start gap-3 lg:w-3/4 md:w-full p-4">
+            <Image src={point} alt="Punktikon" className="mt-1.5 w-3 h-3" />
+            <p className="text-gray-300 leading-relaxed">
+              Her finner du et utvalg av nettsider, e-handelsløsninger og
+              applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er
+              bygget med moderne rammeverk som React, Next.js og Tailwind, og
+              viser bredden i vår kompetanse: fra responsive designs og
+              SEO-optimalisering til komplekse funksjonaliteter.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -1,5 +1,8 @@
+import React from "react";
+import Image from "next/image";
 import KontaktForm from "./components/KontaktForm";
 import BackToTop from "../../components/BackToTop";
+import point from "../../../../public/images/point.svg";
 
 export default function KontaktPage() {
   return (
@@ -7,11 +10,16 @@ export default function KontaktPage() {
       {/* Header Intro */}
       <div className="max-w-2xl p-2">
         <h1 className="text-4xl font-bold">La oss snakke</h1>
-        <p className="mt-4 text-gray-200 leading-relaxed">
-          Enten du ønsker en ny nettside, en app eller å styrke din synlighet på
-          nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk alternativ
-          kontakt nedenfor.
-        </p>
+
+        {/* Point icon + text */}
+        <div className="mt-4 flex items-start gap-3">
+          <Image src={point} alt="Punktikon" className="mt-1.5 w-3 h-3" />
+          <p className="text-gray-200 leading-relaxed">
+            Enten du ønsker en ny nettside, en app eller å styrke din synlighet
+            på nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk
+            alternativ kontakt nedenfor.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 w-full p-5 md:w-full lg:w-fit gap-12">

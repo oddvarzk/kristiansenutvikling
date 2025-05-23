@@ -1,5 +1,7 @@
 // src/app/tjenester/page.tsx
 import React from "react";
+import Image from "next/image";
+import point from "../../../../public/images/point.svg";
 import { Metadata } from "next";
 import Script from "next/script";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
@@ -81,20 +83,24 @@ export default function TjenesterPage() {
         })}
       </Script>
 
-      <div className="space-y-12">
+      <div className="space-y-10">
         {/* Intro Section */}
-        <section className="py-16 px-10">
+        <section className="py-14">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl font-bold text-white mb-4">
               Mine tjenester
             </h1>
-            <p className="text-gray-300 lg:w-3/4 md:w-full p-4">
-              Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter
-              som ønsker å vokse online. Fra skreddersydde responsive nettsider
-              og moderne e-handelsløsninger, til kraftfulle applikasjoner,
-              SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som
-              passer dine behov.
-            </p>
+
+            <div className="mt-4 flex items-start gap-3 lg:w-3/4 md:w-full p-4">
+              <Image src={point} alt="Punktikon" className="mt-1.5 w-3 h-3" />
+              <p className="text-gray-300 leading-relaxed">
+                Jeg tilbyr et komplett spekter av digitale tjenester for
+                bedrifter som ønsker å vokse online. Fra responsive nettsider og
+                moderne e-handelsløsninger, til kraftfulle applikasjoner,
+                SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som
+                passer dine behov.
+              </p>
+            </div>
           </div>
         </section>
 
