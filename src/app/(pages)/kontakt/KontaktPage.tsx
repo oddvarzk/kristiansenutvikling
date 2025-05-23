@@ -1,4 +1,5 @@
 import KontaktForm from "./components/KontaktForm";
+import BackToTop from "../../components/BackToTop";
 
 export default function KontaktPage() {
   return (
@@ -67,6 +68,7 @@ export default function KontaktPage() {
           </section>
         </div>
       </div>
+      <BackToTop />
     </div>
   );
 }
