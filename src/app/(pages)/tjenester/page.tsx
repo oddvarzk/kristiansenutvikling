@@ -5,11 +5,24 @@ import Script from "next/script";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
 import BackToTop from "../../components/BackToTop";
 
+// src/app/tjenester/page.tsx
+
 export const metadata: Metadata = {
   title: "Tjenester | Kristiansen Utvikling",
   description:
     "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
   alternates: { canonical: "https://kristiansenutvikling.no/tjenester" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "nb_NO",
@@ -27,7 +40,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  robots: { index: true, follow: true },
 };
 
 export default function TjenesterPage() {
