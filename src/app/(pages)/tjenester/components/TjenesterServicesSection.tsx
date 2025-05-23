@@ -1,3 +1,4 @@
+// src/app/components/TjenesterServicesSection.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -81,13 +82,15 @@ function ExpandableServiceItem({
               {service.expandedContent.description}
             </p>
             <div className="bg-gradient-to-r from-zinc-800/70 to-zinc-900/70 p-5 rounded-lg mb-6 border border-zinc-700/30">
-              <h3 className="text-cyan-400 font-medium mb-2">Prising:</h3>
+              {/* Demoted from h3 to h4 */}
+              <h4 className="text-cyan-400 font-medium mb-2">Prising:</h4>
               <p className="text-gray-200">{service.expandedContent.pricing}</p>
             </div>
             <div>
-              <h3 className="text-cyan-400 font-medium mb-3">
+              {/* Demoted from h3 to h4 */}
+              <h4 className="text-cyan-400 font-medium mb-3">
                 Dette inkluderer:
-              </h3>
+              </h4>
               <ul className="space-y-3 ml-6">
                 {service.expandedContent.features.map((feature, i) => (
                   <li key={i} className="flex items-start">

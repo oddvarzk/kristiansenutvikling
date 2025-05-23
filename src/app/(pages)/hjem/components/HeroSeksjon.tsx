@@ -99,8 +99,15 @@ export default function HeroSeksjon() {
               <AnimatedKeyword delay={800} highlightColor="text-white">
                 lansering
               </AnimatedKeyword>
-              . Enten du trenger en enkel nettside eller et avansert system, er
-              jeg her for å gjøre prosessen smidig.
+              . Enten du trenger en enkel
+              <AnimatedKeyword delay={850} highlightColor="text-white">
+                nettside
+              </AnimatedKeyword>
+              eller et avansert
+              <AnimatedKeyword delay={900} highlightColor="text-white">
+                system
+              </AnimatedKeyword>
+              er jeg her for å gjøre prosessen smidig.
             </AnimatedListItem>
 
             <div className="flex justify-center gap-10 mt-6 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
