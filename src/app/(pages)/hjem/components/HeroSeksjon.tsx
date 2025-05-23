@@ -55,7 +55,7 @@ export default function HeroSeksjon() {
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10">
         <div className="flex px-10 flex-col md:flex-row items-center">
           <div className="text-neutral-400">
-            <h1 className="text-3xl text-white md:text-4xl font-bold mb-6 text-center md:text-left">
+            <h1 className="text-4xl text-white md:text-4xl font-bold mb-8 text-center md:text-left">
               Webutviklingsbyrå med fokus på kundens behov.
             </h1>
 
@@ -78,7 +78,6 @@ export default function HeroSeksjon() {
               </AnimatedKeyword>{" "}
               så kan du trygt stole på at jeg leverer hva du trenger.
             </AnimatedListItem>
-
             <AnimatedListItem delay={550}>
               Fra{" "}
               <AnimatedKeyword delay={600} highlightColor="text-white">
@@ -104,15 +103,15 @@ export default function HeroSeksjon() {
               jeg her for å gjøre prosessen smidig.
             </AnimatedListItem>
 
-            <div className="flex justify-center gap-10 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
+            <div className="flex justify-center gap-10 mt-6 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
               <Link href="/tjenester" className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer h-18 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Hva kan jeg tilby?
                 </button>
               </Link>
 
               <Link href="/prosjekter" className="w-full md:w-auto">
-                <button className="bg-gradient-to-r cursor-pointer from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+                <button className="bg-gradient-to-r cursor-pointer h-18 from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
                   Mine prosjekter
                 </button>
               </Link>
