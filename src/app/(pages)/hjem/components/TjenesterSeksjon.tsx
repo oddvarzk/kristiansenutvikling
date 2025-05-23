@@ -81,11 +81,7 @@ const ExpandableServiceItem = ({
       {/* Header */}
       <div className="p-5 flex flex-col">
         <div className="flex justify-between items-center">
-          <h3 className="text-xl font-bold">
-            <AnimatedKeyword delay={delay} highlightColor="text-cyan-400">
-              {service.title}
-            </AnimatedKeyword>
-          </h3>
+          <h3 className="text-xl font-bold">{service.title}</h3>
           <div className="flex items-center">
             {!isOpen && (
               <span className="text-sm text-gray-400 mr-2 hidden md:inline">
@@ -265,10 +261,7 @@ export default function TjenesterSeksjon() {
     <section className="py-10 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          Tjenester jeg{" "}
-          <AnimatedKeyword delay={600} highlightColor="text-white">
-            tilbyr
-          </AnimatedKeyword>
+          Tjenester jeg tilbyr
         </h2>
 
         <AnimatedSection delay={300} className="max-w-3xl mx-auto">

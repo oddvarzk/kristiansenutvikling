@@ -1,6 +1,8 @@
 // next.config.ts
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
@@ -12,6 +14,11 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
+    // Only apply strict CSP in production so dev fast-refresh (which uses eval) still works
+    if (!isProd) {
+      return [];
+    }
+
     return [
       {
         // Apply these headers on all routes

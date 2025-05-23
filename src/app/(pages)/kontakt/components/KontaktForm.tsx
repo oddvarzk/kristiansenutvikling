@@ -92,13 +92,15 @@ export default function ContactForm() {
 
   return (
     <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-6 shadow-xl">
-      <h2 className="text-2xl font-bold mb-6 relative inline-block">
-        <span className="text-white">Kontakt skjema</span>
-        <p className="text-sm font-light mt-2">
+      <div className="relative inline-block mb-6">
+        <h2 className="text-2xl text-white font-bold  relative inline-block">
+          Kontakt skjema
+        </h2>
+        <p className="text-sm font-light mt-2 relative inline-block">
           Beskriv hva du trenger—nettside, forbedringer eller annet—så kontakter
           jeg deg iløpet av 1-2 virkedager.
         </p>
-      </h2>
+      </div>
 
       <form className="space-y-5" onSubmit={handleSubmit}>
         {/* Name */}
