@@ -72,8 +72,8 @@ const ExpandableServiceItem = ({
       onClick={toggleOpen}
       className={`cursor-pointer border-1 border-cyan-700 rounded-lg transition-all duration-300 overflow-hidden backdrop-blur-sm ${
         isOpen
-          ? "shadow-lg"
-          : "bg-zinc-900/80 hover:bg-zinc-900/90 hover:border-l hover:border-cyan-500/30"
+          ? "bg-gradient-to-r from-zinc-900/90 to-black/95 shadow-lg"
+          : "bg-zinc-900/80 hover:bg-zinc-900/90"
       }`}
     >
       {/* Header */}
