@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
-    // Only apply strict CSP in production so dev fast-refresh (which uses eval) still works
+    // Skip CSP in development so React Fast Refresh (which uses eval) isn't blocked
     if (!isProd) {
       return [];
     }
@@ -28,10 +28,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
+              // Allow inline scripts and GTM, and permit analytics & region1 GA connections
               "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data:",
-              "connect-src 'self' https://api.vercel-insights.com https://www.google-analytics.com",
+              "connect-src 'self' https://api.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com",
               "font-src 'self' data:",
               "object-src 'none'",
               "frame-ancestors 'none'",
