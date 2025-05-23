@@ -251,7 +251,7 @@ export default function TjenesterServicesSection() {
     <section className="py-2">
       <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-3xl font-bold text-center text-white mb-8">
-          Alle tilgjengelige <span className="text-cyan-400">tjenester</span>
+          Alle tilgjengelige tjenester
         </h1>
         <div className="space-y-12">
           {services.map((svc) => (
