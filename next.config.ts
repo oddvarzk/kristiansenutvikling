@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
+  // 1) Rewrite for robots.txt
   async rewrites() {
     return [
       {
@@ -13,6 +14,7 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  // 2) Security headers
   async headers() {
     // Skip CSP in development so React Fast Refresh (which uses eval) isn't blocked
     if (!isProd) {
@@ -59,6 +61,38 @@ const nextConfig: NextConfig = {
             value: "geolocation=(), microphone=()",
           },
         ],
+      },
+    ];
+  },
+
+  // 3) New: Redirect rules for host canonicalization and stripping index files
+  async redirects() {
+    return [
+      // A) Redirect all www requests to non-www
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.kristiansenutvikling.no" }],
+        destination: "https://kristiansenutvikling.no/:path*",
+        permanent: true,
+      },
+      // B) Redirect kristiansenutvikling.com to kristiansenutvikling.no
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "kristiansenutvikling.com" }],
+        destination: "https://kristiansenutvikling.no/:path*",
+        permanent: true,
+      },
+      // C) Strip any /index.html suffix
+      {
+        source: "/:path*/index.html",
+        destination: "/:path*",
+        permanent: true,
+      },
+      // D) Strip any /index.php suffix
+      {
+        source: "/:path*/index.php",
+        destination: "/:path*",
+        permanent: true,
       },
     ];
   },
