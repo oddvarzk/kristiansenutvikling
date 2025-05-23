@@ -1,5 +1,4 @@
-// src/app/robots.txt/route.ts    ← note: *not* under /api
-import { NextResponse } from "next/server";
+// src/app/robots.txt/route.ts
 
 export async function GET(request: Request) {
   const host = request.headers.get("host") || "";
