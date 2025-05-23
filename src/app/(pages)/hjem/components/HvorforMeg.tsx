@@ -10,7 +10,7 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div className="h-full p-[1px] rounded-4xl border-1 border-cyan-400">
+    <div className="h-full p-[1px] rounded-4xl border-1 border-cyan-700">
       <div className="h-full rounded-4xl bg-gradient-to-bl from-zinc-900/90 to-black/95 p-8 shadow-lg">
         <div className="text-cyan-400 mb-4 flex justify-center">{icon}</div>
         <h3 className="text-xl font-bold mb-3 text-center">{title}</h3>
