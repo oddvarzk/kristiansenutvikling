@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 "use client";
 
 import Header from "@/app/components/layout/Header";
@@ -25,6 +26,10 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children, fonts }: RootLayoutProps) {
   return (
     <html lang="no">
+      <head>
+        {/* Explicit canonical URL for all pages */}
+        <link rel="canonical" href="https://kristiansenutvikling.no/" />
+      </head>
       <body
         className={`
           ${fonts.geistSans.variable}
