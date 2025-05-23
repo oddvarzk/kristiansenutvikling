@@ -7,7 +7,7 @@ if (!googleVerif) {
 }
 
 export const defaultMetadata: Metadata = {
-  metadataBase: new URL("https://kristiansenutvikling.no"),
+  metadataBase: new URL("https://kristiansenutvikling.no/"),
   title: {
     template: "%s | Kristiansen Utvikling",
     default: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
@@ -18,7 +18,7 @@ export const defaultMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "nb_NO",
-    url: "https://kristiansenutvikling.no",
+    url: "https://kristiansenutvikling.no/",
     siteName: "Kristiansen Utvikling",
     title: "Kristiansen Utvikling | Web Utvikling Bedrift",
     description:
@@ -33,7 +33,7 @@ export const defaultMetadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://kristiansenutvikling.no",
+    canonical: "https://kristiansenutvikling.no/",
   },
   robots: {
     index: true,
