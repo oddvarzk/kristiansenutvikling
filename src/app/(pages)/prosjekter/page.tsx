@@ -146,8 +146,8 @@ export default function Projekter() {
       </Script>
 
       {/* Intro Section */}
-      <section className="py-16 px-10 text-white">
-        <div className="container mx-auto px-6">
+      <section className="py-16 px-6 text-white">
+        <div className="container mx-auto">
           <h1 className="text-4xl font-bold mb-4">Utforsk mine prosjekter</h1>
 
           <div className="mt-4 flex items-start gap-3 lg:w-3/4 md:w-full p-4">
