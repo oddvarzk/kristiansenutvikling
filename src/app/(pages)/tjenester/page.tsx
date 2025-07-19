@@ -1,50 +1,17 @@
+"use client";
+
 // src/app/tjenester/page.tsx
 import React from "react";
 import Image from "next/image";
 import point from "../../../../public/images/point.svg";
-import { Metadata } from "next";
 import Script from "next/script";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
 import BackToTop from "../../components/BackToTop";
-
-// src/app/tjenester/page.tsx
-
-export const metadata: Metadata = {
-  title: "Tjenester | Kristiansen Utvikling",
-  description:
-    "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
-  alternates: { canonical: "https://kristiansenutvikling.no/tjenester" },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: "nb_NO",
-    url: "https://kristiansenutvikling.no/tjenester",
-    siteName: "Kristiansen Utvikling",
-    title: "Tjenester | Kristiansen Utvikling",
-    description:
-      "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
-    images: [
-      {
-        url: "https://kristiansenutvikling.no/images/openGraph.svg",
-        width: 1200,
-        height: 630,
-        alt: "Illustrasjon som viser Kristiansen Utvikling",
-      },
-    ],
-  },
-};
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 export default function TjenesterPage() {
+  const { t, currentLanguage } = useTranslations();
+  
   const graph = [
     {
       "@type": "WebPage",
@@ -88,17 +55,13 @@ export default function TjenesterPage() {
         <section className="py-14">
           <div className="container mx-auto px-6">
             <h1 className="text-4xl font-bold text-white mb-4">
-              Mine tjenester
+              {t.services.title}
             </h1>
 
             <div className="mt-4 flex items-start gap-3 lg:w-3/4 md:w-full p-4">
               <Image src={point} alt="Punktikon" className="mt-1.5 w-3 h-3" />
               <p className="text-gray-300 leading-relaxed">
-                Jeg tilbyr et komplett spekter av digitale tjenester for
-                bedrifter som ønsker å vokse online. Fra responsive nettsider og
-                moderne e-handelsløsninger, til kraftfulle applikasjoner,
-                SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som
-                passer dine behov.
+                {t.services.intro}
               </p>
             </div>
           </div>
@@ -111,76 +74,60 @@ export default function TjenesterPage() {
         <section className="py-16">
           <div className="container mx-auto px-6">
             <h3 className="text-3xl font-bold mb-6 pb-10 text-white">
-              Ofte stilte spørsmål
+              {t.services.faq.title}
             </h3>
             <div className="space-y-6">
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Hva koster en standard nettside?
+                  {t.services.faq.q1.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  En enkel én-sides landingsside ligger typisk på{" "}
-                  <strong>20 000-30 000kr</strong> (eks. mva). For en vanlig
-                  bedriftsnettside med 3-6 undersider ser man ofte priser rundt{" "}
-                  <strong>40 000-100 000 kr</strong> (eks. mva).
+                  {t.services.faq.q1.answer}
                 </p>
               </details>
 
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Hvor lang tid tar utvikling av en e-handelsløsning?
+                  {t.services.faq.q2.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  En komplett e-handelsløsning tar som regel{" "}
-                  <strong>4-6 uker</strong>, avhengig av produktmengde og
-                  tilpasninger. Priser starter typisk på{" "}
-                  <strong>40 000-80 000 kr</strong> (eks. mva).
+                  {t.services.faq.q2.answer}
                 </p>
               </details>
 
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Tilbyr du support og vedlikeholdsavtale?
+                  {t.services.faq.q3.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  Ja, jeg tilbyr fleksible vedlikeholdsavtaler fra{" "}
-                  <strong>1 000-3 000 kr/mnd</strong> (eks. mva). Avtalen
-                  inkluderer sikkerhetsoppdateringer, månedlige backuper og
-                  prioritert teknisk support.
+                  {t.services.faq.q3.answer}
                 </p>
               </details>
 
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Kan jeg selv administrere innholdet på siden?
+                  {t.services.faq.q4.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  Absolutt. Jeg leverer alltid et brukervennlig CMS (WordPress,
-                  Wix eller eget admin-panel) slik at du enkelt kan redigere
-                  tekst, bilder eller produkter uten teknisk kunnskap.
+                  {t.services.faq.q4.answer}
                 </p>
               </details>
 
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Hvilke teknologier bruker du?
+                  {t.services.faq.q5.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  Jeg jobber primært med Next.js, React, Tailwind CSS,
-                  WordPress, Wix og moderne API-er. Dette sikrer raske, trygge
-                  og skalerbare løsninger.
+                  {t.services.faq.q5.answer}
                 </p>
               </details>
 
               <details className="bg-zinc-800/80 border border-gray-800 hover:border-gray-400 cursor-pointer transition rounded-lg p-6">
                 <summary className="cursor-pointer font-semibold text-white">
-                  Hvordan foregår prosessen fra idé til lansering?
+                  {t.services.faq.q6.question}
                 </summary>
                 <p className="mt-3 p-5 text-gray-300 leading-relaxed">
-                  Prosessen starter med behovsanalyse og planlegging, etterfulgt
-                  av designskisser, utvikling, testing og lansering. Jeg
-                  involverer deg gjennom hele forløpet for å sikre at resultatet
-                  møter dine forventninger.
+                  {t.services.faq.q6.answer}
                 </p>
               </details>
             </div>

@@ -4,6 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 interface Project {
   id: string;
@@ -13,39 +14,82 @@ interface Project {
   image: string;
 }
 
-const featuredProjects: Project[] = [
-  {
-    id: "holidaze",
-    title: "Holidaze (Ferie Booking)",
-    description:
-      "Moderne booking-løsning for ferieboliger med full oversikt og responsivt design.",
-    href: "/prosjekter/holidaze",
-    image: "/images/projects/holidazeHome.png",
-  },
-  {
-    id: "auksjon",
-    title: "Auksjon Nettside",
-    description:
-      "Sanntids auksjonsplattform med smidig budgivning og administrasjon.",
-    href: "/prosjekter/auksjon",
-    image: "/images/projects/auctionHome.png",
-  },
-  {
-    id: "rainydays",
-    title: "RainyDays E-com",
-    description:
-      "Elegant nettbutikk med produktgalleri, handlekurv og betalingsløsning.",
-    href: "/prosjekter/rainydays",
-    image: "/images/projects/rainyDaysHome.png",
-  },
-];
-
 export default function FeaturedProjects() {
+  const { t, currentLanguage } = useTranslations();
+
+  const getLocalizedPath = (path: string) => {
+    if (currentLanguage === "en") {
+      return `/en${path}`;
+    }
+    return path;
+  };
+
+  const getFeaturedProjects = (): Project[] => {
+    if (currentLanguage === "en") {
+      return [
+        {
+          id: "holidaze",
+          title: "Holidaze (Holiday Booking)",
+          description:
+            "Modern booking solution for holiday homes with full overview and responsive design.",
+          href: "/en/prosjekter/holidaze",
+          image: "/images/projects/holidazeHome.png",
+        },
+        {
+          id: "auksjon",
+          title: "Auction Website",
+          description:
+            "Real-time auction platform with smooth bidding and administration.",
+          href: "/en/prosjekter/auksjon",
+          image: "/images/projects/auctionHome.png",
+        },
+        {
+          id: "rainydays",
+          title: "RainyDays E-commerce",
+          description:
+            "Elegant online store with product gallery, shopping cart and payment solution.",
+          href: "/en/prosjekter/rainydays",
+          image: "/images/projects/rainyDaysHome.png",
+        },
+      ];
+    }
+
+    // Norwegian projects (default)
+    return [
+      {
+        id: "holidaze",
+        title: "Holidaze (Ferie Booking)",
+        description:
+          "Moderne booking-løsning for ferieboliger med full oversikt og responsivt design.",
+        href: "/prosjekter/holidaze",
+        image: "/images/projects/holidazeHome.png",
+      },
+      {
+        id: "auksjon",
+        title: "Auksjon Nettside",
+        description:
+          "Sanntids auksjonsplattform med smidig budgivning og administrasjon.",
+        href: "/prosjekter/auksjon",
+        image: "/images/projects/auctionHome.png",
+      },
+      {
+        id: "rainydays",
+        title: "RainyDays E-com",
+        description:
+          "Elegant nettbutikk med produktgalleri, handlekurv og betalingsløsning.",
+        href: "/prosjekter/rainydays",
+        image: "/images/projects/rainyDaysHome.png",
+      },
+    ];
+  };
+
+  const featuredProjects = getFeaturedProjects();
+
   return (
     <section className="py-24 bg-black text-white">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Utvalgte prosjekter
+          {t.home.featuredProjects.title}
         </h2>
 
         {/* Grid of featured project cards */}
@@ -53,7 +97,7 @@ export default function FeaturedProjects() {
           {featuredProjects.map((project) => (
             <Link
               key={project.id}
-              href={project.href}
+              href={project.href as any}
               className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Project image */}
@@ -86,10 +130,10 @@ export default function FeaturedProjects() {
         {/* "Se alle prosjekter" button */}
         <div className="mt-8 text-center">
           <Link
-            href="/prosjekter"
+            href={getLocalizedPath("/prosjekter") as any}
             className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"
           >
-            Se alle prosjekter
+            {t.home.featuredProjects.viewAll}
           </Link>
         </div>
       </div>

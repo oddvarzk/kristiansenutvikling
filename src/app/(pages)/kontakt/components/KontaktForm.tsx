@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from "react";
 import Loader from "./Loader";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -11,6 +12,7 @@ const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { t, currentLanguage } = useTranslations();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,7 +46,7 @@ export default function ContactForm() {
         if (elapsed < 4000) await delay(4000 - elapsed);
 
         console.error("Server error:", data.error);
-        setErrorMessage(data.error ?? "Ukjent serverfeil");
+        setErrorMessage(data.error ?? (currentLanguage === "no" ? "Ukjent serverfeil" : "Unknown server error"));
         setStatus("error");
         return;
       }
@@ -64,7 +66,7 @@ export default function ContactForm() {
 
       console.error("Send error:", err);
       const msg = err instanceof Error ? err.message : String(err);
-      setErrorMessage(msg || "Nettverksfeil");
+      setErrorMessage(msg || (currentLanguage === "no" ? "Nettverksfeil" : "Network error"));
       setStatus("error");
     }
   };
@@ -74,10 +76,13 @@ export default function ContactForm() {
     return (
       <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-6 shadow-xl text-center">
         <h2 className="text-2xl font-bold text-white mb-4">
-          Takk for din henvendelse!
+          {currentLanguage === "no" ? "Takk for din henvendelse!" : "Thank you for your inquiry!"}
         </h2>
         <p className="text-white">
-          Din melding er sendt, og jeg vil kontakte deg innen 1-2 virkedager.
+          {currentLanguage === "no" 
+            ? "Din melding er sendt, og jeg vil kontakte deg innen 1-2 virkedager."
+            : "Your message has been sent, and I will contact you within 1-2 business days."
+          }
         </p>
       </div>
     );
@@ -93,10 +98,12 @@ export default function ContactForm() {
   return (
     <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-6 shadow-xl">
       <div className="relative inline-block mb-6">
-        <h2 className="text-2xl text-white font-bold">Kontakt skjema</h2>
+        <h2 className="text-2xl text-white font-bold">{t.contact.form.title}</h2>
         <p className="text-sm font-light mt-2">
-          Beskriv hva du trenger—nettside, forbedringer eller annet—så kontakter
-          jeg deg iløpet av 1-2 virkedager.
+          {currentLanguage === "no"
+            ? "Beskriv hva du trenger—nettside, forbedringer eller annet—så kontakter jeg deg iløpet av 1-2 virkedager."
+            : "Describe what you need—website, improvements or other—and I'll contact you within 1-2 business days."
+          }
         </p>
       </div>
 
@@ -108,7 +115,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             className="w-full px-4 py-3 bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder="Ditt navn"
+            placeholder={t.contact.form.name}
             required
           />
         </div>
@@ -120,7 +127,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             className="w-full px-4 py-3 bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder="din.epost@eksempel.no"
+            placeholder={currentLanguage === "no" ? "din.epost@eksempel.no" : "your.email@example.com"}
             required
           />
         </div>
@@ -135,13 +142,13 @@ export default function ContactForm() {
             defaultValue=""
           >
             <option value="" disabled>
-              Hva trenger du hjelp med?
+              {currentLanguage === "no" ? "Hva trenger du hjelp med?" : "What do you need help with?"}
             </option>
-            <option value="website">Nettside</option>
-            <option value="webshop">Nettbutikk</option>
-            <option value="app">Applikasjon</option>
-            <option value="seo">SEO-optimalisering</option>
-            <option value="other">Annet</option>
+            <option value="website">{currentLanguage === "no" ? "Nettside" : "Website"}</option>
+            <option value="webshop">{currentLanguage === "no" ? "Nettbutikk" : "E-commerce"}</option>
+            <option value="app">{currentLanguage === "no" ? "Applikasjon" : "Application"}</option>
+            <option value="seo">{currentLanguage === "no" ? "SEO-optimalisering" : "SEO optimization"}</option>
+            <option value="other">{currentLanguage === "no" ? "Annet" : "Other"}</option>
           </select>
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
             <svg
@@ -168,7 +175,7 @@ export default function ContactForm() {
             name="message"
             rows={4}
             className="w-full px-4 py-3 bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder="Fortell oss om ditt prosjekt"
+            placeholder={currentLanguage === "no" ? "Fortell oss om ditt prosjekt" : "Tell us about your project"}
             required
           />
         </div>
@@ -179,7 +186,7 @@ export default function ContactForm() {
             type="submit"
             className="bg-gradient-to-r cursor-pointer from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto disabled:opacity-50"
           >
-            Send henvendelse →
+            {t.contact.form.submit} →
           </button>
         </div>
 

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 interface NavigationProps {
   isMobile?: boolean;
@@ -13,41 +14,55 @@ export default function Navigation({
   onClose,
 }: NavigationProps) {
   const pathname = usePathname();
+  const { t, currentLanguage } = useTranslations();
+  
   const isActive = (p: string) => pathname === p;
+
+  const getLocalizedPath = (path: string) => {
+    if (currentLanguage === "en") {
+      return `/en${path}`;
+    }
+    return path;
+  };
 
   const ulClass = isMobile
     ? "flex flex-col gap-6 px-6"
     : "flex items-center gap-14";
 
+  const navItems = [
+    { href: "/", label: t.navigation.home },
+    { href: "/tjenester", label: t.navigation.services },
+    { href: "/prosjekter", label: t.navigation.projects },
+  ];
+
   return (
     <nav>
       <ul className={ulClass}>
-        {[
-          { href: "/", label: "Hjem" },
-          { href: "/tjenester", label: "Tjenester" },
-          { href: "/prosjekter", label: "Prosjekter" },
-        ].map(({ href, label }) => (
-          <li key={href}>
-            <Link
-              href={href}
-              onClick={() => onClose?.()}
-              className={`
-                block text-lg py-2 transition-colors duration-200
-                ${
-                  isActive(href)
-                    ? "text-cyan-400 border-b-2 border-cyan-400"
-                    : "text-white hover:text-cyan-300"
-                }
-              `}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
+        {navItems.map(({ href, label }) => {
+          const localizedHref = getLocalizedPath(href);
+          return (
+            <li key={href}>
+              <Link
+                href={localizedHref as any}
+                onClick={() => onClose?.()}
+                className={`
+                  block text-lg py-2 transition-colors duration-200
+                  ${
+                    isActive(localizedHref)
+                      ? "text-cyan-400 border-b-2 border-cyan-400"
+                      : "text-white hover:text-cyan-300"
+                  }
+                `}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
 
         <li>
           <Link
-            href="/kontakt"
+            href={getLocalizedPath("/kontakt") as any}
             onClick={() => onClose?.()}
             className={`
               inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium
@@ -55,7 +70,7 @@ export default function Navigation({
               hover:from-cyan-600 hover:to-cyan-700 transition
             `}
           >
-            Ta kontakt <ArrowRight size={16} />
+            {t.navigation.contact} <ArrowRight size={16} />
           </Link>
         </li>
       </ul>

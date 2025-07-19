@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 // Bilder for galleriet
 const galleryImages = [
@@ -20,21 +21,50 @@ const galleryImages = [
 
 export default function DroomvillaPage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const { t, currentLanguage } = useTranslations();
+
+  const getLocalizedPath = (path: string) => {
+    if (currentLanguage === "en") {
+      return `/en${path}`;
+    }
+    return path;
+  };
+
+  const getProjectData = () => {
+    if (currentLanguage === "en") {
+      return {
+        title: "DroomVillaSpanje (Wix Website)",
+        description: "DroomVillaSpanje is a custom Wix website for holiday home rentals in Spain, with focus on SEO, responsive design and easy booking.",
+        gallery: "Image Gallery",
+        technologies: "Technologies Used",
+        backToProjects: "← Back to projects"
+      };
+    }
+
+    return {
+      title: "DroomVillaSpanje (Wix Nettside)",
+      description: "DroomVillaSpanje er en skreddersydd Wix-nettside for ferieboligutleie i Spania, med fokus på SEO, responsiv design og enkel booking.",
+      gallery: "Bildegalleri",
+      technologies: "Teknologier brukt",
+      backToProjects: "← Tilbake til prosjekter"
+    };
+  };
+
+  const projectData = getProjectData();
 
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
         {/* Page Title */}
         <h1 className="text-4xl font-bold mb-8">
-          DroomVillaSpanje (Wix Nettside)
+          {projectData.title}
         </h1>
         <p className="text-gray-300 mb-12 leading-relaxed">
-          DroomVillaSpanje er en skreddersydd Wix-nettside for ferieboligutleie
-          i Spania, med fokus på SEO, responsiv design og enkel booking.
+          {projectData.description}
         </p>
 
         {/* Bildegalleri */}
-        <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.gallery}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {galleryImages.map((img, idx) => (
             <button
@@ -56,7 +86,7 @@ export default function DroomvillaPage() {
         </div>
 
         {/* Teknologier brukt */}
-        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.technologies}</h2>
         <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Wix Editor & Corvid for tilpasset funksjonalitet</li>
           <li>SEO-optimalisering med meta-tags og strukturerte data</li>
@@ -70,7 +100,7 @@ export default function DroomvillaPage() {
             <button
               onClick={() => setModalIndex(null)}
               className="absolute top-4 right-4 text-white text-3xl"
-              aria-label="Lukk galleri"
+              aria-label={currentLanguage === "en" ? "Close gallery" : "Lukk galleri"}
             >
               &times;
             </button>
@@ -87,8 +117,8 @@ export default function DroomvillaPage() {
 
         {/* Back link */}
         <div className="mt-12">
-          <Link href="/prosjekter" className="text-cyan-400 hover:underline">
-            &larr; Tilbake til prosjekter
+          <Link href={getLocalizedPath("/prosjekter") as any} className="text-cyan-400 hover:underline">
+            {projectData.backToProjects}
           </Link>
         </div>
       </div>

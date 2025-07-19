@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 // Bilder for galleriet
 const galleryImages = [
@@ -14,20 +15,48 @@ const galleryImages = [
 
 export default function RainydaysPage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const { t, currentLanguage } = useTranslations();
+
+  const getLocalizedPath = (path: string) => {
+    if (currentLanguage === "en") {
+      return `/en${path}`;
+    }
+    return path;
+  };
+
+  const getProjectData = () => {
+    if (currentLanguage === "en") {
+      return {
+        title: "RainyDays E-commerce",
+        description: "RainyDays is a complete e-commerce solution with product catalog, shopping cart and integrated payment gateway that provides customers with a seamless shopping experience.",
+        gallery: "Image Gallery",
+        technologies: "Technologies Used",
+        backToProjects: "← Back to projects"
+      };
+    }
+
+    return {
+      title: "RainyDays E-com",
+      description: "RainyDays er en komplett nettbutikk-løsning med produktkatalog, handlekurv og integrert betalingsgate som gir kundene en sømløs kjøpsopplevelse.",
+      gallery: "Bildegalleri",
+      technologies: "Teknologier brukt",
+      backToProjects: "← Tilbake til prosjekter"
+    };
+  };
+
+  const projectData = getProjectData();
 
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
         {/* Page Title */}
-        <h1 className="text-4xl font-bold mb-8">RainyDays E-com</h1>
+        <h1 className="text-4xl font-bold mb-8">{projectData.title}</h1>
         <p className="text-gray-300 mb-12 leading-relaxed">
-          RainyDays er en komplett nettbutikk-løsning med produktkatalog,
-          handlekurv og integrert betalingsgate som gir kundene en sømløs
-          kjøpsopplevelse.
+          {projectData.description}
         </p>
 
         {/* Bildegalleri */}
-        <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.gallery}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {galleryImages.map((img, idx) => (
             <button
@@ -49,7 +78,7 @@ export default function RainydaysPage() {
         </div>
 
         {/* Teknologier brukt */}
-        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.technologies}</h2>
         <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Next.js & React</li>
           <li>Tailwind CSS</li>
@@ -64,7 +93,7 @@ export default function RainydaysPage() {
             <button
               onClick={() => setModalIndex(null)}
               className="absolute top-4 right-4 text-white text-3xl"
-              aria-label="Lukk galleri"
+              aria-label={currentLanguage === "en" ? "Close gallery" : "Lukk galleri"}
             >
               &times;
             </button>
@@ -81,8 +110,8 @@ export default function RainydaysPage() {
 
         {/* Back link */}
         <div className="mt-12">
-          <Link href="/prosjekter" className="text-cyan-400 hover:underline">
-            &larr; Tilbake til prosjekter
+          <Link href={getLocalizedPath("/prosjekter") as any} className="text-cyan-400 hover:underline">
+            {projectData.backToProjects}
           </Link>
         </div>
       </div>

@@ -1,23 +1,26 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import KontaktForm from "./components/KontaktForm";
 import BackToTop from "../../components/BackToTop";
 import point from "../../../../public/images/point.svg";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 export default function KontaktPage() {
+  const { t } = useTranslations();
+
   return (
     <div className="container mx-auto px-4 py-12 space-y-16 mb-10">
       {/* Header Intro */}
       <div className="max-w-2xl p-2">
-        <h1 className="text-4xl font-bold">La oss snakke</h1>
+        <h1 className="text-4xl font-bold">{t.contact.title}</h1>
 
         {/* Point icon + text */}
         <div className="mt-4 flex items-start gap-3">
           <Image src={point} alt="Punktikon" className="mt-1.5 w-3 h-3" />
           <p className="text-gray-200 leading-relaxed">
-            Enten du ønsker en ny nettside, en app eller å styrke din synlighet
-            på nett, er jeg her for å hjelpe. Fyll ut skjemaet eller bruk
-            alternativ kontakt nedenfor.
+            {t.contact.subtitle}
           </p>
         </div>
       </div>
@@ -33,11 +36,11 @@ export default function KontaktPage() {
           {/* Contact Info Card */}
           <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-              Kontaktinformasjon
+              {t.contact.info.title}
             </h2>
             <ul className="space-y-3">
               <li>
-                <strong className="inline-block w-24">E-post:</strong>
+                <strong className="inline-block w-24">{t.contact.info.email}:</strong>
                 <a
                   href="mailto:hei@kristiansenutvikling.no"
                   className="underline hover:text-cyan-300"
@@ -46,7 +49,7 @@ export default function KontaktPage() {
                 </a>
               </li>
               <li>
-                <strong className="inline-block w-24">Telefon:</strong>
+                <strong className="inline-block w-24">{t.contact.info.phone}:</strong>
                 <a
                   href="tel:+4747207143"
                   className="underline hover:text-cyan-300"
@@ -55,8 +58,8 @@ export default function KontaktPage() {
                 </a>
               </li>
               <li>
-                <strong className="inline-block w-24">Lokasjon:</strong>
-                Oslo, Norge
+                <strong className="inline-block w-24">{t.contact.info.location}:</strong>
+                {t.contact.info.locationValue}
               </li>
             </ul>
           </section>
@@ -64,14 +67,14 @@ export default function KontaktPage() {
           {/* Opening Hours Card */}
           <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-              Åpningstider
+              {t.contact.hours.title}
             </h2>
             <p className="text-gray-300">
-              Hverdager: 09:00 - 21:00
+              {t.contact.hours.weekdays}
               <br />
-              Helg: 10:00 - 18:00
+              {t.contact.hours.weekend}
               <br />
-              (Stengt hvert døgn: 21:00 - 09:00)
+              {t.contact.hours.closed}
             </p>
           </section>
         </div>

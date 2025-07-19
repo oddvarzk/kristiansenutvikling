@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 // Bilder for galleriet
 const galleryImages = [
@@ -17,20 +18,48 @@ const galleryImages = [
 
 export default function AuctionPage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const { t, currentLanguage } = useTranslations();
+
+  const getLocalizedPath = (path: string) => {
+    if (currentLanguage === "en") {
+      return `/en${path}`;
+    }
+    return path;
+  };
+
+  const getProjectData = () => {
+    if (currentLanguage === "en") {
+      return {
+        title: "Auction Website",
+        description: "A real-time auction platform where users can place bids, see the highest bids flash, and manage item listings through an intuitive interface.",
+        gallery: "Image Gallery",
+        technologies: "Technologies Used",
+        backToProjects: "← Back to projects"
+      };
+    }
+
+    return {
+      title: "Auksjon Nettside",
+      description: "En sanntids auksjonsplattform der brukere kan legge inn bud, se de høyeste budene flashe, og administrere lister over varer via et intuitivt grensesnitt.",
+      gallery: "Bildegalleri",
+      technologies: "Teknologier brukt",
+      backToProjects: "← Tilbake til prosjekter"
+    };
+  };
+
+  const projectData = getProjectData();
 
   return (
     <section className="py-16 bg-black text-white">
       <div className="container mx-auto px-6">
         {/* Page Title */}
-        <h1 className="text-4xl font-bold mb-8">Auksjon Nettside</h1>
+        <h1 className="text-4xl font-bold mb-8">{projectData.title}</h1>
         <p className="text-gray-300 mb-12 leading-relaxed">
-          En sanntids auksjonsplattform der brukere kan legge inn bud, se de
-          høyeste budene flashe, og administrere lister over varer via et
-          intuitivt grensesnitt.
+          {projectData.description}
         </p>
 
         {/* Bildegalleri */}
-        <h2 className="text-2xl font-semibold mb-4">Bildegalleri</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.gallery}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {galleryImages.map((img, idx) => (
             <button
@@ -52,7 +81,7 @@ export default function AuctionPage() {
         </div>
 
         {/* Teknologier brukt */}
-        <h2 className="text-2xl font-semibold mb-4">Teknologier brukt</h2>
+        <h2 className="text-2xl font-semibold mb-4">{projectData.technologies}</h2>
         <ul className="list-disc list-inside text-gray-300 mb-12">
           <li>Next.js & React for UI</li>
           <li>Socket.IO for sanntids kommunikasjon</li>
@@ -67,7 +96,7 @@ export default function AuctionPage() {
             <button
               onClick={() => setModalIndex(null)}
               className="absolute top-4 right-4 text-white text-3xl"
-              aria-label="Lukk galleri"
+              aria-label={currentLanguage === "en" ? "Close gallery" : "Lukk galleri"}
             >
               &times;
             </button>
@@ -84,8 +113,8 @@ export default function AuctionPage() {
 
         {/* Back link */}
         <div className="mt-12">
-          <Link href="/prosjekter" className="text-cyan-400 hover:underline">
-            &larr; Tilbake til prosjekter
+          <Link href={getLocalizedPath("/prosjekter") as any} className="text-cyan-400 hover:underline">
+            {projectData.backToProjects}
           </Link>
         </div>
       </div>

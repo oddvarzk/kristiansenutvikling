@@ -4,8 +4,10 @@
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 import CookieBanner from "@/app/components/CookieBanner";
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 interface FontVariable {
   variable: string;
@@ -24,8 +26,10 @@ type RootLayoutProps = Readonly<{
 }>;
 
 export default function RootLayout({ children, fonts }: RootLayoutProps) {
+  const { currentLanguage } = useTranslations();
+
   return (
-    <html lang="no">
+    <html lang={currentLanguage}>
       <body
         className={`
           ${fonts.geistSans.variable}
@@ -35,6 +39,7 @@ export default function RootLayout({ children, fonts }: RootLayoutProps) {
           antialiased flex flex-col min-h-screen
         `}
       >
+        <LanguageSwitcher />
         <Header />
         <main className="flex-grow">{children}</main>
         <CookieBanner />
