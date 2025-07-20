@@ -70,7 +70,7 @@ export default function Navigation({
               hover:from-cyan-600 hover:to-cyan-700 transition
             `}
           >
-            {t.navigation.contact} <ArrowRight size={16} />
+            {t.navigation.contact}
           </Link>
         </li>
       </ul>

@@ -14,6 +14,7 @@ interface ServiceItem {
     pricing: string;
     features: string[];
   };
+  icon: React.ReactNode;
 }
 
 function ExpandableServiceItem({
@@ -28,32 +29,42 @@ function ExpandableServiceItem({
   const { currentLanguage } = useTranslations();
 
   return (
-    <div className="mb-6">
+    <div className="mb-8">
       <div
         onClick={toggleOpen}
-        className={`cursor-pointer rounded-lg transition-all duration-300 overflow-hidden backdrop-blur-sm ${
+        className={`cursor-pointer rounded-xl transition-all duration-500 overflow-hidden backdrop-blur-sm ${
           isOpen
-            ? "bg-gradient-to-r from-zinc-900/90 to-black/95 border-l-2 border-cyan-500 shadow-lg"
-            : "bg-zinc-800/80 hover:bg-zinc-900/90 hover:border-l hover:border-cyan-500/30"
+            ? "bg-gradient-to-r from-zinc-900/95 to-black/95 border-l-4 border-cyan-500 shadow-2xl transform scale-[1.02]"
+            : "bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 hover:bg-gradient-to-r hover:from-zinc-800/90 hover:to-zinc-900/90 hover:border-l-4 hover:border-cyan-500/50 hover:transform hover:scale-[1.01]"
         }`}
       >
         {/* Header */}
-        <div className="p-5 flex flex-col">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl text-cyan-400 font-bold">{service.title}</h2>
-            <div className="flex items-center">
+        <div className="p-6">
+          <div className="flex justify-between items-start">
+            <div className="flex items-center gap-4">
+              <div className={`p-3 rounded-xl transition-all duration-300 ${
+                isOpen ? "bg-cyan-500/20 text-cyan-400" : "bg-zinc-700/50 text-gray-400"
+              }`}>
+                {service.icon}
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl text-cyan-400 font-bold mb-2">{service.title}</h2>
+                <p className="text-gray-300 leading-relaxed">{service.shortDescription}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
               {!isOpen && (
-                <span className="text-sm text-gray-400 mr-2 hidden md:inline">
+                <span className="text-sm text-gray-400 hidden md:inline">
                   {currentLanguage === "no" ? "Vis detaljer" : "Show details"}
                 </span>
               )}
               <div
-                className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                  isOpen ? "bg-cyan-500/20" : "bg-zinc-800"
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${
+                  isOpen ? "bg-cyan-500/20" : "bg-zinc-700/50"
                 }`}
               >
                 <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
+                  className={`w-5 h-5 transition-transform duration-300 ${
                     isOpen ? "text-cyan-400 rotate-180" : "text-gray-400"
                   }`}
                   fill="none"
@@ -70,52 +81,59 @@ function ExpandableServiceItem({
               </div>
             </div>
           </div>
-          <p className="text-gray-300 mt-2">{service.shortDescription}</p>
         </div>
 
         {/* Expanded Content */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${
-            isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-700 ${
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="p-5 pt-0">
-            <div className="border-t border-gray-800 pt-5 mb-5" />
-            <p className="text-gray-200 mb-6 leading-relaxed">
+          <div className="p-6 pt-0">
+            <div className="border-t border-zinc-700/50 pt-6 mb-6" />
+            <p className="text-gray-200 mb-8 leading-relaxed text-lg">
               {service.expandedContent.description}
             </p>
-            <div className="bg-gradient-to-r from-zinc-800/70 to-zinc-900/70 p-5 rounded-lg mb-6 border border-zinc-700/30">
-              {/* Demoted from h3 to h4 */}
-              <h4 className="text-cyan-400 font-medium mb-2">
-                {currentLanguage === "no" ? "Prising:" : "Pricing:"}
-              </h4>
-              <p className="text-gray-200">{service.expandedContent.pricing}</p>
-            </div>
-            <div>
-              {/* Demoted from h3 to h4 */}
-              <h4 className="text-cyan-400 font-medium mb-3">
-                {currentLanguage === "no" ? "Dette inkluderer:" : "This includes:"}
-              </h4>
-              <ul className="space-y-3 ml-6">
-                {service.expandedContent.features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
-                    <svg
-                      className="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
+                <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                  {currentLanguage === "no" ? "Prising:" : "Pricing:"}
+                </h4>
+                <p className="text-gray-200 leading-relaxed">{service.expandedContent.pricing}</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
+                <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {currentLanguage === "no" ? "Dette inkluderer:" : "This includes:"}
+                </h4>
+                <ul className="space-y-3">
+                  {service.expandedContent.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      <svg
+                        className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-300 leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -151,6 +169,11 @@ export default function TjenesterServicesSection() {
               "6 months free support and maintenance",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+            </svg>
+          ),
         },
         {
           id: "wix",
@@ -169,6 +192,11 @@ export default function TjenesterServicesSection() {
               "Training in Wix editor for easy self-editing",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+          ),
         },
         {
           id: "wordpress",
@@ -186,6 +214,11 @@ export default function TjenesterServicesSection() {
               "Training and documentation for administration",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          ),
         },
         {
           id: "app",
@@ -204,6 +237,11 @@ export default function TjenesterServicesSection() {
               "Publishing in App Store and Google Play",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          ),
         },
         {
           id: "ecommerce",
@@ -221,6 +259,11 @@ export default function TjenesterServicesSection() {
               "SSL security and PCI compliance",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+          ),
         },
         {
           id: "seo",
@@ -239,6 +282,11 @@ export default function TjenesterServicesSection() {
               "Monthly reports with progress",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          ),
         },
         {
           id: "maintenance",
@@ -255,6 +303,12 @@ export default function TjenesterServicesSection() {
               "24/7 monitoring and quick response",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          ),
         },
       ];
     }
@@ -279,6 +333,11 @@ export default function TjenesterServicesSection() {
             "6 måneder gratis support og vedlikehold",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+          </svg>
+        ),
       },
       {
         id: "wix",
@@ -297,6 +356,11 @@ export default function TjenesterServicesSection() {
             "Opplæring i Wix-editor for enkel egenredigering",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        ),
       },
       {
         id: "wordpress",
@@ -314,6 +378,11 @@ export default function TjenesterServicesSection() {
             "Opplæring og dokumentasjon for administrasjon",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        ),
       },
       {
         id: "app",
@@ -332,6 +401,11 @@ export default function TjenesterServicesSection() {
             "Publisering i App Store og Google Play",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        ),
       },
       {
         id: "ecommerce",
@@ -349,6 +423,11 @@ export default function TjenesterServicesSection() {
             "SSL-sikring og PCI-kompatibilitet",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        ),
       },
       {
         id: "seo",
@@ -367,6 +446,11 @@ export default function TjenesterServicesSection() {
             "Månedlige rapporter med fremdrift",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        ),
       },
       {
         id: "maintenance",
@@ -383,6 +467,12 @@ export default function TjenesterServicesSection() {
             "24/7 overvåking og rask respons",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        ),
       },
     ];
   };
@@ -390,20 +480,31 @@ export default function TjenesterServicesSection() {
   const services = getServices();
 
   return (
-    <section className="py-2">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="text-3xl font-bold text-center text-white mb-8">
-          {currentLanguage === "no" ? "Alle tilgjengelige tjenester" : "All available services"}
-        </h1>
-        <div className="space-y-12">
-          {services.map((svc) => (
-            <ExpandableServiceItem
-              key={svc.id}
-              service={svc}
-              isOpen={openId === svc.id}
-              toggleOpen={() => toggleOpen(svc.id)}
-            />
-          ))}
+    <section className="py-16">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            {currentLanguage === "no" ? "Alle tilgjengelige tjenester" : "All available services"}
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            {currentLanguage === "no"
+              ? "Komplett webutvikling fra idé til lansering"
+              : "Complete web development from idea to launch"
+            }
+          </p>
+        </div>
+        
+        <div className="max-w-5xl mx-auto">
+          <div className="space-y-6">
+            {services.map((svc) => (
+              <ExpandableServiceItem
+                key={svc.id}
+                service={svc}
+                isOpen={openId === svc.id}
+                toggleOpen={() => toggleOpen(svc.id)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
