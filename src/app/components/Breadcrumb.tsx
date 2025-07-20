@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
 import React from "react";
 import Link from "next/link";
@@ -53,7 +55,8 @@ export default function Breadcrumb() {
       <nav aria-label="breadcrumb" className="sr-only">
         {crumbs.map((c, i) => (
           <React.Fragment key={c.href}>
-            <Link href={c.href}>{c.name}</Link>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            <Link href={c.href as any}>{c.name}</Link>
             {i < crumbs.length - 1 && " / "}
           </React.Fragment>
         ))}

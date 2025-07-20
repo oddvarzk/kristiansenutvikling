@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 // src/components/ServicesSection.tsx
 "use client";
 
@@ -57,6 +59,7 @@ interface ServiceItem {
     pricing: string;
     features: string[];
   };
+  icon: ReactNode; // Added icon property
 }
 const ExpandableServiceItem = ({
   service,
@@ -66,37 +69,45 @@ const ExpandableServiceItem = ({
   service: ServiceItem;
   isOpen: boolean;
   toggleOpen: () => void;
-  delay: number;
 }) => {
   const { currentLanguage } = useTranslations();
-
   return (
-    <div className="mb-6">
+    <div className="mb-8">
       <div
         onClick={toggleOpen}
-        className={`cursor-pointer border-1 border-cyan-700 rounded-lg transition-all duration-300 overflow-hidden backdrop-blur-sm ${
+        className={`cursor-pointer rounded-xl transition-all duration-500 overflow-hidden backdrop-blur-sm ${
           isOpen
-            ? "bg-gradient-to-r from-zinc-900/90 to-black/95 shadow-lg"
-            : "bg-zinc-900/80 hover:bg-zinc-900/90"
+            ? "bg-gradient-to-r from-zinc-900/95 to-black/95 border-l-4 border-cyan-500 shadow-2xl transform scale-[1.02]"
+            : "bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 hover:bg-gradient-to-r hover:from-zinc-800/90 hover:to-zinc-900/90 hover:border-l-4 hover:border-cyan-500/50 hover:transform hover:scale-[1.01]"
         }`}
       >
         {/* Header */}
-        <div className="p-5 flex flex-col">
-          <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold">{service.title}</h3>
-            <div className="flex items-center">
+        <div className="p-6">
+          <div className="flex justify-between items-start">
+            <div className="flex items-center gap-4">
+              <div className={`p-3 rounded-xl transition-all duration-300 ${
+                isOpen ? "bg-cyan-500/20 text-cyan-400" : "bg-zinc-700/50 text-gray-400"
+              }`}>
+                {service.icon}
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl text-cyan-400 font-bold mb-2">{service.title}</h2>
+                <p className="text-gray-300 leading-relaxed">{service.shortDescription}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
               {!isOpen && (
-                <span className="text-sm text-gray-400 mr-2 hidden md:inline">
+                <span className="text-sm text-gray-400 hidden md:inline">
                   {currentLanguage === "no" ? "Vis detaljer" : "Show details"}
                 </span>
               )}
               <div
-                className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
-                  isOpen ? "bg-cyan-500/20" : "bg-zinc-800"
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ${
+                  isOpen ? "bg-cyan-500/20" : "bg-zinc-700/50"
                 }`}
               >
                 <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
+                  className={`w-5 h-5 transition-transform duration-300 ${
                     isOpen ? "text-cyan-400 rotate-180" : "text-gray-400"
                   }`}
                   fill="none"
@@ -113,50 +124,58 @@ const ExpandableServiceItem = ({
               </div>
             </div>
           </div>
-          <p className="text-gray-300 mt-2">{service.shortDescription}</p>
         </div>
-
-        {/* Expanded */}
+        {/* Expanded Content */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${
-            isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-700 ${
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="p-5 pt-0">
-            <div className="border-t border-gray-800 pt-5 mb-5" />
-            <p className="text-gray-200 mb-6 leading-relaxed">
+          <div className="p-6 pt-0">
+            <div className="border-t border-zinc-700/50 pt-6 mb-6" />
+            <p className="text-gray-200 mb-8 leading-relaxed text-lg">
               {service.expandedContent.description}
             </p>
-            <div className="bg-gradient-to-r from-zinc-800/70 to-zinc-900/70 p-5 rounded-lg mb-6 border border-zinc-700/30">
-              <h4 className="text-cyan-400 font-medium mb-2 flex items-center">
-                {currentLanguage === "no" ? "Prising:" : "Pricing:"}
-              </h4>
-              <p className="text-gray-200">{service.expandedContent.pricing}</p>
-            </div>
-            <div>
-              <h4 className="text-cyan-400 font-medium mb-3 flex items-center">
-                {currentLanguage === "no" ? "Dette inkluderer:" : "This includes:"}
-              </h4>
-              <ul className="space-y-3 ml-6">
-                {service.expandedContent.features.map((f, i) => (
-                  <li key={i} className="flex items-start">
-                    <svg
-                      className="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-gray-300">{f}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
+                <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
+                  {/* Pricing icon */}
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                  {currentLanguage === "no" ? "Prising:" : "Pricing:"}
+                </h4>
+                <p className="text-gray-200 leading-relaxed">{service.expandedContent.pricing}</p>
+              </div>
+              <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
+                <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
+                  {/* Features icon */}
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {currentLanguage === "no" ? "Dette inkluderer:" : "This includes:"}
+                </h4>
+                <ul className="space-y-3">
+                  {service.expandedContent.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      <svg
+                        className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-gray-300 leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -193,6 +212,11 @@ export default function TjenesterSeksjon() {
               "6 months free support",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+            </svg>
+          ),
         },
         {
           id: "wix",
@@ -210,6 +234,11 @@ export default function TjenesterSeksjon() {
               "Wix editor training",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+          ),
         },
         {
           id: "wordpress",
@@ -227,6 +256,11 @@ export default function TjenesterSeksjon() {
               "User training",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          ),
         },
         {
           id: "seo",
@@ -243,6 +277,11 @@ export default function TjenesterSeksjon() {
               "Monthly reports",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          ),
         },
         {
           id: "maintenance",
@@ -260,6 +299,11 @@ export default function TjenesterSeksjon() {
               "Monthly backup",
             ],
           },
+          icon: (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          ),
         },
       ];
     }
@@ -284,6 +328,11 @@ export default function TjenesterSeksjon() {
             "6 mnd gratis support",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+          </svg>
+        ),
       },
       {
         id: "wix",
@@ -301,6 +350,11 @@ export default function TjenesterSeksjon() {
             "Opplæring i Wix-editor",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        ),
       },
       {
         id: "wordpress",
@@ -318,6 +372,11 @@ export default function TjenesterSeksjon() {
             "Brukeropplæring",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        ),
       },
       {
         id: "seo",
@@ -334,6 +393,11 @@ export default function TjenesterSeksjon() {
             "Månedlige rapporter",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+          </svg>
+        ),
       },
       {
         id: "maintenance",
@@ -351,6 +415,11 @@ export default function TjenesterSeksjon() {
             "Månedlig backup",
           ],
         },
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+          </svg>
+        ),
       },
     ];
   };
@@ -372,16 +441,16 @@ export default function TjenesterSeksjon() {
         </h2>
 
         <AnimatedSection delay={300} className="max-w-3xl mx-auto">
-          {services.map((svc, idx) => (
+          {services.map((svc) => (
             <ExpandableServiceItem
               key={svc.id}
               service={svc}
               isOpen={openServiceId === svc.id}
               toggleOpen={() => toggleService(svc.id)}
-              delay={400 + idx * 100}
             />
           ))}
           <div className="flex justify-center">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Link href={getLocalizedPath("/tjenester") as any}>
               <button className="cursor-pointer mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 hover:from-cyan-500 hover:to-cyan-400">
                 {currentLanguage === "no" ? "Se flere tjenester" : "See more services"}

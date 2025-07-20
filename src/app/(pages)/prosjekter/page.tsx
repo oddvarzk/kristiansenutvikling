@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
 
 // src/app/prosjekter/page.tsx
@@ -5,7 +7,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
-import point from "../../../../public/images/point.svg";
 import BackToTop from "../../components/BackToTop";
 import { useTranslations } from "@/app/hooks/useTranslations";
 

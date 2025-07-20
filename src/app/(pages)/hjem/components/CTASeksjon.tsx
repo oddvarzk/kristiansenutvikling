@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
 
 import Link from "next/link";
@@ -23,6 +25,7 @@ export default function CTASeksjon() {
           {t.home.cta.subtitle}
         </p>
         <div className="mt-8 text-center">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <Link
             href={getLocalizedPath("/kontakt") as any}
             className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"

@@ -21,6 +21,23 @@ export const no = {
       button: "Ta en prat",
     },
   },
+  whyChooseMe: {
+    heading: "Hvorfor velge meg som din partner?",
+    cards: [
+      {
+        title: "Pålitelig kvalitet",
+        description: "Dedikert til å levere høykvalitetsløsninger som møter eller overgår dine forventninger, alltid til avtalt tid."
+      },
+      {
+        title: "Klar kommunikasjon",
+        description: "Tett dialog gjennom hele prosessen med rask responstid og forståelige forklaringer uten teknisk sjargong."
+      },
+      {
+        title: "Skreddersydde løsninger",
+        description: "Hvert prosjekt er unikt. Jeg lager tilpassede løsninger basert på dine spesifikke behov og forretningsmål."
+      }
+    ]
+  },
   services: {
     title: "Mine tjenester",
     intro: "Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter som ønsker å vokse online. Fra responsive nettsider og moderne e-handelsløsninger, til kraftfulle applikasjoner, SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som passer dine behov.",

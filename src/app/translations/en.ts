@@ -141,4 +141,21 @@ export const en = {
     error: "Error",
     backToTop: "Back to top",
   },
+  whyChooseMe: {
+    heading: "Why choose me as your partner?",
+    cards: [
+      {
+        title: "Reliable Quality",
+        description: "Dedicated to delivering high-quality solutions that meet or exceed your expectations, always on time."
+      },
+      {
+        title: "Clear Communication",
+        description: "Close dialogue throughout the process with fast response times and clear explanations without technical jargon."
+      },
+      {
+        title: "Tailored Solutions",
+        description: "Every project is unique. I create customized solutions based on your specific needs and business goals."
+      }
+    ]
+  },
 }; 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 // src/components/Footer.tsx
 "use client";
 
@@ -75,26 +77,31 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-gray-400 text-sm">
             <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/") as any} className="hover:text-white">
                 {t.navigation.home}
               </Link>
             </li>
             <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/tjenester") as any} className="hover:text-white">
                 {t.navigation.services}
               </Link>
             </li>
             <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/prosjekter") as any} className="hover:text-white">
                 {t.navigation.projects}
               </Link>
             </li>
             <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/kontakt") as any} className="hover:text-white">
                 {t.navigation.contact}
               </Link>
             </li>
             <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/personvern") as any} className="hover:text-white">
                 {currentLanguage === "no" ? "Personvern" : "Privacy"}
               </Link>

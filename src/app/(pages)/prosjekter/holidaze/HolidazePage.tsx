@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 // src/app/prosjekter/holidaze/HolidazePage.tsx
 "use client";
 
@@ -15,7 +17,7 @@ const galleryImages = [
 
 export default function HolidazePage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
-  const { t, currentLanguage } = useTranslations();
+  const { currentLanguage } = useTranslations();
 
   const getLocalizedPath = (path: string) => {
     if (currentLanguage === "en") {
@@ -110,6 +112,7 @@ export default function HolidazePage() {
 
         {/* Back link */}
         <div className="mt-12">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <Link href={getLocalizedPath("/prosjekter") as any} className="text-cyan-400 hover:underline">
             {projectData.backToProjects}
           </Link>

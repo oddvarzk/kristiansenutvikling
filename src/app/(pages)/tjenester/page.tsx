@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import point from "../../../../public/images/point.svg";
 import Script from "next/script";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
 import BackToTop from "../../components/BackToTop";

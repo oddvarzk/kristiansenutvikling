@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 // src/components/FeaturedProjects.tsx
 "use client";
 
@@ -93,28 +95,24 @@ export default function FeaturedProjects() {
         </h2>
 
         {/* Grid of featured project cards */}
-        <div className="flex flex-wrap justify-center gap-20 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7xl mx-auto mt-12">
           {featuredProjects.map((project) => (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             <Link
               key={project.id}
               href={project.href as any}
-              className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="group block bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 p-0 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-zinc-700/50 hover:border-cyan-500/50"
             >
-              {/* Project image */}
-              <div className="mockup-laptop w-full sm:w-full md:w-full lg:w-[100%] border-4 border-gray-700 rounded-xl shadow-md mx-auto">
-                <div className="camera" />
-                {/* Display container adjusted to image dimensions */}
-                <div className="display p-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={500}
-                    height={300}
-                    className="object-contain w-full rounded-lg"
-                  />
-                </div>
+              <div className="relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={250}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              {/* Project title & description */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                   {project.title}
@@ -129,6 +127,7 @@ export default function FeaturedProjects() {
 
         {/* "Se alle prosjekter" button */}
         <div className="mt-8 text-center">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <Link
             href={getLocalizedPath("/prosjekter") as any}
             className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"
