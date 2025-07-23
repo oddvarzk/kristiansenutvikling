@@ -65,7 +65,7 @@ export default function HeroSeksjon() {
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10">
         <div className="flex px-10 flex-col md:flex-row items-center">
           <div className="text-neutral-400">
-            <h1 className="text-4xl text-white md:text-4xl font-bold mb-8 text-center md:text-left">
+            <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center leading-tight break-words max-w-sm md:max-w-2xl mx-auto md:mx-0">
               {t.hero.title}
             </h1>
 
