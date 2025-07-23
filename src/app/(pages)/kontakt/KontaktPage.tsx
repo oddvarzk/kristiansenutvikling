@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import KontaktForm from "./components/KontaktForm";
 import BackToTop from "../../components/BackToTop";
-import point from "../../../../public/images/point.svg";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { Mail, Phone, MapPin } from "lucide-react";
 
