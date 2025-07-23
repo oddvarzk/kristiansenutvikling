@@ -180,17 +180,17 @@ export default function HeroSeksjon() {
               )}
             </AnimatedListItem>
 
-            <div className="flex justify-center gap-10 mt-6 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
+            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mt-6 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/tjenester") as any} className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer h-18 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+              <Link href={getLocalizedPath("/tjenester") as any} className="w-full md:flex-1 min-w-[180px]">
+                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer h-18 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full">
                   {currentLanguage === "no" ? "Hva kan jeg tilby?" : "What can I offer?"}
                 </button>
               </Link>
 
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/prosjekter") as any} className="w-full md:w-auto">
-                <button className="bg-gradient-to-r cursor-pointer h-18 from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+              <Link href={getLocalizedPath("/prosjekter") as any} className="w-full md:flex-1 min-w-[180px]">
+                <button className="bg-gradient-to-r cursor-pointer h-18 from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full">
                   {currentLanguage === "no" ? "Mine prosjekter" : "My projects"}
                 </button>
               </Link>
