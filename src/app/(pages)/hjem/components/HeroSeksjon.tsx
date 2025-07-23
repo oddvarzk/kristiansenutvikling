@@ -63,12 +63,11 @@ export default function HeroSeksjon() {
       />
       <div className="absolute inset-0 bg-black/80" />
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10">
-        <div className="flex px-10 flex-col md:flex-row items-center">
-          <div className="text-neutral-400">
-            <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center leading-tight break-words max-w-sm md:max-w-2xl mx-auto md:mx-0">
-              {t.hero.title}
-            </h1>
-
+        <div className="px-10 flex flex-col items-center md:items-start justify-center text-neutral-400">
+          <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center md:text-left leading-tight break-words max-w-sm md:max-w-2xl mx-auto md:mx-0 text-white">
+            {t.hero.title}
+          </h1>
+          <div className="flex flex-col items-center md:items-start w-full">
             <AnimatedListItem delay={300}>
               {currentLanguage === "no" ? (
                 <>
@@ -179,18 +178,17 @@ export default function HeroSeksjon() {
                 </>
               )}
             </AnimatedListItem>
-
-            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mt-6 opacity-0 animate-[fadeUp_0.4s_ease-out_1.1s_forwards]">
+            <div className="flex flex-col md:flex-row justify-center md:justify-start gap-4 md:gap-6 mt-8 w-full max-w-xl mx-auto md:mx-0">
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/tjenester") as any} className="w-full md:flex-1 min-w-[180px]">
-                <button className="bg-gradient-to-r from-cyan-600 cursor-pointer h-18 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full">
+              <Link href={getLocalizedPath("/tjenester") as any} className="w-full md:w-auto">
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto min-w-[140px] cursor-pointer">
                   {currentLanguage === "no" ? "Hva kan jeg tilby?" : "What can I offer?"}
                 </button>
               </Link>
 
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/prosjekter") as any} className="w-full md:flex-1 min-w-[180px]">
-                <button className="bg-gradient-to-r cursor-pointer h-18 from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full">
+              <Link href={getLocalizedPath("/prosjekter") as any} className="w-full md:w-auto">
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto min-w-[140px] cursor-pointer">
                   {currentLanguage === "no" ? "Mine prosjekter" : "My projects"}
                 </button>
               </Link>
@@ -198,6 +196,8 @@ export default function HeroSeksjon() {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+      `}</style>
     </section>
   );
 }

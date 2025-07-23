@@ -16,7 +16,7 @@ export default function CTASeksjon() {
   };
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 bg-gradient-to-r from-cyan-600/20 to-blue-600/20">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">
           {t.home.cta.title}
