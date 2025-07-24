@@ -14,7 +14,7 @@ const slugToLabel: Record<string, string> = {
   FAQ: "FAQ",
   about: "about",
   personvern: "personvern",
-  // Note: individual project pages will be grouped under "Prosjekter"
+  artikler: "Artikler",
 };
 
 export default function Breadcrumb() {

@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/prosjekter`, lastModified: today },
     { url: `${base}/kontakt`, lastModified: today },
     { url: `${base}/personvern`, lastModified: today },
+    { url: `${base}/artikler`, lastModified: today },
 
     // Project detail pages
     { url: `${base}/prosjekter/holidaze`, lastModified: today },
