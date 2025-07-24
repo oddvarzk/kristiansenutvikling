@@ -32,7 +32,7 @@ export default function CTASeksjon() {
               href={getLocalizedPath("/kontakt") as any}
               className="w-full md:w-auto"
             >
-              <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 h-14 rounded-4xl font-semibold shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+              <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 h-14 rounded-4xl font-semibold shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto cursor-pointer">
                 {t.home.cta.button}
               </button>
             </Link>
