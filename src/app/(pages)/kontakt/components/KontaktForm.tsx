@@ -81,8 +81,8 @@ export default function ContactForm() {
         </h2>
         <p className="text-white">
           {currentLanguage === "no" 
-            ? "Din melding er sendt, og jeg vil kontakte deg innen 1-2 virkedager."
-            : "Your message has been sent, and I will contact you within 1-2 business days."
+            ? "Din melding er sendt, og jeg vil kontakte deg så snart som mulig."
+            : "Your message has been sent, and I will contact you as soon as possible."
           }
         </p>
       </div>
@@ -109,8 +109,8 @@ export default function ContactForm() {
         <h2 className="text-2xl text-white font-bold">{t.contact.form.title}</h2>
         <p className="text-sm font-light mt-2">
           {currentLanguage === "no"
-            ? "Beskriv hva du trenger nettside, forbedringer eller annet så kontakter jeg deg iløpet av 1-2 virkedager."
-            : "Describe what you need website, improvements or other and I'll contact you within 1-2 business days."}
+            ? "Beskriv hva du trenger nettside, forbedringer eller annet så kontakter jeg deg så snart som mulig."
+            : "Describe what you need website, improvements or other and I'll get back to you as soon as possible."}
         </p>
       </div>
       <form className="space-y-7" onSubmit={handleSubmit}>
@@ -221,7 +221,7 @@ export default function ContactForm() {
             name="message"
             rows={4}
             className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder={currentLanguage === "no" ? "Fortell oss om ditt prosjekt" : "Tell us about your project"}
+            placeholder={currentLanguage === "no" ? "Fortell meg om ditt prosjekt" : "Tell us about your project"}
             required
           />
         </div>
