@@ -63,17 +63,16 @@ export default function HeroSeksjon() {
       />
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-neutral-900/90 to-cyan-950/80 pointer-events-none" />
-      {/* Animated glow behind card */}
-      <div className="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-cyan-700/30 blur-3xl animate-pulse z-0" />
+      {/* Remove animated glow behind card */}
+      {/* Remove glassmorphism card, keep only text */}
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10 flex justify-center md:justify-start items-center min-h-[80vh]">
-        {/* Glassmorphism card - now darker, with accent border */}
-        <div className="relative backdrop-blur-md bg-black/60 border border-neutral-800/80 border-l-8 border-l-cyan-500 rounded-3xl shadow-2xl px-8 py-12 md:px-16 md:py-16 flex flex-col items-center md:items-start max-w-2xl w-full text-neutral-100">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-left leading-tight break-words text-white drop-shadow-lg">
+        <div className="flex flex-col items-center md:items-start w-full max-w-2xl text-neutral-100 px-4">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-left md:text-left text-center leading-tight break-words text-white drop-shadow-lg">
             {currentLanguage === "no"
               ? "Webutviklingsbyrå med fokus på kundens behov."
               : "Web development agency focused on your needs."}
           </h1>
-          <p className="text-lg md:text-2xl font-medium mb-8 text-left text-cyan-200">
+          <p className="text-lg md:text-2xl font-medium mb-8 text-left md:text-left text-center text-cyan-200">
             {currentLanguage === "no"
               ? "Jeg hjelper deg fra idé til lansering – nettsider, apper og mer, levert med kvalitet og trygghet."
               : "I will help you from idea to launch – websites, apps, and more, delivered with quality and reliability."}
