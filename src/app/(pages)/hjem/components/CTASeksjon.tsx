@@ -16,24 +16,38 @@ export default function CTASeksjon() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-r from-cyan-600/20 to-blue-600/20">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">
-          {t.home.cta.title}
-        </h2>
-        <p className="max-w-2xl mx-auto mb-8 text-gray-300">
-          {t.home.cta.subtitle}
-        </p>
-        <div className="mt-8 text-center">
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <Link
-            href={getLocalizedPath("/kontakt") as any}
-            className="inline-block bg-cyan-600 text-white px-6 py-3 rounded-md font-medium hover:bg-cyan-500 transition"
-          >
-            {t.home.cta.button}
-          </Link>
+    <section className="relative py-24 bg-black overflow-hidden">
+      {/* Removed animated cyan glow */}
+      <div className="container mx-auto px-4 flex justify-center items-center relative z-10">
+        <div className="animate-fadeInUp backdrop-blur-md bg-black/60 border border-neutral-800/80 border-t-4 border-t-cyan-500 rounded-3xl shadow-2xl px-8 py-12 md:px-16 md:py-16 flex flex-col items-center max-w-2xl w-full text-neutral-100">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white drop-shadow-lg">
+            {t.home.cta.title}
+          </h2>
+          <p className="max-w-2xl mb-8 text-lg md:text-xl text-cyan-200 text-center">
+            {t.home.cta.subtitle}
+          </p>
+          <div className="mt-8 w-full flex justify-center">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            <Link
+              href={getLocalizedPath("/kontakt") as any}
+              className="w-full md:w-auto"
+            >
+              <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 h-14 rounded-4xl font-semibold shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto">
+                {t.home.cta.button}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes fadeInUp {
+          0% { opacity: 0; transform: translateY(40px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) both;
+        }
+      `}</style>
     </section>
   );
 }

@@ -61,140 +61,71 @@ export default function HeroSeksjon() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/80" />
-      <div className="container mx-auto sm:px-6 lg:px-8 relative z-10">
-        <div className="px-10 flex flex-col items-center md:items-start justify-center text-neutral-400">
-          <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center md:text-left leading-tight break-words max-w-sm md:max-w-2xl mx-auto md:mx-0 text-white">
-            {t.hero.title}
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-neutral-900/90 to-cyan-950/80 pointer-events-none" />
+      {/* Animated glow behind card */}
+      <div className="absolute left-0 md:left-8 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-cyan-700/30 blur-3xl animate-pulse z-0" />
+      <div className="container mx-auto sm:px-6 lg:px-8 relative z-10 flex justify-center md:justify-start items-center min-h-[80vh]">
+        {/* Glassmorphism card - now darker, with accent border */}
+        <div className="relative backdrop-blur-md bg-black/60 border border-neutral-800/80 border-l-8 border-l-cyan-500 rounded-3xl shadow-2xl px-8 py-12 md:px-16 md:py-16 flex flex-col items-center md:items-start max-w-2xl w-full text-neutral-100">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-left leading-tight break-words text-white drop-shadow-lg">
+            {currentLanguage === "no"
+              ? "Webutviklingsbyrå med fokus på kundens behov."
+              : "Web development agency focused on your needs."}
           </h1>
+          <p className="text-lg md:text-2xl font-medium mb-8 text-left text-cyan-200">
+            {currentLanguage === "no"
+              ? "Jeg hjelper deg fra idé til lansering – nettsider, apper og mer, levert med kvalitet og trygghet."
+              : "I will help you from idea to launch – websites, apps, and more, delivered with quality and reliability."}
+          </p>
           <div className="flex flex-col items-center md:items-start w-full">
             <AnimatedListItem delay={300}>
               {currentLanguage === "no" ? (
                 <>
-                  Med{" "}
-                  <AnimatedKeyword delay={350} highlightColor="text-white">
-                    sterk kompetanse
-                  </AnimatedKeyword>{" "}
-                  med alt relatert til{" "}
-                  <AnimatedKeyword delay={400} highlightColor="text-white">
-                    nettsider
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={450} highlightColor="text-white">
-                    applikasjoner
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={500} highlightColor="text-white">
-                    SEO
-                  </AnimatedKeyword>{" "}
-                  så kan du trygt stole på at jeg leverer hva du trenger.
+                  Med <AnimatedKeyword delay={350} highlightColor="text-cyan-300">sterk kompetanse</AnimatedKeyword> innen <AnimatedKeyword delay={400} highlightColor="text-cyan-300">nettsider</AnimatedKeyword>, <AnimatedKeyword delay={450} highlightColor="text-cyan-300">applikasjoner</AnimatedKeyword> og <AnimatedKeyword delay={500} highlightColor="text-cyan-300">SEO</AnimatedKeyword> får du løsninger som gir resultater.
                 </>
               ) : (
                 <>
-                  With{" "}
-                  <AnimatedKeyword delay={350} highlightColor="text-white">
-                    strong expertise
-                  </AnimatedKeyword>{" "}
-                  in everything related to{" "}
-                  <AnimatedKeyword delay={400} highlightColor="text-white">
-                    websites
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={450} highlightColor="text-white">
-                    applications
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={500} highlightColor="text-white">
-                    SEO
-                  </AnimatedKeyword>{" "}
-                  you can safely trust that I deliver what you need.
+                  With <AnimatedKeyword delay={350} highlightColor="text-cyan-300">strong expertise</AnimatedKeyword> in <AnimatedKeyword delay={400} highlightColor="text-cyan-300">websites</AnimatedKeyword>, <AnimatedKeyword delay={450} highlightColor="text-cyan-300">applications</AnimatedKeyword>, and <AnimatedKeyword delay={500} highlightColor="text-cyan-300">SEO</AnimatedKeyword>, you get solutions that deliver results.
                 </>
               )}
             </AnimatedListItem>
             <AnimatedListItem delay={550}>
               {currentLanguage === "no" ? (
                 <>
-                  Fra{" "}
-                  <AnimatedKeyword delay={600} highlightColor="text-white">
-                    idé
-                  </AnimatedKeyword>{" "}
-                  og{" "}
-                  <AnimatedKeyword delay={650} highlightColor="text-white">
-                    konseptutvikling
-                  </AnimatedKeyword>
-                  , til{" "}
-                  <AnimatedKeyword delay={700} highlightColor="text-white">
-                    design
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={750} highlightColor="text-white">
-                    programmering
-                  </AnimatedKeyword>{" "}
-                  og{" "}
-                  <AnimatedKeyword delay={800} highlightColor="text-white">
-                    lansering
-                  </AnimatedKeyword>
-                  . Enten du trenger en enkel{" "}
-                  <AnimatedKeyword delay={850} highlightColor="text-white">
-                    nettside{" "}
-                  </AnimatedKeyword>{" "}
-                  eller et{" "}
-                  <AnimatedKeyword delay={900} highlightColor="text-white">
-                    avansert system{" "}
-                  </AnimatedKeyword>{" "}
-                  er jeg her for å gjøre prosessen smidig.
+                  Fra <AnimatedKeyword delay={600} highlightColor="text-cyan-300">idé</AnimatedKeyword> og <AnimatedKeyword delay={650} highlightColor="text-cyan-300">konseptutvikling</AnimatedKeyword> til <AnimatedKeyword delay={700} highlightColor="text-cyan-300">design</AnimatedKeyword>, <AnimatedKeyword delay={750} highlightColor="text-cyan-300">programmering</AnimatedKeyword> og <AnimatedKeyword delay={800} highlightColor="text-cyan-300">lansering</AnimatedKeyword> – jeg gjør prosessen smidig.
                 </>
               ) : (
                 <>
-                  From{" "}
-                  <AnimatedKeyword delay={600} highlightColor="text-white">
-                    idea
-                  </AnimatedKeyword>{" "}
-                  and{" "}
-                  <AnimatedKeyword delay={650} highlightColor="text-white">
-                    concept development
-                  </AnimatedKeyword>
-                  , to{" "}
-                  <AnimatedKeyword delay={700} highlightColor="text-white">
-                    design
-                  </AnimatedKeyword>
-                  ,{" "}
-                  <AnimatedKeyword delay={750} highlightColor="text-white">
-                    programming
-                  </AnimatedKeyword>{" "}
-                  and{" "}
-                  <AnimatedKeyword delay={800} highlightColor="text-white">
-                    launch
-                  </AnimatedKeyword>
-                  . Whether you need a simple{" "}
-                  <AnimatedKeyword delay={850} highlightColor="text-white">
-                    website{" "}
-                  </AnimatedKeyword>{" "}
-                  or an{" "}
-                  <AnimatedKeyword delay={900} highlightColor="text-white">
-                    advanced system{" "}
-                  </AnimatedKeyword>{" "}
-                  I&apos;m here to make the process smooth.
+                  From <AnimatedKeyword delay={600} highlightColor="text-cyan-300">idea</AnimatedKeyword> and <AnimatedKeyword delay={650} highlightColor="text-cyan-300">concept development</AnimatedKeyword> to <AnimatedKeyword delay={700} highlightColor="text-cyan-300">design</AnimatedKeyword>, <AnimatedKeyword delay={750} highlightColor="text-cyan-300">programming</AnimatedKeyword>, and <AnimatedKeyword delay={800} highlightColor="text-cyan-300">launch</AnimatedKeyword> – I make the process smooth.
                 </>
               )}
             </AnimatedListItem>
-            <div className="flex flex-col md:flex-row justify-center md:justify-start gap-4 md:gap-6 mt-8 w-full max-w-xl mx-auto md:mx-0">
+            <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mt-8 w-full max-w-xl">
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/tjenester") as any} className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto min-w-[140px] cursor-pointer">
-                  {currentLanguage === "no" ? "Hva kan jeg tilby?" : "What can I offer?"}
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-semibold shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto cursor-pointer">
+                  {currentLanguage === "no" ? "Se tjenester" : "See Services"}
                 </button>
               </Link>
-
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/prosjekter") as any} className="w-full md:w-auto">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto min-w-[140px] cursor-pointer">
-                  {currentLanguage === "no" ? "Mine prosjekter" : "My projects"}
+                <button className="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-4 h-14 rounded-4xl font-semibold shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 w-full md:w-auto cursor-pointer">
+                  {currentLanguage === "no" ? "Se prosjekter" : "See Projects"}
                 </button>
               </Link>
             </div>
           </div>
         </div>
+      </div>
+      {/* Scroll-down indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center">
+        <div className="animate-bounce text-cyan-400 text-3xl">
+          <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14m0 0l-6-6m6 6l6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </div>
+        <span className="text-xs text-neutral-400 mt-1">
+          {currentLanguage === "no" ? "Scroll ned" : "Scroll down"}
+        </span>
       </div>
       <style jsx global>{`
       `}</style>
