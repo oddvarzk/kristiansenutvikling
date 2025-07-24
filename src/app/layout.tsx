@@ -3,10 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Merriweather } from "next/font/google";
 import RootLayout from "./RootLayout";
 import { defaultMetadata } from "./metadata";
-import Script from "next/script";
 import "./globals.css";
 import Breadcrumb from "@/app/components/Breadcrumb";
-import { useEffect } from "react";
 import AnalyticsConsentLoader from "./components/AnalyticsConsentLoader";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
