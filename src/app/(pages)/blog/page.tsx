@@ -42,6 +42,7 @@ export default function BlogPage() {
           {samplePosts.map((post) => (
             <div key={post.slug} className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 p-6 rounded-xl border border-zinc-700/50 shadow-lg">
               <h2 className="text-2xl font-semibold mb-2">
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 <Link href={"/blog/" + post.slug as any} className="hover:text-cyan-400 transition-colors">
                   {currentLanguage === "no" ? post.title_no : post.title_en}
                 </Link>
