@@ -96,6 +96,12 @@ export default function Footer() {
             </li>
             <li>
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              <Link href={"/artikler" as any} className="hover:text-white">
+                {currentLanguage === "no" ? "Artikler" : "Articles"}
+              </Link>
+            </li>
+            <li>
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Link href={getLocalizedPath("/kontakt") as any} className="hover:text-white">
                 {t.navigation.contact}
               </Link>

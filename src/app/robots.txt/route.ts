@@ -17,6 +17,7 @@ export async function GET(request: Request) {
     "Disallow: /admin/",
     "",
     `Sitemap: https://${host}/sitemap.xml`,
+    `Sitemap: https://${host}/artikler`,
   ];
 
   return new Response(lines.join("\n"), {

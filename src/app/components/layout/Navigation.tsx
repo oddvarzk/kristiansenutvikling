@@ -35,6 +35,7 @@ export default function Navigation({
     { href: "/", label: t.navigation.home },
     { href: "/tjenester", label: t.navigation.services },
     { href: "/prosjekter", label: t.navigation.projects },
+    { href: "/artikler", label: currentLanguage === "no" ? "Artikler" : "Articles" },
   ];
 
   return (
