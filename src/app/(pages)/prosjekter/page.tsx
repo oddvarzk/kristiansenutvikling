@@ -70,6 +70,22 @@ export default function Projekter() {
           image: "/images/projects/droomvillaHome.png",
           badges: ["Wix", "SEO", "Rental"],
         },
+        {
+          id: "vevet-coming-soon",
+          title: "vevet.no (Coming Soon)",
+          description: "A new digital platform for creative collaboration. Launching soon!",
+          href: "#",
+          image: "/images/projects/comingsoon.webp",
+          badges: ["Coming soon"],
+        },
+        {
+          id: "mail-coming-soon",
+          title: "mail****.com (Coming Soon)",
+          description: "A next-generation email service. Stay tuned!",
+          href: "#",
+          image: "/images/projects/comingsoon.webp",
+          badges: ["Coming soon"],
+        },
       ];
     }
 
@@ -119,6 +135,22 @@ export default function Projekter() {
         href: "/prosjekter/droomvillaspanje",
         image: "/images/projects/droomvillaHome.png",
         badges: ["Wix", "SEO", "Utleie"],
+      },
+      {
+        id: "vevet-coming-soon",
+        title: "vevet.no (Kommer snart)",
+        description: "En ny digital plattform for kreativt samarbeid. Lanseres snart!",
+        href: "#",
+        image: "/images/projects/comingsoon.webp",
+        badges: ["Kommer snart"],
+      },
+      {
+        id: "mail-coming-soon",
+        title: "mail****.com (Kommer snart)",
+        description: "En neste generasjons e-posttjeneste. Følg med!",
+        href: "#",
+        image: "/images/projects/comingsoon.webp",
+        badges: ["Kommer snart"],
       },
     ];
   };
