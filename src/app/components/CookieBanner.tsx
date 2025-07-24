@@ -32,9 +32,8 @@ export default function CookieBanner() {
     <div className="fixed bottom-0 inset-x-0 bg-gray-900 text-gray-100 p-4 md:p-6 shadow-lg z-50">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm md:text-base">
-          Vi bruker informasjonskapsler (cookies) for å gi deg best mulig
-          opplevelse og for å samle anonymisert statistikk. Se vår{" "}
-          <Link href="/personvern" className="underline text-cyan-400">
+          Vi bruker informasjonskapsler (cookies) for å gi deg best mulig opplevelse og for å samle anonymisert statistikk. Google Analytics og Vercel Analytics lastes kun hvis du samtykker. Se vår{' '}
+          <Link href={"/personvern" as any} className="underline text-cyan-400">
             personvernerklæring
           </Link>
           .

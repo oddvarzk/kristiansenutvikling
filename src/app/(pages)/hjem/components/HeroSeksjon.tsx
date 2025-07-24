@@ -66,13 +66,13 @@ export default function HeroSeksjon() {
       {/* Remove animated glow behind card */}
       {/* Remove glassmorphism card, keep only text */}
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10 flex justify-center md:justify-start items-center min-h-[80vh]">
-        <div className="flex flex-col items-center md:items-start w-full max-w-2xl text-neutral-100 px-4">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-left md:text-left text-center leading-tight break-words text-white drop-shadow-lg">
+        <div className="flex flex-col items-center md:items-start w-full max-w-2xl text-neutral-100 px-4 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight break-words text-white drop-shadow-lg">
             {currentLanguage === "no"
               ? "Webutviklingsbyrå med fokus på kundens behov."
               : "Web development agency focused on your needs."}
           </h1>
-          <p className="text-lg md:text-2xl font-medium mb-8 text-left md:text-left text-center text-cyan-200">
+          <p className="text-lg md:text-2xl font-medium mb-8 text-cyan-200">
             {currentLanguage === "no"
               ? "Jeg hjelper deg fra idé til lansering – nettsider, apper og mer, levert med kvalitet og trygghet."
               : "I will help you from idea to launch – websites, apps, and more, delivered with quality and reliability."}
