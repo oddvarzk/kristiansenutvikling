@@ -6,6 +6,9 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
+import { FiMonitor, FiTrendingUp, FiTool } from "react-icons/fi";
+import { FaWordpress } from "react-icons/fa";
+import { SiWix } from "react-icons/si";
 
 // --- AnimatedSection ---
 interface AnimatedSectionProps {
@@ -212,11 +215,7 @@ export default function TjenesterSeksjon() {
               "6 months free support",
             ],
           },
-          icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
-            </svg>
-          ),
+          icon: <FiMonitor className="w-6 h-6" />,
         },
         {
           id: "wix",
@@ -234,11 +233,7 @@ export default function TjenesterSeksjon() {
               "Wix editor training",
             ],
           },
-          icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-            </svg>
-          ),
+          icon: <SiWix className="w-6 h-6" />,
         },
         {
           id: "wordpress",
@@ -256,11 +251,7 @@ export default function TjenesterSeksjon() {
               "User training",
             ],
           },
-          icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          ),
+          icon: <FaWordpress className="w-6 h-6" />,
         },
         {
           id: "seo",
@@ -277,11 +268,7 @@ export default function TjenesterSeksjon() {
               "Monthly reports",
             ],
           },
-          icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-            </svg>
-          ),
+          icon: <FiTrendingUp className="w-6 h-6" />,
         },
         {
           id: "maintenance",
@@ -299,11 +286,7 @@ export default function TjenesterSeksjon() {
               "Monthly backup",
             ],
           },
-          icon: (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-            </svg>
-          ),
+          icon: <FiTool className="w-6 h-6" />,
         },
       ];
     }
@@ -328,11 +311,7 @@ export default function TjenesterSeksjon() {
             "6 mnd gratis support",
           ],
         },
-        icon: (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
-          </svg>
-        ),
+        icon: <FiMonitor className="w-6 h-6" />,
       },
       {
         id: "wix",
@@ -350,11 +329,7 @@ export default function TjenesterSeksjon() {
             "Opplæring i Wix-editor",
           ],
         },
-        icon: (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-          </svg>
-        ),
+        icon: <SiWix className="w-6 h-6" />,
       },
       {
         id: "wordpress",
@@ -372,11 +347,7 @@ export default function TjenesterSeksjon() {
             "Brukeropplæring",
           ],
         },
-        icon: (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        ),
+        icon: <FaWordpress className="w-6 h-6" />,
       },
       {
         id: "seo",
@@ -393,11 +364,7 @@ export default function TjenesterSeksjon() {
             "Månedlige rapporter",
           ],
         },
-        icon: (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-          </svg>
-        ),
+        icon: <FiTrendingUp className="w-6 h-6" />,
       },
       {
         id: "maintenance",
@@ -415,11 +382,7 @@ export default function TjenesterSeksjon() {
             "Månedlig backup",
           ],
         },
-        icon: (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-          </svg>
-        ),
+        icon: <FiTool className="w-6 h-6" />,
       },
     ];
   };
