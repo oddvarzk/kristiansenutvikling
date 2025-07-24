@@ -64,7 +64,7 @@ export default function HeroSeksjon() {
       {/* Gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-neutral-900/90 to-cyan-950/80 pointer-events-none" />
       {/* Animated glow behind card */}
-      <div className="absolute left-0 md:left-8 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-cyan-700/30 blur-3xl animate-pulse z-0" />
+      <div className="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-cyan-700/30 blur-3xl animate-pulse z-0" />
       <div className="container mx-auto sm:px-6 lg:px-8 relative z-10 flex justify-center md:justify-start items-center min-h-[80vh]">
         {/* Glassmorphism card - now darker, with accent border */}
         <div className="relative backdrop-blur-md bg-black/60 border border-neutral-800/80 border-l-8 border-l-cyan-500 rounded-3xl shadow-2xl px-8 py-12 md:px-16 md:py-16 flex flex-col items-center md:items-start max-w-2xl w-full text-neutral-100">
