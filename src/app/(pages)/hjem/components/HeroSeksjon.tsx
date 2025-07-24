@@ -38,7 +38,7 @@ function AnimatedListItem({ children, delay = 0 }: AnimatedListItemProps) {
 }
 
 export default function HeroSeksjon() {
-  const { t, currentLanguage } = useTranslations();
+  const { currentLanguage } = useTranslations();
 
   const getLocalizedPath = (path: string) => {
     if (currentLanguage === "en") {
