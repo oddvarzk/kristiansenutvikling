@@ -102,7 +102,7 @@ export default function ContactForm() {
       <div className="flex items-center gap-2 mb-4">
         <ShieldCheck className="text-cyan-400 w-6 h-6" />
         <span className="text-cyan-300 text-sm font-medium">
-          {currentLanguage === "no" ? "Dine data er trygge hos meg" : "Your data is safe with me"}
+          {currentLanguage === "no" ? "Din data er trygg hos meg" : "Your data is safe with me"}
         </span>
       </div>
       <div className="relative inline-block mb-6">
