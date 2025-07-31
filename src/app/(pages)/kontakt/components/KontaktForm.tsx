@@ -3,7 +3,6 @@
 import React, { FormEvent, useState } from "react";
 import Loader from "./Loader";
 import { useTranslations } from "@/app/hooks/useTranslations";
-import { ShieldCheck } from "lucide-react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -98,13 +97,6 @@ export default function ContactForm() {
 
   return (
     <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-8 md:p-12 shadow-xl">
-      {/* Trust badge */}
-      <div className="flex items-center gap-2 mb-4">
-        <ShieldCheck className="text-cyan-400 w-6 h-6" />
-        <span className="text-cyan-300 text-sm font-medium">
-          {currentLanguage === "no" ? "Din data er trygg hos meg" : "Your data is safe with me"}
-        </span>
-      </div>
       <div className="relative inline-block mb-6">
         <h2 className="text-2xl text-white font-bold">{t.contact.form.title}</h2>
         <p className="text-sm font-light mt-2">

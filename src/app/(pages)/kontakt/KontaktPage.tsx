@@ -25,14 +25,14 @@ export default function KontaktPage() {
             {introText}
           </p>
         </div>
-        {/* Main Content: 2 columns on desktop, stacked on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-6xl mx-auto bg-black/70 rounded-2xl shadow-2xl p-6 md:p-16">
-          {/* Form Column */}
-          <div className="md:col-span-7">
+        {/* Main Content: Form takes full width on mobile, 2 columns on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 max-w-6xl mx-auto bg-black/70 rounded-2xl shadow-2xl p-4 md:p-8 lg:p-16">
+          {/* Form Column - Full width on mobile, 7/12 on desktop */}
+          <div className="lg:col-span-7">
             <KontaktForm />
           </div>
-          {/* Info Column */}
-          <div className="md:col-span-5 space-y-8">
+          {/* Info Column - Hidden on mobile, 5/12 on desktop */}
+          <div className="hidden lg:block lg:col-span-5 space-y-8">
             {/* Contact Info Card */}
             <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
@@ -72,6 +72,56 @@ export default function KontaktPage() {
             </section>
           </div>
         </div>
+        
+        {/* Mobile Contact Info - Visible only on mobile/tablet */}
+        <div className="lg:hidden mt-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Contact Info Card */}
+            <section className="bg-black/70 text-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-xl font-semibold mb-4 text-cyan-400">
+                {t.contact.info.title}
+              </h2>
+              <ul className="space-y-3">
+                {/* Email */}
+                <li className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <strong className="block text-sm">{t.contact.info.email}:</strong>
+                    <a href="mailto:hei@kristiansenutvikling.no" className="text-sm underline hover:text-cyan-300 break-all">hei@kristiansenutvikling.no</a>
+                  </div>
+                </li>
+                {/* Phone */}
+                <li className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <strong className="block text-sm">{t.contact.info.phone}:</strong>
+                    <a href="tel:+4747207143" className="text-sm underline hover:text-cyan-300">+47 472 07 143</a>
+                  </div>
+                </li>
+                {/* Location */}
+                <li className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <strong className="block text-sm">{t.contact.info.location}:</strong>
+                    <span className="text-sm">{t.contact.info.locationValue}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            {/* Opening Hours Card */}
+            <section className="bg-black/70 text-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-xl font-semibold mb-4 text-cyan-400">
+                {t.contact.hours.title}
+              </h2>
+              <p className="text-gray-300 text-sm">
+                {t.contact.hours.weekdays}<br />
+                {t.contact.hours.weekend}<br />
+                {t.contact.hours.closed}
+              </p>
+            </section>
+          </div>
+        </div>
+        
         <div className="mt-16">
           <BackToTop />
         </div>
