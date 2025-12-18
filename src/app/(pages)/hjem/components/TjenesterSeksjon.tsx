@@ -6,8 +6,8 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
-import { FiMonitor, FiTrendingUp, FiTool } from "react-icons/fi";
 import { FaWordpress } from "react-icons/fa";
+import { FiMonitor, FiTrendingUp, FiTool } from "react-icons/fi";
 import { SiWix } from "react-icons/si";
 
 // --- AnimatedSection ---
@@ -88,14 +88,22 @@ const ExpandableServiceItem = ({
         <div className="p-6">
           <div className="flex justify-between items-start">
             <div className="flex items-center gap-4">
-              <div className={`p-3 rounded-xl transition-all duration-300 ${
-                isOpen ? "bg-cyan-500/20 text-cyan-400" : "bg-zinc-700/50 text-gray-400"
-              }`}>
+              <div
+                className={`p-3 rounded-xl transition-all duration-300 ${
+                  isOpen
+                    ? "bg-cyan-500/20 text-cyan-400"
+                    : "bg-zinc-700/50 text-gray-400"
+                }`}
+              >
                 {service.icon}
               </div>
               <div>
-                <h2 className="text-xl md:text-2xl text-cyan-400 font-bold mb-2">{service.title}</h2>
-                <p className="text-gray-300 leading-relaxed">{service.shortDescription}</p>
+                <h2 className="text-xl md:text-2xl text-cyan-400 font-bold mb-2">
+                  {service.title}
+                </h2>
+                <p className="text-gray-300 leading-relaxed">
+                  {service.shortDescription}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -143,20 +151,44 @@ const ExpandableServiceItem = ({
               <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
                 <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
                   {/* Pricing icon */}
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                    />
                   </svg>
                   {currentLanguage === "no" ? "Prising:" : "Pricing:"}
                 </h4>
-                <p className="text-gray-200 leading-relaxed">{service.expandedContent.pricing}</p>
+                <p className="text-gray-200 leading-relaxed">
+                  {service.expandedContent.pricing}
+                </p>
               </div>
               <div className="bg-gradient-to-br from-zinc-800/70 to-zinc-900/70 p-6 rounded-xl border border-zinc-700/30">
                 <h4 className="text-cyan-400 font-semibold mb-3 flex items-center gap-2">
                   {/* Features icon */}
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  {currentLanguage === "no" ? "Dette inkluderer:" : "This includes:"}
+                  {currentLanguage === "no"
+                    ? "Dette inkluderer:"
+                    : "This includes:"}
                 </h4>
                 <ul className="space-y-3">
                   {service.expandedContent.features.map((feature, i) => (
@@ -174,7 +206,9 @@ const ExpandableServiceItem = ({
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-gray-300 leading-relaxed">{feature}</span>
+                      <span className="text-gray-300 leading-relaxed">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -220,7 +254,8 @@ export default function TjenesterSeksjon() {
         {
           id: "wix",
           title: "Wix Website",
-          shortDescription: "Quick setup and customization with Wix drag-and-drop.",
+          shortDescription:
+            "Quick setup and customization with Wix drag-and-drop.",
           expandedContent: {
             description:
               "I set up professional Wix websites with custom design, responsive layout and basic SEO optimization. Price may vary based on custom code and feature extensions. Can be higher for advanced features and custom code.",
@@ -256,11 +291,13 @@ export default function TjenesterSeksjon() {
         {
           id: "seo",
           title: "SEO Optimization",
-          shortDescription: "Increase visibility and organic traffic on Google.",
+          shortDescription:
+            "Increase visibility and organic traffic on Google.",
           expandedContent: {
             description:
               "Long-term SEO for Norwegian search patterns with technical review and content optimization.",
-            pricing: "From 11,000-15,000 NOK/month (excl. VAT), depending on scope.",
+            pricing:
+              "From 11,000-15,000 NOK/month (excl. VAT), depending on scope.",
             features: [
               "Keyword analysis",
               "Technical SEO review",
@@ -278,7 +315,8 @@ export default function TjenesterSeksjon() {
           expandedContent: {
             description:
               "Ongoing maintenance for secure, fast and stable operation of your solutions.",
-            pricing: "From 1,000-3,000 NOK/month (excl. VAT), depending on level.",
+            pricing:
+              "From 1,000-3,000 NOK/month (excl. VAT), depending on level.",
             features: [
               "Security updates",
               "Quick technical support",
@@ -400,7 +438,9 @@ export default function TjenesterSeksjon() {
     <section className="py-10 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          {currentLanguage === "no" ? "Tjenester jeg tilbyr" : "Services I offer"}
+          {currentLanguage === "no"
+            ? "Tjenester jeg tilbyr"
+            : "Services I offer"}
         </h2>
 
         <AnimatedSection delay={300} className="max-w-3xl mx-auto">
@@ -416,7 +456,9 @@ export default function TjenesterSeksjon() {
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Link href={getLocalizedPath("/tjenester") as any}>
               <button className="cursor-pointer mt-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 rounded-md font-medium shadow-lg transform transition duration-150 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-cyan-400 hover:from-cyan-500 hover:to-cyan-400">
-                {currentLanguage === "no" ? "Se flere tjenester" : "See more services"}
+                {currentLanguage === "no"
+                  ? "Se flere tjenester"
+                  : "See more services"}
               </button>
             </Link>
           </div>
