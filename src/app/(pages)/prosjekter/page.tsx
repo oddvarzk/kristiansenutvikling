@@ -73,7 +73,8 @@ export default function Projekter() {
         {
           id: "vevet-coming-soon",
           title: "vevet.no (Coming Soon)",
-          description: "A new digital platform for creative collaboration. Launching soon!",
+          description:
+            "A new digital platform for creative collaboration. Launching soon!",
           href: "#",
           image: "/images/projects/comingsoon.webp",
           badges: ["Coming soon"],
@@ -139,7 +140,8 @@ export default function Projekter() {
       {
         id: "vevet-coming-soon",
         title: "vevet.no (Kommer snart)",
-        description: "En ny digital plattform for kreativt samarbeid. Lanseres snart!",
+        description:
+          "En ny digital plattform for kreativt samarbeid. Lanseres snart!",
         href: "#",
         image: "/images/projects/comingsoon.webp",
         badges: ["Kommer snart"],
@@ -207,7 +209,7 @@ export default function Projekter() {
       </Script>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-zinc-900 via-black to-zinc-900 text-white">
+      <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -223,13 +225,10 @@ export default function Projekter() {
       </section>
 
       {/* Section Heading & Stats */}
-      <section className="py-10 bg-gradient-to-br from-zinc-900 via-black to-zinc-900">
+      <section className="py-10 ">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {currentLanguage === "no" ? "Utvalgte prosjekter" : "Featured Projects"}
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-200 text-lg max-w-2xl mx-auto">
               {currentLanguage === "no"
                 ? "Et utvalg av mine beste prosjekter innen webutvikling, e-handel og design."
                 : "A selection of my best projects in web development, e-commerce, and design."}
@@ -238,19 +237,35 @@ export default function Projekter() {
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto mb-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-gray-400 text-sm">{currentLanguage === "no" ? "Prosjekter" : "Projects"}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                50+
+              </div>
+              <div className="text-gray-400 text-sm">
+                {currentLanguage === "no" ? "Prosjekter" : "Projects"}
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">3+</div>
-              <div className="text-gray-400 text-sm">{currentLanguage === "no" ? "År erfaring" : "Years Experience"}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                3+
+              </div>
+              <div className="text-gray-400 text-sm">
+                {currentLanguage === "no" ? "År erfaring" : "Years Experience"}
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
-              <div className="text-gray-400 text-sm">{currentLanguage === "no" ? "Kundetilfredshet" : "Client Satisfaction"}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                100%
+              </div>
+              <div className="text-gray-400 text-sm">
+                {currentLanguage === "no"
+                  ? "Kundetilfredshet"
+                  : "Client Satisfaction"}
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                24/7
+              </div>
               <div className="text-gray-400 text-sm">Support</div>
             </div>
           </div>
@@ -285,14 +300,19 @@ export default function Projekter() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.badges && project.badges.map((badge, i) => (
-                      <span key={i} className="bg-cyan-900/60 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full">
-                        {badge}
-                      </span>
-                    ))}
+                    {project.badges &&
+                      project.badges.map((badge, i) => (
+                        <span
+                          key={i}
+                          className="bg-cyan-900/60 text-cyan-300 text-xs font-semibold px-3 py-1 rounded-full"
+                        >
+                          {badge}
+                        </span>
+                      ))}
                   </div>
                   <div className="mt-4 flex items-center text-cyan-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {currentLanguage === "no" ? "Se prosjekt" : "View Project"} →
+                    {currentLanguage === "no" ? "Se prosjekt" : "View Project"}{" "}
+                    →
                   </div>
                 </div>
               </Link>
@@ -306,7 +326,7 @@ export default function Projekter() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              {currentLanguage === "no" 
+              {currentLanguage === "no"
                 ? "Vil du vite mer om prosjektene eller starte ditt eget?"
                 : "Want to know more about the projects or start your own?"}
             </h2>
