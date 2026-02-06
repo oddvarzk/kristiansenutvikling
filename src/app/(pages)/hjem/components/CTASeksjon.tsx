@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
 
 import Link from "next/link";
@@ -41,11 +39,17 @@ export default function CTASeksjon() {
       </div>
       <style jsx>{`
         @keyframes fadeInUp {
-          0% { opacity: 0; transform: translateY(40px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-fadeInUp {
-          animation: fadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) both;
+          animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
       `}</style>
     </section>
