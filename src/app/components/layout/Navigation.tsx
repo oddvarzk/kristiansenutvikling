@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
-import React from "react";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { usePathname } from "next/navigation";
@@ -17,7 +16,7 @@ export default function Navigation({
 }: NavigationProps) {
   const pathname = usePathname();
   const { t, currentLanguage } = useTranslations();
-  
+
   const isActive = (p: string) => pathname === p;
 
   const getLocalizedPath = (path: string) => {
@@ -35,7 +34,10 @@ export default function Navigation({
     { href: "/", label: t.navigation.home },
     { href: "/tjenester", label: t.navigation.services },
     { href: "/prosjekter", label: t.navigation.projects },
-    { href: "/artikler", label: currentLanguage === "no" ? "Artikler" : "Articles" },
+    {
+      href: "/artikler",
+      label: currentLanguage === "no" ? "Artikler" : "Articles",
+    },
   ];
 
   return (
