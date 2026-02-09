@@ -1,6 +1,11 @@
 // src/app/layout.tsx
-import { Geist, Geist_Mono } from "next/font/google";
-import { Montserrat, Merriweather } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Montserrat,
+  Merriweather,
+  Poppins,
+} from "next/font/google";
 import RootLayout from "./RootLayout";
 import { defaultMetadata } from "./metadata";
 import "./globals.css";
@@ -24,6 +29,12 @@ const merriweather = Merriweather({
   weight: ["300", "400", "700", "900"],
   variable: "--font-merriweather",
 });
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
 
 export const metadata = defaultMetadata;
 
@@ -38,6 +49,7 @@ export default function Layout({
           geistMono,
           montserrat,
           merriweather,
+          poppins,
         }}
       >
         <Breadcrumb />

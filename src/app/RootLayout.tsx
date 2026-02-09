@@ -18,6 +18,7 @@ interface Fonts {
   geistMono: FontVariable;
   montserrat: FontVariable;
   merriweather: FontVariable;
+  poppins: FontVariable;
 }
 
 type RootLayoutProps = Readonly<{
@@ -36,6 +37,8 @@ export default function RootLayout({ children, fonts }: RootLayoutProps) {
           ${fonts.geistMono.variable}
           ${fonts.montserrat.variable}
           ${fonts.merriweather.variable}
+          ${fonts.poppins.variable}
+
           antialiased flex flex-col min-h-screen
         `}
       >
