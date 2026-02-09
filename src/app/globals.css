@@ -16,6 +16,8 @@
 
   /* utility */
   --border: 255 255 255; /* use with /opacity in Tailwind */
+
+  --nav-border: 123 123 123; /* #7B7B7B */
 }
 
 /* Optional: theme variants via data attribute */

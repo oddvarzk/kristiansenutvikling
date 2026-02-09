@@ -15,6 +15,7 @@ export default {
         surface: "rgb(var(--surface) / <alpha-value>)",
         accent: "rgb(var(--accent) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
+        navBorder: "rgb(var(--nav-border) / <alpha-value>)",
       },
     },
   },
