@@ -1,34 +1,36 @@
 @import "tailwindcss";
 
-/* Color Palette Variables */
+/* Design tokens */
 :root {
-  /* Main Colors */
-  --header-footer-color: #1d1f20;
-  --page-color: #0b0b0b;
-  --text-color: #fffefe;
-  --accent-color: #c56018;
+  /* core */
+  --background: #0b0b0b;
+  --foreground: #fffefe;
 
-  /* System Theme Colors */
-  --background: var(--page-color);
-  --foreground: var(--text-color);
+  /* surfaces */
+  --surface: #1d1f20;
+
+  /* brand */
+  --accent: #c56018;
+
+  /* optional extras (nice for consistency) */
+  --border: rgba(255, 255, 255, 0.1);
 }
 
-/* Dark Mode Override (if needed) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--page-color);
-    --foreground: var(--text-color);
-  }
+/* Optional: theme variants via data attribute */
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #0b0b0b;
+  --surface: #f3f4f6;
+  --accent: #c56018;
+  --border: rgba(0, 0, 0, 0.1);
 }
 
-/* Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), sans-serif;
 }
 
-/* Typography */
 h1,
 h2,
 h3,
@@ -37,121 +39,4 @@ h5,
 h6 {
   font-family: var(--font-merriweather), serif;
   font-weight: 600;
-}
-
-/* Layout Components */
-header,
-footer {
-  color: var(--text-color);
-}
-
-/* Accent Elements */
-.accent,
-button.primary,
-.highlight {
-  color: var(--accent-color);
-}
-
-/* Font family utility classes */
-.font-montserrat {
-  font-family: var(--font-montserrat), sans-serif !important;
-}
-
-.font-merriweather {
-  font-family: var(--font-merriweather), serif !important;
-}
-
-/* Add specific font-weight classes to ensure they work */
-.font-light {
-  font-weight: 300 !important;
-}
-
-.font-normal {
-  font-weight: 400 !important;
-}
-
-.font-medium {
-  font-weight: 500 !important;
-}
-
-.font-semibold {
-  font-weight: 600 !important;
-}
-
-.font-bold {
-  font-weight: 700 !important;
-}
-
-/* Text glow animation */
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 5px rgba(8, 145, 178, 0.1);
-  }
-  50% {
-    text-shadow: 0 0 15px rgba(8, 145, 178, 0.6),
-      0 0 30px rgba(8, 145, 178, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 5px rgba(8, 145, 178, 0.1);
-  }
-}
-
-.text-glow {
-  animation: textGlow 3s ease-in-out infinite;
-}
-
-/* Fade-in animation for sections */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-/* Service card hover effect */
-.service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(8, 145, 178, 0.3);
-}
-
-/* Underline animation */
-.animated-underline {
-  position: relative;
-  white-space: nowrap;
-}
-
-.animated-underline::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: linear-gradient(90deg, #0891b2, #22d3ee);
-  transition: width 1s ease;
-}
-
-.animate-underline.active::after,
-.animated-underline:hover::after {
-  width: 100%;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
