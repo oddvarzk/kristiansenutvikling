@@ -1,19 +1,11 @@
-// src/app/components/Header.tsx
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Hamburger from "../Hamburger";
+import Navigation from "./Navigation";
 import { useTranslations } from "@/app/hooks/useTranslations";
-
-// Dynamically load the desktop nav only on the client,
-// so its images/links don't slow down the initial render.
-const Navigation = dynamic(() => import("./Navigation"), {
-  ssr: false,
-  loading: () => null,
-});
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,42 +26,42 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [isOpen]);
 
-  const getHomePath = () => {
-    return currentLanguage === "en" ? "/en" : "/";
-  };
+  const homeHref = currentLanguage === "en" ? "/en" : "/";
 
   return (
     <div ref={containerRef} className="relative z-50">
-      <header className="w-full p-5 bg-zinc-950">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href={getHomePath()} className="font-bold text-xl">
-            <Image
-              src="/images/logo.svg"
-              alt="Kristiansen Utvikling logo"
-              width={120}
-              height={76}
-              priority // keep your critical logo eager
-            />
-          </Link>
+      <header className="w-full border-b border-border/10 bg-header/80 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="flex h-16 items-center justify-between">
+            <Link href={homeHref} className="flex items-center">
+              <Image
+                src="/images/logo.svg"
+                alt="Kristiansen Utvikling logo"
+                width={120}
+                height={76}
+                priority
+              />
+            </Link>
 
-          {/* Desktop nav: lazy-loaded via dynamic import */}
-          <div className="hidden md:block">
-            <Navigation />
-          </div>
+            {/* Desktop */}
+            <div className="hidden md:block">
+              <Navigation />
+            </div>
 
-          {/* Hamburger on mobile */}
-          <div className="md:hidden">
-            <Hamburger isOpen={isOpen} toggle={() => setIsOpen((o) => !o)} />
+            {/* Mobile */}
+            <div className="md:hidden">
+              <Hamburger isOpen={isOpen} toggle={() => setIsOpen((o) => !o)} />
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile slide-down nav */}
+      {/* Mobile dropdown */}
       <div
-        className={`
-          absolute top-full inset-x-0 bg-zinc-950 transition-all duration-300
-          ${isOpen ? "max-h-screen py-6" : "max-h-0 overflow-hidden"}
-        `}
+        className={[
+          "absolute top-full inset-x-0 overflow-hidden border-b border-border/10 bg-header/95 backdrop-blur transition-[max-height,padding] duration-300",
+          isOpen ? "max-h-screen py-6" : "max-h-0 py-0",
+        ].join(" ")}
       >
         <Navigation isMobile onClose={() => setIsOpen(false)} />
       </div>

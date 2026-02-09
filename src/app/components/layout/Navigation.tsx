@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
 "use client";
+
 import Link from "next/link";
-import { useTranslations } from "@/app/hooks/useTranslations";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 interface NavigationProps {
   isMobile?: boolean;
@@ -17,18 +16,23 @@ export default function Navigation({
   const pathname = usePathname();
   const { t, currentLanguage } = useTranslations();
 
-  const isActive = (p: string) => pathname === p;
+  const withLangPrefix = (path: string) =>
+    currentLanguage === "en" ? `/en${path}` : path;
 
-  const getLocalizedPath = (path: string) => {
-    if (currentLanguage === "en") {
-      return `/en${path}`;
-    }
-    return path;
-  };
+  const normalize = (p: string) => (p !== "/" ? p.replace(/\/$/, "") : p);
+
+  const isActive = (href: string) => normalize(pathname) === normalize(href);
+
+  // If typedRoutes complains in your project, isolate the cast here (one place)
+  const asHref = (href: string) => href as unknown as any;
 
   const ulClass = isMobile
     ? "flex flex-col gap-6 px-6"
-    : "flex items-center gap-14";
+    : "flex items-center gap-10";
+
+  const linkBase = "block text-lg py-2 transition-colors duration-200";
+  const linkActive = "text-accent border-b-1 border-accent";
+  const linkIdle = "text-foreground/80 hover:text-foreground";
 
   const navItems = [
     { href: "/", label: t.navigation.home },
@@ -44,21 +48,15 @@ export default function Navigation({
     <nav>
       <ul className={ulClass}>
         {navItems.map(({ href, label }) => {
-          const localizedHref = getLocalizedPath(href);
+          const localizedHref = withLangPrefix(href);
+          const active = isActive(localizedHref);
+
           return (
             <li key={href}>
               <Link
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                href={localizedHref as any}
+                href={asHref(localizedHref)}
                 onClick={() => onClose?.()}
-                className={`
-                  block text-lg py-2 transition-colors duration-200
-                  ${
-                    isActive(localizedHref)
-                      ? "text-cyan-400 border-b-2 border-cyan-400"
-                      : "text-white hover:text-cyan-300"
-                  }
-                `}
+                className={`${linkBase} ${active ? linkActive : linkIdle}`}
               >
                 {label}
               </Link>
@@ -68,14 +66,9 @@ export default function Navigation({
 
         <li>
           <Link
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            href={getLocalizedPath("/kontakt") as any}
+            href={asHref(withLangPrefix("/kontakt"))}
             onClick={() => onClose?.()}
-            className={`
-              inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium
-              bg-gradient-to-r from-cyan-500 to-cyan-600 text-white
-              hover:from-cyan-600 hover:to-cyan-700 transition
-            `}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium bg-accent text-background hover:opacity-90 transition"
           >
             {t.navigation.contact}
           </Link>
