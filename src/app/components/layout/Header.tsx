@@ -29,10 +29,13 @@ export default function Header() {
   const homeHref = currentLanguage === "en" ? "/en" : "/";
 
   return (
-    <div ref={containerRef} className="relative z-50">
-      <header className="w-full border-b border-border/10 bg-header/80 backdrop-blur">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex h-16 items-center justify-between">
+    // ✅ absolute overlay: header sits on top of hero/background
+    <div ref={containerRef} className="absolute inset-x-0 top-8 z-50">
+      {/* ✅ center container for the floating “card” */}
+      <div className="mx-auto max-w-6xl px-4 pt-4">
+        {/* ✅ floating card */}
+        <header className="rounded-full p-2 m-2 border border-border/10 bg-header/70 shadow">
+          <div className="flex h-16 items-center justify-between px-4">
             <Link href={homeHref} className="flex items-center">
               <Image
                 src="/images/logo.svg"
@@ -43,27 +46,25 @@ export default function Header() {
               />
             </Link>
 
-            {/* Desktop */}
             <div className="hidden md:block">
               <Navigation />
             </div>
 
-            {/* Mobile */}
             <div className="md:hidden">
               <Hamburger isOpen={isOpen} toggle={() => setIsOpen((o) => !o)} />
             </div>
           </div>
-        </div>
-      </header>
 
-      {/* Mobile dropdown */}
-      <div
-        className={[
-          "absolute top-full inset-x-0 overflow-hidden border-b border-border/10 bg-header/95 backdrop-blur transition-[max-height,padding] duration-300",
-          isOpen ? "max-h-screen py-6" : "max-h-0 py-0",
-        ].join(" ")}
-      >
-        <Navigation isMobile onClose={() => setIsOpen(false)} />
+          {/* ✅ mobile dropdown attached to the card */}
+          <div
+            className={[
+              "overflow-hidden border-border/10 transition-[max-height,padding] duration-300 md:hidden",
+              isOpen ? "max-h-screen py-6" : "max-h-0 py-0",
+            ].join(" ")}
+          >
+            <Navigation isMobile onClose={() => setIsOpen(false)} />
+          </div>
+        </header>
       </div>
     </div>
   );
