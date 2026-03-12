@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSeksjon() {
   const { currentLanguage } = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const tagRef = useRef<HTMLParagraphElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
@@ -22,6 +23,37 @@ export default function HeroSeksjon() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
   const isEn = currentLanguage === "en";
+
+  // iOS autoplay fix — webkit-playsinline + programmatic .play() with touch unlock
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Required for older iOS Safari
+    video.setAttribute("webkit-playsinline", "true");
+    video.muted = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Autoplay blocked — unlock on first user touch (Low Power Mode, etc.)
+        const unlock = () => {
+          video.play().catch(() => {});
+          (["touchstart", "touchend", "click"] as const).forEach((ev) =>
+            document.removeEventListener(ev, unlock)
+          );
+        };
+        (["touchstart", "touchend", "click"] as const).forEach((ev) =>
+          document.addEventListener(ev, unlock, { once: true })
+        );
+      });
+    };
+
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener("loadedmetadata", tryPlay, { once: true });
+    }
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -61,6 +93,7 @@ export default function HeroSeksjon() {
     >
       {/* Background video */}
       <video
+        ref={videoRef}
         src="/videos/newBackground.mp4"
         autoPlay
         loop
