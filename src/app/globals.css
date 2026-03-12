@@ -1,162 +1,90 @@
 @import "tailwindcss";
 
-/* =========================
-   Design tokens (RGB tokens)
-   ========================= */
-:root {
-  /* core */
-  --background: 11 11 11; /* #0b0b0b */
-  --foreground: 255 254 254; /* #fffefe */
-
-  /* surfaces */
-  --surface: 29 31 32; /* #1d1f20 */
-
-  /* brand */
-  --accent: 197 96 24; /* #c56018 */
-
-  /* utility */
-  --border: 255 255 255; /* use with /opacity in Tailwind */
+/* ─── Custom theme tokens (Tailwind v4) ─────────────────────────── */
+@theme {
+  --color-bg:         #080808;
+  --color-surface:    #111111;
+  --color-surface-2:  #1a1a1a;
+  --color-ink:        #f0ede7;
+  --color-ink-muted:  #6e6b66;
+  --color-accent:     #d4ff3e;
+  --color-accent-dim: #a8cc2e;
 }
 
-/* Dark Mode Override (if needed) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--page-color);
-    --foreground: var(--text-color);
-  }
+/* ─── Base ─────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), sans-serif;
+  background-color: #080808;
+  color: #f0ede7;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-merriweather), serif;
-  font-weight: 600;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Satoshi", var(--font-inter), sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
-/* Layout Components */
-header,
-footer {
-  color: var(--text-color);
+/* ─── GSAP clip-path text reveal helpers ───────────────────────── */
+.line-wrap {
+  overflow: hidden;
+  display: block;
 }
 
-/* Accent Elements */
-.accent,
-button.primary,
-.highlight {
-  color: var(--accent-color);
+.line-inner {
+  display: inline-block;
+  will-change: transform;
 }
 
-/* Font family utility classes */
-.font-montserrat {
-  font-family: var(--font-montserrat), sans-serif !important;
+/* ─── Scroll stacking — sections slide over the sticky hero ─────── */
+.stack-card {
+  position: relative;
+  z-index: 2;
+  border-radius: 20px 20px 0 0;
+  background-color: #080808;
+  overflow: hidden;
 }
 
-.font-merriweather {
-  font-family: var(--font-merriweather), serif !important;
-}
-
-/* Add specific font-weight classes to ensure they work */
-.font-light {
-  font-weight: 300 !important;
-}
-
-.font-normal {
-  font-weight: 400 !important;
-}
-
-.font-medium {
-  font-weight: 500 !important;
-}
-
-.font-semibold {
-  font-weight: 600 !important;
-}
-
-.font-bold {
-  font-weight: 700 !important;
-}
-
-/* Text glow animation */
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 5px rgba(8, 145, 178, 0.1);
-  }
-  50% {
-    text-shadow: 0 0 15px rgba(8, 145, 178, 0.6),
-      0 0 30px rgba(8, 145, 178, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 5px rgba(8, 145, 178, 0.1);
-  }
-}
-
-.text-glow {
-  animation: textGlow 3s ease-in-out infinite;
-}
-
-/* Fade-in animation for sections */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-/* Service card hover effect */
-.service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(8, 145, 178, 0.3);
-}
-
-/* Underline animation */
+/* ─── Underline animation ───────────────────────────────────────── */
 .animated-underline {
   position: relative;
   white-space: nowrap;
 }
-
 .animated-underline::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 1px;
   bottom: -2px;
   left: 0;
-  background: linear-gradient(90deg, #0891b2, #22d3ee);
-  transition: width 1s ease;
+  background: #d4ff3e;
+  transition: width 0.4s ease;
 }
-
-.animate-underline.active::after,
 .animated-underline:hover::after {
   width: 100%;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
+/* ─── Scrollbar hide ────────────────────────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ─── Selection colour ──────────────────────────────────────────── */
+::selection {
+  background: #d4ff3e;
+  color: #080808;
 }

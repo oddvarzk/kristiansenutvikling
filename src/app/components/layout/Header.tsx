@@ -20,7 +20,10 @@ export default function Header() {
   const navRef = useRef<HTMLUListElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-  // Scroll detection
+  // Light-background pages — header hides on scroll instead of going dark
+  const isLightPage =
+    pathname === "/prosjekter" || pathname === "/en/prosjekter";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -42,36 +45,28 @@ export default function Header() {
     return () => ctx.revert();
   }, []);
 
-  // Body scroll lock
+  // Body scroll lock for mobile menu
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  // Mobile menu GSAP animation
+  // Mobile menu GSAP
   useEffect(() => {
     if (!mobileMenuRef.current) return;
     if (menuOpen) {
       gsap.to(mobileMenuRef.current, {
-        clipPath: "inset(0% 0% 0% 0%)",
-        opacity: 1,
-        duration: 0.55,
-        ease: "power4.inOut",
+        clipPath: "inset(0% 0% 0% 0%)", opacity: 1,
+        duration: 0.55, ease: "power4.inOut",
       });
       gsap.from(mobileMenuRef.current.querySelectorAll(".mobile-nav-item"), {
-        y: 50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.09,
-        ease: "power3.out",
-        delay: 0.25,
+        y: 50, opacity: 0, duration: 0.6, stagger: 0.09,
+        ease: "power3.out", delay: 0.25,
       });
     } else {
       gsap.to(mobileMenuRef.current, {
-        clipPath: "inset(0% 0% 100% 0%)",
-        opacity: 0,
-        duration: 0.4,
-        ease: "power4.inOut",
+        clipPath: "inset(0% 0% 100% 0%)", opacity: 0,
+        duration: 0.4, ease: "power4.inOut",
       });
     }
   }, [menuOpen]);
@@ -94,15 +89,30 @@ export default function Header() {
     { href: "/prosjekter", label: t.navigation.projects },
   ];
 
+  // ─── Colour tokens based on page type ───────────────────────────
+  const ink       = isLightPage ? "#1a1a1a" : "#f0ede7";
+  const inkMuted  = isLightPage ? "rgba(26,26,26,0.5)"  : "rgba(240,237,231,0.5)";
+  const inkFaded  = isLightPage ? "rgba(26,26,26,0.25)" : "rgba(240,237,231,0.25)";
+  const divider   = isLightPage ? "rgba(26,26,26,0.15)" : "rgba(240,237,231,0.2)";
+  const activeInk = isLightPage ? "#1a1a1a" : "#d4ff3e";
+  const ctaBorder = isLightPage ? "rgba(26,26,26,0.2)"  : "rgba(240,237,231,0.2)";
+  const ctaHoverBg = isLightPage ? "#1a1a1a" : "#f0ede7";
+  const ctaHoverText = isLightPage ? "#f4f1ec" : "#080808";
+
+  // ─── Header background class ─────────────────────────────────────
+  const headerBgClass = isLightPage
+    ? scrolled
+      ? "-translate-y-full opacity-0 pointer-events-none"     // hide on scroll
+      : "bg-transparent"
+    : scrolled || menuOpen
+      ? "bg-[#080808]/95 backdrop-blur-md border-b border-white/5"
+      : "bg-transparent";
+
   return (
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || menuOpen
-            ? "bg-[#080808]/95 backdrop-blur-md border-b border-white/5"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerBgClass}`}
       >
         <div className="container mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
@@ -118,6 +128,7 @@ export default function Header() {
                 height={44}
                 priority
                 className="h-8 w-auto"
+                style={{ filter: isLightPage ? "invert(1)" : "none" }}
               />
             </Link>
           </div>
@@ -131,11 +142,10 @@ export default function Header() {
                 <li key={href}>
                   <Link
                     href={localHref as any}
-                    className={`text-sm tracking-wide transition-colors duration-200 ${
-                      active
-                        ? "text-[#d4ff3e]"
-                        : "text-[#f0ede7]/70 hover:text-[#f0ede7]"
-                    }`}
+                    className="text-sm tracking-wide transition-colors duration-200"
+                    style={{ color: active ? activeInk : inkMuted }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = ink; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = active ? activeInk : inkMuted; }}
                   >
                     {label}
                   </Link>
@@ -147,32 +157,40 @@ export default function Header() {
             <li className="flex items-center gap-1 text-sm">
               <button
                 onClick={() => switchLanguage("no")}
-                className={`transition-colors duration-200 ${
-                  currentLanguage === "no"
-                    ? "text-[#f0ede7]"
-                    : "text-[#f0ede7]/30 hover:text-[#f0ede7]/70"
-                }`}
+                className="transition-colors duration-200"
+                style={{ color: currentLanguage === "no" ? ink : inkFaded }}
               >
                 NO
               </button>
-              <span className="text-[#f0ede7]/20">/</span>
+              <span style={{ color: divider }}>/</span>
               <button
                 onClick={() => switchLanguage("en")}
-                className={`transition-colors duration-200 ${
-                  currentLanguage === "en"
-                    ? "text-[#f0ede7]"
-                    : "text-[#f0ede7]/30 hover:text-[#f0ede7]/70"
-                }`}
+                className="transition-colors duration-200"
+                style={{ color: currentLanguage === "en" ? ink : inkFaded }}
               >
                 EN
               </button>
             </li>
 
-            {/* CTA */}
+            {/* Contact CTA */}
             <li>
               <Link
                 href={getLocalizedPath("/kontakt", currentLanguage) as any}
-                className="text-sm font-medium px-5 py-2.5 rounded-full border border-[#f0ede7]/20 text-[#f0ede7] hover:bg-[#f0ede7] hover:text-[#080808] transition-all duration-300"
+                className="text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300"
+                style={{
+                  border: `1px solid ${ctaBorder}`,
+                  color: ink,
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.backgroundColor = ctaHoverBg;
+                  el.style.color = ctaHoverText;
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.backgroundColor = "transparent";
+                  el.style.color = ink;
+                }}
               >
                 {t.navigation.contact}
               </Link>
@@ -186,19 +204,16 @@ export default function Header() {
             aria-label={menuOpen ? "Lukk meny" : "Åpne meny"}
           >
             <span
-              className={`block h-px bg-[#f0ede7] transition-all duration-300 origin-center ${
-                menuOpen ? "w-6 rotate-45 translate-y-[6px]" : "w-6"
-              }`}
+              className="block h-px transition-all duration-300 origin-center"
+              style={{ backgroundColor: ink, width: menuOpen ? "24px" : "24px", transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none" }}
             />
             <span
-              className={`block h-px bg-[#f0ede7] transition-all duration-300 ${
-                menuOpen ? "opacity-0 w-4" : "w-4"
-              }`}
+              className="block h-px transition-all duration-300"
+              style={{ backgroundColor: ink, width: "16px", opacity: menuOpen ? 0 : 1 }}
             />
             <span
-              className={`block h-px bg-[#f0ede7] transition-all duration-300 origin-center ${
-                menuOpen ? "w-6 -rotate-45 -translate-y-[6px]" : "w-6"
-              }`}
+              className="block h-px transition-all duration-300 origin-center"
+              style={{ backgroundColor: ink, width: menuOpen ? "24px" : "24px", transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none" }}
             />
           </button>
         </div>
@@ -238,8 +253,6 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-
-          {/* Language toggle mobile */}
           <div className="mobile-nav-item mt-16 flex gap-5 text-sm text-[#6e6b66]">
             <button
               onClick={() => { switchLanguage("no"); setMenuOpen(false); }}
