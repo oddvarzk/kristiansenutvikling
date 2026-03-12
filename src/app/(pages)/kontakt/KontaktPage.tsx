@@ -13,34 +13,27 @@ export default function KontaktPage() {
       <div className="container mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 max-w-6xl">
 
-          {/* Left — headline + info */}
+          {/* Left */}
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-8 h-px bg-[#d4ff3e]" />
-              <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
-                {isEn ? "Contact" : "Kontakt"}
-              </p>
-            </div>
             <h1
               className="text-[11vw] md:text-[4.5vw] font-black tracking-tight text-[#f0ede7] leading-[0.92] mb-6"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {t.contact.title}
             </h1>
-            <p className="text-[#6e6b66] text-sm md:text-base leading-relaxed mb-10 max-w-xs">
+            <p className="text-[#6e6b66] text-sm md:text-base leading-relaxed mb-12 max-w-xs">
               {t.contact.subtitle}
             </p>
 
-            {/* Contact details */}
             <div className="space-y-6 border-t border-[#1a1a1a] pt-8">
               <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">Email</p>
+                <p className="text-[#6e6b66]/50 text-xs mb-1">Email</p>
                 <a href="mailto:hei@kristiansenutvikling.no" className="text-sm text-[#f0ede7]/70 hover:text-[#d4ff3e] transition-colors duration-200">
                   hei@kristiansenutvikling.no
                 </a>
               </div>
               <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                <p className="text-[#6e6b66]/50 text-xs mb-1">
                   {isEn ? "Phone" : "Telefon"}
                 </p>
                 <a href="tel:+4747207143" className="text-sm text-[#f0ede7]/70 hover:text-[#d4ff3e] transition-colors duration-200">
@@ -48,13 +41,13 @@ export default function KontaktPage() {
                 </a>
               </div>
               <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                <p className="text-[#6e6b66]/50 text-xs mb-1">
                   {isEn ? "Location" : "Sted"}
                 </p>
                 <span className="text-sm text-[#f0ede7]/70">{t.contact.info.locationValue}</span>
               </div>
               <div>
-                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                <p className="text-[#6e6b66]/50 text-xs mb-1">
                   {t.contact.hours.title}
                 </p>
                 <span className="text-sm text-[#f0ede7]/70 leading-relaxed block">
@@ -64,7 +57,7 @@ export default function KontaktPage() {
             </div>
           </div>
 
-          {/* Right — form */}
+          {/* Right */}
           <div className="lg:col-span-7">
             <KontaktForm />
           </div>

@@ -20,16 +20,16 @@ export default function TjenesterPage() {
 
   const processSteps = isEn
     ? [
-        { num: "01", title: "Consultation", desc: "We discuss your needs and goals for the project" },
-        { num: "02", title: "Design & Planning", desc: "Sketches and wireframes to visualise the solution" },
-        { num: "03", title: "Development", desc: "Coding and implementation of functionality" },
-        { num: "04", title: "Testing & Launch", desc: "Quality assurance and live deployment" },
+        { title: "Consultation",      desc: "We talk through your needs, goals and timeline." },
+        { title: "Design & Planning", desc: "Sketches and structure before a line of code is written." },
+        { title: "Development",       desc: "Built properly — clean, fast and accessible." },
+        { title: "Launch",            desc: "Tested, deployed and handed over with full documentation." },
       ]
     : [
-        { num: "01", title: "Konsultasjon", desc: "Vi diskuterer dine behov og mål for prosjektet" },
-        { num: "02", title: "Design & Planlegging", desc: "Skisser og wireframes for å visualisere løsningen" },
-        { num: "03", title: "Utvikling", desc: "Koding og implementering av funksjonalitet" },
-        { num: "04", title: "Testing & Lansering", desc: "Kvalitetssikring og live-oppsett" },
+        { title: "Konsultasjon",        desc: "Vi snakker gjennom behov, mål og tidslinje." },
+        { title: "Design & Planlegging",desc: "Skisser og struktur før en linje kode er skrevet." },
+        { title: "Utvikling",           desc: "Bygget ordentlig — rent, raskt og tilgjengelig." },
+        { title: "Lansering",           desc: "Testet, deployet og levert med full dokumentasjon." },
       ];
 
   return (
@@ -41,12 +41,6 @@ export default function TjenesterPage() {
       {/* Hero */}
       <section className="pt-32 md:pt-40 pb-20 bg-[#080808]">
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-px bg-[#d4ff3e]" />
-            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
-              {isEn ? "Services" : "Tjenester"}
-            </p>
-          </div>
           <h1
             className="text-[12vw] md:text-[6vw] font-black tracking-tight text-[#f0ede7] leading-[0.92] mb-8"
             style={{ fontFamily: "Satoshi, sans-serif" }}
@@ -59,41 +53,22 @@ export default function TjenesterPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-12 border-y border-[#1a1a1a] bg-[#080808]">
-        <div className="container mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { n: "50+", l: isEn ? "Projects" : "Prosjekter" },
-              { n: "3+", l: isEn ? "Years experience" : "År erfaring" },
-              { n: "100%", l: isEn ? "Client satisfaction" : "Kundetilfredshet" },
-              { n: "24/7", l: "Support" },
-            ].map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl md:text-4xl font-black text-[#f0ede7] mb-1" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                  {s.n}
-                </div>
-                <div className="text-xs text-[#6e6b66] tracking-wide">{s.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
-      <section className="py-20 md:py-28 bg-[#080808]">
+      <section className="py-16 md:py-20 bg-[#080808] border-t border-[#1a1a1a]">
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex items-center gap-4 mb-14">
-            <div className="w-8 h-px bg-[#d4ff3e]" />
-            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
-              {isEn ? "How I work" : "Min arbeidsprosess"}
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.num} className="border-t border-[#1a1a1a] pt-6">
-                <span className="block text-[#d4ff3e] text-xs font-mono mb-4">{step.num}</span>
-                <h3 className="text-lg font-bold text-[#f0ede7] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+          <h2
+            className="text-sm font-semibold text-[#f0ede7] mb-10"
+            style={{ fontFamily: "Satoshi, sans-serif" }}
+          >
+            {isEn ? "How it works" : "Slik jobber jeg"}
+          </h2>
+          <div className="grid md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#1a1a1a]">
+            {processSteps.map((step, i) => (
+              <div key={i} className="py-6 md:py-0 md:px-8 first:md:pl-0 last:md:pr-0">
+                <h3
+                  className="text-base font-bold text-[#f0ede7] mb-2"
+                  style={{ fontFamily: "Satoshi, sans-serif" }}
+                >
                   {step.title}
                 </h3>
                 <p className="text-sm text-[#6e6b66] leading-relaxed">{step.desc}</p>
@@ -107,13 +82,15 @@ export default function TjenesterPage() {
       <TjenesterServicesSection />
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-[#080808]">
+      <section className="py-20 md:py-28 bg-[#080808] border-t border-[#1a1a1a]">
         <div className="container mx-auto px-6 md:px-10">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-8 h-px bg-[#d4ff3e]" />
-            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">FAQ</p>
-          </div>
-          <div className="max-w-3xl divide-y divide-[#1a1a1a] border-t border-[#1a1a1a]">
+          <h2
+            className="text-sm font-semibold text-[#f0ede7] mb-10"
+            style={{ fontFamily: "Satoshi, sans-serif" }}
+          >
+            {isEn ? "Common questions" : "Vanlige spørsmål"}
+          </h2>
+          <div className="max-w-3xl divide-y divide-[#1a1a1a]">
             {[t.services.faq.q1, t.services.faq.q2, t.services.faq.q3, t.services.faq.q4, t.services.faq.q5, t.services.faq.q6].map((q, i) => (
               <details key={i} className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#f0ede7] list-none">
@@ -122,7 +99,7 @@ export default function TjenesterPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <p className="mt-4 text-sm text-[#6e6b66] leading-relaxed">{q.answer}</p>
+                <p className="mt-3 text-sm text-[#6e6b66] leading-relaxed">{q.answer}</p>
               </details>
             ))}
           </div>
@@ -131,20 +108,28 @@ export default function TjenesterPage() {
 
       {/* CTA */}
       <section className="py-20 md:py-28 bg-[#111111]">
-        <div className="container mx-auto px-6 md:px-10 text-center">
-          <h2 className="text-[10vw] md:text-[5vw] font-black tracking-tight text-[#f0ede7] leading-[0.95] mb-6" style={{ fontFamily: "Satoshi, sans-serif" }}>
-            {isEn ? "Ready to start?" : "Klar til å starte?"}
-          </h2>
-          <p className="text-[#6e6b66] text-base mb-8 max-w-md mx-auto">
-            {isEn ? "Let's discuss how I can help you reach your digital goals." : "La oss diskutere hvordan jeg kan hjelpe deg med å nå dine digitale mål."}
-          </p>
-          <div className="flex gap-3 justify-center flex-wrap">
-            <Link href={getLocalizedPath("/kontakt", currentLanguage) as any} className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300">
-              {isEn ? "Contact me" : "Kontakt meg"}
-            </Link>
-            <Link href={getLocalizedPath("/prosjekter", currentLanguage) as any} className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full border border-[#f0ede7]/20 text-[#f0ede7] hover:border-[#f0ede7]/50 transition-colors duration-300">
-              {isEn ? "View projects" : "Se prosjekter"}
-            </Link>
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 max-w-5xl">
+            <h2
+              className="text-[8vw] md:text-[4vw] font-black tracking-tight text-[#f0ede7] leading-[0.95]"
+              style={{ fontFamily: "Satoshi, sans-serif" }}
+            >
+              {isEn ? "Ready to start?" : "Klar til å starte?"}
+            </h2>
+            <div className="flex gap-3 flex-wrap shrink-0">
+              <Link
+                href={getLocalizedPath("/kontakt", currentLanguage) as any}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300"
+              >
+                {isEn ? "Contact me" : "Kontakt meg"}
+              </Link>
+              <Link
+                href={getLocalizedPath("/prosjekter", currentLanguage) as any}
+                className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full border border-[#f0ede7]/20 text-[#f0ede7] hover:border-[#f0ede7]/50 transition-colors duration-300"
+              >
+                {isEn ? "View projects" : "Se prosjekter"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

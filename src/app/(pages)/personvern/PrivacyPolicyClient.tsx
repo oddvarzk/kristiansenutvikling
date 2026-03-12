@@ -32,95 +32,48 @@ export default function PrivacyPolicyClient() {
       <div className="min-h-screen bg-[#080808] pt-28 md:pt-36 pb-20">
         <div className="container mx-auto px-6 md:px-10 max-w-3xl">
 
-          {/* Header */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-px bg-[#d4ff3e]" />
-            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
-              {isEn ? "Legal" : "Juridisk"}
-            </p>
-          </div>
           <h1
-            className="text-4xl md:text-5xl font-black tracking-tight text-[#f0ede7] mb-12"
+            className="text-4xl md:text-5xl font-black tracking-tight text-[#f0ede7] mb-14"
             style={{ fontFamily: "Satoshi, sans-serif" }}
           >
             {t.privacy.title}
           </h1>
 
           <div className="space-y-10">
-            {/* Cookies */}
-            <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-lg font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                {t.privacy.cookies.title}
-              </h2>
-              <p className="text-sm text-[#6e6b66] leading-relaxed mb-4">{t.privacy.cookies.description}</p>
-              <ul className="space-y-2">
-                {t.privacy.cookies.items.map((item: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#6e6b66]">
-                    <span className="text-[#d4ff3e] shrink-0">—</span>{item}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-[#6e6b66] mt-4">{t.privacy.cookies.footer}</p>
-            </div>
+            {[
+              t.privacy.cookies,
+              t.privacy.rights,
+              t.privacy.legal,
+              t.privacy.retention,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ].map((section: any, i: number) => (
+              <div key={i} className="border-t border-[#1a1a1a] pt-8">
+                <h2 className="text-base font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  {section.title}
+                </h2>
+                <p className="text-sm text-[#6e6b66] leading-relaxed mb-4">{section.description}</p>
+                {section.items && (
+                  <ul className="space-y-1.5 mb-4">
+                    {section.items.map((item: string, j: number) => (
+                      <li key={j} className="text-sm text-[#6e6b66] pl-4 relative before:absolute before:left-0 before:content-['·'] before:text-[#d4ff3e]/60">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {section.footer && <p className="text-sm text-[#6e6b66]">{section.footer}</p>}
+              </div>
+            ))}
 
-            {/* Rights */}
             <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-lg font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                {t.privacy.rights.title}
-              </h2>
-              <p className="text-sm text-[#6e6b66] leading-relaxed mb-4">{t.privacy.rights.description}</p>
-              <ul className="space-y-2">
-                {t.privacy.rights.items.map((item: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#6e6b66]">
-                    <span className="text-[#d4ff3e] shrink-0">—</span>{item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Legal basis */}
-            <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-lg font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                {t.privacy.legal.title}
-              </h2>
-              <p className="text-sm text-[#6e6b66] leading-relaxed mb-4">{t.privacy.legal.description}</p>
-              <ul className="space-y-2">
-                {t.privacy.legal.items.map((item: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#6e6b66]">
-                    <span className="text-[#d4ff3e] shrink-0">—</span>{item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Retention */}
-            <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-lg font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                {t.privacy.retention.title}
-              </h2>
-              <p className="text-sm text-[#6e6b66] leading-relaxed mb-4">{t.privacy.retention.description}</p>
-              <ul className="space-y-2">
-                {t.privacy.retention.items.map((item: string, i: number) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#6e6b66]">
-                    <span className="text-[#d4ff3e] shrink-0">—</span>{item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-lg font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <h2 className="text-base font-bold text-[#f0ede7] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 {t.privacy.contact.title}
               </h2>
-              <p className="text-sm text-[#6e6b66] mb-2">{t.privacy.contact.description}</p>
-              <p className="text-sm text-[#6e6b66]">
-                {t.privacy.contact.email}:{" "}
-                <a href="mailto:hei@kristiansenutvikling.no" className="text-[#d4ff3e]/80 hover:text-[#d4ff3e] transition-colors">
-                  hei@kristiansenutvikling.no
-                </a>
-              </p>
-              <p className="text-sm text-[#6e6b66] mt-1">{t.privacy.contact.updated}: {updatedDate}</p>
+              <p className="text-sm text-[#6e6b66] mb-3">{t.privacy.contact.description}</p>
+              <a href="mailto:hei@kristiansenutvikling.no" className="text-sm text-[#d4ff3e]/80 hover:text-[#d4ff3e] transition-colors block mb-1">
+                hei@kristiansenutvikling.no
+              </a>
+              <p className="text-xs text-[#6e6b66]/50 mt-3">{t.privacy.contact.updated}: {updatedDate}</p>
             </div>
           </div>
         </div>
