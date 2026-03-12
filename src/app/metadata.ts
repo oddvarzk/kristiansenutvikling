@@ -2,9 +2,6 @@
 import type { Metadata } from "next";
 
 const googleVerif = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
-if (!googleVerif) {
-  throw new Error("Missing NEXT_PUBLIC_GOOGLE_VERIFICATION env var");
-}
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL("https://kristiansenutvikling.no/"),
@@ -55,9 +52,7 @@ export const defaultMetadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png" }],
   },
-  verification: {
-    google: googleVerif,
-  },
+  ...(googleVerif ? { verification: { google: googleVerif } } : {}),
 
   // Explicitly disable Twitter card metadata
   twitter: null,

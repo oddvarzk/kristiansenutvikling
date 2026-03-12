@@ -4,6 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
+import { getLocalizedPath } from "@/app/utils/i18n";
 import { usePathname } from "next/navigation";
 
 interface NavigationProps {
@@ -11,50 +12,35 @@ interface NavigationProps {
   onClose?: () => void;
 }
 
-export default function Navigation({
-  isMobile = false,
-  onClose,
-}: NavigationProps) {
+export default function Navigation({ isMobile = false, onClose }: NavigationProps) {
   const pathname = usePathname();
   const { t, currentLanguage } = useTranslations();
-  
+
   const isActive = (p: string) => pathname === p;
 
-  const getLocalizedPath = (path: string) => {
-    if (currentLanguage === "en") {
-      return `/en${path}`;
-    }
-    return path;
-  };
-
-  const ulClass = isMobile
-    ? "flex flex-col gap-6 px-6"
-    : "flex items-center gap-14";
+  const ulClass = isMobile ? "flex flex-col gap-6 px-6" : "flex items-center gap-14";
 
   const navItems = [
     { href: "/", label: t.navigation.home },
     { href: "/tjenester", label: t.navigation.services },
     { href: "/prosjekter", label: t.navigation.projects },
-    { href: "/artikler", label: currentLanguage === "no" ? "Artikler" : "Articles" },
   ];
 
   return (
     <nav>
       <ul className={ulClass}>
         {navItems.map(({ href, label }) => {
-          const localizedHref = getLocalizedPath(href);
+          const localizedHref = getLocalizedPath(href, currentLanguage);
           return (
             <li key={href}>
               <Link
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 href={localizedHref as any}
                 onClick={() => onClose?.()}
                 className={`
                   block text-lg py-2 transition-colors duration-200
-                  ${
-                    isActive(localizedHref)
-                      ? "text-cyan-400 border-b-2 border-cyan-400"
-                      : "text-white hover:text-cyan-300"
+                  ${isActive(localizedHref)
+                    ? "text-cyan-400 border-b-2 border-cyan-400"
+                    : "text-white hover:text-cyan-300"
                   }
                 `}
               >
@@ -66,14 +52,9 @@ export default function Navigation({
 
         <li>
           <Link
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            href={getLocalizedPath("/kontakt") as any}
+            href={getLocalizedPath("/kontakt", currentLanguage) as any}
             onClick={() => onClose?.()}
-            className={`
-              inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium
-              bg-gradient-to-r from-cyan-500 to-cyan-600 text-white
-              hover:from-cyan-600 hover:to-cyan-700 transition
-            `}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 transition"
           >
             {t.navigation.contact}
           </Link>

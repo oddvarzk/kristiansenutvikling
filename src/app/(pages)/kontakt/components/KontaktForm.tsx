@@ -6,23 +6,22 @@ import { useTranslations } from "@/app/hooks/useTranslations";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-// simple promise that resolves after `ms` milliseconds
 const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
+
+const fieldClass =
+  "w-full px-4 py-3.5 text-sm bg-[#111111] border border-[#1a1a1a] rounded-lg text-[#f0ede7] placeholder-[#6e6b66] focus:outline-none focus:border-[#d4ff3e]/50 focus:ring-1 focus:ring-[#d4ff3e]/30 transition-all duration-200 appearance-none";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { t, currentLanguage } = useTranslations();
+  const isEn = currentLanguage === "en";
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
     setErrorMessage(null);
-
-    // start timer
     const start = Date.now();
-
-    // grab the form data synchronously
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
     const payload = {
@@ -31,7 +30,6 @@ export default function ContactForm() {
       service: formData.get("service"),
       message: formData.get("message"),
     };
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -39,211 +37,112 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       });
       const data = await res.json();
-
       if (!res.ok) {
-        // on server error, still wait 3 s total
         const elapsed = Date.now() - start;
         if (elapsed < 4000) await delay(4000 - elapsed);
-
-        console.error("Server error:", data.error);
-        setErrorMessage(data.error ?? (currentLanguage === "no" ? "Ukjent serverfeil" : "Unknown server error"));
+        setErrorMessage(data.error ?? (isEn ? "Unknown server error" : "Ukjent serverfeil"));
         setStatus("error");
         return;
       }
-
-      // on success, wait the rest of the 3 s
       const elapsed = Date.now() - start;
-      if (elapsed < 4000) {
-        await delay(4000 - elapsed);
-      }
-
+      if (elapsed < 4000) await delay(4000 - elapsed);
       setStatus("success");
       formElement.reset();
     } catch (err: unknown) {
-      // on network error, still obey the 3 s minimum
       const elapsed = Date.now() - start;
       if (elapsed < 4000) await delay(4000 - elapsed);
-
-      console.error("Send error:", err);
       const msg = err instanceof Error ? err.message : String(err);
-      setErrorMessage(msg || (currentLanguage === "no" ? "Nettverksfeil" : "Network error"));
+      setErrorMessage(msg || (isEn ? "Network error" : "Nettverksfeil"));
       setStatus("error");
     }
   };
 
-  // success view
   if (status === "success") {
     return (
-      <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-6 shadow-xl text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          {currentLanguage === "no" ? "Takk for din henvendelse!" : "Thank you for your inquiry!"}
+      <div className="border border-[#1a1a1a] rounded-2xl p-10 text-center">
+        <div className="w-12 h-12 rounded-full bg-[#d4ff3e]/10 flex items-center justify-center mx-auto mb-4">
+          <svg className="w-6 h-6 text-[#d4ff3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 className="text-xl font-bold text-[#f0ede7] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+          {isEn ? "Message sent!" : "Melding sendt!"}
         </h2>
-        <p className="text-white">
-          {currentLanguage === "no" 
-            ? "Din melding er sendt, og jeg vil kontakte deg så snart som mulig."
-            : "Your message has been sent, and I will contact you as soon as possible."
-          }
+        <p className="text-sm text-[#6e6b66]">
+          {isEn ? "I'll get back to you as soon as possible." : "Jeg tar kontakt så snart som mulig."}
         </p>
-      </div>
-    );
-  }
-  if (status === "sending") {
-    return (
-      <div className="mt-4">
-        <Loader />
       </div>
     );
   }
 
+  if (status === "sending") {
+    return <div className="py-8"><Loader /></div>;
+  }
+
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-lg p-8 md:p-12 shadow-xl">
-      <div className="relative inline-block mb-6">
-        <h2 className="text-2xl text-white font-bold">{t.contact.form.title}</h2>
-        <p className="text-sm font-light mt-2">
-          {currentLanguage === "no"
-            ? "Beskriv hva du trenger nettside, forbedringer eller annet så kontakter jeg deg så snart som mulig."
-            : "Describe what you need website, improvements or other and I'll get back to you as soon as possible."}
-        </p>
-      </div>
-      <form className="space-y-7" onSubmit={handleSubmit}>
+    <div>
+      <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-6 font-medium">
+        {t.contact.form.title}
+      </p>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         {/* Name */}
-        <div className="relative">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder={t.contact.form.name}
-            required
-          />
-        </div>
+        <input type="text" id="name" name="name" className={fieldClass} placeholder={t.contact.form.name} required />
         {/* Email */}
-        <div className="relative">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder={currentLanguage === "no" ? "din.epost@eksempel.no" : "your.email@example.com"}
-            required
-          />
-        </div>
-        {/* Phone (optional) */}
-        <div className="relative">
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder={currentLanguage === "no" ? "Telefon (valgfritt)" : "Phone (optional)"}
-          />
-        </div>
+        <input type="email" id="email" name="email" className={fieldClass} placeholder={isEn ? "your.email@example.com" : "din.epost@eksempel.no"} required />
+        {/* Phone */}
+        <input type="tel" id="phone" name="phone" className={fieldClass} placeholder={isEn ? "Phone (optional)" : "Telefon (valgfritt)"} />
         {/* Service */}
         <div className="relative">
-          <select
-            id="service"
-            name="service"
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all appearance-none"
-            required
-            defaultValue=""
-          >
-            <option value="" disabled>
-              {currentLanguage === "no" ? "Hva trenger du hjelp med?" : "What do you need help with?"}
-            </option>
-            <option value="website">{currentLanguage === "no" ? "Nettside" : "Website"}</option>
-            <option value="webshop">{currentLanguage === "no" ? "Nettbutikk" : "E-commerce"}</option>
-            <option value="app">{currentLanguage === "no" ? "Applikasjon" : "Application"}</option>
-            <option value="seo">{currentLanguage === "no" ? "SEO-optimalisering" : "SEO optimization"}</option>
-            <option value="other">{currentLanguage === "no" ? "Annet" : "Other"}</option>
+          <select id="service" name="service" className={fieldClass} required defaultValue="">
+            <option value="" disabled>{isEn ? "What do you need help with?" : "Hva trenger du hjelp med?"}</option>
+            <option value="website">{isEn ? "Website" : "Nettside"}</option>
+            <option value="webshop">{isEn ? "E-commerce" : "Nettbutikk"}</option>
+            <option value="app">{isEn ? "Application" : "Applikasjon"}</option>
+            <option value="seo">{isEn ? "SEO optimisation" : "SEO-optimalisering"}</option>
+            <option value="other">{isEn ? "Other" : "Annet"}</option>
           </select>
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-cyan-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+            <svg className="w-4 h-4 text-[#6e6b66]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
-        {/* How did you hear about me? */}
+        {/* Referral */}
         <div className="relative">
-          <select
-            id="referral"
-            name="referral"
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all appearance-none"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              {currentLanguage === "no" ? "Hvordan fant du meg? (valgfritt)" : "How did you hear about me? (optional)"}
-            </option>
+          <select id="referral" name="referral" className={fieldClass} defaultValue="">
+            <option value="" disabled>{isEn ? "How did you hear about me? (optional)" : "Hvordan fant du meg? (valgfritt)"}</option>
             <option value="google">Google</option>
-            <option value="recommendation">{currentLanguage === "no" ? "Anbefaling" : "Recommendation"}</option>
-            <option value="social">{currentLanguage === "no" ? "Sosiale medier" : "Social media"}</option>
-            <option value="other">{currentLanguage === "no" ? "Annet" : "Other"}</option>
+            <option value="recommendation">{isEn ? "Recommendation" : "Anbefaling"}</option>
+            <option value="social">{isEn ? "Social media" : "Sosiale medier"}</option>
+            <option value="other">{isEn ? "Other" : "Annet"}</option>
           </select>
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-cyan-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+            <svg className="w-4 h-4 text-[#6e6b66]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
         {/* Message */}
-        <div className="relative">
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            className="w-full px-4 py-4 text-base bg-gray-800/60 rounded-md border-l-2 border-cyan-500 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all"
-            placeholder={currentLanguage === "no" ? "Fortell meg om ditt prosjekt" : "Tell us about your project"}
-            required
-          />
-        </div>
+        <textarea id="message" name="message" rows={5} className={fieldClass} placeholder={isEn ? "Tell me about your project" : "Fortell meg om ditt prosjekt"} required />
         {/* Submit */}
-        <div className="pt-2">
-          <button
-            type="submit"
-            className="bg-gradient-to-r cursor-pointer from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-md font-medium hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/20 w-full md:w-auto disabled:opacity-50"
-          >
-            {t.contact.form.submit} 
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300 w-full justify-center"
+        >
+          {t.contact.form.submit}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
         {status === "error" && errorMessage && (
-          <p className="mt-2 text-sm text-red-400">{errorMessage}</p>
+          <p className="text-sm text-red-400 mt-2">{errorMessage}</p>
         )}
       </form>
-      {/* Privacy note */}
-      <p className="text-xs text-gray-400 mt-6 text-center">
-        {currentLanguage === "no"
-          ? "Vi respekterer ditt personvern. Les vår "
-          : "We respect your privacy. Read our "}
-        <a
-          href={currentLanguage === "no" ? "/personvern" : "/en/personvern"}
-          className="underline hover:text-cyan-400"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {currentLanguage === "no" ? "personvernerklæring" : "privacy policy"}
-        </a>
-        .
+      <p className="text-xs text-[#6e6b66] mt-5">
+        {isEn ? "We respect your privacy. Read our " : "Vi respekterer ditt personvern. Les vår "}
+        <a href={isEn ? "/en/personvern" : "/personvern"} className="underline hover:text-[#d4ff3e] transition-colors" target="_blank" rel="noopener noreferrer">
+          {isEn ? "privacy policy" : "personvernerklæring"}
+        </a>.
       </p>
     </div>
   );

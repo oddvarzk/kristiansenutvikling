@@ -1,131 +1,76 @@
 "use client";
 
-import React from "react";
 import KontaktForm from "./components/KontaktForm";
 import BackToTop from "../../components/BackToTop";
 import { useTranslations } from "@/app/hooks/useTranslations";
-import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function KontaktPage() {
   const { t, currentLanguage } = useTranslations();
-  const introText = currentLanguage === "no"
-    ? "Jeg svarer vanligvis innen 24 timer. Din informasjon behandles konfidensielt."
-    : "I usually reply within 24 hours. Your information is handled confidentially.";
+  const isEn = currentLanguage === "en";
 
   return (
-    <section className="w-full bg-gradient-to-br from-zinc-950 via-black to-zinc-900 py-16">
-      <div className="container mx-auto px-4">
-        {/* Header Intro */}
-        <div className="max-w-2xl mx-auto mb-12 text-center">
-          <h1 className="text-4xl font-bold mb-4">{t.contact.title}</h1>
-          <p className="text-lg text-gray-300">
-            {t.contact.subtitle}
-          </p>
-          <p className="text-sm text-gray-400 mt-2">
-            {introText}
-          </p>
-        </div>
-        {/* Main Content: Form takes full width on mobile, 2 columns on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 max-w-6xl mx-auto bg-black/70 rounded-2xl shadow-2xl p-4 md:p-8 lg:p-16">
-          {/* Form Column - Full width on mobile, 7/12 on desktop */}
+    <section className="min-h-screen bg-[#080808] pt-28 md:pt-36 pb-20">
+      <div className="container mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 max-w-6xl">
+
+          {/* Left — headline + info */}
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-8 h-px bg-[#d4ff3e]" />
+              <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
+                {isEn ? "Contact" : "Kontakt"}
+              </p>
+            </div>
+            <h1
+              className="text-[11vw] md:text-[4.5vw] font-black tracking-tight text-[#f0ede7] leading-[0.92] mb-6"
+              style={{ fontFamily: "Satoshi, sans-serif" }}
+            >
+              {t.contact.title}
+            </h1>
+            <p className="text-[#6e6b66] text-sm md:text-base leading-relaxed mb-10 max-w-xs">
+              {t.contact.subtitle}
+            </p>
+
+            {/* Contact details */}
+            <div className="space-y-6 border-t border-[#1a1a1a] pt-8">
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">Email</p>
+                <a href="mailto:hei@kristiansenutvikling.no" className="text-sm text-[#f0ede7]/70 hover:text-[#d4ff3e] transition-colors duration-200">
+                  hei@kristiansenutvikling.no
+                </a>
+              </div>
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                  {isEn ? "Phone" : "Telefon"}
+                </p>
+                <a href="tel:+4747207143" className="text-sm text-[#f0ede7]/70 hover:text-[#d4ff3e] transition-colors duration-200">
+                  +47 472 07 143
+                </a>
+              </div>
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                  {isEn ? "Location" : "Sted"}
+                </p>
+                <span className="text-sm text-[#f0ede7]/70">{t.contact.info.locationValue}</span>
+              </div>
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-1">
+                  {t.contact.hours.title}
+                </p>
+                <span className="text-sm text-[#f0ede7]/70 leading-relaxed block">
+                  {t.contact.hours.weekdays}<br />{t.contact.hours.closed}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right — form */}
           <div className="lg:col-span-7">
             <KontaktForm />
           </div>
-          {/* Info Column - Hidden on mobile, 5/12 on desktop */}
-          <div className="hidden lg:block lg:col-span-5 space-y-8">
-            {/* Contact Info Card */}
-            <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-                {t.contact.info.title}
-              </h2>
-              <ul className="space-y-3">
-                {/* Email */}
-                <li className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-cyan-400" />
-                  <strong className="inline-block w-24">{t.contact.info.email}:</strong>
-                  <a href="mailto:hei@kristiansenutvikling.no" className="underline hover:text-cyan-300">hei@kristiansenutvikling.no</a>
-                </li>
-                {/* Phone */}
-                <li className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-cyan-400" />
-                  <strong className="inline-block w-24">{t.contact.info.phone}:</strong>
-                  <a href="tel:+4747207143" className="underline hover:text-cyan-300">+47 472 07 143</a>
-                </li>
-                {/* Location */}
-                <li className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-cyan-400" />
-                  <strong className="inline-block w-24">{t.contact.info.location}:</strong>
-                  {t.contact.info.locationValue}
-                </li>
-              </ul>
-            </section>
-            {/* Opening Hours Card */}
-            <section className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
-                {t.contact.hours.title}
-              </h2>
-              <p className="text-gray-300">
-                {t.contact.hours.weekdays}<br />
-                {t.contact.hours.weekend}<br />
-                {t.contact.hours.closed}
-              </p>
-            </section>
-          </div>
-        </div>
-        
-        {/* Mobile Contact Info - Visible only on mobile/tablet */}
-        <div className="lg:hidden mt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Contact Info Card */}
-            <section className="bg-black/70 text-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-xl font-semibold mb-4 text-cyan-400">
-                {t.contact.info.title}
-              </h2>
-              <ul className="space-y-3">
-                {/* Email */}
-                <li className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <strong className="block text-sm">{t.contact.info.email}:</strong>
-                    <a href="mailto:hei@kristiansenutvikling.no" className="text-sm underline hover:text-cyan-300 break-all">hei@kristiansenutvikling.no</a>
-                  </div>
-                </li>
-                {/* Phone */}
-                <li className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <strong className="block text-sm">{t.contact.info.phone}:</strong>
-                    <a href="tel:+4747207143" className="text-sm underline hover:text-cyan-300">+47 472 07 143</a>
-                  </div>
-                </li>
-                {/* Location */}
-                <li className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <strong className="block text-sm">{t.contact.info.location}:</strong>
-                    <span className="text-sm">{t.contact.info.locationValue}</span>
-                  </div>
-                </li>
-              </ul>
-            </section>
-            {/* Opening Hours Card */}
-            <section className="bg-black/70 text-white p-6 rounded-lg shadow-lg">
-              <h2 className="text-xl font-semibold mb-4 text-cyan-400">
-                {t.contact.hours.title}
-              </h2>
-              <p className="text-gray-300 text-sm">
-                {t.contact.hours.weekdays}<br />
-                {t.contact.hours.weekend}<br />
-                {t.contact.hours.closed}
-              </p>
-            </section>
-          </div>
-        </div>
-        
-        <div className="mt-16">
-          <BackToTop />
         </div>
       </div>
+      <BackToTop />
     </section>
   );
 }

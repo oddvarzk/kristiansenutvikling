@@ -6,38 +6,49 @@ import Link from "next/link";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 
-// Map your slugs to human-readable labels
-const slugToLabel: Record<string, string> = {
+const slugToLabelNo: Record<string, string> = {
   tjenester: "Tjenester",
   prosjekter: "Prosjekter",
   kontakt: "Kontakt",
-  FAQ: "FAQ",
-  about: "about",
-  personvern: "personvern",
-  artikler: "Artikler",
+  personvern: "Personvern",
+  "kragero-naturstein": "Kragero Naturstein",
+  "nora-marketing": "Nora Marketing",
+  holidaze: "Holidaze",
+};
+
+const slugToLabelEn: Record<string, string> = {
+  tjenester: "Services",
+  prosjekter: "Projects",
+  kontakt: "Contact",
+  personvern: "Privacy Policy",
+  "kragero-naturstein": "Kragero Naturstein",
+  "nora-marketing": "Nora Marketing",
+  holidaze: "Holidaze",
 };
 
 export default function Breadcrumb() {
   const pathname = usePathname() || "/";
   const segments = pathname.split("/").filter(Boolean);
 
-  // ✋ Don’t show breadcrumbs on the homepage
-  if (segments.length === 0) {
-    return null;
-  }
+  if (segments.length === 0) return null;
 
-  // Only show Home and the first segment
+  const isEn = segments[0] === "en";
+  const langPrefix = isEn ? "/en" : "";
+  const labelMap = isEn ? slugToLabelEn : slugToLabelNo;
+  const homeLabel = isEn ? "Home" : "Hjem";
+
+  // Skip the "en" segment itself when building crumbs
+  const contentSegments = isEn ? segments.slice(1) : segments;
+
   const crumbs = [
-    { name: "Hjem", href: "/" },
-    {
+    { name: homeLabel, href: isEn ? "/en" : "/" },
+    ...contentSegments.map((seg, i) => ({
       name:
-        slugToLabel[segments[0]] ||
-        segments[0].charAt(0).toUpperCase() + segments[0].slice(1),
-      href: `/${segments[0]}`,
-    },
+        labelMap[seg] || seg.charAt(0).toUpperCase() + seg.slice(1),
+      href: `${langPrefix}/${contentSegments.slice(0, i + 1).join("/")}`,
+    })),
   ];
 
-  // JSON-LD for BreadcrumbList
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -51,18 +62,15 @@ export default function Breadcrumb() {
 
   return (
     <>
-      {/* UI Breadcrumbs (hidden visually) */}
       <nav aria-label="breadcrumb" className="sr-only">
         {crumbs.map((c, i) => (
           <React.Fragment key={c.href}>
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Link href={c.href as any}>{c.name}</Link>
             {i < crumbs.length - 1 && " / "}
           </React.Fragment>
         ))}
       </nav>
 
-      {/* JSON-LD Schema */}
       <Script
         id="breadcrumb-json"
         type="application/ld+json"

@@ -6,19 +6,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
 
   return [
-    // Core site pages
+    // Norwegian core pages
     { url: `${base}/`, lastModified: today },
     { url: `${base}/tjenester`, lastModified: today },
     { url: `${base}/prosjekter`, lastModified: today },
     { url: `${base}/kontakt`, lastModified: today },
     { url: `${base}/personvern`, lastModified: today },
-    { url: `${base}/artikler`, lastModified: today },
 
-    // Project detail pages
+    // Norwegian project pages
     { url: `${base}/prosjekter/holidaze`, lastModified: today },
-    { url: `${base}/prosjekter/auksjon`, lastModified: today },
-    { url: `${base}/prosjekter/rainydays`, lastModified: today },
-    { url: `${base}/prosjekter/museum`, lastModified: today },
-    { url: `${base}/prosjekter/droomvillaspanje`, lastModified: today },
+    { url: `${base}/prosjekter/kragero-naturstein`, lastModified: today },
+    { url: `${base}/prosjekter/nora-marketing`, lastModified: today },
+
+    // English core pages
+    { url: `${base}/en`, lastModified: today },
+    { url: `${base}/en/tjenester`, lastModified: today },
+    { url: `${base}/en/prosjekter`, lastModified: today },
+    { url: `${base}/en/kontakt`, lastModified: today },
+    { url: `${base}/en/personvern`, lastModified: today },
+
+    // English project pages
+    { url: `${base}/en/prosjekter/holidaze`, lastModified: today },
+    { url: `${base}/en/prosjekter/kragero-naturstein`, lastModified: today },
+    { url: `${base}/en/prosjekter/nora-marketing`, lastModified: today },
   ];
 }

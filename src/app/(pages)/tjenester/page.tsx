@@ -1,356 +1,155 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
 import Script from "next/script";
+import Link from "next/link";
 import TjenesterServicesSection from "./components/TjenesterServicesSection";
 import BackToTop from "../../components/BackToTop";
 import { useTranslations } from "@/app/hooks/useTranslations";
+import { getLocalizedPath } from "@/app/utils/i18n";
 
 export default function TjenesterPage() {
   const { t, currentLanguage } = useTranslations();
-  
+  const isEn = currentLanguage === "en";
+
   const graph = [
-    {
-      "@type": "WebPage",
-      "@id": "https://kristiansenutvikling.no/tjenester#webpage",
-      url: "https://kristiansenutvikling.no/tjenester",
-      name: "Tjenester | Kristiansen Utvikling",
-      description:
-        "Oppdag mine webutviklingstjenester: fra responsive nettsider og e-handelsløsninger til SEO-optimalisering og vedlikehold.",
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://kristiansenutvikling.no/tjenester#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Hjem",
-          item: "https://kristiansenutvikling.no/",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Tjenester",
-          item: "https://kristiansenutvikling.no/tjenester",
-        },
-      ],
-    },
+    { "@type": "WebPage", "@id": "https://kristiansenutvikling.no/tjenester#webpage", url: "https://kristiansenutvikling.no/tjenester", name: "Tjenester | Kristiansen Utvikling", description: "Oppdag mine webutviklingstjenester." },
+    { "@type": "BreadcrumbList", "@id": "https://kristiansenutvikling.no/tjenester#breadcrumb", itemListElement: [{ "@type": "ListItem", position: 1, name: "Hjem", item: "https://kristiansenutvikling.no/" }, { "@type": "ListItem", position: 2, name: "Tjenester", item: "https://kristiansenutvikling.no/tjenester" }] },
   ];
 
-  const stats = [
-    {
-      number: "50+",
-      label: currentLanguage === "no" ? "Prosjekter" : "Projects",
-      icon: (
-        <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-    {
-      number: "3+",
-      label: currentLanguage === "no" ? "År erfaring" : "Years Experience",
-      icon: (
-        <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-    {
-      number: "100%",
-      label: currentLanguage === "no" ? "Kundetilfredshet" : "Client Satisfaction",
-      icon: (
-        <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
-    },
-    {
-      number: "24/7",
-      label: currentLanguage === "no" ? "Support" : "Support",
-      icon: (
-        <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      ),
-    },
-  ];
-
-  const processSteps = [
-    {
-      step: "01",
-      title: currentLanguage === "no" ? "Konsultasjon" : "Consultation",
-      description: currentLanguage === "no" 
-        ? "Vi diskuterer dine behov og mål for prosjektet"
-        : "We discuss your needs and goals for the project",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      ),
-    },
-    {
-      step: "02",
-      title: currentLanguage === "no" ? "Design & Planlegging" : "Design & Planning",
-      description: currentLanguage === "no"
-        ? "Skisser og wireframes for å visualisere løsningen"
-        : "Sketches and wireframes to visualize the solution",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-    },
-    {
-      step: "03",
-      title: currentLanguage === "no" ? "Utvikling" : "Development",
-      description: currentLanguage === "no"
-        ? "Koding og implementering av funksjonalitet"
-        : "Coding and implementation of functionality",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
-    },
-    {
-      step: "04",
-      title: currentLanguage === "no" ? "Testing, Lansering & Publisering" : "Testing & Launch",
-      description: currentLanguage === "no"
-        ? "Kvalitetssikring og live-oppsett"
-        : "Quality assurance and live deployment",
-      icon: (
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-  ];
+  const processSteps = isEn
+    ? [
+        { num: "01", title: "Consultation", desc: "We discuss your needs and goals for the project" },
+        { num: "02", title: "Design & Planning", desc: "Sketches and wireframes to visualise the solution" },
+        { num: "03", title: "Development", desc: "Coding and implementation of functionality" },
+        { num: "04", title: "Testing & Launch", desc: "Quality assurance and live deployment" },
+      ]
+    : [
+        { num: "01", title: "Konsultasjon", desc: "Vi diskuterer dine behov og mål for prosjektet" },
+        { num: "02", title: "Design & Planlegging", desc: "Skisser og wireframes for å visualisere løsningen" },
+        { num: "03", title: "Utvikling", desc: "Koding og implementering av funksjonalitet" },
+        { num: "04", title: "Testing & Lansering", desc: "Kvalitetssikring og live-oppsett" },
+      ];
 
   return (
     <>
       <Script id="ld-json" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": graph,
-        })}
+        {JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}
       </Script>
 
-      <div className="space-y-16">
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-zinc-900 via-black to-zinc-900">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                {t.services.title}
-              </h1>
-              <div className="mb-8">
-                <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  {t.services.intro}
-                </p>
-              </div>
-            </div>
+      {/* Hero */}
+      <section className="pt-32 md:pt-40 pb-20 bg-[#080808]">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-8 h-px bg-[#d4ff3e]" />
+            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
+              {isEn ? "Services" : "Tjenester"}
+            </p>
           </div>
-        </section>
+          <h1
+            className="text-[12vw] md:text-[6vw] font-black tracking-tight text-[#f0ede7] leading-[0.92] mb-8"
+            style={{ fontFamily: "Satoshi, sans-serif" }}
+          >
+            {t.services.title}
+          </h1>
+          <p className="text-[#6e6b66] text-base md:text-lg max-w-xl leading-relaxed">
+            {t.services.intro}
+          </p>
+        </div>
+      </section>
 
-        {/* Statistics Section */}
-        <section className="py-16 bg-gradient-to-r from-zinc-800/50 to-zinc-900/50">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 p-6 rounded-xl border border-zinc-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {stat.icon}
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-gray-400 text-sm">
-                      {stat.label}
-                    </div>
-                  </div>
+      {/* Stats */}
+      <section className="py-12 border-y border-[#1a1a1a] bg-[#080808]">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { n: "50+", l: isEn ? "Projects" : "Prosjekter" },
+              { n: "3+", l: isEn ? "Years experience" : "År erfaring" },
+              { n: "100%", l: isEn ? "Client satisfaction" : "Kundetilfredshet" },
+              { n: "24/7", l: "Support" },
+            ].map((s, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl md:text-4xl font-black text-[#f0ede7] mb-1" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  {s.n}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                {currentLanguage === "no" ? "Min arbeidsprosess" : "My Work Process"}
-              </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                {currentLanguage === "no" 
-                  ? "En strukturert tilnærming som sikrer kvalitet og levering i tide"
-                  : "A structured approach that ensures quality and on-time delivery"
-                }
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {processSteps.map((step, index) => (
-                <div key={index} className="relative group">
-                  <div className="bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 p-6 rounded-xl border border-zinc-700/50 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                    <div className="flex items-center mb-4">
-                      <div className="bg-cyan-500/20 text-cyan-400 p-3 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
-                        {step.icon}
-                      </div>
-                      <span className="text-2xl font-bold text-cyan-400">{step.step}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
-                  </div>
-                  
-                  {/* Connection line */}
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent transform -translate-y-1/2"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <TjenesterServicesSection />
-
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-cyan-600/20 to-blue-600/20">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                {currentLanguage === "no" 
-                  ? "Klar til å starte ditt prosjekt?"
-                  : "Ready to start your project?"
-                }
-              </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                {currentLanguage === "no"
-                  ? "La oss diskutere hvordan jeg kan hjelpe deg med å realisere dine digitale mål"
-                  : "Let's discuss how I can help you realize your digital goals"
-                }
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={currentLanguage === "no" ? "/kontakt" : "/en/kontakt"}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  {currentLanguage === "no" ? "Kontakt meg" : "Contact me"}
-                </a>
-                <a
-                  href={currentLanguage === "no" ? "/prosjekter" : "/en/prosjekter"}
-                  className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  {currentLanguage === "no" ? "Se prosjekter" : "View projects"}
-                </a>
+                <div className="text-xs text-[#6e6b66] tracking-wide">{s.l}</div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FAQ Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold mb-8 text-center text-white">
-                {t.services.faq.title}
-              </h3>
-              <div className="space-y-4">
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q1.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q1.answer}
-                    </p>
-                  </div>
-                </details>
-
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q2.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q2.answer}
-                    </p>
-                  </div>
-                </details>
-
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q3.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q3.answer}
-                    </p>
-                  </div>
-                </details>
-
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q4.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q4.answer}
-                    </p>
-                  </div>
-                </details>
-
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q5.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q5.answer}
-                    </p>
-                  </div>
-                </details>
-
-                <details className="bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 border border-zinc-700/50 hover:border-cyan-500/50 cursor-pointer transition-all duration-300 rounded-lg overflow-hidden group">
-                  <summary className="cursor-pointer font-semibold text-white p-6 hover:bg-zinc-700/30 transition-colors duration-300 flex items-center justify-between">
-                    <span>{t.services.faq.q6.question}</span>
-                    <svg className="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-300 leading-relaxed">
-                      {t.services.faq.q6.answer}
-                    </p>
-                  </div>
-                </details>
+      {/* Process */}
+      <section className="py-20 md:py-28 bg-[#080808]">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="flex items-center gap-4 mb-14">
+            <div className="w-8 h-px bg-[#d4ff3e]" />
+            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
+              {isEn ? "How I work" : "Min arbeidsprosess"}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {processSteps.map((step) => (
+              <div key={step.num} className="border-t border-[#1a1a1a] pt-6">
+                <span className="block text-[#d4ff3e] text-xs font-mono mb-4">{step.num}</span>
+                <h3 className="text-lg font-bold text-[#f0ede7] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  {step.title}
+                </h3>
+                <p className="text-sm text-[#6e6b66] leading-relaxed">{step.desc}</p>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-        
-        <BackToTop />
-      </div>
+        </div>
+      </section>
+
+      {/* Services accordion */}
+      <TjenesterServicesSection />
+
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-[#080808]">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="w-8 h-px bg-[#d4ff3e]" />
+            <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">FAQ</p>
+          </div>
+          <div className="max-w-3xl divide-y divide-[#1a1a1a] border-t border-[#1a1a1a]">
+            {[t.services.faq.q1, t.services.faq.q2, t.services.faq.q3, t.services.faq.q4, t.services.faq.q5, t.services.faq.q6].map((q, i) => (
+              <details key={i} className="group py-5">
+                <summary className="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#f0ede7] list-none">
+                  <span>{q.question}</span>
+                  <svg className="w-4 h-4 text-[#6e6b66] group-open:rotate-180 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p className="mt-4 text-sm text-[#6e6b66] leading-relaxed">{q.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-[#111111]">
+        <div className="container mx-auto px-6 md:px-10 text-center">
+          <h2 className="text-[10vw] md:text-[5vw] font-black tracking-tight text-[#f0ede7] leading-[0.95] mb-6" style={{ fontFamily: "Satoshi, sans-serif" }}>
+            {isEn ? "Ready to start?" : "Klar til å starte?"}
+          </h2>
+          <p className="text-[#6e6b66] text-base mb-8 max-w-md mx-auto">
+            {isEn ? "Let's discuss how I can help you reach your digital goals." : "La oss diskutere hvordan jeg kan hjelpe deg med å nå dine digitale mål."}
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <Link href={getLocalizedPath("/kontakt", currentLanguage) as any} className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300">
+              {isEn ? "Contact me" : "Kontakt meg"}
+            </Link>
+            <Link href={getLocalizedPath("/prosjekter", currentLanguage) as any} className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full border border-[#f0ede7]/20 text-[#f0ede7] hover:border-[#f0ede7]/50 transition-colors duration-300">
+              {isEn ? "View projects" : "Se prosjekter"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <BackToTop />
     </>
   );
 }

@@ -1,28 +1,16 @@
-// src/app/layout.tsx
-import { Geist, Geist_Mono } from "next/font/google";
-import { Montserrat, Merriweather } from "next/font/google";
-import RootLayout from "./RootLayout";
+// src/app/layout.tsx — server component, true root layout
+import { Inter } from "next/font/google";
+import ClientLayout from "./ClientLayout";
 import { defaultMetadata } from "./metadata";
 import "./globals.css";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import AnalyticsConsentLoader from "./components/AnalyticsConsentLoader";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-montserrat",
-});
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "700", "900"],
-  variable: "--font-merriweather",
+  variable: "--font-inter",
 });
 
 export const metadata = defaultMetadata;
@@ -31,19 +19,21 @@ export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <>
-      <RootLayout
-        fonts={{
-          geistSans,
-          geistMono,
-          montserrat,
-          merriweather,
-        }}
-      >
-        <Breadcrumb />
-        <AnalyticsConsentLoader />
-        {children}
-      </RootLayout>
-    </>
+    <html lang="no" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${inter.variable} antialiased flex flex-col min-h-screen`}>
+        <ClientLayout>
+          <Breadcrumb />
+          <AnalyticsConsentLoader />
+          {children}
+        </ClientLayout>
+      </body>
+    </html>
   );
 }

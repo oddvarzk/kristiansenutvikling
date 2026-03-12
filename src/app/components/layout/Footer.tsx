@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
-// src/components/Footer.tsx
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import LogoImage from "../../../../public/images/logo.svg";
+import Image from "next/image";
 import { useTranslations } from "@/app/hooks/useTranslations";
+import { getLocalizedPath } from "@/app/utils/i18n";
 
 export default function Footer() {
   const { t, currentLanguage } = useTranslations();
+  const isEn = currentLanguage === "en";
 
-  // Handler to reset cookie consent and show banner again
   const resetCookieConsent = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("cookie_consent");
@@ -20,115 +17,107 @@ export default function Footer() {
     }
   };
 
-  const getLocalizedPath = (path: string) => {
-    if (currentLanguage === "en") {
-      return `/en${path}`;
-    }
-    return path;
-  };
+  const navLinks = [
+    { href: "/", label: t.navigation.home },
+    { href: "/tjenester", label: t.navigation.services },
+    { href: "/prosjekter", label: t.navigation.projects },
+    { href: "/kontakt", label: t.navigation.contact },
+    { href: "/personvern", label: isEn ? "Privacy" : "Personvern" },
+  ];
 
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand & Description */}
-        <div className="flex flex-col items-start">
-          <Image
-            src={LogoImage}
-            alt="Kristiansen Utvikling Logo"
-            width={120}
-            height={48}
-            className="mb-4"
-            priority
-          />
-          <p className="text-gray-400 text-sm">
-            {currentLanguage === "no" 
-              ? "Web utvikling bedrift med fokus på kundens behov."
-              : "Web development company focused on customer needs."
-            }
-          </p>
-        </div>
+    <footer className="bg-[#080808] border-t border-[#1a1a1a]">
+      {/* Top section */}
+      <div className="container mx-auto px-6 md:px-10 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
 
-        {/* Contact */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
-            {currentLanguage === "no" ? "Kontakt" : "Contact"}
-          </h3>
-          <ul className="space-y-2 text-gray-400 text-sm">
-            <li>
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <Link href={getLocalizedPath("/", currentLanguage) as any}>
+              <Image
+                src="/images/logo.svg"
+                alt="Kristiansen Utvikling"
+                width={110}
+                height={44}
+                className="h-8 w-auto mb-5"
+              />
+            </Link>
+            <p className="text-[#6e6b66] text-sm leading-relaxed max-w-xs">
+              {isEn
+                ? "Norwegian web development studio. From idea to launch — crafted with care."
+                : "Norsk webutviklingsstudio. Fra idé til lansering — laget med omtanke."}
+            </p>
+            <div className="mt-6 space-y-1">
               <a
                 href="mailto:hei@kristiansenutvikling.no"
-                className="hover:text-white"
+                className="block text-sm text-[#f0ede7]/60 hover:text-[#d4ff3e] transition-colors duration-200"
               >
                 hei@kristiansenutvikling.no
               </a>
-            </li>
-            <li>
-              <a href="tel:+4747207143" className="hover:text-white">
-                {currentLanguage === "no" ? "Telefon: " : "Phone: "}+47 472 07 143
+              <a
+                href="tel:+4747207143"
+                className="block text-sm text-[#f0ede7]/60 hover:text-[#d4ff3e] transition-colors duration-200"
+              >
+                +47 472 07 143
               </a>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
-            {currentLanguage === "no" ? "Lenker" : "Links"}
-          </h3>
-          <ul className="space-y-2 text-gray-400 text-sm">
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/") as any} className="hover:text-white">
-                {t.navigation.home}
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/tjenester") as any} className="hover:text-white">
-                {t.navigation.services}
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/prosjekter") as any} className="hover:text-white">
-                {t.navigation.projects}
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={"/artikler" as any} className="hover:text-white">
-                {currentLanguage === "no" ? "Artikler" : "Articles"}
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/kontakt") as any} className="hover:text-white">
-                {t.navigation.contact}
-              </Link>
-            </li>
-            <li>
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              <Link href={getLocalizedPath("/personvern") as any} className="hover:text-white">
-                {currentLanguage === "no" ? "Personvern" : "Privacy"}
-              </Link>
-            </li>
-          </ul>
-        </div>
+          {/* Nav */}
+          <div className="md:col-span-3">
+            <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-5 font-medium">
+              {isEn ? "Navigation" : "Navigasjon"}
+            </p>
+            <ul className="space-y-3">
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={getLocalizedPath(href, currentLanguage) as any}
+                    className="text-sm text-[#f0ede7]/60 hover:text-[#f0ede7] transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Social & Cookie Reset */}
-        <div>
-          <button
-            onClick={resetCookieConsent}
-            className="text-gray-400 hover:text-white text-sm mb-4"
-          >
-            {currentLanguage === "no" 
-              ? "Endre cookie-innstillinger" 
-              : "Change cookie settings"
-            }
-          </button>
-          <p className="text-gray-500 text-xs mt-4">
+          {/* CTA block */}
+          <div className="md:col-span-4">
+            <p className="text-xs tracking-[0.2em] uppercase text-[#6e6b66] mb-5 font-medium">
+              {isEn ? "Start a project" : "Start et prosjekt"}
+            </p>
+            <p
+              className="text-2xl md:text-3xl font-black tracking-tight text-[#f0ede7] leading-tight mb-6"
+              style={{ fontFamily: "Satoshi, sans-serif" }}
+            >
+              {isEn ? "Have an idea?\nLet's build it." : "Har du en idé?\nLa oss bygge den."}
+            </p>
+            <Link
+              href={getLocalizedPath("/kontakt", currentLanguage) as any}
+              className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300"
+            >
+              {isEn ? "Get in touch" : "Ta kontakt"}
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-[#1a1a1a]">
+        <div className="container mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-[#6e6b66]">
             {t.footer.copyright}
           </p>
+          <button
+            onClick={resetCookieConsent}
+            className="text-xs text-[#6e6b66] hover:text-[#f0ede7] transition-colors duration-200"
+          >
+            {isEn ? "Cookie settings" : "Cookie-innstillinger"}
+          </button>
         </div>
       </div>
     </footer>

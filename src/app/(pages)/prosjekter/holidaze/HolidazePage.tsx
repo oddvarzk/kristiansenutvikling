@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Reason: Next.js 15 typedRoutes requires dynamic hrefs to be cast as any for i18n/dynamic routes.
-// src/app/prosjekter/holidaze/HolidazePage.tsx
 "use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
+import { getLocalizedPath } from "@/app/utils/i18n";
 
-// Bilder for galleriet
 const galleryImages = [
   { src: "/images/projects/holidaze1.png", alt: "Holidaze skjermbilde 1" },
   { src: "/images/projects/holidaze2.png", alt: "Holidaze skjermbilde 2" },
@@ -18,106 +16,59 @@ const galleryImages = [
 export default function HolidazePage() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
   const { currentLanguage } = useTranslations();
+  const isEn = currentLanguage === "en";
 
-  const getLocalizedPath = (path: string) => {
-    if (currentLanguage === "en") {
-      return `/en${path}`;
-    }
-    return path;
-  };
+  const content = isEn
+    ? { subtitle: "Holiday Booking Platform", description: "Holidaze is a modern booking platform for holiday homes. Users can search, filter and book accommodations via an interactive map and calendar.", gallery: "Gallery", technologies: "Technologies" }
+    : { subtitle: "Ferie Bookingplattform", description: "Holidaze er en moderne bookingplattform for ferieboliger. Brukere kan søke, filtrere og booke overnattinger via et interaktivt kart og kalender.", gallery: "Bildegalleri", technologies: "Teknologier brukt" };
 
-  const getProjectData = () => {
-    if (currentLanguage === "en") {
-      return {
-        title: "Holidaze (Holiday Booking)",
-        description: "Holidaze is a modern booking platform for holiday homes. Users can search, filter and book accommodations via an interactive map and calendar.",
-        gallery: "Image Gallery",
-        technologies: "Technologies Used",
-        backToProjects: "← Back to projects"
-      };
-    }
-
-    return {
-      title: "Holidaze (Ferie Booking)",
-      description: "Holidaze er en moderne bookingplattform for ferieboliger. Brukere kan søke, filtrere og booke overnattinger via et interaktivt kart og kalender.",
-      gallery: "Bildegalleri",
-      technologies: "Teknologier brukt",
-      backToProjects: "← Tilbake til prosjekter"
-    };
-  };
-
-  const projectData = getProjectData();
+  const techs = ["Next.js", "React", "Tailwind CSS", "Mapbox GL JS", "FullCalendar", "Sanity CMS"];
 
   return (
-    <section className="py-16 bg-black text-white">
-      <div className="container mx-auto px-6">
-        {/* Page Title */}
-        <h1 className="text-4xl font-bold mb-8">{projectData.title}</h1>
-        <p className="text-gray-300 mb-12 leading-relaxed">
-          {projectData.description}
-        </p>
+    <section className="min-h-screen bg-[#080808] pt-28 md:pt-36 pb-20">
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+        <Link href={getLocalizedPath("/prosjekter", currentLanguage) as any} className="inline-flex items-center gap-2 text-sm text-[#6e6b66] hover:text-[#d4ff3e] transition-colors mb-10">
+          ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
+        </Link>
 
-        {/* Bildegalleri */}
-        <h2 className="text-2xl font-semibold mb-4">{projectData.gallery}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          {galleryImages.map((img, idx) => (
-            <button
-              key={idx}
-              onClick={() => setModalIndex(idx)}
-              className="overflow-hidden rounded-lg group"
-            >
-              <div className="relative h-48 w-full group-hover:scale-105 transition-transform duration-300">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-              </div>
-            </button>
-          ))}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-8 h-px bg-[#d4ff3e]" />
+          <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">{content.subtitle}</p>
+        </div>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight text-[#f0ede7] mb-6" style={{ fontFamily: "Satoshi, sans-serif" }}>
+          Holidaze
+        </h1>
+        <p className="text-[#6e6b66] text-base md:text-lg max-w-2xl leading-relaxed mb-16">{content.description}</p>
+
+        <div className="mb-4">
+          <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium mb-6">{content.gallery}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {galleryImages.map((img, idx) => (
+              <button key={idx} onClick={() => setModalIndex(idx)} className="group overflow-hidden rounded-2xl bg-[#111111] aspect-[4/3] relative">
+                <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 33vw" />
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Teknologier brukt */}
-        <h2 className="text-2xl font-semibold mb-4">{projectData.technologies}</h2>
-        <ul className="list-disc list-inside text-gray-300 mb-12">
-          <li>Next.js & React</li>
-          <li>Tailwind CSS for styling</li>
-          <li>Mapbox GL JS for kart</li>
-          <li>FullCalendar for dato- og tidsvalg</li>
-          <li>Sanity CMS for innhold</li>
-        </ul>
-
-        {/* Modal */}
-        {modalIndex !== null && (
-          <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-            <button
-              onClick={() => setModalIndex(null)}
-              className="absolute top-4 right-4 text-white text-3xl"
-              aria-label={currentLanguage === "en" ? "Close gallery" : "Lukk galleri"}
-            >
-              &times;
-            </button>
-            <div className="relative max-w-4xl w-full h-[80vh]">
-              <Image
-                src={galleryImages[modalIndex].src}
-                alt={galleryImages[modalIndex].alt}
-                fill
-                className="object-contain"
-              />
-            </div>
+        <div className="border-t border-[#1a1a1a] pt-10 mt-10">
+          <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium mb-6">{content.technologies}</p>
+          <div className="flex flex-wrap gap-2">
+            {techs.map((t) => (
+              <span key={t} className="text-xs font-mono px-3 py-1.5 rounded-full border border-[#1a1a1a] text-[#6e6b66]">{t}</span>
+            ))}
           </div>
-        )}
-
-        {/* Back link */}
-        <div className="mt-12">
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <Link href={getLocalizedPath("/prosjekter") as any} className="text-cyan-400 hover:underline">
-            {projectData.backToProjects}
-          </Link>
         </div>
       </div>
+
+      {modalIndex !== null && (
+        <div className="fixed inset-0 bg-[#080808]/95 flex items-center justify-center z-50 p-4" onClick={() => setModalIndex(null)}>
+          <button className="absolute top-6 right-6 text-[#f0ede7]/60 hover:text-[#f0ede7] text-xl" aria-label={isEn ? "Close" : "Lukk"}>✕</button>
+          <div className="relative max-w-5xl w-full aspect-video" onClick={(e) => e.stopPropagation()}>
+            <Image src={galleryImages[modalIndex].src} alt={galleryImages[modalIndex].alt} fill className="object-contain" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

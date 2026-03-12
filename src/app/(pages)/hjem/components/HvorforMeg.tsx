@@ -1,57 +1,90 @@
 "use client";
 
-import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "@/app/hooks/useTranslations";
 
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
-  return (
-    <div className="h-full p-[1px] rounded-4xl border-1 border-cyan-700">
-      <div className="h-full rounded-4xl bg-gradient-to-bl from-zinc-900/90 to-black/95 p-8 shadow-lg">
-        <div className="text-cyan-400 mb-4 flex justify-center">{icon}</div>
-        <h3 className="text-xl font-bold mb-3 text-center">{title}</h3>
-        <p className="text-gray-300 text-center">{description}</p>
-      </div>
-    </div>
-  );
-};
+// Accent shapes — each card gets a different geometric mark
+const accents = [
+  // Thin lime circle
+  <svg key="a" width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <circle cx="14" cy="14" r="13" stroke="#d4ff3e" strokeWidth="1.5" />
+  </svg>,
+  // Lime rotated square
+  <svg key="b" width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <rect x="4" y="4" width="14" height="14" stroke="#d4ff3e" strokeWidth="1.5" transform="rotate(45 11 11)" />
+  </svg>,
+  // Lime arrow-right
+  <svg key="c" width="28" height="16" viewBox="0 0 28 16" fill="none">
+    <path d="M0 8h24M18 2l6 6-6 6" stroke="#d4ff3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+];
 
 export default function WhyChooseMe() {
   const { t } = useTranslations();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const ctx = gsap.context(() => {
+      // Heading slides in
+      gsap.from(".why-heading", {
+        y: 30, opacity: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
+      });
+      // Cards stagger in from below with slight rotation
+      gsap.from(".why-card", {
+        y: 60, opacity: 0, rotation: 1.5,
+        duration: 0.9, stagger: 0.18, ease: "power3.out",
+        scrollTrigger: { trigger: ".why-cards-grid", start: "top 78%" },
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   const cards = t.whyChooseMe.cards;
+
   return (
-    <section className="py-20 bg-black">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-14">
+    <section ref={sectionRef} className="py-24 md:py-32 bg-[#080808]">
+      <div className="container mx-auto px-6 md:px-10">
+
+        {/* Heading — typographic, no label tag */}
+        <h2
+          className="why-heading text-3xl md:text-5xl font-black tracking-tight text-[#f0ede7] leading-tight mb-16 md:mb-20 max-w-xl"
+          style={{ fontFamily: "Satoshi, sans-serif" }}
+        >
           {t.whyChooseMe.heading}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch max-w-6xl mx-auto">
+
+        {/* Cards — alternating layout, no grid gap lines */}
+        <div className="why-cards-grid space-y-0">
           {cards.map((card: { title: string; description: string }, idx: number) => (
-            <FeatureCard
+            <div
               key={idx}
-              icon={
-                idx === 0 ? (
-                  <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                ) : idx === 1 ? (
-                  <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                ) : (
-                  <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                )
-              }
-              title={card.title}
-              description={card.description}
-            />
+              className={`why-card group flex flex-col md:flex-row md:items-center justify-between py-8 md:py-10 border-t border-[#1a1a1a] gap-6 ${
+                idx === cards.length - 1 ? "border-b" : ""
+              }`}
+            >
+              {/* Left: accent + title */}
+              <div className="flex items-start gap-5 md:gap-8 flex-1">
+                <div className="shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                  {accents[idx]}
+                </div>
+                <h3
+                  className="text-xl md:text-3xl font-black tracking-tight text-[#f0ede7] group-hover:text-[#d4ff3e] transition-colors duration-300 leading-tight"
+                  style={{ fontFamily: "Satoshi, sans-serif" }}
+                >
+                  {card.title}
+                </h3>
+              </div>
+              {/* Right: description */}
+              <p className="text-[#6e6b66] text-sm leading-relaxed md:max-w-xs md:text-right">
+                {card.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

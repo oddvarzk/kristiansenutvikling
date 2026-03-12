@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const languages = [
@@ -10,63 +10,33 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
+  const router = useRouter();
   const [currentLang, setCurrentLang] = useState<"no" | "en">("no");
 
   useEffect(() => {
-    const getCurrentLanguage = () => {
-      // Check if the current path starts with a language code
-      const pathSegments = pathname.split("/");
-      const firstSegment = pathSegments[1];
-      
-      if (firstSegment === "en") {
-        return "en";
-      }
-      return "no"; // Default to Norwegian
-    };
-
-    const detectedLanguage = getCurrentLanguage();
+    const pathSegments = pathname.split("/");
+    const detectedLanguage: "no" | "en" = pathSegments[1] === "en" ? "en" : "no";
     setCurrentLang(detectedLanguage);
-    
-    // Store the language preference in localStorage
     localStorage.setItem("preferred-language", detectedLanguage);
   }, [pathname]);
 
-  // Initialize language from localStorage on mount
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem("preferred-language") as "no" | "en";
-    if (storedLanguage && (storedLanguage === "no" || storedLanguage === "en")) {
-      setCurrentLang(storedLanguage);
-    }
-  }, []);
-
   const switchLanguage = (langCode: string) => {
-    // Don't do anything if clicking the current language
-    if (langCode === currentLang) {
-      return;
-    }
+    if (langCode === currentLang) return;
 
     const pathSegments = pathname.split("/");
-    
+
     if (langCode === "no") {
-      // Switch to Norwegian (remove /en prefix)
-      if (pathSegments[1] === "en") {
-        // Remove the /en prefix and keep the rest of the path
-        const newPath = pathSegments.slice(2).join("/");
-        window.location.href = `/${newPath}`;
-      } else {
-        // Already on Norwegian, just refresh
-        window.location.href = pathname;
-      }
+      const newPath = pathSegments[1] === "en"
+        ? "/" + pathSegments.slice(2).join("/")
+        : pathname;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.push((newPath || "/") as any);
     } else {
-      // Switch to English (add /en prefix)
-      if (pathSegments[1] === "en") {
-        // Already on English, just refresh
-        window.location.href = pathname;
-      } else {
-        // Add /en prefix to the current path
-        const newPath = pathSegments.slice(1).join("/");
-        window.location.href = `/en/${newPath}`;
-      }
+      const newPath = pathSegments[1] === "en"
+        ? pathname
+        : "/en/" + pathSegments.slice(1).join("/");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.push((newPath.replace(/\/$/, "") || "/en") as any);
     }
   };
 
