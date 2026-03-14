@@ -44,8 +44,8 @@ export default function Footer() {
             </Link>
             <p className="text-[#6e6b66] text-sm leading-relaxed max-w-xs">
               {isEn
-                ? "Norwegian web development studio. From idea to launch — crafted with care."
-                : "Norsk webutviklingsstudio. Fra idé til lansering — laget med omtanke."}
+                ? "I build websites for people who want something that actually works."
+                : "Jeg bygger nettsider for folk som vil ha noe som faktisk fungerer."}
             </p>
             <div className="mt-6 space-y-1">
               <a
