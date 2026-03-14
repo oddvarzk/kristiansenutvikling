@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "@/app/hooks/useTranslations";
@@ -15,7 +14,8 @@ interface Project {
   title: string;
   description: string;
   href: string;
-  image: string;
+  image: string | null;
+  placeholder: string;
   tag: string;
 }
 
@@ -26,14 +26,14 @@ export default function FeaturedProjects() {
 
   const projects: Project[] = isEn
     ? [
-        { id: "holidaze", title: "Holidaze", description: "Modern booking platform for holiday homes with interactive maps.", href: "/en/prosjekter/holidaze", image: "/images/projects/holidazeHome.png", tag: "Next.js / React" },
-        { id: "kragero-naturstein", title: "Kragero Naturstein", description: "Professional website for a Norwegian natural stone supplier.", href: "/en/prosjekter/kragero-naturstein", image: "/images/projects/kragero-naturstein-home.png", tag: "Next.js / SEO" },
-        { id: "nora-marketing", title: "Nora Marketing", description: "Marketing agency website focused on conversions.", href: "/en/prosjekter/nora-marketing", image: "/images/projects/nora-marketing-home.png", tag: "Next.js / Marketing" },
+        { id: "holidaze",           title: "Holidaze",           description: "Modern booking platform for holiday homes with interactive maps.", href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png", placeholder: "#111111",  tag: "Next.js / React" },
+        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Professional website for a Norwegian natural stone supplier.",    href: "/en/prosjekter/kragero-naturstein", image: null,                               placeholder: "#1a1a17",  tag: "Next.js / SEO" },
+        { id: "nora-marketing",     title: "Nora Marketing",     description: "Marketing agency website focused on conversions.",               href: "/en/prosjekter/nora-marketing",     image: null,                               placeholder: "#1a1720",  tag: "Next.js / Marketing" },
       ]
     : [
-        { id: "holidaze", title: "Holidaze", description: "Moderne bookingplattform for ferieboliger med interaktive kart.", href: "/prosjekter/holidaze", image: "/images/projects/holidazeHome.png", tag: "Next.js / React" },
-        { id: "kragero-naturstein", title: "Kragero Naturstein", description: "Profesjonell nettside for en norsk natursteinleverandør.", href: "/prosjekter/kragero-naturstein", image: "/images/projects/kragero-naturstein-home.png", tag: "Next.js / SEO" },
-        { id: "nora-marketing", title: "Nora Marketing", description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing", image: "/images/projects/nora-marketing-home.png", tag: "Next.js / Marketing" },
+        { id: "holidaze",           title: "Holidaze",           description: "Moderne bookingplattform for ferieboliger med interaktive kart.", href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", placeholder: "#111111",  tag: "Next.js / React" },
+        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Profesjonell nettside for en norsk natursteinleverandør.",        href: "/prosjekter/kragero-naturstein",    image: null,                               placeholder: "#1a1a17",  tag: "Next.js / SEO" },
+        { id: "nora-marketing",     title: "Nora Marketing",     description: "Markedsføringsbyrå-nettside med fokus på konverteringer.",        href: "/prosjekter/nora-marketing",        image: null,                               placeholder: "#1a1720",  tag: "Next.js / Marketing" },
       ];
 
   useEffect(() => {
@@ -83,15 +83,32 @@ export default function FeaturedProjects() {
               href={project.href as any}
               className="project-card group block"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-[#111111] aspect-[4/3] mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-[#080808]/20 group-hover:bg-[#080808]/5 transition-colors duration-300" />
+              <div
+                className="overflow-hidden rounded-2xl mb-4"
+                style={{
+                  position: "relative",
+                  aspectRatio: "4 / 3",
+                  backgroundColor: project.placeholder,
+                }}
+              >
+                {project.image && (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[#080808]/20 group-hover:bg-[#080808]/5 transition-colors duration-300" />
+                  </>
+                )}
+                {!project.image && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-xs text-white/20 font-mono tracking-widest uppercase">
+                      {isEn ? "coming soon" : "kommer snart"}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="flex items-start justify-between">
                 <div>
