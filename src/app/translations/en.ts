@@ -7,7 +7,7 @@ export const en = {
   navigation: {
     home: "Home",
     services: "Services",
-    projects: "Projects",
+    projects: "Cases",
     contact: "Contact",
   },
   home: {
@@ -53,7 +53,7 @@ export const en = {
     }
   },
   projects: {
-    title: "Explore my projects",
+    title: "Projects / Case Studies",
     intro: "Here you'll find a selection of websites, e-commerce solutions and applications I've developed for satisfied clients. The projects are built with modern frameworks like React, Next.js and Tailwind, and showcase the breadth of our expertise: from responsive designs and SEO optimization to complex functionalities.",
   },
   contact: {

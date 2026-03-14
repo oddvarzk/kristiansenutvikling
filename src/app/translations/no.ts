@@ -7,7 +7,7 @@ export const no = {
   navigation: {
     home: "Hjem",
     services: "Tjenester",
-    projects: "Prosjekter",
+    projects: "Cases",
     contact: "Kontakt",
   },
   home: {
@@ -70,7 +70,7 @@ export const no = {
     }
   },
   projects: {
-    title: "Utforsk mine prosjekter",
+    title: "Prosjekter / Case Studies",
     intro: "Her finner du et utvalg av nettsider, e-handelsløsninger og applikasjoner jeg har utviklet for fornøyde kunder. Prosjektene er bygget med moderne rammeverk som React, Next.js og Tailwind, og viser bredden i vår kompetanse: fra responsive designs og SEO-optimalisering til komplekse funksjonaliteter.",
   },
   contact: {
