@@ -48,10 +48,12 @@ export default function KontaktPage() {
               </div>
               <div>
                 <p className="text-[#6e6b66]/50 text-xs mb-1">
-                  {t.contact.hours.title}
+                  {isEn ? "Response time" : "Responstid"}
                 </p>
                 <span className="text-sm text-[#f0ede7]/70 leading-relaxed block">
-                  {t.contact.hours.weekdays}<br />{t.contact.hours.closed}
+                  {isEn
+                    ? "I usually reply within one business day."
+                    : "Jeg svarer vanligvis innen én arbeidsdag."}
                 </span>
               </div>
             </div>

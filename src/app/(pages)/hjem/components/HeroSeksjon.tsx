@@ -13,55 +13,21 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSeksjon() {
   const { currentLanguage } = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const tagRef = useRef<HTMLParagraphElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
-  const subRef = useRef<HTMLParagraphElement>(null);
+  const subRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
   const isEn = currentLanguage === "en";
-
-  // iOS autoplay fix — webkit-playsinline + programmatic .play() with touch unlock
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Required for older iOS Safari
-    video.setAttribute("webkit-playsinline", "true");
-    video.muted = true;
-
-    const tryPlay = () => {
-      video.play().catch(() => {
-        // Autoplay blocked — unlock on first user touch (Low Power Mode, etc.)
-        const unlock = () => {
-          video.play().catch(() => {});
-          (["touchstart", "touchend", "click"] as const).forEach((ev) =>
-            document.removeEventListener(ev, unlock)
-          );
-        };
-        (["touchstart", "touchend", "click"] as const).forEach((ev) =>
-          document.addEventListener(ev, unlock, { once: true })
-        );
-      });
-    };
-
-    if (video.readyState >= 2) {
-      tryPlay();
-    } else {
-      video.addEventListener("loadedmetadata", tryPlay, { once: true });
-    }
-  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      tl.from(tagRef.current, { y: 20, opacity: 0, duration: 0.6 }, 0.3)
-        .from(line1Ref.current, { y: "110%", duration: 1.1 }, 0.55)
+      tl.from(line1Ref.current, { y: "110%", duration: 1.1 }, 0.3)
         .from(line2Ref.current, { y: "110%", duration: 1.1 }, 0.7)
         .from(line3Ref.current, { y: "110%", duration: 1.1 }, 0.85)
         .from(subRef.current, { y: 20, opacity: 0, duration: 0.7 }, 1.1)
@@ -88,54 +54,39 @@ export default function HeroSeksjon() {
     <section
       ref={sectionRef}
       id="top"
-      className="sticky top-0 h-screen flex flex-col justify-end pb-12 md:pb-16 overflow-hidden"
+      className="sticky top-0 h-screen flex flex-col justify-center md:justify-end pb-0 md:pb-16 overflow-hidden bg-[#0a0a0a]"
       style={{ zIndex: 1 }}
     >
-      {/* Background video */}
-      <video
-        ref={videoRef}
-        src="/videos/newBackground.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+      {/* Grain texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          opacity: 0.035,
+        }}
       />
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/60 via-[#080808]/30 to-[#080808]/85 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/60 to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-10">
 
-        {/* Tag line */}
-        <p
-          ref={tagRef}
-          className="text-xs tracking-[0.25em] uppercase text-[#d4ff3e] mb-6 md:mb-8 font-medium"
-        >
-          Kristiansen Utvikling — {isEn ? "Web Development" : "Webutvikling"}
-        </p>
-
         {/* Giant headline */}
         <h1
           ref={headlineRef}
-          className="mb-10 md:mb-14"
+          className="mb-8 md:mb-14"
           style={{ fontFamily: "Satoshi, sans-serif" }}
         >
           <span className="line-wrap">
             <span
               ref={line1Ref}
-              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#f0ede7]"
+              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#f0ede7] pb-[0.18em]"
             >
-              {isEn ? "We build" : "Vi bygger"}
+              {isEn ? "I build" : "Jeg bygger"}
             </span>
           </span>
           <span className="line-wrap">
             <span
               ref={line2Ref}
-              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#f0ede7]"
+              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#f0ede7] pb-[0.18em]"
             >
               {isEn ? "digital" : "digitale"}
             </span>
@@ -143,7 +94,7 @@ export default function HeroSeksjon() {
           <span className="line-wrap">
             <span
               ref={line3Ref}
-              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#d4ff3e]"
+              className="line-inner block text-[15vw] md:text-[10.5vw] leading-[0.9] font-black tracking-[-0.04em] text-[#d4ff3e] pb-[0.18em]"
             >
               {isEn ? "experiences." : "opplevelser."}
             </span>
@@ -151,17 +102,21 @@ export default function HeroSeksjon() {
         </h1>
 
         {/* Bottom row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
-          <p
-            ref={subRef}
-            className="text-[#f0ede7]/55 text-sm md:text-base max-w-xs leading-relaxed"
-          >
-            {isEn
-              ? "From idea to launch — websites and apps delivered with quality and care."
-              : "Fra idé til lansering — nettsider og apper levert med kvalitet og omsorg."}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-8">
+          <div ref={subRef}>
+            <p className="text-[#f0ede7]/55 text-sm md:text-base max-w-xs leading-loose md:leading-relaxed">
+              {isEn
+                ? "I help small businesses and solo founders build digital products that actually work."
+                : "Jeg hjelper småbedrifter og gründere med å bygge digitale produkter som faktisk fungerer."}
+            </p>
+            <p className="text-[#f0ede7]/30 text-xs mt-4 max-w-xs leading-loose md:leading-relaxed italic">
+              {isEn
+                ? "I started this because I genuinely believe a good website can change the direction of a small business."
+                : "Jeg startet dette fordi jeg tror en god nettside faktisk kan snu retningen for en liten bedrift."}
+            </p>
+          </div>
 
-          <div ref={ctaRef} className="flex gap-3 flex-wrap">
+          <div ref={ctaRef} className="flex gap-3 flex-wrap pb-2 md:pb-0">
             <Link
               href={getLocalizedPath("/tjenester", currentLanguage) as any}
               className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300"

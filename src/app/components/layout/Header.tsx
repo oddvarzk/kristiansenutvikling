@@ -205,7 +205,7 @@ export default function Header() {
           >
             <span
               className="block h-px transition-all duration-300 origin-center"
-              style={{ backgroundColor: ink, width: menuOpen ? "24px" : "24px", transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none" }}
+              style={{ backgroundColor: ink, width: "24px", transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none" }}
             />
             <span
               className="block h-px transition-all duration-300"
@@ -213,7 +213,7 @@ export default function Header() {
             />
             <span
               className="block h-px transition-all duration-300 origin-center"
-              style={{ backgroundColor: ink, width: menuOpen ? "24px" : "24px", transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none" }}
+              style={{ backgroundColor: ink, width: "24px", transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none" }}
             />
           </button>
         </div>

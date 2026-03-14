@@ -34,7 +34,7 @@ export default function BackToTop() {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-r from-cyan-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20 hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 z-50 group"
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-[#d4ff3e] text-[#080808] shadow-lg shadow-[#d4ff3e]/20 hover:bg-[#e8ff6a] transition-all duration-300 z-50 group"
         >
           {" "}
           <svg

@@ -7,21 +7,7 @@ import { useTranslations } from "@/app/hooks/useTranslations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Accent shapes — each card gets a different geometric mark
-const accents = [
-  // Thin lime circle
-  <svg key="a" width="28" height="28" viewBox="0 0 28 28" fill="none">
-    <circle cx="14" cy="14" r="13" stroke="#d4ff3e" strokeWidth="1.5" />
-  </svg>,
-  // Lime rotated square
-  <svg key="b" width="22" height="22" viewBox="0 0 22 22" fill="none">
-    <rect x="4" y="4" width="14" height="14" stroke="#d4ff3e" strokeWidth="1.5" transform="rotate(45 11 11)" />
-  </svg>,
-  // Lime arrow-right
-  <svg key="c" width="28" height="16" viewBox="0 0 28 16" fill="none">
-    <path d="M0 8h24M18 2l6 6-6 6" stroke="#d4ff3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>,
-];
+const numbers = ["01", "02", "03"];
 
 export default function WhyChooseMe() {
   const { t } = useTranslations();
@@ -70,9 +56,9 @@ export default function WhyChooseMe() {
             >
               {/* Left: accent + title */}
               <div className="flex items-start gap-5 md:gap-8 flex-1">
-                <div className="shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                  {accents[idx]}
-                </div>
+                <span className="shrink-0 text-[#d4ff3e] text-xs font-black tracking-[0.15em] opacity-50 group-hover:opacity-100 transition-opacity duration-300 mt-1.5">
+                  {numbers[idx]}
+                </span>
                 <h3
                   className="text-xl md:text-3xl font-black tracking-tight text-[#f0ede7] group-hover:text-[#d4ff3e] transition-colors duration-300 leading-tight"
                   style={{ fontFamily: "Satoshi, sans-serif" }}

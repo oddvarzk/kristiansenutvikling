@@ -16,8 +16,8 @@ export const en = {
       viewAll: "View all projects",
     },
     cta: {
-      title: "Ready to start your next project?",
-      subtitle: "Let's create a digital solution that delivers results for your business.",
+      title: "Got a project in mind?",
+      subtitle: "Send me a message and tell me what you need. No commitments, just a good conversation.",
       button: "Let's talk",
     },
   },
@@ -76,10 +76,10 @@ export const en = {
       locationValue: "Oslo, Norway",
     },
     hours: {
-      title: "Opening hours",
-      weekdays: "Weekdays: 09:00 - 21:00",
-      weekend: "Weekend: 10:00 - 18:00",
-      closed: "(Closed daily: 21:00 - 09:00)",
+      title: "Response time",
+      weekdays: "I usually reply within one business day.",
+      weekend: "",
+      closed: "",
     },
   },
   privacy: {
@@ -142,19 +142,19 @@ export const en = {
     backToTop: "Back to top",
   },
   whyChooseMe: {
-    heading: "Why choose me as your partner?",
+    heading: "What I actually bring to the table.",
     cards: [
       {
         title: "Reliable Quality",
-        description: "Dedicated to delivering high-quality solutions that meet or exceed your expectations, always on time."
+        description: "I deliver what we agree on, on time. No surprises, no excuses."
       },
       {
         title: "Clear Communication",
-        description: "Close dialogue throughout the process with fast response times and clear explanations without technical jargon."
+        description: "You hear from me regularly, and I talk to you like a person — not like a client."
       },
       {
-        title: "Tailored Solutions",
-        description: "Every project is unique. I create customized solutions based on your specific needs and business goals."
+        title: "Built Around You",
+        description: "I don't copy from template to template. Your solution is built around what you actually need."
       }
     ]
   },

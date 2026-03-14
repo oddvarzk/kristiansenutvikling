@@ -16,25 +16,25 @@ export const no = {
       viewAll: "Se alle prosjekter",
     },
     cta: {
-      title: "Klar til å starte ditt neste prosjekt?",
-      subtitle: "La oss sammen skape en digital løsning som gir resultater for din virksomhet.",
+      title: "Har du et prosjekt i tankene?",
+      subtitle: "Send meg en melding og si hva du trenger. Ingen forpliktelser, bare en god prat.",
       button: "Ta en prat",
     },
   },
   whyChooseMe: {
-    heading: "Hvorfor velge meg som din partner?",
+    heading: "Det jeg faktisk bringer til bordet.",
     cards: [
       {
         title: "Pålitelig kvalitet",
-        description: "Dedikert til å levere høykvalitetsløsninger som møter eller overgår dine forventninger, alltid til avtalt tid."
+        description: "Jeg leverer det vi blir enige om, til avtalt tid. Ingen overraskelser, ingen unnskyldninger."
       },
       {
         title: "Klar kommunikasjon",
-        description: "Tett dialog gjennom hele prosessen med rask responstid og forståelige forklaringer uten teknisk sjargong."
+        description: "Du hører fra meg jevnlig, og jeg snakker med deg som et menneske — ikke som en klient."
       },
       {
-        title: "Skreddersydde løsninger",
-        description: "Hvert prosjekt er unikt. Jeg lager tilpassede løsninger basert på dine spesifikke behov og forretningsmål."
+        title: "Tilpasset til deg",
+        description: "Jeg kopierer ikke fra mal til mal. Løsningen din blir bygget rundt det du faktisk trenger."
       }
     ]
   },
@@ -93,10 +93,10 @@ export const no = {
       locationValue: "Oslo, Norge",
     },
     hours: {
-      title: "Åpningstider",
-      weekdays: "Hverdager: 09:00 - 21:00",
-      weekend: "Helg: 10:00 - 18:00",
-      closed: "(Stengt hvert døgn: 21:00 - 09:00)",
+      title: "Responstid",
+      weekdays: "Jeg svarer vanligvis innen én arbeidsdag.",
+      weekend: "",
+      closed: "",
     },
   },
   privacy: {
