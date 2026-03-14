@@ -35,15 +35,15 @@ export default function Projekter() {
   const projects: Project[] = isEn
     ? [
         { id: "holidaze",                title: "Holidaze",                description: "Modern booking platform for holiday homes.",              href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png",            placeholder: null,          tag: "Next.js / React",     year: "2024", rotation: -1.4 },
-        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein", image: "/images/projects/kragero-naturstein-home.png", placeholder: null,          tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
-        { id: "nora-marketing",          title: "Nora Marketing",          description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",     image: "/images/projects/nora-marketing-home.png",    placeholder: null,          tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein", image: null,                                           placeholder: "#1a1a17",     tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
+        { id: "nora-marketing",          title: "Nora Marketing",          description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",     image: null,                                           placeholder: "#1a1720",     tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
         { id: "droomvilla-spanje",       title: "Droomvilla Spanje",       description: "Holiday villa rental site for the Spanish market.",       href: null,                               image: null,                                           placeholder: "#1a2a1a",     tag: "Web / Travel",        year: "2025", rotation:  1.1 },
         { id: "bygg-mester-danielsen",   title: "Bygg Mester Danielsen",   description: "Website for a local Norwegian construction company.",     href: null,                               image: null,                                           placeholder: "#1a1a2a",     tag: "Web / Construction",  year: "2025", rotation: -0.6 },
       ]
     : [
         { id: "holidaze",                title: "Holidaze",                description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png",            placeholder: null,          tag: "Next.js / React",     year: "2024", rotation: -1.4 },
-        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: "/images/projects/kragero-naturstein-home.png", placeholder: null,          tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
-        { id: "nora-marketing",          title: "Nora Marketing",          description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: "/images/projects/nora-marketing-home.png",    placeholder: null,          tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: null,                                           placeholder: "#1a1a17",     tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
+        { id: "nora-marketing",          title: "Nora Marketing",          description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: null,                                           placeholder: "#1a1720",     tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
         { id: "droomvilla-spanje",       title: "Droomvilla Spanje",       description: "Feriehus-utleieside for det spanske markedet.",           href: null,                               image: null,                                           placeholder: "#1a2a1a",     tag: "Web / Reiseliv",      year: "2025", rotation:  1.1 },
         { id: "bygg-mester-danielsen",   title: "Bygg Mester Danielsen",   description: "Nettside for et lokalt norsk byggefirma.",                href: null,                               image: null,                                           placeholder: "#1a1a2a",     tag: "Web / Bygg",          year: "2025", rotation: -0.6 },
       ];
@@ -105,7 +105,7 @@ export default function Projekter() {
 
         {/* REINT — fixed behind everything, fills the upper portion */}
         <div
-          className="fixed top-0 left-0 right-0 h-screen flex items-center justify-center pointer-events-none select-none overflow-hidden"
+          className="fixed top-0 left-0 right-0 h-screen flex items-end justify-center pb-[20vh] pointer-events-none select-none overflow-hidden"
           style={{ zIndex: 0 }}
           aria-hidden="true"
         >
@@ -144,14 +144,15 @@ export default function Projekter() {
           ref={stageRef}
           className="relative z-10 container mx-auto px-6 md:px-10 pb-24 md:pb-36"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl items-end md:auto-rows-auto">
+          <div className="grid gap-8 md:gap-10" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}>
             {projects.map((project, i) => (
               <div key={project.id} className="float-card">
                 {project.href ? (
                   <Link href={project.href as any} className="group block">
                     <div
-                      className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-white"
+                      className="relative overflow-hidden rounded-2xl aspect-[4/3] flex items-center justify-center"
                       style={{
+                        backgroundColor: project.image ? "white" : (project.placeholder ?? "#1a1a1a"),
                         transform: `rotate(${project.rotation}deg)`,
                         boxShadow: "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)",
                         transition: "box-shadow 0.4s ease, transform 0.4s ease",
@@ -167,7 +168,7 @@ export default function Projekter() {
                         el.style.transform = `rotate(${project.rotation}deg)`;
                       }}
                     >
-                      {project.image && (
+                      {project.image ? (
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -176,6 +177,10 @@ export default function Projekter() {
                           sizes="(max-width: 768px) 90vw, 30vw"
                           priority={i === 0}
                         />
+                      ) : (
+                        <span className="text-xs text-white/20 font-mono tracking-widest uppercase">
+                          {isEn ? "coming soon" : "kommer snart"}
+                        </span>
                       )}
                     </div>
                     <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
