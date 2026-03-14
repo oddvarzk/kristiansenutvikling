@@ -2,76 +2,97 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaCookieBite } from "react-icons/fa";
 import { useTranslations } from "@/app/hooks/useTranslations";
 
+const STORAGE_KEY = "cookie_consent";
+
 export default function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-  const STORAGE_KEY = "cookie_consent";
+  const [visible, setVisible] = useState(false);
   const { currentLanguage } = useTranslations();
+  const isEn = currentLanguage === "en";
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) {
-      setIsVisible(true);
-    }
+    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
   }, []);
 
-  const giveConsent = () => {
+  const accept = () => {
     localStorage.setItem(STORAGE_KEY, "accepted");
-    // initialize analytics here, e.g. window.analytics?.enable();
-    setIsVisible(false);
+    setVisible(false);
   };
 
-  const declineConsent = () => {
+  const decline = () => {
     localStorage.setItem(STORAGE_KEY, "declined");
-    // disable analytics here, e.g. window.analytics?.disable();
-    setIsVisible(false);
+    setVisible(false);
   };
 
-  if (!isVisible) return null;
+  if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 max-w-xl w-[95vw] bg-gray-900/95 text-gray-100 p-6 rounded-2xl shadow-2xl z-50 animate-fadeIn flex flex-col md:flex-row items-center gap-4 border border-cyan-700">
-      <div className="flex items-center gap-3 w-full md:w-auto">
-        <FaCookieBite className="text-cyan-400 text-2xl flex-shrink-0" aria-hidden="true" />
-        <div className="flex-1">
-          <span className="block text-base font-medium mb-1">
-            {currentLanguage === "no" ? "Vi bruker cookies" : "We use cookies"}
-          </span>
-          <span className="text-sm text-gray-300">
-            {currentLanguage === "no"
-              ? "Vi bruker informasjonskapsler for å forbedre din opplevelse og til anonymisert statistikk (Google Analytics, Vercel Analytics). Lastes kun med ditt samtykke. "
-              : "We use cookies to improve your experience and for analytics (Google Analytics, Vercel Analytics). Only loaded with your consent. "}
-            <Link href="/personvern" className="underline text-cyan-400">
-              {currentLanguage === "no" ? "Les mer" : "Learn more"}
-            </Link>.
-          </span>
-        </div>
-      </div>
-      <div className="flex gap-2 md:gap-4 w-full md:w-auto justify-end">
-        <button
-          onClick={declineConsent}
-          className="px-4 py-2 cursor-pointer bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        >
-          {currentLanguage === "no" ? "Avvis" : "Decline"}
-        </button>
-        <button
-          onClick={giveConsent}
-          className="px-4 py-2 cursor-pointer bg-cyan-600 hover:bg-cyan-500 rounded-lg text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        >
-          {currentLanguage === "no" ? "Aksepter" : "Accept"}
-        </button>
-      </div>
-      <style jsx>{`
-        @keyframes fadeIn {
-          0% { opacity: 0; transform: translateY(40px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1) both;
+    <div
+      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-sm z-50"
+      style={{
+        animation: "cookieSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both",
+      }}
+    >
+      <style>{`
+        @keyframes cookieSlideUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
+
+      <div
+        className="rounded-2xl p-5 border"
+        style={{
+          backgroundColor: "#111111",
+          borderColor: "rgba(240,237,231,0.08)",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
+          fontFamily: "Satoshi, sans-serif",
+        }}
+      >
+        <p className="text-xs font-semibold text-[#f0ede7] mb-1">
+          {isEn ? "Cookies" : "Informasjonskapsler"}
+        </p>
+        <p className="text-xs text-[#6e6b66] leading-relaxed mb-4">
+          {isEn
+            ? "I use cookies for anonymous analytics. Nothing invasive — just page views. "
+            : "Jeg bruker informasjonskapsler til anonymisert statistikk. Ingenting invasivt — bare sidevisninger. "}
+          <Link
+            href={isEn ? "/en/personvern" : "/personvern"}
+            className="text-[#f0ede7]/50 hover:text-[#f0ede7] transition-colors duration-200 underline underline-offset-2"
+          >
+            {isEn ? "Privacy policy" : "Personvern"}
+          </Link>
+        </p>
+
+        <div className="flex gap-2">
+          <button
+            onClick={decline}
+            className="flex-1 text-xs font-medium py-2 px-3 rounded-lg transition-colors duration-200 cursor-pointer"
+            style={{
+              color: "#6e6b66",
+              backgroundColor: "transparent",
+              border: "1px solid rgba(240,237,231,0.08)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#f0ede7")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#6e6b66")}
+          >
+            {isEn ? "Decline" : "Avvis"}
+          </button>
+          <button
+            onClick={accept}
+            className="flex-1 text-xs font-semibold py-2 px-3 rounded-lg transition-colors duration-200 cursor-pointer"
+            style={{
+              backgroundColor: "#d4ff3e",
+              color: "#080808",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e8ff6a")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#d4ff3e")}
+          >
+            {isEn ? "Accept" : "Aksepter"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
