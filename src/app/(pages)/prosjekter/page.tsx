@@ -17,8 +17,9 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  href: string;
-  image: string;
+  href: string | null;
+  image: string | null;
+  placeholder: string | null;
   tag: string;
   year: string;
   rotation: number;
@@ -33,14 +34,18 @@ export default function Projekter() {
 
   const projects: Project[] = isEn
     ? [
-        { id: "holidaze",           title: "Holidaze",           description: "Modern booking platform for holiday homes.",              href: "/en/prosjekter/holidaze",            image: "/images/projects/holidazeHome.png",            tag: "Next.js / React",     year: "2024", rotation: -1.4 },
-        { id: "kragero-naturstein", title: "Kragero Naturstein", description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein",   image: "/images/projects/kragero-naturstein-home.png", tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
-        { id: "nora-marketing",     title: "Nora Marketing",     description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",       image: "/images/projects/nora-marketing-home.png",    tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "holidaze",                title: "Holidaze",                description: "Modern booking platform for holiday homes.",              href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png",            placeholder: null,          tag: "Next.js / React",     year: "2024", rotation: -1.4 },
+        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein", image: "/images/projects/kragero-naturstein-home.png", placeholder: null,          tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
+        { id: "nora-marketing",          title: "Nora Marketing",          description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",     image: "/images/projects/nora-marketing-home.png",    placeholder: null,          tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "droomvilla-spanje",       title: "Droomvilla Spanje",       description: "Holiday villa rental site for the Spanish market.",       href: null,                               image: null,                                           placeholder: "#1a2a1a",     tag: "Web / Travel",        year: "2025", rotation:  1.1 },
+        { id: "bygg-mester-danielsen",   title: "Bygg Mester Danielsen",   description: "Website for a local Norwegian construction company.",     href: null,                               image: null,                                           placeholder: "#1a1a2a",     tag: "Web / Construction",  year: "2025", rotation: -0.6 },
       ]
     : [
-        { id: "holidaze",           title: "Holidaze",           description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",               image: "/images/projects/holidazeHome.png",            tag: "Next.js / React",     year: "2024", rotation: -1.4 },
-        { id: "kragero-naturstein", title: "Kragero Naturstein", description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",      image: "/images/projects/kragero-naturstein-home.png", tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
-        { id: "nora-marketing",     title: "Nora Marketing",     description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",          image: "/images/projects/nora-marketing-home.png",    tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "holidaze",                title: "Holidaze",                description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png",            placeholder: null,          tag: "Next.js / React",     year: "2024", rotation: -1.4 },
+        { id: "kragero-naturstein",      title: "Kragerø Naturstein",      description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: "/images/projects/kragero-naturstein-home.png", placeholder: null,          tag: "Next.js / SEO",       year: "2025", rotation:  0.9 },
+        { id: "nora-marketing",          title: "Nora Marketing",          description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: "/images/projects/nora-marketing-home.png",    placeholder: null,          tag: "Next.js / Marketing", year: "2025", rotation: -0.7 },
+        { id: "droomvilla-spanje",       title: "Droomvilla Spanje",       description: "Feriehus-utleieside for det spanske markedet.",           href: null,                               image: null,                                           placeholder: "#1a2a1a",     tag: "Web / Reiseliv",      year: "2025", rotation:  1.1 },
+        { id: "bygg-mester-danielsen",   title: "Bygg Mester Danielsen",   description: "Nettside for et lokalt norsk byggefirma.",                href: null,                               image: null,                                           placeholder: "#1a1a2a",     tag: "Web / Bygg",          year: "2025", rotation: -0.6 },
       ];
 
   useEffect(() => {
@@ -139,58 +144,85 @@ export default function Projekter() {
           ref={stageRef}
           className="relative z-10 container mx-auto px-6 md:px-10 pb-24 md:pb-36"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl items-end">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl items-end md:auto-rows-auto">
             {projects.map((project, i) => (
-              /* Wrapper stays straight — rotation only on the image card */
               <div key={project.id} className="float-card">
-                <Link href={project.href as any} className="group block">
-                  {/* Card image — rotated here so layout bounding boxes stay identical */}
-                  <div
-                    className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-white"
-                    style={{
-                      transform: `rotate(${project.rotation}deg)`,
-                      boxShadow: "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)",
-                      transition: "box-shadow 0.4s ease, transform 0.4s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.boxShadow = "0 22px 60px rgba(0,0,0,0.18), 0 6px 18px rgba(0,0,0,0.10)";
-                      el.style.transform = `rotate(${project.rotation * 0.4}deg)`;
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.boxShadow = "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)";
-                      el.style.transform = `rotate(${project.rotation}deg)`;
-                    }}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      sizes="(max-width: 768px) 90vw, 30vw"
-                      priority={i === 0}
-                    />
-                  </div>
-
-                  {/* Info below */}
-                  <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
-                    <div>
-                      <h2
-                        className="text-sm font-black tracking-tight text-[#1a1a1a] group-hover:text-[#080808] transition-colors duration-200"
-                        style={{ fontFamily: "Satoshi, sans-serif" }}
-                      >
-                        {project.title}
-                      </h2>
-                      <p className="text-xs text-[#8a8680] mt-0.5 leading-relaxed">
-                        {project.description}
-                      </p>
+                {project.href ? (
+                  <Link href={project.href as any} className="group block">
+                    <div
+                      className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-white"
+                      style={{
+                        transform: `rotate(${project.rotation}deg)`,
+                        boxShadow: "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)",
+                        transition: "box-shadow 0.4s ease, transform 0.4s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.boxShadow = "0 22px 60px rgba(0,0,0,0.18), 0 6px 18px rgba(0,0,0,0.10)";
+                        el.style.transform = `rotate(${project.rotation * 0.4}deg)`;
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.boxShadow = "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)";
+                        el.style.transform = `rotate(${project.rotation}deg)`;
+                      }}
+                    >
+                      {project.image && (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          sizes="(max-width: 768px) 90vw, 30vw"
+                          priority={i === 0}
+                        />
+                      )}
                     </div>
-                    <div className="shrink-0 text-right mt-0.5">
-                      <span className="block text-[10px] font-mono text-[#a09a92]">{project.year}</span>
+                    <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
+                      <div>
+                        <h2
+                          className="text-sm font-black tracking-tight text-[#1a1a1a] group-hover:text-[#080808] transition-colors duration-200"
+                          style={{ fontFamily: "Satoshi, sans-serif" }}
+                        >
+                          {project.title}
+                        </h2>
+                        <p className="text-xs text-[#8a8680] mt-0.5 leading-relaxed">{project.description}</p>
+                      </div>
+                      <div className="shrink-0 text-right mt-0.5">
+                        <span className="block text-[10px] font-mono text-[#a09a92]">{project.year}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="group block">
+                    <div
+                      className="relative overflow-hidden rounded-2xl aspect-[4/3] flex items-center justify-center"
+                      style={{
+                        backgroundColor: project.placeholder ?? "#1a1a1a",
+                        transform: `rotate(${project.rotation}deg)`,
+                        boxShadow: "0 12px 40px rgba(0,0,0,0.13), 0 3px 10px rgba(0,0,0,0.07)",
+                      }}
+                    >
+                      <span className="text-xs text-white/20 font-mono tracking-widest uppercase">
+                        {isEn ? "coming soon" : "kommer snart"}
+                      </span>
+                    </div>
+                    <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
+                      <div>
+                        <h2
+                          className="text-sm font-black tracking-tight text-[#1a1a1a]"
+                          style={{ fontFamily: "Satoshi, sans-serif" }}
+                        >
+                          {project.title}
+                        </h2>
+                        <p className="text-xs text-[#8a8680] mt-0.5 leading-relaxed">{project.description}</p>
+                      </div>
+                      <div className="shrink-0 text-right mt-0.5">
+                        <span className="block text-[10px] font-mono text-[#a09a92]">{project.year}</span>
+                      </div>
                     </div>
                   </div>
-                </Link>
+                )}
               </div>
             ))}
           </div>

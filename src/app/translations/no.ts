@@ -40,7 +40,7 @@ export const no = {
   },
   services: {
     title: "Mine tjenester",
-    intro: "Jeg tilbyr et komplett spekter av digitale tjenester for bedrifter som ønsker å vokse online. Fra responsive nettsider og moderne e-handelsløsninger, til kraftfulle applikasjoner, SEO-optimalisering og vedlikeholdspakker - jeg har løsningen som passer dine behov.",
+    intro: "Her er det jeg faktisk hjelper med — ikke mer, ikke mindre.",
     faq: {
       title: "Ofte stilte spørsmål",
       q1: {
@@ -48,8 +48,8 @@ export const no = {
         answer: "En enkel én-sides landingsside ligger typisk på 20 000-30 000kr (eks. mva). For en vanlig bedriftsnettside med 3-6 undersider ser man ofte priser rundt 40 000-100 000 kr (eks. mva)."
       },
       q2: {
-        question: "Hvor lang tid tar utvikling av en e-handelsløsning?",
-        answer: "En komplett e-handelsløsning tar som regel 4-6 uker, avhengig av produktmengde og tilpasninger. Priser starter typisk på 40 000-80 000 kr (eks. mva)."
+        question: "Er du dyr?",
+        answer: "Det kommer an på hva du sammenligner med. Jeg er billigere enn et byrå og dyrere enn en fersk freelancer som akkurat har lært seg WordPress. Det du betaler for er at jeg faktisk vet hva jeg gjør, og at du slipper å betale for feil jeg gjør underveis."
       },
       q3: {
         question: "Tilbyr du support og vedlikeholdsavtale?",
@@ -64,8 +64,8 @@ export const no = {
         answer: "Jeg jobber primært med Next.js, React, Tailwind CSS, WordPress, Wix og moderne API-er. Dette sikrer raske, trygge og skalerbare løsninger."
       },
       q6: {
-        question: "Hvordan foregår prosessen fra idé til lansering?",
-        answer: "Prosessen starter med behovsanalyse og planlegging, etterfulgt av designskisser, utvikling, testing og lansering. Jeg involverer deg gjennom hele forløpet for å sikre at resultatet møter dine forventninger."
+        question: "Hva skjer hvis jeg ikke liker resultatet?",
+        answer: "Da jobber vi videre til du er fornøyd. Jeg leverer ikke og forsvinner — det er aldri aktuelt. Underveis viser jeg deg det vi lager, så du aldri blir overrasket på slutten. Hvis vi er grunnleggende uenige om retning, finner vi ut av det tidlig."
       }
     }
   },

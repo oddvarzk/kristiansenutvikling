@@ -57,12 +57,6 @@ export default function FeaturedProjects() {
         {/* Header */}
         <div className="flex items-end justify-between mb-12 md:mb-16">
           <div>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-8 h-px bg-[#d4ff3e]" />
-              <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
-                {isEn ? "Selected work" : "Utvalgte prosjekter"}
-              </p>
-            </div>
             <h2
               className="text-3xl md:text-4xl font-black tracking-tight text-[#f0ede7]"
               style={{ fontFamily: "Satoshi, sans-serif" }}

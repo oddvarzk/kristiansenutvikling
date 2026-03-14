@@ -23,7 +23,7 @@ export const en = {
   },
   services: {
     title: "My services",
-    intro: "I offer a complete range of digital services for businesses that want to grow online. From responsive websites and modern e-commerce solutions, to powerful applications, SEO optimization and maintenance packages - I have the solution that fits your needs.",
+    intro: "Here's what I actually help with — nothing more, nothing less.",
     faq: {
       title: "Frequently asked questions",
       q1: {
@@ -31,8 +31,8 @@ export const en = {
         answer: "A simple one-page landing page typically costs 20,000-30,000 NOK (excl. VAT). For a regular business website with 3-6 subpages, prices are often around 40,000-100,000 NOK (excl. VAT)."
       },
       q2: {
-        question: "How long does e-commerce development take?",
-        answer: "A complete e-commerce solution usually takes 4-6 weeks, depending on product volume and customizations. Prices typically start at 40,000-80,000 NOK (excl. VAT)."
+        question: "Are you expensive?",
+        answer: "Depends what you're comparing to. I'm cheaper than an agency and more expensive than someone who just learned WordPress last month. What you're paying for is someone who actually knows what they're doing — and won't charge you for their own mistakes."
       },
       q3: {
         question: "Do you offer support and maintenance agreements?",
@@ -47,8 +47,8 @@ export const en = {
         answer: "I primarily work with Next.js, React, Tailwind CSS, WordPress, Wix and modern APIs. This ensures fast, secure and scalable solutions."
       },
       q6: {
-        question: "How does the process from idea to launch work?",
-        answer: "The process starts with needs analysis and planning, followed by design sketches, development, testing and launch. I involve you throughout the entire process to ensure the result meets your expectations."
+        question: "What if I don't like the result?",
+        answer: "Then we keep working until you do. I don't deliver and disappear — that's never happening. I show you what we're building along the way so there are no surprises at the end. If we're fundamentally going in different directions, we'll catch that early."
       }
     }
   },

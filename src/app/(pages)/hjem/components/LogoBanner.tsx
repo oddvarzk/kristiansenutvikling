@@ -1,17 +1,11 @@
 "use client";
 
-// Infinite horizontal marquee — clients & tech worked with
+// Infinite horizontal marquee — clients & partners
 const items = [
-  { label: "Kragero Naturstein", type: "client" },
-  { label: "Nora Marketing", type: "client" },
-  { label: "Holidaze", type: "client" },
-  { label: "Next.js", type: "tech" },
-  { label: "React", type: "tech" },
-  { label: "Tailwind CSS", type: "tech" },
-  { label: "Vercel", type: "tech" },
-  { label: "WordPress", type: "tech" },
-  { label: "Sanity CMS", type: "tech" },
-  { label: "Node.js", type: "tech" },
+  { label: "Droomvilla Spanje" },
+  { label: "Nora Marketing" },
+  { label: "Kragerø Naturstein" },
+  { label: "Bygg Mester Danielsen" },
 ];
 
 // Duplicate for seamless loop
@@ -30,11 +24,7 @@ export default function LogoBanner() {
         {track.map((item, i) => (
           <span key={i} className="flex items-center gap-10 shrink-0">
             <span
-              className={`text-sm font-medium tracking-wide ${
-                item.type === "client"
-                  ? "text-[#f0ede7]/80"
-                  : "text-[#6e6b66]"
-              }`}
+              className="text-sm font-medium tracking-wide text-[#f0ede7]/80"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {item.label}
