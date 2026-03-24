@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
@@ -64,15 +63,11 @@ export default function Page() {
 
   return (
     <>
-      {/* inject WebPage JSON-LD into the <head> on SSR */}
-      <Script
+      <script
         id="homepage-jsonld"
         type="application/ld+json"
-        strategy="beforeInteractive"
-      >
-        {JSON.stringify(pageJsonLd)}
-      </Script>
-
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd) }}
+      />
       <HomePage />
     </>
   );

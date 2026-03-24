@@ -9,7 +9,8 @@ type Status = "idle" | "sending" | "success" | "error";
 const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 
 const fieldClass =
-  "w-full px-4 py-3.5 text-sm bg-[#111111] border border-[#1a1a1a] rounded-lg text-[#f0ede7] placeholder-[#6e6b66] focus:outline-none focus:border-[#d4ff3e]/50 focus:ring-1 focus:ring-[#d4ff3e]/30 transition-all duration-200 appearance-none";
+  "w-full px-4 py-3.5 text-sm bg-[#131313] border border-[#ede9e2]/8 text-[#ede9e2] placeholder-[#635f5a] focus:outline-none focus:border-[#ede9e2]/25 transition-all duration-200 appearance-none"
+  + " " + "rounded-none";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -59,14 +60,16 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="py-16 text-center">
-        <svg className="w-8 h-8 text-[#d4ff3e] mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-        </svg>
-        <h2 className="text-xl font-bold text-[#f0ede7] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
-          {isEn ? "Message sent!" : "Melding sendt!"}
+      <div className="py-16 border-l border-[#ede9e2]/8 pl-10">
+        <div className="w-8 h-8 border border-[#c5f135]/40 flex items-center justify-center mb-5" style={{ borderRadius: "2px" }}>
+          <svg className="w-4 h-4 text-[#c5f135]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 className="text-xl font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+          {isEn ? "Message sent." : "Melding sendt."}
         </h2>
-        <p className="text-sm text-[#6e6b66]">
+        <p className="text-sm text-[#635f5a]">
           {isEn ? "I'll get back to you as soon as possible." : "Jeg tar kontakt så snart som mulig."}
         </p>
       </div>
@@ -78,7 +81,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
+    <form className="space-y-3.5" onSubmit={handleSubmit}>
       <input type="text" id="name" name="name" className={fieldClass} placeholder={t.contact.form.name} required />
       <input type="email" id="email" name="email" className={fieldClass} placeholder={isEn ? "your.email@example.com" : "din.epost@eksempel.no"} required />
       <input type="tel" id="phone" name="phone" className={fieldClass} placeholder={isEn ? "Phone (optional)" : "Telefon (valgfritt)"} />
@@ -93,7 +96,7 @@ export default function ContactForm() {
           <option value="other">{isEn ? "Other" : "Annet"}</option>
         </select>
         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          <svg className="w-4 h-4 text-[#6e6b66]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 text-[#635f5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -108,7 +111,7 @@ export default function ContactForm() {
           <option value="other">{isEn ? "Other" : "Annet"}</option>
         </select>
         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          <svg className="w-4 h-4 text-[#6e6b66]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 text-[#635f5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -116,20 +119,26 @@ export default function ContactForm() {
 
       <textarea id="message" name="message" rows={5} className={fieldClass} placeholder={isEn ? "Tell me about your project" : "Fortell meg om ditt prosjekt"} required />
 
-      <button
-        type="submit"
-        className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-[#d4ff3e] text-[#080808] hover:bg-[#e8ff6a] transition-colors duration-300 w-full justify-center"
-      >
-        {t.contact.form.submit}
-      </button>
+      <div className="pt-1">
+        <button
+          type="submit"
+          className="inline-flex items-center justify-center gap-2.5 text-sm font-semibold px-7 py-3.5 bg-[#ede9e2] text-[#0b0b0b] hover:bg-white transition-colors duration-200 w-full"
+          style={{ borderRadius: "3px" }}
+        >
+          {t.contact.form.submit}
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
 
       {status === "error" && errorMessage && (
-        <p className="text-sm text-red-400">{errorMessage}</p>
+        <p className="text-sm text-red-400/80">{errorMessage}</p>
       )}
 
-      <p className="text-xs text-[#6e6b66]">
+      <p className="text-xs text-[#635f5a]/60 pt-1">
         {isEn ? "We respect your privacy. " : "Vi respekterer ditt personvern. "}
-        <a href={isEn ? "/en/personvern" : "/personvern"} className="underline hover:text-[#d4ff3e] transition-colors" target="_blank" rel="noopener noreferrer">
+        <a href={isEn ? "/en/personvern" : "/personvern"} className="underline hover:text-[#635f5a] transition-colors" target="_blank" rel="noopener noreferrer">
           {isEn ? "Privacy policy" : "Personvernerklæring"}
         </a>.
       </p>

@@ -42,24 +42,25 @@ export default function CookieBanner() {
       `}</style>
 
       <div
-        className="rounded-2xl p-5 border"
+        className="p-5 border"
         style={{
-          backgroundColor: "#111111",
-          borderColor: "rgba(240,237,231,0.08)",
+          backgroundColor: "#131313",
+          borderColor: "rgba(237,233,226,0.08)",
           boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
           fontFamily: "Satoshi, sans-serif",
+          borderRadius: "3px",
         }}
       >
-        <p className="text-xs font-semibold text-[#f0ede7] mb-1">
+        <p className="text-xs font-semibold text-[#ede9e2] mb-1">
           {isEn ? "Cookies" : "Informasjonskapsler"}
         </p>
-        <p className="text-xs text-[#6e6b66] leading-relaxed mb-4">
+        <p className="text-xs text-[#635f5a] leading-relaxed mb-4">
           {isEn
             ? "I use cookies for anonymous analytics. Nothing invasive — just page views. "
             : "Jeg bruker informasjonskapsler til anonymisert statistikk. Ingenting invasivt — bare sidevisninger. "}
           <Link
             href={isEn ? "/en/personvern" : "/personvern"}
-            className="text-[#f0ede7]/50 hover:text-[#f0ede7] transition-colors duration-200 underline underline-offset-2"
+            className="text-[#ede9e2]/45 hover:text-[#ede9e2] transition-colors duration-200 underline underline-offset-2"
           >
             {isEn ? "Privacy policy" : "Personvern"}
           </Link>
@@ -68,26 +69,28 @@ export default function CookieBanner() {
         <div className="flex gap-2">
           <button
             onClick={decline}
-            className="flex-1 text-xs font-medium py-2 px-3 rounded-lg transition-colors duration-200 cursor-pointer"
+            className="flex-1 text-xs font-medium py-2 px-3 transition-colors duration-200 cursor-pointer"
             style={{
-              color: "#6e6b66",
+              color: "#635f5a",
               backgroundColor: "transparent",
-              border: "1px solid rgba(240,237,231,0.08)",
+              border: "1px solid rgba(237,233,226,0.08)",
+              borderRadius: "2px",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#f0ede7")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#6e6b66")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#ede9e2")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#635f5a")}
           >
             {isEn ? "Decline" : "Avvis"}
           </button>
           <button
             onClick={accept}
-            className="flex-1 text-xs font-semibold py-2 px-3 rounded-lg transition-colors duration-200 cursor-pointer"
+            className="flex-1 text-xs font-semibold py-2 px-3 transition-colors duration-200 cursor-pointer"
             style={{
-              backgroundColor: "#d4ff3e",
-              color: "#080808",
+              backgroundColor: "#ede9e2",
+              color: "#0b0b0b",
+              borderRadius: "2px",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e8ff6a")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#d4ff3e")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ede9e2")}
           >
             {isEn ? "Accept" : "Aksepter"}
           </button>

@@ -22,26 +22,28 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
   return (
     <div
       onClick={toggleOpen}
-      className={`cursor-pointer border-b border-[#1a1a1a] transition-colors duration-300 ${isOpen ? "bg-[#0e0e0e]" : "hover:bg-[#0d0d0d]"}`}
+      className={`cursor-pointer border-b border-[#ede9e2]/6 transition-colors duration-300 ${isOpen ? "bg-[#111111]" : "hover:bg-[#0e0e0e]"}`}
     >
       {/* Header row */}
       <div className="flex items-center justify-between py-6 gap-4">
         <div className="flex items-center gap-5">
-          <div className={`p-2.5 rounded-lg transition-colors duration-300 ${isOpen ? "bg-[#d4ff3e]/10 text-[#d4ff3e]" : "bg-[#1a1a1a] text-[#6e6b66]"}`}>
+          <div className={`p-2.5 transition-colors duration-300 ${isOpen ? "text-[#c5f135]" : "text-[#635f5a]"}`}
+            style={{ borderRadius: "2px" }}>
             {service.icon}
           </div>
           <div>
             <h2
-              className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-200 ${isOpen ? "text-[#d4ff3e]" : "text-[#f0ede7]"}`}
+              className={`text-base md:text-lg font-bold tracking-tight transition-colors duration-200 ${isOpen ? "text-[#ede9e2]" : "text-[#ede9e2]/70"}`}
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {service.title}
             </h2>
-            <p className="text-sm text-[#6e6b66] mt-0.5 leading-relaxed max-w-lg">{service.shortDescription}</p>
+            <p className="text-xs text-[#635f5a] mt-1 leading-relaxed max-w-lg">{service.shortDescription}</p>
           </div>
         </div>
-        <div className={`w-8 h-8 flex items-center justify-center rounded-full border shrink-0 transition-all duration-300 ${isOpen ? "border-[#d4ff3e]/30 text-[#d4ff3e]" : "border-[#1a1a1a] text-[#6e6b66]"}`}>
-          <svg className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className={`w-7 h-7 flex items-center justify-center shrink-0 transition-all duration-300 border ${isOpen ? "border-[#ede9e2]/20 text-[#ede9e2]" : "border-[#ede9e2]/8 text-[#635f5a]"}`}
+          style={{ borderRadius: "2px" }}>
+          <svg className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -49,24 +51,24 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
 
       {/* Expanded */}
       <div className={`overflow-hidden transition-all duration-500 ${isOpen ? "max-h-[800px] opacity-100 pb-8" : "max-h-0 opacity-0"}`}>
-        <p className="text-[#f0ede7]/75 mb-6 leading-relaxed text-sm md:text-base">
+        <p className="text-[#ede9e2]/60 mb-7 leading-relaxed text-sm">
           {service.expandedContent.description}
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="bg-[#111111] border border-[#1a1a1a] p-5 rounded-xl">
-            <h4 className="text-[#d4ff3e] text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="border border-[#ede9e2]/6 p-5" style={{ borderRadius: "2px" }}>
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#635f5a] mb-3">
               {isEn ? "Pricing" : "Prising"}
             </h4>
-            <p className="text-[#f0ede7]/70 text-sm leading-relaxed">{service.expandedContent.pricing}</p>
+            <p className="text-[#ede9e2]/60 text-sm leading-relaxed">{service.expandedContent.pricing}</p>
           </div>
-          <div className="bg-[#111111] border border-[#1a1a1a] p-5 rounded-xl">
-            <h4 className="text-[#d4ff3e] text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="border border-[#ede9e2]/6 p-5" style={{ borderRadius: "2px" }}>
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#635f5a] mb-3">
               {isEn ? "Includes" : "Inkludert"}
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {service.expandedContent.features.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[#f0ede7]/70">
-                  <span className="text-[#d4ff3e]/60 shrink-0 text-base leading-none">·</span>
+                <li key={i} className="flex items-start gap-2.5 text-sm text-[#ede9e2]/60">
+                  <span className="text-[#c5f135]/50 shrink-0 mt-0.5 text-xs">·</span>
                   {f}
                 </li>
               ))}
@@ -111,15 +113,14 @@ export default function TjenesterServicesSection() {
   const services = getServices();
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-16 md:py-20 bg-[#0b0b0b]">
       <div className="container mx-auto px-6 md:px-10">
         <div className="flex items-center gap-4 mb-10">
-          <div className="w-8 h-px bg-[#d4ff3e]" />
-          <p className="text-xs tracking-[0.25em] uppercase text-[#6e6b66] font-medium">
+          <span className="section-label">
             {isEn ? "All services" : "Alle tjenester"}
-          </p>
+          </span>
         </div>
-        <div className="max-w-4xl border-t border-[#1a1a1a]">
+        <div className="max-w-4xl border-t border-[#ede9e2]/6">
           {services.map((svc) => (
             <ExpandableServiceItem
               key={svc.id}

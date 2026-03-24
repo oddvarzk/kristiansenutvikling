@@ -13,23 +13,23 @@ const track = [...items, ...items];
 
 export default function LogoBanner() {
   return (
-    <div className="relative overflow-hidden bg-[#111111] border-y border-[#1a1a1a] py-5 group">
+    <div className="relative overflow-hidden bg-[#0b0b0b] border-y border-[#ede9e2]/6 py-4 group">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#111111] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#111111] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0b0b0b] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0b0b0b] to-transparent z-10 pointer-events-none" />
 
       <div
-        className="flex items-center gap-10 whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]"
+        className="flex items-center gap-12 whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]"
       >
         {track.map((item, i) => (
-          <span key={i} className="flex items-center gap-10 shrink-0">
+          <span key={i} className="flex items-center gap-12 shrink-0">
             <span
-              className="text-sm font-medium tracking-wide text-[#f0ede7]/80"
+              className="text-xs font-medium tracking-[0.12em] uppercase text-[#ede9e2]/30"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {item.label}
             </span>
-            <span className="text-[#d4ff3e]/40 text-xs">✦</span>
+            <span className="text-[#ede9e2]/15 text-[8px]">◆</span>
           </span>
         ))}
       </div>
@@ -40,7 +40,7 @@ export default function LogoBanner() {
           to   { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 28s linear infinite;
+          animation: marquee 36s linear infinite;
           width: max-content;
         }
       `}</style>
