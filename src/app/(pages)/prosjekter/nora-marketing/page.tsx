@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import NoraMarketingPage from "./NoraMarketingPage";
 
 export const metadata: Metadata = {
-  title: "Nora Marketing | Kristiansen Utvikling",
+  title: "Nora Marketing — Konverteringsfokusert Nettside | Kristiansen Utvikling",
   description:
-    "Nettside for Nora Marketing – profesjonelt markedsføringsbyrå med fokus på konverteringer og merkevarebygging.",
-  keywords: ["Nora Marketing", "markedsføring", "nettside", "Next.js", "Tailwind CSS"],
-  authors: [{ name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" }],
+    "Konverteringsfokusert nettside for Nora Marketing — bygget med Next.js og Tailwind CSS for maksimal synlighet og leadgenerering. Se prosjektet.",
+  keywords: [
+    "Nora Marketing",
+    "markedsføring nettside",
+    "konvertering nettside",
+    "Next.js marketing",
+    "leadgenerering nettside",
+    "webutvikling prosjekt Norge",
+  ],
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/nora-marketing",
+    languages: {
+      "nb-NO": "https://kristiansenutvikling.no/prosjekter/nora-marketing",
+      "en": "https://kristiansenutvikling.no/en/prosjekter/nora-marketing",
+    },
   },
   openGraph: {
-    title: "Nora Marketing | Kristiansen Utvikling",
+    title: "Nora Marketing — Konverteringsfokusert Nettside | Kristiansen Utvikling",
     description:
-      "Profesjonell nettside for Nora Marketing bygget med Next.js og Tailwind CSS.",
+      "Konverteringsfokusert nettside for Nora Marketing bygget med Next.js og Tailwind CSS for leadgenerering og synlighet.",
     url: "https://kristiansenutvikling.no/prosjekter/nora-marketing",
     siteName: "Kristiansen Utvikling",
     images: [
@@ -31,31 +40,34 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function Page() {
-  const graph = [
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
       "@type": "WebPage",
       "@id": "https://kristiansenutvikling.no/prosjekter/nora-marketing#webpage",
       url: "https://kristiansenutvikling.no/prosjekter/nora-marketing",
-      name: "Nora Marketing | Kristiansen Utvikling",
-      description: "Nettside for Nora Marketing, bygget med Next.js og Tailwind CSS.",
+      name: "Nora Marketing — Konverteringsfokusert Nettside | Kristiansen Utvikling",
+      inLanguage: "nb-NO",
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://kristiansenutvikling.no/prosjekter/nora-marketing#breadcrumb",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Hjem", item: "https://kristiansenutvikling.no/" },
         { "@type": "ListItem", position: 2, name: "Prosjekter", item: "https://kristiansenutvikling.no/prosjekter" },
         { "@type": "ListItem", position: 3, name: "Nora Marketing", item: "https://kristiansenutvikling.no/prosjekter/nora-marketing" },
       ],
     },
-  ];
+  ],
+};
 
+export default function Page() {
   return (
     <>
-      <Script id="ld-json" type="application/ld+json">
-        {JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NoraMarketingPage />
     </>
   );

@@ -4,8 +4,21 @@ import PrivacyPolicyClient from "./PrivacyPolicyClient";
 export const metadata: Metadata = {
   title: "Personvernerklæring | Kristiansen Utvikling",
   description:
-    "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler, inkludert Google Analytics.",
-  alternates: { canonical: "https://kristiansenutvikling.no/personvern" },
+    "Les hvordan Kristiansen Utvikling behandler dine personopplysninger, bruker informasjonskapsler og håndterer Google Analytics-data i henhold til GDPR.",
+  keywords: [
+    "personvernerklæring",
+    "personopplysninger",
+    "informasjonskapsler",
+    "GDPR",
+    "Kristiansen Utvikling",
+  ],
+  alternates: {
+    canonical: "https://kristiansenutvikling.no/personvern",
+    languages: {
+      "nb-NO": "https://kristiansenutvikling.no/personvern",
+      "en": "https://kristiansenutvikling.no/en/personvern",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "nb_NO",
@@ -13,22 +26,45 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     title: "Personvernerklæring | Kristiansen Utvikling",
     description:
-      "Vår personvernerklæring forklarer hvordan vi behandler dine personopplysninger og bruker informasjonskapsler, inkludert Google Analytics.",
+      "Les hvordan Kristiansen Utvikling behandler dine personopplysninger og bruker informasjonskapsler i henhold til GDPR.",
     images: [
       {
-        url: "https://kristiansenutvikling.no/images/openGraph.svg",
+        url: "https://kristiansenutvikling.no/images/openGraph.png",
         width: 1200,
         height: 630,
-        alt: "Illustrasjon som viser Kristiansen Utvikling",
+        alt: "Kristiansen Utvikling — Personvernerklæring",
       },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
+  robots: { index: true, follow: true },
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://kristiansenutvikling.no/personvern#webpage",
+  url: "https://kristiansenutvikling.no/personvern",
+  name: "Personvernerklæring | Kristiansen Utvikling",
+  description:
+    "Personvernerklæring for Kristiansen Utvikling — behandling av personopplysninger og bruk av informasjonskapsler.",
+  inLanguage: "nb-NO",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Hjem", item: "https://kristiansenutvikling.no/" },
+      { "@type": "ListItem", position: 2, name: "Personvern", item: "https://kristiansenutvikling.no/personvern" },
+    ],
   },
 };
 
 export default function PrivacyPolicy() {
-  return <PrivacyPolicyClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <PrivacyPolicyClient />
+    </>
+  );
 }

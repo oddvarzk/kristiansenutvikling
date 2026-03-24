@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import KrageroNatursteinPage from "./KrageroNatursteinPage";
 
 export const metadata: Metadata = {
-  title: "Kragero Naturstein | Kristiansen Utvikling",
+  title: "Kragerø Naturstein — Nettside Utvikling | Kristiansen Utvikling",
   description:
-    "Nettside for Kragero Naturstein – profesjonell presentasjon av natursteinprodukter, tjenester og kontaktinformasjon.",
-  keywords: ["Kragero Naturstein", "naturstein", "nettside", "Next.js", "Tailwind CSS"],
-  authors: [{ name: "Kristiansen Utvikling", url: "https://kristiansenutvikling.no" }],
+    "Profesjonell nettside for Kragerø Naturstein, norsk leverandør av naturstein — bygget med Next.js og SEO-optimalisering for synlighet i Google. Se prosjektet.",
+  keywords: [
+    "Kragerø Naturstein",
+    "naturstein nettside",
+    "Next.js SEO",
+    "nettside norsk leverandør",
+    "webutvikling prosjekt",
+    "SEO optimalisering Norge",
+  ],
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
+    languages: {
+      "nb-NO": "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
+      "en": "https://kristiansenutvikling.no/en/prosjekter/kragero-naturstein",
+    },
   },
   openGraph: {
-    title: "Kragero Naturstein | Kristiansen Utvikling",
+    title: "Kragerø Naturstein — Nettside Utvikling | Kristiansen Utvikling",
     description:
-      "Profesjonell nettside for Kragero Naturstein bygget med Next.js og Tailwind CSS.",
+      "Profesjonell nettside for Kragerø Naturstein bygget med Next.js og Tailwind CSS, optimalisert for søkemotorer.",
     url: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
     siteName: "Kristiansen Utvikling",
     images: [
@@ -22,7 +31,7 @@ export const metadata: Metadata = {
         url: "https://kristiansenutvikling.no/images/projects/kragero-naturstein-home.png",
         width: 1200,
         height: 630,
-        alt: "Kragero Naturstein nettside",
+        alt: "Kragerø Naturstein nettside",
       },
     ],
     locale: "nb_NO",
@@ -31,31 +40,34 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function Page() {
-  const graph = [
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
       "@type": "WebPage",
       "@id": "https://kristiansenutvikling.no/prosjekter/kragero-naturstein#webpage",
       url: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
-      name: "Kragero Naturstein | Kristiansen Utvikling",
-      description: "Nettside for Kragero Naturstein, bygget med Next.js og Tailwind CSS.",
+      name: "Kragerø Naturstein — Nettside Utvikling | Kristiansen Utvikling",
+      inLanguage: "nb-NO",
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://kristiansenutvikling.no/prosjekter/kragero-naturstein#breadcrumb",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Hjem", item: "https://kristiansenutvikling.no/" },
         { "@type": "ListItem", position: 2, name: "Prosjekter", item: "https://kristiansenutvikling.no/prosjekter" },
-        { "@type": "ListItem", position: 3, name: "Kragero Naturstein", item: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein" },
+        { "@type": "ListItem", position: 3, name: "Kragerø Naturstein", item: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein" },
       ],
     },
-  ];
+  ],
+};
 
+export default function Page() {
   return (
     <>
-      <Script id="ld-json" type="application/ld+json">
-        {JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <KrageroNatursteinPage />
     </>
   );

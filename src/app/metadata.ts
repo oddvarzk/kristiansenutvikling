@@ -1,37 +1,72 @@
-// src/app/metadata.ts
 import type { Metadata } from "next";
 
 const googleVerif = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
+const base = "https://kristiansenutvikling.no";
 
 export const defaultMetadata: Metadata = {
-  metadataBase: new URL("https://kristiansenutvikling.no/"),
+  metadataBase: new URL(base),
+
   title: {
     template: "%s | Kristiansen Utvikling",
-    default: "Profesjonell web- og apputvikling | Kristiansen Utvikling",
+    default: "Webutvikler Norge | Nettsider, SEO & Apper | Kristiansen Utvikling",
   },
+
   description:
-    "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
+    "Freelance webutvikler i Norge — jeg bygger raske, skreddersydde nettsider, nettbutikker og apper med Next.js og React. Transparent prising, klar kommunikasjon og levering til avtalt tid. Ta kontakt for gratis tilbud.",
+
+  keywords: [
+    "webutvikler norge",
+    "nettside utvikling",
+    "webutvikling",
+    "freelance webutvikler",
+    "nettside bedrift",
+    "Next.js utvikler",
+    "React utvikler",
+    "SEO optimalisering",
+    "nettbutikk utvikling",
+    "redesign nettside",
+    "Kristiansen Utvikling",
+  ],
+
+  authors: [{ name: "Kristiansen Utvikling", url: base }],
+  creator: "Kristiansen Utvikling",
+  publisher: "Kristiansen Utvikling",
+
+  alternates: {
+    canonical: base,
+    languages: {
+      "nb-NO": base,
+      "en": `${base}/en`,
+    },
+  },
 
   openGraph: {
     type: "website",
     locale: "nb_NO",
-    url: "https://kristiansenutvikling.no/",
+    alternateLocale: "en_US",
+    url: base,
     siteName: "Kristiansen Utvikling",
-    title: "Kristiansen Utvikling | Web Utvikling Bedrift",
+    title: "Webutvikler Norge | Nettsider, SEO & Apper | Kristiansen Utvikling",
     description:
-      "Kristiansen Utvikling tilbyr profesjonell web- og apputvikling med fokus på brukervennlighet, sikkerhet og ytelse. Vi leverer skreddersydde nettsider, PWA, mobile apper, grundig SEO-optimalisering, drift, hosting og løpende support, fra idé til vekst.",
+      "Freelance webutvikler i Norge — skreddersydde nettsider, nettbutikker og apper med Next.js. Gratis tilbud, transparent prising.",
     images: [
       {
-        url: "/images/openGraph.svg",
+        url: `${base}/images/openGraph.png`,
         width: 1200,
         height: 630,
-        alt: "Kristiansen Utvikling - Profesjonell Webutvikling og Digitale Løsninger",
+        alt: "Kristiansen Utvikling — Webutvikler Norge",
       },
     ],
   },
-  alternates: {
-    canonical: "https://kristiansenutvikling.no/",
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Webutvikler Norge | Kristiansen Utvikling",
+    description:
+      "Freelance webutvikler i Norge — raske, skreddersydde nettsider og apper med Next.js. Ta kontakt for gratis tilbud.",
+    images: [`${base}/images/openGraph.png`],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -43,6 +78,7 @@ export const defaultMetadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -52,8 +88,6 @@ export const defaultMetadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png" }],
   },
-  ...(googleVerif ? { verification: { google: googleVerif } } : {}),
 
-  // Explicitly disable Twitter card metadata
-  twitter: null,
+  ...(googleVerif ? { verification: { google: googleVerif } } : {}),
 };
