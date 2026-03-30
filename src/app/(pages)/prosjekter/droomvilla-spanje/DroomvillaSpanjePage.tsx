@@ -14,8 +14,8 @@ const deliverables = [
     icon: "01",
     title: "Dual-CMS Rating System",
     titleNo: "Dual-CMS vurderingssystem",
-    desc: "Built a custom rating engine that pulls from two separate CMS systems and feeds an aggregation layer — calculating composite scores in real time. No off-the-shelf plugin could do what was needed, so it was built from scratch with Wix Velo.",
-    descNo: "Bygget en tilpasset vurderingsmotor som henter fra to separate CMS-systemer og mater et aggregeringslag — som beregner sammensatte poeng i sanntid. Ingen hyllevare-plugin kunne gjøre det som var nødvendig, så det ble bygget fra bunnen av med Wix Velo.",
+    desc: "Built a custom review and rating engine in Wix Velo (TypeScript) that connects two separate CMS platforms, runs the data through an aggregation layer and outputs live composite scores across all listings. No plugin on the market does this — it had to be built from scratch. For a villa rental business, a visible and trustworthy rating system isn't decoration. Guests default to whoever looks most credible, and that trust converts directly into reservations.",
+    descNo: "Bygget en tilpasset anmeldelses- og vurderingsmotor i Wix Velo (TypeScript) som kobler to separate CMS-plattformer, kjører dataen gjennom et aggregeringslag og leverer live sammensatte poengsummer på tvers av alle utleier. Ingen plugin på markedet gjør dette — det måtte bygges fra bunnen av. For en villa-utleiebedrift er et synlig og troverdig vurderingssystem ikke dekorasjon. Gjester velger den som ser mest pålitelig ut, og den tilliten konverterer direkte til reservasjoner.",
   },
   {
     icon: "02",
@@ -86,16 +86,18 @@ export default function DroomvillaSpanjePage() {
             <span className="section-label">{isEn ? "Holiday Villa Rental" : "Feriehus Utleie"}</span>
             <span className="section-label">2025</span>
           </div>
-          <h1
-            className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] mb-8 leading-[0.9]"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
-          >
-            Droomvilla<br />Spanje
-          </h1>
-          <p className="text-[#635f5a] text-sm md:text-base max-w-2xl leading-relaxed">
+          <div className="flex flex-wrap items-center gap-4 mb-4">
+            <h1
+              className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] leading-[0.9]"
+              style={{ fontFamily: "Satoshi, sans-serif" }}
+            >
+              Droomvilla<br />Spanje
+            </h1>
+          </div>
+          <p className="text-[#8a8480] text-sm md:text-base max-w-2xl leading-relaxed mt-8">
             {isEn
-              ? "A Wix-based holiday villa rental platform with more complexity under the hood than it looks. The centrepiece is a custom two-CMS rating system with an aggregation layer that calculates and surfaces composite scores in real time — built entirely in Wix Velo (TypeScript) because no existing plugin could do what was needed. Also handled SEO fixes, bug fixes, form additions and a full mail pipeline."
-              : "En Wix-basert feriehus-utleieplattform med mer kompleksitet under overflaten enn det ser ut som. Senterstykket er et tilpasset to-CMS vurderingssystem med et aggregeringslag som beregner og presenterer sammensatte poeng i sanntid — bygget helt i Wix Velo (TypeScript) fordi ingen eksisterende plugin kunne gjøre det som var nødvendig. Håndterte også SEO-fikser, feilretting, skjematillegg og en fullstendig e-postpipeline."}
+              ? "Droomvilla Spanje had a site they were happy with — they weren't looking for a rebuild. What they needed was something that simply didn't exist yet: a way to pull reviews and ratings from two separate CMS platforms, run them through a custom aggregation layer, and surface a live composite score across their listings. There's no plugin for that. So I built one, entirely in Wix Velo (TypeScript). For a holiday villa rental business, trust is everything — a guest choosing between listings is going with whoever looks most credible. Getting that rating system right isn't a nice-to-have, it directly impacts bookings. Also handled SEO fixes, bug fixes, forms and a full mail pipeline while I was at it."
+              : "Droomvilla Spanje hadde en nettside de var fornøyde med — de lette ikke etter en komplett ombygging. Det de trengte var noe som rett og slett ikke fantes ennå: en måte å hente anmeldelser og vurderinger fra to separate CMS-plattformer, kjøre dem gjennom et tilpasset aggregeringslag og vise en live sammensatt poengsum på tvers av utleiene deres. Det finnes ingen plugin for det. Så jeg bygget en, helt i Wix Velo (TypeScript). For en feriehus-utleiebedrift er tillit alt — en gjest som velger mellom utleier, går med den som ser mest troverdig ut. Å få det vurderingssystemet riktig er ikke bare en bonus, det påvirker direkte bestillinger. Håndterte også SEO-fikser, feilretting, skjemaer og en fullstendig e-postpipeline mens jeg var inne i det."}
           </p>
         </div>
 
