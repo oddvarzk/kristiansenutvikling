@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomePage from "./HomePage";
 
 export const metadata: Metadata = {
-  title: "Webutvikler Norge | Nettsider, SEO & Apper | Kristiansen Utvikling",
+  title: "Webutvikler Norge | Nettsider & SEO | Kristiansen Utvikling",
   description:
-    "Freelance webutvikler i Norge — skreddersydde nettsider, nettbutikker og apper med Next.js og React. Transparent prising, levering til avtalt tid. Gratis tilbud.",
+    "Freelance webutvikler i Norge — skreddersydde nettsider, nettbutikker og apper med Next.js og React. Transparent prising, levering til avtalt tid. Gratis tilbud",
   keywords: [
     "webutvikler norge",
     "freelance webutvikler",

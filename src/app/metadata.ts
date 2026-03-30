@@ -8,11 +8,11 @@ export const defaultMetadata: Metadata = {
 
   title: {
     template: "%s | Kristiansen Utvikling",
-    default: "Webutvikler Norge | Nettsider, SEO & Apper | Kristiansen Utvikling",
+    default: "Webutvikler Norge | Nettsider & SEO | Kristiansen Utvikling",
   },
 
   description:
-    "Freelance webutvikler i Norge — jeg bygger raske, skreddersydde nettsider, nettbutikker og apper med Next.js og React. Transparent prising, klar kommunikasjon og levering til avtalt tid. Ta kontakt for gratis tilbud.",
+    "Freelance webutvikler i Norge — skreddersydde nettsider og apper med Next.js og React. Transparent prising, levering til avtalt tid. Gratis tilbud.",
 
   keywords: [
     "webutvikler norge",
@@ -46,7 +46,7 @@ export const defaultMetadata: Metadata = {
     alternateLocale: "en_US",
     url: base,
     siteName: "Kristiansen Utvikling",
-    title: "Webutvikler Norge | Nettsider, SEO & Apper | Kristiansen Utvikling",
+    title: "Webutvikler Norge | Nettsider & SEO | Kristiansen Utvikling",
     description:
       "Freelance webutvikler i Norge — skreddersydde nettsider, nettbutikker og apper med Next.js. Gratis tilbud, transparent prising.",
     images: [

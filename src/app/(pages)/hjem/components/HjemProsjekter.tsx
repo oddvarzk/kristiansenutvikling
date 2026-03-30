@@ -15,6 +15,7 @@ interface Project {
   description: string;
   href: string;
   image: string | null;
+  video: string | null;
   placeholder: string;
   tag: string;
   year: string;
@@ -27,14 +28,14 @@ export default function FeaturedProjects() {
 
   const projects: Project[] = isEn
     ? [
-        { id: "holidaze",           title: "Holidaze",           description: "Modern booking platform for holiday homes with interactive maps.", href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png", placeholder: "#131313",  tag: "Next.js / React",     year: "2024" },
-        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Professional website for a Norwegian natural stone supplier.",    href: "/en/prosjekter/kragero-naturstein", image: null,                               placeholder: "#161613",  tag: "Next.js / SEO",       year: "2025" },
-        { id: "nora-marketing",     title: "Nora Marketing",     description: "Marketing agency website focused on conversions.",               href: "/en/prosjekter/nora-marketing",     image: null,                               placeholder: "#141318",  tag: "Next.js / Marketing", year: "2025" },
+        { id: "holidaze",           title: "Holidaze",           description: "Modern booking platform for holiday homes with interactive maps.", href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png", video: null,                                  placeholder: "#131313",  tag: "Next.js / React",     year: "2024" },
+        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Professional website for a Norwegian natural stone supplier.",    href: "/en/prosjekter/kragero-naturstein", image: null,                               video: "/videos/projects/krageroVid-web.mp4", placeholder: "#161613",  tag: "Next.js / SEO",       year: "2025" },
+        { id: "nora-marketing",     title: "Nora Marketing",     description: "Marketing agency website focused on conversions.",               href: "/en/prosjekter/nora-marketing",     image: null,                               video: "/videos/projects/noraVid-web.mp4", placeholder: "#141318",  tag: "Next.js / Marketing", year: "2025" },
       ]
     : [
-        { id: "holidaze",           title: "Holidaze",           description: "Moderne bookingplattform for ferieboliger med interaktive kart.", href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", placeholder: "#131313",  tag: "Next.js / React",     year: "2024" },
-        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Profesjonell nettside for en norsk natursteinleverandør.",        href: "/prosjekter/kragero-naturstein",    image: null,                               placeholder: "#161613",  tag: "Next.js / SEO",       year: "2025" },
-        { id: "nora-marketing",     title: "Nora Marketing",     description: "Markedsføringsbyrå-nettside med fokus på konverteringer.",        href: "/prosjekter/nora-marketing",        image: null,                               placeholder: "#141318",  tag: "Next.js / Marketing", year: "2025" },
+        { id: "holidaze",           title: "Holidaze",           description: "Moderne bookingplattform for ferieboliger med interaktive kart.", href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", video: null,                                  placeholder: "#131313",  tag: "Next.js / React",     year: "2024" },
+        { id: "kragero-naturstein", title: "Kragerø Naturstein", description: "Profesjonell nettside for en norsk natursteinleverandør.",        href: "/prosjekter/kragero-naturstein",    image: null,                               video: "/videos/projects/krageroVid-web.mp4", placeholder: "#161613",  tag: "Next.js / SEO",       year: "2025" },
+        { id: "nora-marketing",     title: "Nora Marketing",     description: "Markedsføringsbyrå-nettside med fokus på konverteringer.",        href: "/prosjekter/nora-marketing",        image: null,                               video: "/videos/projects/noraVid-web.mp4", placeholder: "#141318",  tag: "Next.js / Marketing", year: "2025" },
       ];
 
   useEffect(() => {
@@ -89,23 +90,31 @@ export default function FeaturedProjects() {
             <div
               className="overflow-hidden mb-4 relative"
               style={{
-                aspectRatio: "16 / 11",
+                aspectRatio: "16 / 9",
                 backgroundColor: projects[0].placeholder,
                 borderRadius: "2px",
               }}
             >
-              {projects[0].image && (
+              {projects[0].video ? (
+                <video
+                  src={projects[0].video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              ) : projects[0].image ? (
                 <>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={projects[0].image}
                     alt={projects[0].title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-[#0b0b0b]/15 group-hover:bg-[#0b0b0b]/5 transition-colors duration-300" />
                 </>
-              )}
-              {!projects[0].image && (
+              ) : (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-xs text-[#ede9e2]/15 font-mono tracking-widest uppercase">
                     {isEn ? "coming soon" : "kommer snart"}
@@ -127,23 +136,31 @@ export default function FeaturedProjects() {
                 <div
                   className="overflow-hidden mb-3 relative"
                   style={{
-                    aspectRatio: "16 / 10",
+                    aspectRatio: "16 / 9",
                     backgroundColor: project.placeholder,
                     borderRadius: "2px",
                   }}
                 >
-                  {project.image && (
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  ) : project.image ? (
                     <>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                       <div className="absolute inset-0 bg-[#0b0b0b]/15 group-hover:bg-[#0b0b0b]/5 transition-colors duration-300" />
                     </>
-                  )}
-                  {!project.image && (
+                  ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-xs text-[#ede9e2]/15 font-mono tracking-widest uppercase">
                         {isEn ? "coming soon" : "kommer snart"}

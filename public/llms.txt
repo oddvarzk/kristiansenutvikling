@@ -1,0 +1,31 @@
+# Kristiansen Utvikling
+
+> Freelance webutvikler i Norge — skreddersydde nettsider, nettbutikker og apper med Next.js og React.
+
+Kristiansen Utvikling is a Norwegian freelance web development studio offering custom websites, e-commerce solutions, SEO optimization, and app development. Based in Norway, serving Norwegian and international clients.
+
+## Services
+- Web development with Next.js and React
+- E-commerce and online store development
+- SEO optimization and technical SEO
+- App development (web and mobile)
+- Website redesign and rebuilds
+- Hosting, maintenance, and ongoing support
+
+## Projects
+- Holidaze: Modern booking platform for holiday homes with interactive maps (Next.js / React)
+- Kragerø Naturstein: Professional website for a Norwegian natural stone supplier (WordPress / SEO)
+- Nora Marketing: Marketing agency website focused on conversions (Next.js / Marketing)
+- Droomvilla Spanje: Holiday villa rental site for the Spanish market (Web / Travel)
+- Bygg Mester Danielsen: Website for a Norwegian construction company (Web / Construction)
+
+## Contact
+- Email: hei@kristiansenutvikling.no
+- Phone: +47 472 07 143
+- Website: https://kristiansenutvikling.no
+- Instagram: https://instagram.com/kristiansenutvikling
+- LinkedIn: https://linkedin.com/in/kristiansenutvikling
+
+## Languages
+- Norwegian (Bokmål) — primary
+- English — available at https://kristiansenutvikling.no/en
