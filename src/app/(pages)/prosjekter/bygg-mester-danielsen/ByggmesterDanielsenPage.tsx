@@ -91,7 +91,7 @@ export default function ByggmesterDanielsenPage() {
         <div className="mb-14">
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="section-label">{isEn ? "Construction Company" : "Byggefirma"}</span>
-            <span className="section-label">2025</span>
+            <span className="section-label">2026</span>
           </div>
           <h1
             className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] mb-8 leading-[0.9]"

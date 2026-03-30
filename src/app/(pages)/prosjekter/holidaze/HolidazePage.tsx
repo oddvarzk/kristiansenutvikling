@@ -92,7 +92,7 @@ export default function HolidazePage() {
         <div className="mb-14">
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="section-label">{isEn ? "Holiday Booking Platform" : "Ferie Bookingplattform"}</span>
-            <span className="section-label" style={{ color: "#c5f135" }}>2024 — Eksamensprosjekt / A</span>
+            <span className="section-label" style={{ color: "#c5f135" }}>2025 — Eksamensprosjekt / A</span>
           </div>
           <h1
             className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] mb-8 leading-[0.9]"
