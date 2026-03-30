@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { getLocalizedPath } from "@/app/utils/i18n";
 import ProjectDesignShowcase, { ColorSwatch, FontEntry } from "@/app/components/ProjectDesignShowcase";
+import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
 
 // Images to be added — populate when ready
 const galleryImages: { src: string; alt: string }[] = [];
@@ -102,6 +103,18 @@ export default function KrageroNatursteinPage() {
               ? "A complete rebuild from the ground up. Moved from a fragmented old setup to a clean, fast Kadence-powered WordPress site — with custom HTML and CSS for the finer details, full video production, and a redesigned content hierarchy that lets the stone speak for itself."
               : "En komplett ombygging fra bunnen av. Gikk fra et fragmentert gammelt oppsett til en ren, rask Kadence-drevet WordPress-nettside — med tilpasset HTML og CSS for de finere detaljene, fullstendig videoproduksjon og en redesignet innholdshierarki som lar steinen tale for seg selv."}
           </p>
+        </div>
+
+        {/* Before / After */}
+        <div className="mb-16">
+          <span className="section-label block mb-6">
+            {isEn ? "Before & after" : "Før & etter"}
+          </span>
+          <BeforeAfterSlider
+            before={{ src: "/images/projects/kragero-naturstein-before.png", alt: "Kragerø Naturstein — gammel nettside" }}
+            after={{  src: "/images/projects/kragero-naturstein-after.png",  alt: "Kragerø Naturstein — ny nettside" }}
+            isEn={isEn}
+          />
         </div>
 
         {/* Gallery */}

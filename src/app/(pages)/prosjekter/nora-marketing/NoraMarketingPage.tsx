@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { getLocalizedPath } from "@/app/utils/i18n";
 import ProjectDesignShowcase, { ColorSwatch, FontEntry } from "@/app/components/ProjectDesignShowcase";
+import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
 
 // Images to be added — populate when ready
 const galleryImages: { src: string; alt: string }[] = [];
@@ -102,6 +103,18 @@ export default function NoraMarketingPage() {
               ? "A complete ground-up redesign of Nora Marketing's digital presence. Their old site was holding back a sharp agency — so everything was stripped back and rebuilt with intent: a conversion-focused layout, fluid GSAP-powered animations, and a visual identity that actually reflects the quality of their work."
               : "En fullstendig redesign av Nora Marketings digitale tilstedeværelse fra grunnen av. Den gamle siden bremset et skarpt byrå — så alt ble fjernet og bygget opp med formål: konverteringsfokusert layout, flytende GSAP-drevne animasjoner, og en visuell identitet som faktisk gjenspeiler kvaliteten på arbeidet deres."}
           </p>
+        </div>
+
+        {/* Before / After */}
+        <div className="mb-16">
+          <span className="section-label block mb-6">
+            {isEn ? "Before & after" : "Før & etter"}
+          </span>
+          <BeforeAfterSlider
+            before={{ src: "/images/projects/nora-marketing-before.png", alt: "Nora Marketing — gammel nettside" }}
+            after={{  src: "/images/projects/nora-marketing-after.png",  alt: "Nora Marketing — ny nettside" }}
+            isEn={isEn}
+          />
         </div>
 
         {/* Gallery */}

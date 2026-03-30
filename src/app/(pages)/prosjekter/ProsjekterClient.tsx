@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import BackToTop from "../../components/BackToTop";
@@ -18,6 +18,7 @@ interface Project {
   description: string;
   href: string | null;
   image: string | null;
+  video: string | null;
   placeholder: string | null;
   tag: string;
   year: string;
@@ -33,18 +34,18 @@ export default function Projekter() {
 
   const projects: Project[] = isEn
     ? [
-        { id: "holidaze",              title: "Holidaze",              description: "Modern booking platform for holiday homes.",              href: "/en/prosjekter/holidaze",          image: "/images/projects/holidazeHome.png", placeholder: null,      tag: "Next.js / React",     year: "2024", rotation: -1.2 },
-        { id: "kragero-naturstein",    title: "Kragerø Naturstein",    description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein", image: null,                               placeholder: "#181815", tag: "Next.js / SEO",       year: "2025", rotation:  0.8 },
-        { id: "nora-marketing",        title: "Nora Marketing",        description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",     image: null,                               placeholder: "#16141b", tag: "Next.js / Marketing", year: "2025", rotation: -0.6 },
-        { id: "droomvilla-spanje",     title: "Droomvilla Spanje",     description: "Holiday villa rental site for the Spanish market.",       href: "/en/prosjekter/droomvilla-spanje",     image: null,                               placeholder: "#151a15", tag: "Web / Travel",        year: "2025", rotation:  1.0 },
-        { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Website for a local Norwegian construction company.",     href: "/en/prosjekter/bygg-mester-danielsen", image: null,                               placeholder: "#141419", tag: "Web / Construction",  year: "2025", rotation: -0.5 },
+        { id: "holidaze",              title: "Holidaze",              description: "Modern booking platform for holiday homes.",              href: "/en/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", video: null,                                          placeholder: null,      tag: "Next.js / React",     year: "2024", rotation: -1.2 },
+        { id: "kragero-naturstein",    title: "Kragerø Naturstein",    description: "Website for a Norwegian natural stone supplier.",         href: "/en/prosjekter/kragero-naturstein",    image: null,                               video: "/videos/projects/krageroVid.mp4",     placeholder: "#181815", tag: "Next.js / SEO",       year: "2025", rotation:  0.8 },
+        { id: "nora-marketing",        title: "Nora Marketing",        description: "Marketing agency site focused on conversions.",           href: "/en/prosjekter/nora-marketing",        image: null,                               video: "/videos/projects/nora-marketing.mp4",         placeholder: "#16141b", tag: "Next.js / Marketing", year: "2025", rotation: -0.6 },
+        { id: "droomvilla-spanje",     title: "Droomvilla Spanje",     description: "Holiday villa rental site for the Spanish market.",       href: "/en/prosjekter/droomvilla-spanje",     image: null,                               video: "/videos/projects/droomvilla-spanje.mp4",      placeholder: "#151a15", tag: "Web / Travel",        year: "2025", rotation:  1.0 },
+        { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Website for a local Norwegian construction company.",     href: "/en/prosjekter/bygg-mester-danielsen", image: null,                               video: "/videos/projects/bygg-mester-danielsen.mp4", placeholder: "#141419", tag: "Web / Construction",  year: "2025", rotation: -0.5 },
       ]
     : [
-        { id: "holidaze",              title: "Holidaze",              description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", placeholder: null,      tag: "Next.js / React",     year: "2024", rotation: -1.2 },
-        { id: "kragero-naturstein",    title: "Kragerø Naturstein",    description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: null,                               placeholder: "#181815", tag: "Next.js / SEO",       year: "2025", rotation:  0.8 },
-        { id: "nora-marketing",        title: "Nora Marketing",        description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: null,                               placeholder: "#16141b", tag: "Next.js / Marketing", year: "2025", rotation: -0.6 },
-        { id: "droomvilla-spanje",     title: "Droomvilla Spanje",     description: "Feriehus-utleieside for det spanske markedet.",           href: "/prosjekter/droomvilla-spanje",        image: null,                               placeholder: "#151a15", tag: "Web / Reiseliv",      year: "2025", rotation:  1.0 },
-        { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Nettside for et lokalt norsk byggefirma.",                href: "/prosjekter/bygg-mester-danielsen",    image: null,                               placeholder: "#141419", tag: "Web / Bygg",          year: "2025", rotation: -0.5 },
+        { id: "holidaze",              title: "Holidaze",              description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",              image: "/images/projects/holidazeHome.png", video: null,                                          placeholder: null,      tag: "Next.js / React",     year: "2024", rotation: -1.2 },
+        { id: "kragero-naturstein",    title: "Kragerø Naturstein",    description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: null,                               video: "/videos/projects/krageroVid.mp4",     placeholder: "#181815", tag: "Next.js / SEO",       year: "2025", rotation:  0.8 },
+        { id: "nora-marketing",        title: "Nora Marketing",        description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: null,                               video: "/videos/projects/nora-marketing.mp4",         placeholder: "#16141b", tag: "Next.js / Marketing", year: "2025", rotation: -0.6 },
+        { id: "droomvilla-spanje",     title: "Droomvilla Spanje",     description: "Feriehus-utleieside for det spanske markedet.",           href: "/prosjekter/droomvilla-spanje",     image: null,                               video: "/videos/projects/droomvilla-spanje.mp4",      placeholder: "#151a15", tag: "Web / Reiseliv",      year: "2025", rotation:  1.0 },
+        { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Nettside for et lokalt norsk byggefirma.",                href: "/prosjekter/bygg-mester-danielsen", image: null,                               video: "/videos/projects/bygg-mester-danielsen.mp4", placeholder: "#141419", tag: "Web / Bygg",          year: "2025", rotation: -0.5 },
       ];
 
   useEffect(() => {
@@ -108,6 +109,7 @@ export default function Projekter() {
           </span>
         </div>
 
+
         {/* Page heading */}
         <div className="relative z-10 container mx-auto px-6 md:px-10 pt-36 md:pt-48 pb-14">
           <span
@@ -160,7 +162,16 @@ export default function Projekter() {
                         el.style.transform = `rotate(${project.rotation}deg)`;
                       }}
                     >
-                      {project.image ? (
+                      {project.video ? (
+                        <video
+                          src={project.video}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      ) : project.image ? (
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -201,9 +212,20 @@ export default function Projekter() {
                         borderRadius: "2px",
                       }}
                     >
-                      <span className="text-[10px] text-black/15 font-mono tracking-widest uppercase">
-                        {isEn ? "coming soon" : "kommer snart"}
-                      </span>
+                      {project.video ? (
+                        <video
+                          src={project.video}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-[10px] text-black/15 font-mono tracking-widest uppercase">
+                          {isEn ? "coming soon" : "kommer snart"}
+                        </span>
+                      )}
                     </div>
                     <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
                       <div>
