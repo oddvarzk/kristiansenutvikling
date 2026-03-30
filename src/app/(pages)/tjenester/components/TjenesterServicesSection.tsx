@@ -21,6 +21,7 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
 
   return (
     <div
+      id={service.id}
       onClick={toggleOpen}
       className={`cursor-pointer border-b border-[#ede9e2]/6 transition-colors duration-300 ${isOpen ? "bg-[#111111]" : "hover:bg-[#0e0e0e]"}`}
     >

@@ -72,10 +72,7 @@ export default function HeroSeksjon() {
       <div ref={metaRef} className="relative z-10 container mx-auto px-6 md:px-10 pt-28 md:pt-32">
         <div className="flex items-center justify-between">
           <span className="section-label">
-            {isEn ? "Web studio — Norway" : "Web studio — Norge"}
-          </span>
-          <span className="section-label">
-            {isEn ? "Est. 2023" : "Est. 2023"}
+            {isEn ? "Web studio — Oslo, Norway" : "Web studio — Oslo, Norge"}
           </span>
         </div>
       </div>

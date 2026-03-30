@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ServiceRow {
   id: string;
+  anchor: string;
   title: string;
   tag: string;
   index: string;
@@ -24,18 +25,18 @@ export default function TjenesterSeksjon() {
 
   const services: ServiceRow[] = isEn
     ? [
-        { id: "web",      index: "01", title: "Website Development",     tag: "Next.js / React" },
-        { id: "redesign", index: "02", title: "Redesign & Modernisation", tag: "Bring sites back to life" },
-        { id: "seo",      index: "03", title: "SEO Optimisation",         tag: "Organic Growth" },
-        { id: "wp",       index: "04", title: "WordPress / Wix",          tag: "CMS Solutions" },
-        { id: "maint",    index: "05", title: "Maintenance & Support",    tag: "Ongoing Care" },
+        { id: "web",      anchor: "website",     index: "01", title: "Website Development",     tag: "Next.js / React" },
+        { id: "redesign", anchor: "redesign",    index: "02", title: "Redesign & Modernisation", tag: "Bring sites back to life" },
+        { id: "seo",      anchor: "seo",         index: "03", title: "SEO Optimisation",         tag: "Organic Growth" },
+        { id: "wp",       anchor: "wordpress",   index: "04", title: "WordPress / Wix",          tag: "CMS Solutions" },
+        { id: "maint",    anchor: "maintenance", index: "05", title: "Maintenance & Support",    tag: "Ongoing Care" },
       ]
     : [
-        { id: "web",      index: "01", title: "Nettside Utvikling",        tag: "Next.js / React" },
-        { id: "redesign", index: "02", title: "Redesign & Modernisering",  tag: "Blås nytt liv i gamle sider" },
-        { id: "seo",      index: "03", title: "SEO Optimalisering",        tag: "Organisk vekst" },
-        { id: "wp",       index: "04", title: "WordPress / Wix",           tag: "CMS-løsninger" },
-        { id: "maint",    index: "05", title: "Vedlikehold & Support",     tag: "Løpende støtte" },
+        { id: "web",      anchor: "website",     index: "01", title: "Nettside Utvikling",        tag: "Next.js / React" },
+        { id: "redesign", anchor: "redesign",    index: "02", title: "Redesign & Modernisering",  tag: "Blås nytt liv i gamle sider" },
+        { id: "seo",      anchor: "seo",         index: "03", title: "SEO Optimalisering",        tag: "Organisk vekst" },
+        { id: "wp",       anchor: "wordpress",   index: "04", title: "WordPress / Wix",           tag: "CMS-løsninger" },
+        { id: "maint",    anchor: "maintenance", index: "05", title: "Vedlikehold & Support",     tag: "Løpende støtte" },
       ];
 
   useEffect(() => {
@@ -79,9 +80,10 @@ export default function TjenesterSeksjon() {
         {/* Rows */}
         <div className="border-t border-[#ede9e2]/6">
           {services.map((svc) => (
-            <div
+            <Link
               key={svc.id}
-              className="service-row group flex items-center justify-between py-5 md:py-7 border-b border-[#ede9e2]/6 cursor-default"
+              href={`${getLocalizedPath("/tjenester", currentLanguage)}#${svc.anchor}` as any}
+              className="service-row group flex items-center justify-between py-5 md:py-7 border-b border-[#ede9e2]/6 cursor-pointer"
               onMouseEnter={() => setHovered(svc.id)}
               onMouseLeave={() => setHovered(null)}
             >
@@ -115,7 +117,7 @@ export default function TjenesterSeksjon() {
                   →
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
