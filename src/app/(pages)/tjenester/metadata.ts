@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       "Se mitt brede spekter av web- og app-tjenester: design, utvikling, SEO og support for å løfte din digitale tilstedeværelse.",
     images: [
       {
-        url: "https://kristiansenutvikling.no/images/openGraph.svg",
+        url: "https://kristiansenutvikling.no/images/openGraph.png",
         width: 1200,
         height: 630,
         alt: "Illustrasjon som viser Kristiansen Utvikling",

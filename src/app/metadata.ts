@@ -35,6 +35,7 @@ export const defaultMetadata: Metadata = {
   alternates: {
     canonical: base,
     languages: {
+      "x-default": base,
       "nb-NO": base,
       "en": `${base}/en`,
     },

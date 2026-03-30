@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "https://kristiansenutvikling.no/images/projects/nora-marketing-home.png",
+        url: "https://kristiansenutvikling.no/images/openGraph.png",
         width: 1200,
         height: 630,
         alt: "Nora Marketing nettside",

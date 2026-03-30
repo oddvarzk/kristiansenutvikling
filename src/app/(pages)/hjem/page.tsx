@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no",
     languages: {
+      "x-default": "https://kristiansenutvikling.no",
       "nb-NO": "https://kristiansenutvikling.no",
       "en": "https://kristiansenutvikling.no/en",
     },

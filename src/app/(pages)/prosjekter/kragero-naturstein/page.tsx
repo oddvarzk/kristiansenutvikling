@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "https://kristiansenutvikling.no/images/projects/kragero-naturstein-home.png",
+        url: "https://kristiansenutvikling.no/images/openGraph.png",
         width: 1200,
         height: 630,
         alt: "Kragerø Naturstein nettside",
