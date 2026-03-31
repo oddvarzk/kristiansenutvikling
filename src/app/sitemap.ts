@@ -38,6 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.2,
     },
 
+    // ── Norwegian about page ──────────────────────────────────────
+    {
+      url: `${base}/om-meg`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.75,
+    },
+
     // ── Norwegian project pages ───────────────────────────────────
     {
       url: `${base}/prosjekter/holidaze`,
@@ -94,6 +102,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.2,
+    },
+
+    // ── English about page ────────────────────────────────────────
+    {
+      url: `${base}/en/om-meg`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.65,
     },
 
     // ── English project pages ─────────────────────────────────────

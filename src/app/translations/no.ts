@@ -8,6 +8,7 @@ export const no = {
     home: "Hjem",
     services: "Tjenester",
     projects: "Cases",
+    about: "Om meg",
     contact: "Kontakt",
   },
   home: {
@@ -148,6 +149,53 @@ export const no = {
       email: "E-post",
       updated: "Sist oppdatert"
     }
+  },
+  omMeg: {
+    label: "Om meg",
+    title1: "Hei,",
+    title2: "",
+    tagline: "Jeg bygger nettsider som faktisk fungerer — teknisk sett og for folk flest.",
+    story: {
+      label: "Hvem er jeg",
+      heading1: "Fra nysgjerrighet",
+      heading2: "til kode.",
+      bio1: "Jeg heter Oddvar Zakarias Kristiansen og er en selvstendig webutvikler fra Oslo. Jeg spesialiserer meg på å bygge moderne, raske nettsider og applikasjoner for norske bedrifter.",
+      bio2: "Det jeg brenner for er det visuelle møtet mellom design og teknologi — nettsider som ikke bare ser bra ut, men som faktisk konverterer og fungerer på alle enheter.",
+      bio3: "Når jeg ikke koder, bruker jeg tiden på design, typografi og å holde meg oppdatert på det siste innen webutvikling.",
+    },
+    values: {
+      label: "Slik jobber jeg",
+      heading1: "Enkle prinsipper.",
+      heading2: "Solid resultat.",
+      items: [
+        {
+          number: "01",
+          title: "Ærlig kommunikasjon",
+          text: "Jeg gir deg et realistisk bilde fra start. Ingen overselging, ingen overraskelser i sluttfaktura.",
+        },
+        {
+          number: "02",
+          title: "Kvalitet over kvantitet",
+          text: "Jeg tar på meg få prosjekter av gangen for å gi hvert prosjekt full oppmerksomhet og energi.",
+        },
+        {
+          number: "03",
+          title: "Bygget for å vare",
+          text: "Jeg velger løsninger med tanke på fremtiden — skalerbare, vedlikeholdbare og lynraske.",
+        },
+      ],
+    },
+    stack: {
+      label: "Verktøykassen",
+      heading1: "Teknologier jeg",
+      heading2: "bruker daglig.",
+    },
+    cta: {
+      heading1: "Klar for å bygge",
+      heading2: "noe bra?",
+      sub: "La oss ta en prat om hva du trenger.",
+      button: "Ta kontakt",
+    },
   },
   footer: {
     copyright: "© 2026 Kristiansen Utvikling. Alle rettigheter forbeholdt.",

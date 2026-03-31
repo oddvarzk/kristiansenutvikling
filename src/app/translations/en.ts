@@ -8,6 +8,7 @@ export const en = {
     home: "Home",
     services: "Services",
     projects: "Cases",
+    about: "About",
     contact: "Contact",
   },
   home: {
@@ -131,6 +132,53 @@ export const en = {
       email: "Email",
       updated: "Last updated"
     }
+  },
+  omMeg: {
+    label: "About",
+    title1: "Hey,",
+    title2: "",
+    tagline: "I build websites that actually work — technically and for real people.",
+    story: {
+      label: "Who I am",
+      heading1: "From curiosity",
+      heading2: "to code.",
+      bio1: "I'm Oddvar Zakarias Kristiansen, an independent web developer based in Oslo. I specialise in building modern, fast websites and applications for Norwegian businesses.",
+      bio2: "What I'm passionate about is the visual meeting point between design and technology — websites that don't just look great, but actually convert and work on every device.",
+      bio3: "When I'm not coding, I spend time on design, typography, and staying up to date with the latest in web development.",
+    },
+    values: {
+      label: "How I work",
+      heading1: "Simple principles.",
+      heading2: "Solid results.",
+      items: [
+        {
+          number: "01",
+          title: "Honest Communication",
+          text: "I give you a realistic picture from the start. No overselling, no surprises on the final invoice.",
+        },
+        {
+          number: "02",
+          title: "Quality over Quantity",
+          text: "I take on few projects at a time to give each one my full attention and energy.",
+        },
+        {
+          number: "03",
+          title: "Built to Last",
+          text: "I choose solutions with the future in mind — scalable, maintainable, and lightning fast.",
+        },
+      ],
+    },
+    stack: {
+      label: "The Toolbox",
+      heading1: "Technologies I",
+      heading2: "use daily.",
+    },
+    cta: {
+      heading1: "Ready to build",
+      heading2: "something great?",
+      sub: "Let's have a chat about what you need.",
+      button: "Get in touch",
+    },
   },
   footer: {
     copyright: "© 2026 Kristiansen Utvikling. All rights reserved.",

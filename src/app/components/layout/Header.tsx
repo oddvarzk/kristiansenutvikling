@@ -86,6 +86,7 @@ export default function Header() {
     { href: "/", label: t.navigation.home },
     { href: "/tjenester", label: t.navigation.services },
     { href: "/prosjekter", label: t.navigation.projects },
+    { href: "/om-meg", label: t.navigation.about },
   ];
 
   // ─── Colour tokens based on page type ───────────────────────────

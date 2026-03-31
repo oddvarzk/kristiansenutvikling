@@ -87,7 +87,7 @@ export default function HeroSeksjon() {
           <span className="line-wrap">
             <span
               ref={line1Ref}
-              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#ede9e2] pb-[0.15em]"
+              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#ede9e2] pb-[0.35em]"
             >
               {isEn ? "I build" : "Jeg bygger"}
             </span>
@@ -95,7 +95,7 @@ export default function HeroSeksjon() {
           <span className="line-wrap">
             <span
               ref={line2Ref}
-              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#ede9e2] pb-[0.15em]"
+              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#ede9e2] pb-[0.35em]"
             >
               {isEn ? "digital" : "digitale"}
             </span>
@@ -103,7 +103,7 @@ export default function HeroSeksjon() {
           <span className="line-wrap">
             <span
               ref={line3Ref}
-              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#c5f135] pb-[0.15em]"
+              className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#c5f135] pb-[0.35em]"
               style={{ fontFamily: "Aktura, Satoshi, sans-serif" }}
             >
               {isEn ? "experiences." : "opplevelser."}
