@@ -110,7 +110,7 @@ export default function HolidazePage() {
                 : "En fullstendig typesikker bookingplattform bygget som mitt avsluttende eksamensprosjekt — og belønnet med toppkarakter. Hele produktet ble designet fra bunnen av i Figma, deretter realisert i TypeScript, React og Tailwind CSS. Brukere kan søke, filtrere og booke ferieboliger gjennom et interaktivt Mapbox-kart og en live tilgjengelighetskalender."}
             </p>
             <a
-              href="#"
+              href="https://www.figma.com/proto/jd0CndWGJRIVXc2ju649TS/Holidaze?node-id=18-17&starting-point-node-id=18%3A17"
               className="inline-flex items-center gap-2 text-xs font-mono text-[#635f5a] border border-[#ede9e2]/8 px-4 py-2 hover:text-[#ede9e2] hover:border-[#ede9e2]/20 transition-colors duration-200 self-start"
               style={{ borderRadius: "2px" }}
               aria-label="Figma prototype (link to be added)"
