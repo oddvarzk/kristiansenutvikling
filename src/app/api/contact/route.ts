@@ -1,18 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-// Define the shape of your incoming JSON
 interface ContactRequest {
   name: string;
   email: string;
+  phone?: string;
   service?: string;
+  referral?: string;
   message: string;
 }
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(req: NextRequest) {
   try {
-    // Cast to your interface so TS knows what you expect
-    const { name, email, service, message } =
+    const { name, email, phone, service, referral, message } =
       (await req.json()) as ContactRequest;
 
     if (!name || !email || !message) {
@@ -22,32 +24,28 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST, // e.g. send.one.com
-      port: Number(process.env.SMTP_PORT), // e.g. 465
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"Kontakt fra nettside" <${process.env.SMTP_USER}>`,
-      to: process.env.TO_EMAIL,
+    await resend.emails.send({
+      from: process.env.FROM_EMAIL ?? "Kristiansen Utvikling <onboarding@resend.dev>",
+      to: process.env.TO_EMAIL!,
+      replyTo: email,
       subject: `Ny henvendelse fra ${name}`,
-      text: `
-Navn: ${name}
-E-post: ${email}
-Tjeneste: ${service}
-Melding:
-${message}
-      `,
+      text: [
+        `Navn: ${name}`,
+        `E-post: ${email}`,
+        phone ? `Telefon: ${phone}` : null,
+        service ? `Tjeneste: ${service}` : null,
+        referral ? `Fant meg via: ${referral}` : null,
+        ``,
+        `Melding:`,
+        message,
+      ]
+        .filter((line) => line !== null)
+        .join("\n"),
     });
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
-    console.error("❌ Mail error:", err);
+    console.error("Mail error:", err);
     const errorMessage = err instanceof Error ? err.message : String(err);
     return NextResponse.json(
       { success: false, error: errorMessage },

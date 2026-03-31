@@ -56,10 +56,10 @@ export default function Footer() {
                 +47 472 07 143
               </a>
               <a
-                href="mailto:hei@kristiansenutvikling.no"
+                href="mailto:kontakt@kristiansenutvikling.no"
                 className="editorial-link block text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors duration-200"
               >
-                hei@kristiansenutvikling.no
+                kontakt@kristiansenutvikling.no
               </a>
             </div>
             <div className="flex items-center gap-4">

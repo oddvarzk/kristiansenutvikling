@@ -116,7 +116,7 @@ export default function BeforeAfterSlider({
       >
         {/* After (base layer) */}
         <div className="absolute inset-0">
-          <Image src={after.src} alt={after.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" />
+          <Image src={after.src} alt={after.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" loading="eager" priority />
         </div>
 
         {/* Before (clipped overlay) */}
@@ -125,7 +125,7 @@ export default function BeforeAfterSlider({
           className="absolute inset-0"
           style={{ clipPath: `inset(0 ${100 - initialPosition}% 0 0)` }}
         >
-          <Image src={before.src} alt={before.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" />
+          <Image src={before.src} alt={before.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 80vw" loading="eager" priority />
         </div>
 
         {/* Labels */}

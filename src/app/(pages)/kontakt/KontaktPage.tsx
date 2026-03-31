@@ -37,8 +37,8 @@ export default function KontaktPage() {
             <div className="space-y-8">
               <div>
                 <p className="section-label block mb-2">Email</p>
-                <a href="mailto:hei@kristiansenutvikling.no" className="editorial-link text-sm text-[#ede9e2]/65 hover:text-[#ede9e2] transition-colors duration-200">
-                  hei@kristiansenutvikling.no
+                <a href="mailto:kontakt@kristiansenutvikling.no" className="editorial-link text-sm text-[#ede9e2]/65 hover:text-[#ede9e2] transition-colors duration-200">
+                  kontakt@kristiansenutvikling.no
                 </a>
               </div>
               <div>
