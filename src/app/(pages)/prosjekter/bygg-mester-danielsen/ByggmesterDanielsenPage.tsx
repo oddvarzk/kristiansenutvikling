@@ -48,7 +48,6 @@ const deliverables = [
   },
 ];
 
-// -- Placeholder data — update with actual brand values --
 const colors: ColorSwatch[] = [
   { name: "Background", hex: "#141419" },
   { name: "Surface",    hex: "#1e1e26" },
@@ -77,50 +76,54 @@ export default function ByggmesterDanielsenPage() {
   const isEn = currentLanguage === "en";
 
   return (
-    <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-24">
-      <div className="container mx-auto px-6 md:px-10 max-w-6xl">
+    <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-32">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
 
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-14"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
 
-        {/* Header */}
-        <div className="mb-14">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="section-label">{isEn ? "Construction Company" : "Byggefirma"}</span>
-            <span className="section-label">2026</span>
+        {/* Header — two column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-20">
+          <div>
+            <div className="flex flex-wrap items-center gap-4 mb-8">
+              <span className="section-label">{isEn ? "Construction Company" : "Byggefirma"}</span>
+              <span className="section-label">2026</span>
+            </div>
+            <h1
+              className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] leading-[0.9]"
+              style={{ fontFamily: "Satoshi, sans-serif" }}
+            >
+              Byggmester<br />Danielsen
+            </h1>
           </div>
-          <h1
-            className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] mb-8 leading-[0.9]"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
-          >
-            Byggmester<br />Danielsen
-          </h1>
-          <p className="text-[#635f5a] text-sm md:text-base max-w-2xl leading-relaxed">
-            {isEn
-              ? "Brought in to fix what wasn't working. The existing Elementor build had accumulated bugs, broken sections and structural problems that needed a steady hand. Fixed core functionality, reorganised the content hierarchy, handled video editing, cleaned up image placement throughout, and added missing sections that filled the gaps in the customer journey."
-              : "Hentet inn for å fikse det som ikke fungerte. Den eksisterende Elementor-bygg hadde akkumulert feil, ødelagte seksjoner og strukturproblemer som trengte en stødig hånd. Fikset kjernefunksjonalitet, omorganiserte innholdshierarkiet, håndterte videoredigering, ryddet opp i bildeplasskering gjennom hele siden og la til manglende seksjoner som fylte hullene i kundereisen."}
-          </p>
+          <div className="lg:pt-16 flex flex-col justify-end">
+            <p className="text-[#635f5a] text-sm md:text-base leading-relaxed">
+              {isEn
+                ? "Brought in to fix what wasn't working. The existing Elementor build had accumulated bugs, broken sections and structural problems that needed a steady hand. Fixed core functionality, reorganised the content hierarchy, handled video editing, cleaned up image placement throughout, and added missing sections that filled the gaps in the customer journey."
+                : "Hentet inn for å fikse det som ikke fungerte. Den eksisterende Elementor-bygg hadde akkumulert feil, ødelagte seksjoner og strukturproblemer som trengte en stødig hånd. Fikset kjernefunksjonalitet, omorganiserte innholdshierarkiet, håndterte videoredigering, ryddet opp i bildeplasskering gjennom hele siden og la til manglende seksjoner som fylte hullene i kundereisen."}
+            </p>
+          </div>
         </div>
 
         {/* Gallery */}
         <ProjectGallerySlider images={[]} isEn={isEn} placeholderBg="#141419" />
 
         {/* Deliverables */}
-        <div className="border-t border-[#ede9e2]/6 pt-12 mb-2">
-          <span className="section-label block mb-8">
+        <div className="border-t border-[#ede9e2]/6 pt-16 mb-0">
+          <span className="section-label block mb-10">
             {isEn ? "What was delivered" : "Hva ble levert"}
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
-              <div key={d.icon} className="flex gap-5">
+              <div key={d.icon} className="flex gap-6">
                 <span className="font-mono text-[10px] text-[#635f5a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
-                  <h3 className="text-sm font-bold text-[#ede9e2] mb-1.5" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
                   <p className="text-xs text-[#635f5a] leading-relaxed">
@@ -133,8 +136,8 @@ export default function ByggmesterDanielsenPage() {
         </div>
 
         {/* Tech */}
-        <div className="border-t border-[#ede9e2]/6 pt-10 mt-10">
-          <span className="section-label block mb-5">
+        <div className="border-t border-[#ede9e2]/6 pt-14 mt-14">
+          <span className="section-label block mb-6">
             {isEn ? "Built with" : "Bygget med"}
           </span>
           <div className="flex flex-wrap gap-2">

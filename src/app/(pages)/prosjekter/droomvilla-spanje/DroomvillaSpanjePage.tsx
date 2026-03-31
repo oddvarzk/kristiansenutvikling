@@ -41,7 +41,6 @@ const deliverables = [
   },
 ];
 
-// -- Placeholder data — update with actual brand values --
 const colors: ColorSwatch[] = [
   { name: "Background", hex: "#151a15" },
   { name: "Olive",      hex: "#2d3a22" },
@@ -70,36 +69,41 @@ export default function DroomvillaSpanjePage() {
   const isEn = currentLanguage === "en";
 
   return (
-    <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-24">
-      <div className="container mx-auto px-6 md:px-10 max-w-6xl">
+    <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-32">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
 
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-14"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
 
-        {/* Header */}
-        <div className="mb-14">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="section-label">{isEn ? "Holiday Villa Rental" : "Feriehus Utleie"}</span>
-            <span className="section-label">2025</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-4 mb-4">
+        {/* Header — two column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-20">
+          <div>
+            <div className="flex flex-wrap items-center gap-4 mb-8">
+              <span className="section-label">{isEn ? "Holiday Villa Rental" : "Feriehus Utleie"}</span>
+              <span className="section-label">2025</span>
+            </div>
             <h1
               className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] leading-[0.9]"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               Droomvilla<br />Spanje
             </h1>
+            <p className="text-sm font-medium text-[#635f5a]/70 mt-4 tracking-wide">
+              {isEn ? "Rating & Review System" : "Vurderings- og anmeldelsessystem"}
+            </p>
           </div>
-          <p className="text-[#8a8480] text-sm md:text-base max-w-2xl leading-relaxed mt-8">
-            {isEn
-              ? "Droomvilla Spanje had a site they were happy with — they weren't looking for a rebuild. What they needed was something that simply didn't exist yet: a way to pull reviews and ratings from two separate CMS platforms, run them through a custom aggregation layer, and surface a live composite score across their listings. There's no plugin for that. So I built one, entirely in Wix Velo (TypeScript). For a holiday villa rental business, trust is everything — a guest choosing between listings is going with whoever looks most credible. Getting that rating system right isn't a nice-to-have, it directly impacts bookings. Also handled SEO fixes, bug fixes, forms and a full mail pipeline while I was at it."
-              : "Droomvilla Spanje hadde en nettside de var fornøyde med — de lette ikke etter en komplett ombygging. Det de trengte var noe som rett og slett ikke fantes ennå: en måte å hente anmeldelser og vurderinger fra to separate CMS-plattformer, kjøre dem gjennom et tilpasset aggregeringslag og vise en live sammensatt poengsum på tvers av utleiene deres. Det finnes ingen plugin for det. Så jeg bygget en, helt i Wix Velo (TypeScript). For en feriehus-utleiebedrift er tillit alt — en gjest som velger mellom utleier, går med den som ser mest troverdig ut. Å få det vurderingssystemet riktig er ikke bare en bonus, det påvirker direkte bestillinger. Håndterte også SEO-fikser, feilretting, skjemaer og en fullstendig e-postpipeline mens jeg var inne i det."}
-          </p>
+          <div className="lg:pt-16 flex flex-col justify-end">
+            <p className="text-[#635f5a] text-sm md:text-base leading-relaxed">
+              {isEn
+                ? "Droomvilla Spanje had a site they were happy with — they weren't looking for a rebuild. What they needed was something that simply didn't exist yet: a way to pull reviews and ratings from two separate CMS platforms, run them through a custom aggregation layer, and surface a live composite score across their listings. There's no plugin for that. So I built one, entirely in Wix Velo (TypeScript). For a holiday villa rental business, trust is everything — a guest choosing between listings is going with whoever looks most credible. Getting that rating system right isn't a nice-to-have, it directly impacts bookings. Also handled SEO fixes, bug fixes, forms and a full mail pipeline while I was at it."
+                : "Droomvilla Spanje hadde en nettside de var fornøyde med — de lette ikke etter en komplett ombygging. Det de trengte var noe som rett og slett ikke fantes ennå: en måte å hente anmeldelser og vurderinger fra to separate CMS-plattformer, kjøre dem gjennom et tilpasset aggregeringslag og vise en live sammensatt poengsum på tvers av utleiene deres. Det finnes ingen plugin for det. Så jeg bygget en, helt i Wix Velo (TypeScript). For en feriehus-utleiebedrift er tillit alt — en gjest som velger mellom utleier, går med den som ser mest troverdig ut. Å få det vurderingssystemet riktig er ikke bare en bonus, det påvirker direkte bestillinger. Håndterte også SEO-fikser, feilretting, skjemaer og en fullstendig e-postpipeline mens jeg var inne i det."}
+            </p>
+          </div>
         </div>
 
         {/* Gallery */}
@@ -115,16 +119,16 @@ export default function DroomvillaSpanjePage() {
         />
 
         {/* Deliverables */}
-        <div className="border-t border-[#ede9e2]/6 pt-12 mb-2">
-          <span className="section-label block mb-8">
+        <div className="border-t border-[#ede9e2]/6 pt-16 mb-0">
+          <span className="section-label block mb-10">
             {isEn ? "What was delivered" : "Hva ble levert"}
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
-              <div key={d.icon} className="flex gap-5">
+              <div key={d.icon} className="flex gap-6">
                 <span className="font-mono text-[10px] text-[#635f5a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
-                  <h3 className="text-sm font-bold text-[#ede9e2] mb-1.5" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
                   <p className="text-xs text-[#635f5a] leading-relaxed">
@@ -137,8 +141,8 @@ export default function DroomvillaSpanjePage() {
         </div>
 
         {/* Tech */}
-        <div className="border-t border-[#ede9e2]/6 pt-10 mt-10">
-          <span className="section-label block mb-5">
+        <div className="border-t border-[#ede9e2]/6 pt-14 mt-14">
+          <span className="section-label block mb-6">
             {isEn ? "Built with" : "Bygget med"}
           </span>
           <div className="flex flex-wrap gap-2">
