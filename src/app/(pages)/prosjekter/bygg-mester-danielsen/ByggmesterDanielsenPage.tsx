@@ -111,7 +111,17 @@ export default function ByggmesterDanielsenPage() {
         </div>
 
         {/* Gallery */}
-        <ProjectGallerySlider images={[]} isEn={isEn} placeholderBg="#141419" />
+        <ProjectGallerySlider
+          images={[
+            { src: "/images/projects/bygg-1.jpg", alt: "Byggmester Danielsen skjermbilde 1" },
+            { src: "/images/projects/bygg-2.jpg", alt: "Byggmester Danielsen skjermbilde 2" },
+            { src: "/images/projects/bygg-3.jpg", alt: "Byggmester Danielsen skjermbilde 3" },
+            { src: "/images/projects/bygg-4.jpg", alt: "Byggmester Danielsen skjermbilde 4" },
+            { src: "/images/projects/bygg-5.jpg", alt: "Byggmester Danielsen skjermbilde 5" },
+          ]}
+          isEn={isEn}
+          placeholderBg="#141419"
+        />
 
         {/* Deliverables */}
         <div className="border-t border-[#ede9e2]/6 pt-16 mb-0">
