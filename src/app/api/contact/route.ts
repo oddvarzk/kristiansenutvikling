@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: process.env.FROM_EMAIL ?? "Kristiansen Utvikling <onboarding@resend.dev>",
       to: process.env.TO_EMAIL!,
       replyTo: email,
@@ -42,6 +42,11 @@ export async function POST(req: NextRequest) {
         .filter((line) => line !== null)
         .join("\n"),
     });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
