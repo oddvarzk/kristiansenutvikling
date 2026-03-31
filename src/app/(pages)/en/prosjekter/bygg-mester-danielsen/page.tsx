@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ByggmesterDanielsenPage from "../../../bygg-mester-danielsen/ByggmesterDanielsenPage";
+import ByggmesterDanielsenPage from "../../../prosjekter/bygg-mester-danielsen/ByggmesterDanielsenPage";
 
 export const metadata: Metadata = {
   title: "Byggmester Danielsen — WordPress & Fixes | Kristiansen Utvikling",
