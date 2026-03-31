@@ -35,10 +35,7 @@ const organizationSchema = {
         contactType: "Customer Service",
         availableLanguage: ["nb", "en"],
       },
-      sameAs: [
-        "https://www.linkedin.com/in/kristiansenutvikling",
-        "https://github.com/kristiansenutvikling",
-      ],
+      sameAs: [],
     },
     {
       "@type": "WebSite",

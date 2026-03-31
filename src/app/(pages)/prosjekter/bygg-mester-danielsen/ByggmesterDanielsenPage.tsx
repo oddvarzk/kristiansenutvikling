@@ -49,11 +49,11 @@ const deliverables = [
 ];
 
 const colors: ColorSwatch[] = [
-  { name: "Background", hex: "#141419" },
-  { name: "Surface",    hex: "#1e1e26" },
-  { name: "Primary",    hex: "#1a3fa8" },
-  { name: "Steel",      hex: "#8090b0" },
-  { name: "Light",      hex: "#e8eaf2" },
+  { name: "Background", hex: "#0f0e0d" },
+  { name: "Surface",    hex: "#1a1917" },
+  { name: "Primary",    hex: "#e05530" },
+  { name: "Warm White", hex: "#f0ece4" },
+  { name: "Muted",      hex: "#3a3632" },
 ];
 
 const fonts: FontEntry[] = [
