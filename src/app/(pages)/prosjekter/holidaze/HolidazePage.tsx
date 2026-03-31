@@ -9,9 +9,12 @@ import ProjectDesignShowcase, { ColorSwatch, FontEntry } from "@/app/components/
 import ProjectGallerySlider from "@/app/components/ProjectGallerySlider";
 
 const galleryImages = [
-  { src: "/images/projects/holidazeHome.png", alt: "Holidaze forsiden" },
-  { src: "/images/projects/holidaze1.png",    alt: "Holidaze skjermbilde 1" },
-  { src: "/images/projects/holidaze2.png",    alt: "Holidaze skjermbilde 2" },
+  { src: "/images/projects/holidaze-1.jpg", alt: "Holidaze forsiden" },
+  { src: "/images/projects/holidaze-2.jpg", alt: "Holidaze skjermbilde 2" },
+  { src: "/images/projects/holidaze-3.jpg", alt: "Holidaze skjermbilde 3" },
+  { src: "/images/projects/holidaze-4.jpg", alt: "Holidaze skjermbilde 4" },
+  { src: "/images/projects/holidaze-5.jpg", alt: "Holidaze skjermbilde 5" },
+  { src: "/images/projects/holidaze-6.jpg", alt: "Holidaze skjermbilde 6" },
 ];
 
 const techs = ["TypeScript", "React", "Tailwind CSS", "Mapbox GL JS", "FullCalendar", "Figma"];

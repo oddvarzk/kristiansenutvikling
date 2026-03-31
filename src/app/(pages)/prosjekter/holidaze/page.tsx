@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Kristiansen Utvikling",
     images: [
       {
-        url: "https://kristiansenutvikling.no/images/projects/holidazeHome.png",
+        url: "https://kristiansenutvikling.no/images/projects/holidaze-1.jpg",
         width: 1200,
         height: 630,
         alt: "Holidaze bookingplattform skjermbilde",
