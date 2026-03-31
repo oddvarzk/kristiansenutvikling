@@ -1,16 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { getLocalizedPath } from "@/app/utils/i18n";
 import ProjectDesignShowcase, { ColorSwatch, FontEntry } from "@/app/components/ProjectDesignShowcase";
 import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
+import ProjectGallerySlider from "@/app/components/ProjectGallerySlider";
 
 // Images to be added — populate when ready
-const galleryImages: { src: string; alt: string }[] = [];
+const galleryImages: { src: string; alt: string }[] = [
+  { src: "/images/projects/nora-1.png", alt: "Nora Marketing skjermbilde 1" },
+  { src: "/images/projects/nora-2.png", alt: "Nora Marketing skjermbilde 2" },
+  { src: "/images/projects/nora-3.png", alt: "Nora Marketing skjermbilde 3" },
+  { src: "/images/projects/nora-4.png", alt: "Nora Marketing skjermbilde 4" },
+  { src: "/images/projects/nora-5.png", alt: "Nora Marketing skjermbilde 5" },
+];
 
 const techs = ["TypeScript", "React", "Tailwind CSS", "GSAP", "Next.js", "Vercel"];
 
@@ -70,13 +77,12 @@ const fonts: FontEntry[] = [
 ];
 
 export default function NoraMarketingPage() {
-  const [modalIndex, setModalIndex] = useState<number | null>(null);
   const { currentLanguage } = useTranslations();
   const isEn = currentLanguage === "en";
 
   return (
     <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-24">
-      <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+      <div className="container mx-auto px-6 md:px-10 max-w-6xl">
 
         {/* Back */}
         <Link
@@ -118,26 +124,7 @@ export default function NoraMarketingPage() {
         </div>
 
         {/* Gallery */}
-        {galleryImages.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16">
-          {galleryImages.map((img, idx) => (
-            <button
-              key={idx}
-              onClick={() => setModalIndex(idx)}
-              className="group overflow-hidden bg-[#131313] aspect-[4/3] relative"
-              style={{ borderRadius: "2px" }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-            </button>
-          ))}
-          </div>
-        )}
+        <ProjectGallerySlider images={galleryImages} isEn={isEn} placeholderBg="#141318" />
 
         {/* Deliverables */}
         <div className="border-t border-[#ede9e2]/6 pt-12 mb-2">
@@ -184,31 +171,6 @@ export default function NoraMarketingPage() {
 
       </div>
 
-      {/* Modal */}
-      {modalIndex !== null && (
-        <div
-          className="fixed inset-0 bg-[#0b0b0b]/97 flex items-center justify-center z-50 p-4"
-          onClick={() => setModalIndex(null)}
-        >
-          <button
-            className="absolute top-6 right-6 text-[#ede9e2]/50 hover:text-[#ede9e2] text-sm tracking-widest"
-            aria-label={isEn ? "Close" : "Lukk"}
-          >
-            ✕
-          </button>
-          <div
-            className="relative max-w-5xl w-full aspect-video"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={galleryImages[modalIndex].src}
-              alt={galleryImages[modalIndex].alt}
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

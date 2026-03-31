@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { getLocalizedPath } from "@/app/utils/i18n";
 import ProjectDesignShowcase, { ColorSwatch, FontEntry } from "@/app/components/ProjectDesignShowcase";
+import ProjectGallerySlider from "@/app/components/ProjectGallerySlider";
 
 const techs = ["WordPress", "Elementor", "Video Editing", "HTML", "CSS"];
 
@@ -77,7 +78,7 @@ export default function ByggmesterDanielsenPage() {
 
   return (
     <section className="min-h-screen bg-[#0b0b0b] pt-28 md:pt-40 pb-24">
-      <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+      <div className="container mx-auto px-6 md:px-10 max-w-6xl">
 
         {/* Back */}
         <Link
@@ -106,15 +107,8 @@ export default function ByggmesterDanielsenPage() {
           </p>
         </div>
 
-        {/* No gallery yet — placeholder */}
-        <div
-          className="w-full aspect-[16/7] bg-[#141419] flex items-center justify-center mb-16"
-          style={{ borderRadius: "2px" }}
-        >
-          <span className="font-mono text-[10px] text-[#ede9e2]/10 tracking-widest uppercase">
-            {isEn ? "Screenshots coming soon" : "Skjermbilder kommer snart"}
-          </span>
-        </div>
+        {/* Gallery */}
+        <ProjectGallerySlider images={[]} isEn={isEn} placeholderBg="#141419" />
 
         {/* Deliverables */}
         <div className="border-t border-[#ede9e2]/6 pt-12 mb-2">
