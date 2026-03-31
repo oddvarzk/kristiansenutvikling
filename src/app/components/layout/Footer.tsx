@@ -48,7 +48,7 @@ export default function Footer() {
                 ? "I build websites for people who want something that actually works."
                 : "Jeg bygger nettsider for folk som vil ha noe som faktisk fungerer."}
             </p>
-            <div className="space-y-2 mb-7">
+            <div className="flex flex-col gap-2 mb-7">
               <a
                 href="tel:+4747207143"
                 className="editorial-link block text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors duration-200"
