@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ProsjekterClient from "./ProsjekterClient";
 
 export const metadata: Metadata = {
-  title: "Prosjekter & Referanser — Nettside Utvikling Norge | Kristiansen Utvikling",
+  title: "Prosjekter — Nettside Utvikling Norge | Kristiansen Utvikling",
   description:
     "Se utvalgte webutviklingsprosjekter — nettsider, bookingplattformer og markedsføringssider bygget med Next.js og React. Kvalitet levert til norske bedrifter.",
   keywords: [
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/prosjekter",
       "nb-NO": "https://kristiansenutvikling.no/prosjekter",
       "en": "https://kristiansenutvikling.no/en/prosjekter",
     },

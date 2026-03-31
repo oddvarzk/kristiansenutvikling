@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
       "nb-NO": "https://kristiansenutvikling.no/prosjekter/kragero-naturstein",
       "en": "https://kristiansenutvikling.no/en/prosjekter/kragero-naturstein",
     },

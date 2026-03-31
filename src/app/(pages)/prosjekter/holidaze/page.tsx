@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/holidaze",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/prosjekter/holidaze",
       "nb-NO": "https://kristiansenutvikling.no/prosjekter/holidaze",
       "en": "https://kristiansenutvikling.no/en/prosjekter/holidaze",
     },

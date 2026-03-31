@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/personvern",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/personvern",
       "nb-NO": "https://kristiansenutvikling.no/personvern",
       "en": "https://kristiansenutvikling.no/en/personvern",
     },

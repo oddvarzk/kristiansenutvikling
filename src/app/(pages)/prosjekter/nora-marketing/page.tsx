@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NoraMarketingPage from "./NoraMarketingPage";
 
 export const metadata: Metadata = {
-  title: "Nora Marketing — Konverteringsfokusert Nettside | Kristiansen Utvikling",
+  title: "Nora Marketing — Konvertering & Vekst | Kristiansen Utvikling",
   description:
     "Konverteringsfokusert nettside for Nora Marketing — bygget med Next.js og Tailwind CSS for maksimal synlighet og leadgenerering. Se prosjektet.",
   keywords: [
@@ -16,12 +16,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/nora-marketing",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/prosjekter/nora-marketing",
       "nb-NO": "https://kristiansenutvikling.no/prosjekter/nora-marketing",
       "en": "https://kristiansenutvikling.no/en/prosjekter/nora-marketing",
     },
   },
   openGraph: {
-    title: "Nora Marketing — Konverteringsfokusert Nettside | Kristiansen Utvikling",
+    title: "Nora Marketing — Konvertering & Vekst | Kristiansen Utvikling",
     description:
       "Konverteringsfokusert nettside for Nora Marketing bygget med Next.js og Tailwind CSS for leadgenerering og synlighet.",
     url: "https://kristiansenutvikling.no/prosjekter/nora-marketing",

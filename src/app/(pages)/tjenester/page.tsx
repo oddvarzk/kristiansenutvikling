@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/tjenester",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/tjenester",
       "nb-NO": "https://kristiansenutvikling.no/tjenester",
       "en": "https://kristiansenutvikling.no/en/tjenester",
     },

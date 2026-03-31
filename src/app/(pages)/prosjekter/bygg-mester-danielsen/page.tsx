@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ByggmesterDanielsenPage from "./ByggmesterDanielsenPage";
 
 export const metadata: Metadata = {
-  title: "Byggmester Danielsen — WordPress Utvikling & Fixes | Kristiansen Utvikling",
+  title: "Byggmester Danielsen — WordPress & Fixes | Kristiansen Utvikling",
   description:
     "Feilretting, innholdshierarki, videoredigering og seksjonstillegg for Byggmester Danielsen — en komplett oppgradering av en eksisterende Elementor-nettside.",
   keywords: [
@@ -15,12 +15,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kristiansenutvikling.no/prosjekter/bygg-mester-danielsen",
     languages: {
+      "x-default": "https://kristiansenutvikling.no/prosjekter/bygg-mester-danielsen",
       "nb-NO": "https://kristiansenutvikling.no/prosjekter/bygg-mester-danielsen",
       "en": "https://kristiansenutvikling.no/en/prosjekter/bygg-mester-danielsen",
     },
   },
   openGraph: {
-    title: "Byggmester Danielsen — WordPress Utvikling & Fixes | Kristiansen Utvikling",
+    title: "Byggmester Danielsen — WordPress & Fixes | Kristiansen Utvikling",
     description:
       "Feilretting, innholdshierarki, videoredigering og seksjonstillegg for en lokal norsk byggeside på Elementor.",
     url: "https://kristiansenutvikling.no/prosjekter/bygg-mester-danielsen",

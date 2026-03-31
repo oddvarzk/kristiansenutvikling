@@ -32,15 +32,6 @@ export const defaultMetadata: Metadata = {
   creator: "Kristiansen Utvikling",
   publisher: "Kristiansen Utvikling",
 
-  alternates: {
-    canonical: base,
-    languages: {
-      "x-default": base,
-      "nb-NO": base,
-      "en": `${base}/en`,
-    },
-  },
-
   openGraph: {
     type: "website",
     locale: "nb_NO",

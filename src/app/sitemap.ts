@@ -63,12 +63,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
-    {
-      url: `${base}/prosjekter/droomvilla-spanje`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
 
     // ── English core pages ────────────────────────────────────────
     {
@@ -123,12 +117,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/en/prosjekter/bygg-mester-danielsen`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${base}/en/prosjekter/droomvilla-spanje`,
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
