@@ -118,6 +118,7 @@ export default function ProjectGallerySlider({ images, isEn = false, placeholder
           onClick={() => setModalOpen(false)}
         >
           <button
+            onClick={(e) => { e.stopPropagation(); setModalOpen(false); }}
             className="absolute top-6 right-6 text-[#ede9e2]/50 hover:text-[#ede9e2] text-sm tracking-widest transition-colors"
             aria-label={isEn ? "Close" : "Lukk"}
           >
@@ -153,6 +154,7 @@ export default function ProjectGallerySlider({ images, isEn = false, placeholder
               src={images[current].src}
               alt={images[current].alt}
               fill
+              sizes="100vw"
               className="object-contain"
             />
           </div>
