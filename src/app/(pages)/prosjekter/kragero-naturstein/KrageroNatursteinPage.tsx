@@ -10,13 +10,13 @@ import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
 import ProjectGallerySlider from "@/app/components/ProjectGallerySlider";
 
 const galleryImages: { src: string; alt: string }[] = [
-  { src: "/images/projects/kragero-1.png", alt: "Kragerø Naturstein skjermbilde 1" },
-  { src: "/images/projects/kragero-2.png", alt: "Kragerø Naturstein skjermbilde 2" },
-  { src: "/images/projects/kragero-3.png", alt: "Kragerø Naturstein skjermbilde 3" },
-  { src: "/images/projects/kragero-4.png", alt: "Kragerø Naturstein skjermbilde 4" },
-  { src: "/images/projects/kragero-5.png", alt: "Kragerø Naturstein skjermbilde 5" },
-  { src: "/images/projects/kragero-6.png", alt: "Kragerø Naturstein skjermbilde 6" },
-  { src: "/images/projects/kragero-7.png", alt: "Kragerø Naturstein skjermbilde 7" },
+  { src: "/images/projects/kragero-1.jpg", alt: "Kragerø Naturstein skjermbilde 1" },
+  { src: "/images/projects/kragero-2.jpg", alt: "Kragerø Naturstein skjermbilde 2" },
+  { src: "/images/projects/kragero-3.jpg", alt: "Kragerø Naturstein skjermbilde 3" },
+  { src: "/images/projects/kragero-4.jpg", alt: "Kragerø Naturstein skjermbilde 4" },
+  { src: "/images/projects/kragero-5.jpg", alt: "Kragerø Naturstein skjermbilde 5" },
+  { src: "/images/projects/kragero-6.jpg", alt: "Kragerø Naturstein skjermbilde 6" },
+  { src: "/images/projects/kragero-7.jpg", alt: "Kragerø Naturstein skjermbilde 7" },
 ];
 
 const techs = ["WordPress", "Kadence", "HTML", "CSS", "Video Editing", "SEO"];
@@ -120,8 +120,8 @@ export default function KrageroNatursteinPage() {
             {isEn ? "Before & after" : "Før & etter"}
           </span>
           <BeforeAfterSlider
-            before={{ src: "/images/projects/kragero-naturstein-before.png", alt: "Kragerø Naturstein — gammel nettside" }}
-            after={{  src: "/images/projects/kragero-naturstein-after.png",  alt: "Kragerø Naturstein — ny nettside" }}
+            before={{ src: "/images/projects/kragero-naturstein-before.jpg", alt: "Kragerø Naturstein — gammel nettside" }}
+            after={{  src: "/images/projects/kragero-naturstein-after.jpg",  alt: "Kragerø Naturstein — ny nettside" }}
             isEn={isEn}
           />
         </div>

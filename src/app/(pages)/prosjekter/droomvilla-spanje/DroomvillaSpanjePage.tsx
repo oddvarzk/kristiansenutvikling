@@ -109,10 +109,10 @@ export default function DroomvillaSpanjePage() {
         {/* Gallery */}
         <ProjectGallerySlider
           images={[
-            { src: "/images/projects/droomvilla-1.png", alt: "Droomvilla Spanje skjermbilde 1" },
-            { src: "/images/projects/droomvilla-2.png", alt: "Droomvilla Spanje skjermbilde 2" },
-            { src: "/images/projects/droomvilla-3.png", alt: "Droomvilla Spanje skjermbilde 3" },
-            { src: "/images/projects/droomvilla-4.png", alt: "Droomvilla Spanje skjermbilde 4" },
+            { src: "/images/projects/droomvilla-1.jpg", alt: "Droomvilla Spanje skjermbilde 1" },
+            { src: "/images/projects/droomvilla-2.jpg", alt: "Droomvilla Spanje skjermbilde 2" },
+            { src: "/images/projects/droomvilla-3.jpg", alt: "Droomvilla Spanje skjermbilde 3" },
+            { src: "/images/projects/droomvilla-4.jpg", alt: "Droomvilla Spanje skjermbilde 4" },
           ]}
           isEn={isEn}
           placeholderBg="#151a15"

@@ -10,11 +10,11 @@ import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
 import ProjectGallerySlider from "@/app/components/ProjectGallerySlider";
 
 const galleryImages: { src: string; alt: string }[] = [
-  { src: "/images/projects/nora-1.png", alt: "Nora Marketing skjermbilde 1" },
-  { src: "/images/projects/nora-2.png", alt: "Nora Marketing skjermbilde 2" },
-  { src: "/images/projects/nora-3.png", alt: "Nora Marketing skjermbilde 3" },
-  { src: "/images/projects/nora-4.png", alt: "Nora Marketing skjermbilde 4" },
-  { src: "/images/projects/nora-5.png", alt: "Nora Marketing skjermbilde 5" },
+  { src: "/images/projects/nora-1.jpg", alt: "Nora Marketing skjermbilde 1" },
+  { src: "/images/projects/nora-2.jpg", alt: "Nora Marketing skjermbilde 2" },
+  { src: "/images/projects/nora-3.jpg", alt: "Nora Marketing skjermbilde 3" },
+  { src: "/images/projects/nora-4.jpg", alt: "Nora Marketing skjermbilde 4" },
+  { src: "/images/projects/nora-5.jpg", alt: "Nora Marketing skjermbilde 5" },
 ];
 
 const techs = ["TypeScript", "React", "Tailwind CSS", "GSAP", "Next.js", "Vercel"];
@@ -118,8 +118,8 @@ export default function NoraMarketingPage() {
             {isEn ? "Before & after" : "Før & etter"}
           </span>
           <BeforeAfterSlider
-            before={{ src: "/images/projects/nora-marketing-before.png", alt: "Nora Marketing — gammel nettside" }}
-            after={{  src: "/images/projects/nora-marketing-after.png",  alt: "Nora Marketing — ny nettside" }}
+            before={{ src: "/images/projects/nora-marketing-before.jpg", alt: "Nora Marketing — gammel nettside" }}
+            after={{  src: "/images/projects/nora-marketing-after.jpg",  alt: "Nora Marketing — ny nettside" }}
             isEn={isEn}
           />
         </div>
