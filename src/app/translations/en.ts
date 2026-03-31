@@ -133,7 +133,7 @@ export const en = {
     }
   },
   footer: {
-    copyright: "© 2024 Kristiansen Utvikling. All rights reserved.",
+    copyright: "© 2026 Kristiansen Utvikling. All rights reserved.",
     privacy: "Privacy",
   },
   common: {

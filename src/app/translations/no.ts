@@ -150,7 +150,7 @@ export const no = {
     }
   },
   footer: {
-    copyright: "© 2024 Kristiansen Utvikling. Alle rettigheter forbeholdt.",
+    copyright: "© 2026 Kristiansen Utvikling. Alle rettigheter forbeholdt.",
     privacy: "Personvern",
   },
   common: {
