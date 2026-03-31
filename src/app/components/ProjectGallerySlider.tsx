@@ -43,14 +43,18 @@ export default function ProjectGallerySlider({ images, isEn = false, placeholder
           style={{ aspectRatio: "16 / 9", borderRadius: "2px" }}
           onClick={() => setModalOpen(true)}
         >
-          <Image
-            src={images[current].src}
-            alt={images[current].alt}
-            fill
-            className="object-cover object-top transition-opacity duration-300"
-            sizes="(max-width: 768px) 100vw, 80vw"
-            priority={current === 0}
-          />
+          {images.map((img, i) => (
+            <Image
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 80vw"
+              priority={i === 0}
+              style={{ opacity: i === current ? 1 : 0, transition: "none" }}
+            />
+          ))}
 
           {/* Prev / Next — only show when more than one image */}
           {images.length > 1 && (
@@ -150,13 +154,17 @@ export default function ProjectGallerySlider({ images, isEn = false, placeholder
             className="relative max-w-5xl w-full aspect-video"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              src={images[current].src}
-              alt={images[current].alt}
-              fill
-              sizes="100vw"
-              className="object-contain"
-            />
+            {images.map((img, i) => (
+              <Image
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                style={{ opacity: i === current ? 1 : 0, transition: "none" }}
+              />
+            ))}
           </div>
         </div>
       )}
