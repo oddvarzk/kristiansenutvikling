@@ -9,6 +9,7 @@ export const en = {
     services: "Services",
     projects: "Cases",
     about: "About",
+    articles: "Articles",
     contact: "Contact",
   },
   home: {
@@ -177,6 +178,23 @@ export const en = {
       heading1: "Ready to build",
       heading2: "something great?",
       sub: "Let's have a chat about what you need.",
+      button: "Get in touch",
+    },
+  },
+  artikler: {
+    label: "Articles",
+    title1: "Thoughts",
+    title2: "& learnings.",
+    tagline: "Practical writing on web development, SEO and what actually works.",
+    list: {
+      label: "All articles",
+      heading1: "What I've",
+      heading2: "learned.",
+    },
+    cta: {
+      heading1: "Got a project",
+      heading2: "in mind?",
+      sub: "Let's have a chat about what you need. No commitments.",
       button: "Get in touch",
     },
   },

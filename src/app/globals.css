@@ -124,3 +124,76 @@ h1, h2, h3, h4, h5, h6 {
   background: #c5f135;
   color: #0b0b0b;
 }
+
+/* ─── Article body typography ───────────────────────────────────── */
+.article-body h2 {
+  font-family: "Satoshi", sans-serif;
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 800;
+  color: #ede9e2;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.article-body h3 {
+  font-family: "Satoshi", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ede9e2;
+  margin-top: 2rem;
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.02em;
+}
+
+.article-body p {
+  font-family: "Satoshi", sans-serif;
+  color: rgba(237, 233, 226, 0.72);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  font-size: 1.0625rem;
+}
+
+.article-body strong {
+  color: #ede9e2;
+  font-weight: 600;
+}
+
+.article-body ul {
+  margin-bottom: 1.75rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.article-body ul li {
+  font-family: "Satoshi", sans-serif;
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(237, 233, 226, 0.72);
+  margin-bottom: 0.625rem;
+  line-height: 1.75;
+  font-size: 1.0625rem;
+}
+
+.article-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c5f135;
+}
+
+.article-body blockquote {
+  border-left: 2px solid #c5f135;
+  padding: 0.25rem 1.5rem;
+  margin: 2rem 0;
+  color: rgba(237, 233, 226, 0.55);
+  font-style: italic;
+  font-family: "Satoshi", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}

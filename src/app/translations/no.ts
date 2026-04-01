@@ -9,6 +9,7 @@ export const no = {
     services: "Tjenester",
     projects: "Cases",
     about: "Om meg",
+    articles: "Artikler",
     contact: "Kontakt",
   },
   home: {
@@ -194,6 +195,23 @@ export const no = {
       heading1: "Klar for å bygge",
       heading2: "noe bra?",
       sub: "La oss ta en prat om hva du trenger.",
+      button: "Ta kontakt",
+    },
+  },
+  artikler: {
+    label: "Artikler",
+    title1: "Tanker",
+    title2: "& erfaring.",
+    tagline: "Praktiske innlegg om webutvikling, SEO og det som faktisk fungerer.",
+    list: {
+      label: "Alle artikler",
+      heading1: "Det jeg har",
+      heading2: "lært.",
+    },
+    cta: {
+      heading1: "Har du et",
+      heading2: "prosjekt i tankene?",
+      sub: "La oss ta en prat om hva du trenger. Ingen forpliktelser.",
       button: "Ta kontakt",
     },
   },

@@ -38,6 +38,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.2,
     },
 
+    // ── Norwegian artikler page ───────────────────────────────────
+    {
+      url: `${base}/artikler`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/artikler/hva-koster-en-nettside`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/artikler/nettside-bedrift-oslo`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.65,
+    },
+    {
+      url: `${base}/artikler/nettside-for-restaurant`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.65,
+    },
+    {
+      url: `${base}/artikler/hvorfor-nettsiden-ingen-kunder`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.65,
+    },
+
     // ── Norwegian about page ──────────────────────────────────────
     {
       url: `${base}/om-meg`,
@@ -102,6 +134,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.2,
+    },
+
+    // ── English artikler page ─────────────────────────────────────
+    {
+      url: `${base}/en/artikler`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/en/artikler/hva-koster-en-nettside`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/en/artikler/nettside-bedrift-oslo`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.55,
+    },
+    {
+      url: `${base}/en/artikler/nettside-for-restaurant`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.55,
+    },
+    {
+      url: `${base}/en/artikler/hvorfor-nettsiden-ingen-kunder`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.55,
     },
 
     // ── English about page ────────────────────────────────────────
