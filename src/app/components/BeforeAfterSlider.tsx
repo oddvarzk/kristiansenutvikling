@@ -170,7 +170,7 @@ export default function BeforeAfterSlider({
       </div>
 
       {/* Caption */}
-      <p className="font-mono text-[9px] tracking-[0.16em] text-[#635f5a]/50 uppercase text-center">
+      <p className="font-mono text-[9px] tracking-[0.16em] text-[#7a7570]/50 uppercase text-center">
         {isEn ? "Drag to compare" : "Dra for å sammenligne"}
       </p>
     </div>

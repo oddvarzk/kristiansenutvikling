@@ -82,7 +82,7 @@ export default function ByggmesterDanielsenPage() {
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-16"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
@@ -102,7 +102,7 @@ export default function ByggmesterDanielsenPage() {
             </h1>
           </div>
           <div className="lg:pt-16 flex flex-col justify-end">
-            <p className="text-[#635f5a] text-sm md:text-base leading-relaxed">
+            <p className="text-[#7a7570] text-sm md:text-base leading-relaxed">
               {isEn
                 ? "Brought in to fix what wasn't working. The existing Elementor build had accumulated bugs, broken sections and structural problems that needed a steady hand. Fixed core functionality, reorganised the content hierarchy, handled video editing, cleaned up image placement throughout, and added missing sections that filled the gaps in the customer journey."
                 : "Hentet inn for å fikse det som ikke fungerte. Den eksisterende Elementor-bygg hadde akkumulert feil, ødelagte seksjoner og strukturproblemer som trengte en stødig hånd. Fikset kjernefunksjonalitet, omorganiserte innholdshierarkiet, håndterte videoredigering, ryddet opp i bildeplasskering gjennom hele siden og la til manglende seksjoner som fylte hullene i kundereisen."}
@@ -131,12 +131,12 @@ export default function ByggmesterDanielsenPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
               <div key={d.icon} className="flex gap-6">
-                <span className="font-mono text-[10px] text-[#635f5a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
+                <span className="font-mono text-[10px] text-[#7a7570]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
                   <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
-                  <p className="text-xs text-[#635f5a] leading-relaxed">
+                  <p className="text-xs text-[#7a7570] leading-relaxed">
                     {isEn ? d.desc : d.descNo}
                   </p>
                 </div>
@@ -154,7 +154,7 @@ export default function ByggmesterDanielsenPage() {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#635f5a]"
+                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#7a7570]"
                 style={{ borderRadius: "2px" }}
               >
                 {tech}

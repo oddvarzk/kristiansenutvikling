@@ -113,7 +113,7 @@ export default function ArtiklerPage() {
           <div className="flex items-start justify-between mb-10 md:mb-16">
             <span className="hero-label section-label">{art.label}</span>
             <p
-              className="hero-tagline hidden md:block text-right text-sm text-[#635f5a] leading-relaxed max-w-[260px]"
+              className="hero-tagline hidden md:block text-right text-sm text-[#7a7570] leading-relaxed max-w-[260px]"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {art.tagline}
@@ -137,7 +137,7 @@ export default function ArtiklerPage() {
 
           {/* Mobile tagline */}
           <p
-            className="hero-tagline md:hidden mt-6 text-sm text-[#635f5a] leading-relaxed max-w-xs"
+            className="hero-tagline md:hidden mt-6 text-sm text-[#7a7570] leading-relaxed max-w-xs"
             style={{ fontFamily: "Satoshi, sans-serif" }}
           >
             {art.tagline}
@@ -157,8 +157,8 @@ export default function ArtiklerPage() {
           {/* Scroll hint */}
           <div className="hero-scroll flex items-center gap-3 mt-6">
             <span className="section-label">Scroll</span>
-            <div className="w-8 h-px bg-[#635f5a]" />
-            <span className="text-[#635f5a] text-xs">↓</span>
+            <div className="w-8 h-px bg-[#7a7570]" />
+            <span className="text-[#7a7570] text-xs">↓</span>
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ export default function ArtiklerPage() {
 
                   {/* Number + category */}
                   <div className="flex items-center gap-5 md:flex-col md:items-start md:gap-2 shrink-0 md:w-40">
-                    <span className="text-xs font-medium tracking-[0.15em] text-[#635f5a] group-hover:text-[#c5f135] transition-colors duration-300 shrink-0">
+                    <span className="text-xs font-medium tracking-[0.15em] text-[#7a7570] group-hover:text-[#c5f135] transition-colors duration-300 shrink-0">
                       {article.number}
                     </span>
                     <span className="section-label whitespace-nowrap">
@@ -207,7 +207,7 @@ export default function ArtiklerPage() {
                       {isEn ? article.titleEn : article.title}
                     </h3>
                     <p
-                      className="text-sm text-[#635f5a] leading-relaxed max-w-xl"
+                      className="text-sm text-[#7a7570] leading-relaxed max-w-xl"
                       style={{ fontFamily: "Satoshi, sans-serif" }}
                     >
                       {isEn ? article.excerptEn : article.excerpt}
@@ -218,7 +218,7 @@ export default function ArtiklerPage() {
                   <div className="flex md:flex-col items-center md:items-end gap-4 md:gap-2 shrink-0 md:text-right">
                     <span className="section-label">{article.date}</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-px h-3 bg-[#635f5a]/40 md:hidden" />
+                      <div className="w-px h-3 bg-[#7a7570]/40 md:hidden" />
                       <span className="section-label">{article.readTime}</span>
                     </div>
                     <span
@@ -247,7 +247,7 @@ export default function ArtiklerPage() {
               <span className="text-[#c5f135]">{art.cta.heading2}</span>
             </h2>
             <p
-              className="text-[#635f5a] text-base md:text-lg leading-relaxed mb-10"
+              className="text-[#7a7570] text-base md:text-lg leading-relaxed mb-10"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {art.cta.sub}

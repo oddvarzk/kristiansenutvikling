@@ -54,7 +54,7 @@ export default function CookieBanner() {
         <p className="text-xs font-semibold text-[#ede9e2] mb-1">
           {isEn ? "Cookies" : "Informasjonskapsler"}
         </p>
-        <p className="text-xs text-[#635f5a] leading-relaxed mb-4">
+        <p className="text-xs text-[#7a7570] leading-relaxed mb-4">
           {isEn
             ? "I use cookies for anonymous analytics. Nothing invasive — just page views. "
             : "Jeg bruker informasjonskapsler til anonymisert statistikk. Ingenting invasivt — bare sidevisninger. "}
@@ -71,13 +71,13 @@ export default function CookieBanner() {
             onClick={decline}
             className="flex-1 text-xs font-medium py-2 px-3 transition-colors duration-200 cursor-pointer"
             style={{
-              color: "#635f5a",
+              color: "#7a7570",
               backgroundColor: "transparent",
               border: "1px solid rgba(237,233,226,0.08)",
               borderRadius: "2px",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#ede9e2")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#635f5a")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#7a7570")}
           >
             {isEn ? "Decline" : "Avvis"}
           </button>

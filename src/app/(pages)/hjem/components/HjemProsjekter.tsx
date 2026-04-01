@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations } from "@/app/hooks/useTranslations";
@@ -72,7 +73,7 @@ export default function FeaturedProjects() {
           </div>
           <Link
             href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-            className="editorial-link hidden md:inline-flex text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors duration-200"
+            className="editorial-link hidden md:inline-flex text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
           >
             {t.home.featuredProjects.viewAll}
             <span>→</span>
@@ -106,11 +107,13 @@ export default function FeaturedProjects() {
                 />
               ) : projects[0].image ? (
                 <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={projects[0].image}
                     alt={projects[0].title}
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 58vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    priority
                   />
                   <div className="absolute inset-0 bg-[#0b0b0b]/15 group-hover:bg-[#0b0b0b]/5 transition-colors duration-300" />
                 </>
@@ -152,11 +155,12 @@ export default function FeaturedProjects() {
                     />
                   ) : project.image ? (
                     <>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 42vw"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                       <div className="absolute inset-0 bg-[#0b0b0b]/15 group-hover:bg-[#0b0b0b]/5 transition-colors duration-300" />
                     </>
@@ -178,7 +182,7 @@ export default function FeaturedProjects() {
         <div className="mt-10 md:hidden">
           <Link
             href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-            className="editorial-link text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors duration-200"
+            className="editorial-link text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
           >
             {t.home.featuredProjects.viewAll} →
           </Link>
@@ -208,11 +212,11 @@ function ProjectMeta({
             {project.title}
           </h3>
         </div>
-        <p className="text-xs text-[#635f5a] leading-relaxed max-w-[260px]">{project.description}</p>
+        <p className="text-xs text-[#7a7570] leading-relaxed max-w-[260px]">{project.description}</p>
       </div>
       <div className="shrink-0 text-right mt-0.5">
-        <span className="block text-[10px] font-mono text-[#635f5a]/50">{project.year}</span>
-        <span className="block text-[10px] font-mono text-[#635f5a]/40 mt-0.5">{project.tag}</span>
+        <span className="block text-[10px] font-mono text-[#7a7570]/50">{project.year}</span>
+        <span className="block text-[10px] font-mono text-[#7a7570]/40 mt-0.5">{project.tag}</span>
       </div>
     </div>
   );

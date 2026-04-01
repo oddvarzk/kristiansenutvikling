@@ -41,7 +41,7 @@ export default function TjenesterPage() {
             {t.services.title}
           </h1>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-t border-[#ede9e2]/6 pt-8">
-            <p className="text-[#635f5a] text-sm leading-relaxed max-w-md">
+            <p className="text-[#7a7570] text-sm leading-relaxed max-w-md">
               {t.services.intro}
             </p>
             <Link
@@ -67,7 +67,7 @@ export default function TjenesterPage() {
           <div className="grid md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#ede9e2]/6">
             {processSteps.map((step) => (
               <div key={step.num} className="py-7 md:py-0 md:px-8 first:md:pl-0 last:md:pr-0">
-                <span className="text-xs font-mono text-[#635f5a]/50 tracking-widest block mb-3">
+                <span className="text-xs font-mono text-[#7a7570]/50 tracking-widest block mb-3">
                   {step.num}
                 </span>
                 <h3
@@ -76,7 +76,7 @@ export default function TjenesterPage() {
                 >
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#635f5a] leading-relaxed">{step.desc}</p>
+                <p className="text-xs text-[#7a7570] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -105,11 +105,11 @@ export default function TjenesterPage() {
                   <details key={i} className="group py-5">
                     <summary className="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#ede9e2]/80 hover:text-[#ede9e2] list-none transition-colors duration-200">
                       <span>{q.question}</span>
-                      <svg className="w-3.5 h-3.5 text-[#635f5a] group-open:rotate-180 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-3.5 h-3.5 text-[#7a7570] group-open:rotate-180 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
-                    <p className="mt-4 text-sm text-[#635f5a] leading-relaxed">{q.answer}</p>
+                    <p className="mt-4 text-sm text-[#7a7570] leading-relaxed">{q.answer}</p>
                   </details>
                 ))}
               </div>
@@ -144,7 +144,7 @@ export default function TjenesterPage() {
               </Link>
               <Link
                 href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-                className="editorial-link text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors duration-200"
+                className="editorial-link text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
               >
                 {isEn ? "View projects" : "Se prosjekter"}
               </Link>

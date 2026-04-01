@@ -75,7 +75,7 @@ export default function DroomvillaSpanjePage() {
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-16"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
@@ -93,12 +93,12 @@ export default function DroomvillaSpanjePage() {
             >
               Droomvilla<br />Spanje
             </h1>
-            <p className="text-sm font-medium text-[#635f5a]/70 mt-4 tracking-wide">
+            <p className="text-sm font-medium text-[#7a7570]/70 mt-4 tracking-wide">
               {isEn ? "Rating & Review System" : "Vurderings- og anmeldelsessystem"}
             </p>
           </div>
           <div className="lg:pt-16 flex flex-col justify-end">
-            <p className="text-[#635f5a] text-sm md:text-base leading-relaxed">
+            <p className="text-[#7a7570] text-sm md:text-base leading-relaxed">
               {isEn
                 ? "Droomvilla Spanje had a site they were happy with — they weren't looking for a rebuild. What they needed was something that simply didn't exist yet: a way to pull reviews and ratings from two separate CMS platforms, run them through a custom aggregation layer, and surface a live composite score across their listings. There's no plugin for that. So I built one, entirely in Wix Velo (TypeScript). For a holiday villa rental business, trust is everything — a guest choosing between listings is going with whoever looks most credible. Getting that rating system right isn't a nice-to-have, it directly impacts bookings. Also handled SEO fixes, bug fixes, forms and a full mail pipeline while I was at it."
                 : "Droomvilla Spanje hadde en nettside de var fornøyde med — de lette ikke etter en komplett ombygging. Det de trengte var noe som rett og slett ikke fantes ennå: en måte å hente anmeldelser og vurderinger fra to separate CMS-plattformer, kjøre dem gjennom et tilpasset aggregeringslag og vise en live sammensatt poengsum på tvers av utleiene deres. Det finnes ingen plugin for det. Så jeg bygget en, helt i Wix Velo (TypeScript). For en feriehus-utleiebedrift er tillit alt — en gjest som velger mellom utleier, går med den som ser mest troverdig ut. Å få det vurderingssystemet riktig er ikke bare en bonus, det påvirker direkte bestillinger. Håndterte også SEO-fikser, feilretting, skjemaer og en fullstendig e-postpipeline mens jeg var inne i det."}
@@ -126,12 +126,12 @@ export default function DroomvillaSpanjePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
               <div key={d.icon} className="flex gap-6">
-                <span className="font-mono text-[10px] text-[#635f5a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
+                <span className="font-mono text-[10px] text-[#7a7570]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
                   <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
-                  <p className="text-xs text-[#635f5a] leading-relaxed">
+                  <p className="text-xs text-[#7a7570] leading-relaxed">
                     {isEn ? d.desc : d.descNo}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default function DroomvillaSpanjePage() {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#635f5a]"
+                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#7a7570]"
                 style={{ borderRadius: "2px" }}
               >
                 {tech}

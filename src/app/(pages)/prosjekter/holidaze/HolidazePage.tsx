@@ -84,7 +84,7 @@ export default function HolidazePage() {
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#635f5a] hover:text-[#ede9e2] transition-colors mb-16"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
@@ -104,14 +104,14 @@ export default function HolidazePage() {
             </h1>
           </div>
           <div className="lg:pt-16 flex flex-col justify-end gap-6">
-            <p className="text-[#635f5a] text-sm md:text-base leading-relaxed">
+            <p className="text-[#7a7570] text-sm md:text-base leading-relaxed">
               {isEn
                 ? "A fully type-safe booking platform built as my final academic exam — awarded top marks. The entire product was designed from scratch in Figma, then brought to life in TypeScript, React and Tailwind CSS. Users can search, filter and book holiday homes through an interactive Mapbox map and a live availability calendar."
                 : "En fullstendig typesikker bookingplattform bygget som mitt avsluttende eksamensprosjekt — og belønnet med toppkarakter. Hele produktet ble designet fra bunnen av i Figma, deretter realisert i TypeScript, React og Tailwind CSS. Brukere kan søke, filtrere og booke ferieboliger gjennom et interaktivt Mapbox-kart og en live tilgjengelighetskalender."}
             </p>
             <a
               href="https://www.figma.com/proto/jd0CndWGJRIVXc2ju649TS/Holidaze?node-id=18-17&starting-point-node-id=18%3A17"
-              className="inline-flex items-center gap-2 text-xs font-mono text-[#635f5a] border border-[#ede9e2]/8 px-4 py-2 hover:text-[#ede9e2] hover:border-[#ede9e2]/20 transition-colors duration-200 self-start"
+              className="inline-flex items-center gap-2 text-xs font-mono text-[#7a7570] border border-[#ede9e2]/8 px-4 py-2 hover:text-[#ede9e2] hover:border-[#ede9e2]/20 transition-colors duration-200 self-start"
               style={{ borderRadius: "2px" }}
               aria-label="Figma prototype (link to be added)"
             >
@@ -138,12 +138,12 @@ export default function HolidazePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
               <div key={d.icon} className="flex gap-6">
-                <span className="font-mono text-[10px] text-[#635f5a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
+                <span className="font-mono text-[10px] text-[#7a7570]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
                   <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
-                  <p className="text-xs text-[#635f5a] leading-relaxed">
+                  <p className="text-xs text-[#7a7570] leading-relaxed">
                     {isEn ? d.desc : d.descNo}
                   </p>
                 </div>
@@ -161,7 +161,7 @@ export default function HolidazePage() {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#635f5a]"
+                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#7a7570]"
                 style={{ borderRadius: "2px" }}
               >
                 {tech}

@@ -28,7 +28,7 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
       {/* Header row */}
       <div className="flex items-center justify-between py-6 gap-4">
         <div className="flex items-center gap-5">
-          <div className={`p-2.5 transition-colors duration-300 ${isOpen ? "text-[#c5f135]" : "text-[#635f5a]"}`}
+          <div className={`p-2.5 transition-colors duration-300 ${isOpen ? "text-[#c5f135]" : "text-[#7a7570]"}`}
             style={{ borderRadius: "2px" }}>
             {service.icon}
           </div>
@@ -39,10 +39,10 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
             >
               {service.title}
             </h2>
-            <p className="text-xs text-[#635f5a] mt-1 leading-relaxed max-w-lg">{service.shortDescription}</p>
+            <p className="text-xs text-[#7a7570] mt-1 leading-relaxed max-w-lg">{service.shortDescription}</p>
           </div>
         </div>
-        <div className={`w-7 h-7 flex items-center justify-center shrink-0 transition-all duration-300 border ${isOpen ? "border-[#ede9e2]/20 text-[#ede9e2]" : "border-[#ede9e2]/8 text-[#635f5a]"}`}
+        <div className={`w-7 h-7 flex items-center justify-center shrink-0 transition-all duration-300 border ${isOpen ? "border-[#ede9e2]/20 text-[#ede9e2]" : "border-[#ede9e2]/8 text-[#7a7570]"}`}
           style={{ borderRadius: "2px" }}>
           <svg className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -57,13 +57,13 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
         </p>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="border border-[#ede9e2]/6 p-5" style={{ borderRadius: "2px" }}>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#635f5a] mb-3">
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#7a7570] mb-3">
               {isEn ? "Pricing" : "Prising"}
             </h4>
             <p className="text-[#ede9e2]/60 text-sm leading-relaxed">{service.expandedContent.pricing}</p>
           </div>
           <div className="border border-[#ede9e2]/6 p-5" style={{ borderRadius: "2px" }}>
-            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#635f5a] mb-3">
+            <h4 className="text-xs font-medium uppercase tracking-[0.15em] text-[#7a7570] mb-3">
               {isEn ? "Includes" : "Inkludert"}
             </h4>
             <ul className="space-y-1.5">

@@ -63,7 +63,9 @@ export default function Layout({
   return (
     <html lang="no" className={inter.variable} data-scroll-behavior="smooth">
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.fontshare.com" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
           rel="stylesheet"
