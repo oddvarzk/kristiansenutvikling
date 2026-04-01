@@ -30,7 +30,7 @@ export default function KontaktPage() {
 
           {/* Left — info */}
           <div className="lg:col-span-4">
-            <p className="text-[#7a7570] text-sm leading-relaxed mb-12">
+            <p className="text-[#857f7a] text-sm leading-relaxed mb-12">
               {t.contact.subtitle}
             </p>
 

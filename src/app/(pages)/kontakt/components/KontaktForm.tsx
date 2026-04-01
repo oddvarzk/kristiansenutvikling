@@ -9,7 +9,7 @@ type Status = "idle" | "sending" | "success" | "error";
 const delay = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
 
 const fieldClass =
-  "w-full px-4 py-3.5 text-sm bg-[#131313] border border-[#ede9e2]/8 text-[#ede9e2] placeholder-[#7a7570] focus:outline-none focus:border-[#ede9e2]/25 transition-all duration-200 appearance-none"
+  "w-full px-4 py-3.5 text-sm bg-[#131313] border border-[#ede9e2]/8 text-[#ede9e2] placeholder-[#857f7a] focus:outline-none focus:border-[#ede9e2]/25 transition-all duration-200 appearance-none"
   + " " + "rounded-none";
 
 export default function ContactForm() {
@@ -69,7 +69,7 @@ export default function ContactForm() {
         <h2 className="text-xl font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
           {isEn ? "Message sent." : "Melding sendt."}
         </h2>
-        <p className="text-sm text-[#7a7570]">
+        <p className="text-sm text-[#857f7a]">
           {isEn ? "I'll get back to you as soon as possible." : "Jeg tar kontakt så snart som mulig."}
         </p>
       </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           <option value="other">{isEn ? "Other" : "Annet"}</option>
         </select>
         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          <svg className="w-3.5 h-3.5 text-[#7a7570]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 text-[#857f7a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -111,7 +111,7 @@ export default function ContactForm() {
           <option value="other">{isEn ? "Other" : "Annet"}</option>
         </select>
         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-          <svg className="w-3.5 h-3.5 text-[#7a7570]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 text-[#857f7a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -136,9 +136,9 @@ export default function ContactForm() {
         <p className="text-sm text-red-400/80">{errorMessage}</p>
       )}
 
-      <p className="text-xs text-[#7a7570]/60 pt-1">
+      <p className="text-xs text-[#857f7a]/60 pt-1">
         {isEn ? "We respect your privacy. " : "Vi respekterer ditt personvern. "}
-        <a href={isEn ? "/en/personvern" : "/personvern"} className="underline hover:text-[#7a7570] transition-colors" target="_blank" rel="noopener noreferrer">
+        <a href={isEn ? "/en/personvern" : "/personvern"} className="underline hover:text-[#857f7a] transition-colors" target="_blank" rel="noopener noreferrer">
           {isEn ? "Privacy policy" : "Personvernerklæring"}
         </a>.
       </p>

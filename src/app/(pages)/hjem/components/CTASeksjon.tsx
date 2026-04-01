@@ -52,7 +52,7 @@ export default function CTASeksjon() {
 
         {/* Bottom row — description + CTAs */}
         <div className="cta-reveal border-t border-[#ede9e2]/8 pt-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <p className="text-[#7a7570] text-sm leading-relaxed max-w-xs">
+          <p className="text-[#857f7a] text-sm leading-relaxed max-w-xs">
             {t.home.cta.subtitle}
           </p>
 
@@ -69,7 +69,7 @@ export default function CTASeksjon() {
             </Link>
             <Link
               href={getLocalizedPath("/tjenester", currentLanguage) as any}
-              className="editorial-link text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+              className="editorial-link text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
             >
               {isEn ? "View services" : "Se tjenester"}
             </Link>

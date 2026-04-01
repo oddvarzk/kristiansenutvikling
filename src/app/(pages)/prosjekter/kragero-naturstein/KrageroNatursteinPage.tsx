@@ -86,7 +86,7 @@ export default function KrageroNatursteinPage() {
         {/* Back */}
         <Link
           href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors mb-16"
+          className="editorial-link inline-flex items-center gap-1.5 text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors mb-16"
         >
           ← {isEn ? "Back to projects" : "Tilbake til prosjekter"}
         </Link>
@@ -106,7 +106,7 @@ export default function KrageroNatursteinPage() {
             </h1>
           </div>
           <div className="lg:pt-16 flex flex-col justify-end">
-            <p className="text-[#7a7570] text-sm md:text-base leading-relaxed">
+            <p className="text-[#857f7a] text-sm md:text-base leading-relaxed">
               {isEn
                 ? "A complete rebuild from the ground up. Moved from a fragmented old setup to a clean, fast Kadence-powered WordPress site — with custom HTML and CSS for the finer details, full video production, and a redesigned content hierarchy that lets the stone speak for itself."
                 : "En komplett ombygging fra bunnen av. Gikk fra et fragmentert gammelt oppsett til en ren, rask Kadence-drevet WordPress-nettside — med tilpasset HTML og CSS for de finere detaljene, fullstendig videoproduksjon og en redesignet innholdshierarki som lar steinen tale for seg selv."}
@@ -137,12 +137,12 @@ export default function KrageroNatursteinPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {deliverables.map((d) => (
               <div key={d.icon} className="flex gap-6">
-                <span className="font-mono text-[10px] text-[#7a7570]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
+                <span className="font-mono text-[10px] text-[#857f7a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
                   <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
-                  <p className="text-xs text-[#7a7570] leading-relaxed">
+                  <p className="text-xs text-[#857f7a] leading-relaxed">
                     {isEn ? d.desc : d.descNo}
                   </p>
                 </div>
@@ -160,7 +160,7 @@ export default function KrageroNatursteinPage() {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#7a7570]"
+                className="text-xs font-mono px-3 py-1.5 border border-[#ede9e2]/8 text-[#857f7a]"
                 style={{ borderRadius: "2px" }}
               >
                 {tech}

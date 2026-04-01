@@ -59,7 +59,7 @@ export default function WhyChooseMe() {
               }`}
             >
               {/* Number */}
-              <span className="shrink-0 text-[#7a7570] text-xs font-medium tracking-[0.15em] group-hover:text-[#c5f135] transition-colors duration-400 mt-0.5 md:w-10">
+              <span className="shrink-0 text-[#857f7a] text-xs font-medium tracking-[0.15em] group-hover:text-[#c5f135] transition-colors duration-400 mt-0.5 md:w-10">
                 {numbers[idx]}
               </span>
 
@@ -72,7 +72,7 @@ export default function WhyChooseMe() {
               </h3>
 
               {/* Description */}
-              <p className="text-[#7a7570] text-sm leading-relaxed md:max-w-[340px] md:text-right">
+              <p className="text-[#857f7a] text-sm leading-relaxed md:max-w-[340px] md:text-right">
                 {card.description}
               </p>
             </div>

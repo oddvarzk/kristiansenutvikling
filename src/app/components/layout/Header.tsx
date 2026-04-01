@@ -253,7 +253,7 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-          <div className="mobile-nav-item mt-14 flex gap-5 text-sm text-[#7a7570]">
+          <div className="mobile-nav-item mt-14 flex gap-5 text-sm text-[#857f7a]">
             <button
               onClick={() => { switchLanguage("no"); setMenuOpen(false); }}
               className={currentLanguage === "no" ? "text-[#ede9e2]" : "hover:text-[#ede9e2] transition-colors"}

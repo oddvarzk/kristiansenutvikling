@@ -105,7 +105,7 @@ export default function ProjectGallerySlider({ images, isEn = false, placeholder
                   width: i === current ? "16px" : "4px",
                   height: "4px",
                   borderRadius: "2px",
-                  backgroundColor: i === current ? "#ede9e2" : "#7a7570",
+                  backgroundColor: i === current ? "#ede9e2" : "#857f7a",
                   opacity: i === current ? 1 : 0.4,
                 }}
                 aria-label={`${isEn ? "Go to image" : "Gå til bilde"} ${i + 1}`}

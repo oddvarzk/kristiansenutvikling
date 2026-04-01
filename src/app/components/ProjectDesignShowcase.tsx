@@ -118,7 +118,7 @@ export default function ProjectDesignShowcase({ colors, fonts, isEn = false }: P
                 {/* Label */}
                 <div className="color-label shrink-0 flex items-center gap-4 w-44 md:w-56">
                   <span
-                    className="font-mono text-[10px] tracking-widest text-[#7a7570] uppercase"
+                    className="font-mono text-[10px] tracking-widest text-[#857f7a] uppercase"
                   >
                     {c.hex}
                   </span>
@@ -141,7 +141,7 @@ export default function ProjectDesignShowcase({ colors, fonts, isEn = false }: P
               <div key={`${f.name}-${i}`} className="font-row border-t border-[#ede9e2]/5 pt-8">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
                   <span className="section-label">{f.role}</span>
-                  <span className="font-mono text-[10px] text-[#7a7570]/60 tracking-widest">{f.name}</span>
+                  <span className="font-mono text-[10px] text-[#857f7a]/60 tracking-widest">{f.name}</span>
                 </div>
                 <p
                   className="text-3xl md:text-5xl text-[#ede9e2] leading-tight"
@@ -150,7 +150,7 @@ export default function ProjectDesignShowcase({ colors, fonts, isEn = false }: P
                   {f.sample}
                 </p>
                 <p
-                  className="text-base text-[#7a7570] mt-2 leading-relaxed"
+                  className="text-base text-[#857f7a] mt-2 leading-relaxed"
                   style={{ fontFamily: f.cssFamily, fontWeight: 400 }}
                 >
                   Aa Bb Cc Dd Ee Ff 0 1 2 3 4 5

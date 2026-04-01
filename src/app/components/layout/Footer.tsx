@@ -43,7 +43,7 @@ export default function Footer() {
                 className="h-7 w-auto opacity-80"
               />
             </Link>
-            <p className="text-[#7a7570] text-sm leading-relaxed max-w-[240px] mb-8">
+            <p className="text-[#857f7a] text-sm leading-relaxed max-w-[240px] mb-8">
               {isEn
                 ? "I build websites for people who want something that actually works."
                 : "Jeg bygger nettsider for folk som vil ha noe som faktisk fungerer."}
@@ -51,13 +51,13 @@ export default function Footer() {
             <div className="flex flex-col gap-2 mb-7">
               <a
                 href="tel:+4747207143"
-                className="editorial-link block text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+                className="editorial-link block text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
               >
                 +47 472 07 143
               </a>
               <a
                 href="mailto:kontakt@kristiansenutvikling.no"
-                className="editorial-link block text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+                className="editorial-link block text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
               >
                 kontakt@kristiansenutvikling.no
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={getLocalizedPath(href, currentLanguage) as any}
-                    className="text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+                    className="text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
                   >
                     {label}
                   </Link>
@@ -111,12 +111,12 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-[#ede9e2]/5">
         <div className="container mx-auto px-6 md:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[10px] tracking-wide text-[#7a7570]/60 uppercase">
+          <p className="text-[10px] tracking-wide text-[#857f7a] uppercase">
             {t.footer.copyright}
           </p>
           <button
             onClick={resetCookieConsent}
-            className="text-[10px] tracking-wide text-[#7a7570]/60 hover:text-[#7a7570] transition-colors duration-200 uppercase"
+            className="text-[10px] tracking-wide text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200 uppercase"
           >
             {isEn ? "Cookie settings" : "Cookie-innstillinger"}
           </button>

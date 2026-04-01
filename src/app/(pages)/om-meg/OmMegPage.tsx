@@ -73,7 +73,7 @@ export default function OmMegPage() {
           <div className="flex items-start justify-between mb-10 md:mb-16">
             <span className="hero-label section-label">{om.label}</span>
             <p
-              className="hero-tagline hidden md:block text-right text-sm text-[#7a7570] leading-relaxed max-w-[260px]"
+              className="hero-tagline hidden md:block text-right text-sm text-[#857f7a] leading-relaxed max-w-[260px]"
               style={{ fontFamily: "Satoshi, sans-serif" }}
             >
               {om.tagline}
@@ -99,7 +99,7 @@ export default function OmMegPage() {
 
           {/* Mobile tagline */}
           <p
-            className="hero-tagline md:hidden mt-6 text-sm text-[#7a7570] leading-relaxed max-w-xs"
+            className="hero-tagline md:hidden mt-6 text-sm text-[#857f7a] leading-relaxed max-w-xs"
             style={{ fontFamily: "Satoshi, sans-serif" }}
           >
             {om.tagline}
@@ -111,8 +111,8 @@ export default function OmMegPage() {
           {/* Scroll hint */}
           <div className="hero-scroll flex items-center gap-3 mt-6">
             <span className="section-label">Scroll</span>
-            <div className="w-8 h-px bg-[#7a7570]" />
-            <span className="text-[#7a7570] text-xs">↓</span>
+            <div className="w-8 h-px bg-[#857f7a]" />
+            <span className="text-[#857f7a] text-xs">↓</span>
           </div>
         </div>
       </div>
@@ -157,7 +157,7 @@ export default function OmMegPage() {
                   >
                     OZK
                   </span>
-                  <span className="section-label text-[#7a7570]/60">
+                  <span className="section-label text-[#857f7a]/60">
                     {currentLanguage === "en" ? "Photo coming soon" : "Bilde kommer"}
                   </span>
                 </div>
@@ -185,10 +185,10 @@ export default function OmMegPage() {
               <p className="text-[#ede9e2]/80 text-base md:text-lg leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 {om.story.bio1}
               </p>
-              <p className="text-[#7a7570] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 {om.story.bio2}
               </p>
-              <p className="text-[#7a7570] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 {om.story.bio3}
               </p>
 
@@ -226,7 +226,7 @@ export default function OmMegPage() {
                 key={idx}
                 className="value-row group flex flex-col md:flex-row gap-6 md:gap-16 py-9 md:py-11 border-t border-[#ede9e2]/6 last:border-b last:border-[#ede9e2]/6"
               >
-                <span className="shrink-0 text-[#7a7570] text-xs font-medium tracking-[0.15em] group-hover:text-[#c5f135] transition-colors duration-300 mt-0.5 md:w-10">
+                <span className="shrink-0 text-[#857f7a] text-xs font-medium tracking-[0.15em] group-hover:text-[#c5f135] transition-colors duration-300 mt-0.5 md:w-10">
                   {item.number}
                 </span>
                 <h3
@@ -235,7 +235,7 @@ export default function OmMegPage() {
                 >
                   {item.title}
                 </h3>
-                <p className="text-[#7a7570] text-sm leading-relaxed md:max-w-[360px] md:text-right" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                <p className="text-[#857f7a] text-sm leading-relaxed md:max-w-[360px] md:text-right" style={{ fontFamily: "Satoshi, sans-serif" }}>
                   {item.text}
                 </p>
               </div>
@@ -269,7 +269,7 @@ export default function OmMegPage() {
                 className="stack-tag group inline-flex items-center gap-2 px-4 py-2.5 border border-[#ede9e2]/10 hover:border-[#c5f135]/40 hover:bg-[#c5f135]/5 transition-all duration-300 text-[#ede9e2]/70 hover:text-[#ede9e2] text-sm font-medium"
                 style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
               >
-                <span className="w-1 h-1 rounded-full bg-[#7a7570] group-hover:bg-[#c5f135] transition-colors duration-300 shrink-0" />
+                <span className="w-1 h-1 rounded-full bg-[#857f7a] group-hover:bg-[#c5f135] transition-colors duration-300 shrink-0" />
                 {tech}
               </span>
             ))}
@@ -290,7 +290,7 @@ export default function OmMegPage() {
               {om.cta.heading1}<br /><span className="text-[#c5f135]">{om.cta.heading2}</span>
             </h2>
 
-            <p className="cta-sub text-[#7a7570] text-base md:text-lg leading-relaxed mb-10" style={{ fontFamily: "Satoshi, sans-serif" }}>
+            <p className="cta-sub text-[#857f7a] text-base md:text-lg leading-relaxed mb-10" style={{ fontFamily: "Satoshi, sans-serif" }}>
               {om.cta.sub}
             </p>
 

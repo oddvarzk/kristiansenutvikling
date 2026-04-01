@@ -70,7 +70,7 @@ export default function ArticleLayout({
               {category}
             </span>
             <span className="section-label">{date}</span>
-            <div className="w-px h-3 bg-[#7a7570]/40" />
+            <div className="w-px h-3 bg-[#857f7a]/40" />
             <span className="section-label">{readTime} {isEn ? "read" : "lesetid"}</span>
           </div>
 
@@ -145,7 +145,7 @@ export default function ArticleLayout({
                   : "Lurer du på hva dette koster for din bedrift?"}
               </p>
               <p
-                className="text-[#7a7570] text-sm leading-relaxed mb-6 max-w-md"
+                className="text-[#857f7a] text-sm leading-relaxed mb-6 max-w-md"
                 style={{ fontFamily: "Satoshi, sans-serif" }}
               >
                 {isEn

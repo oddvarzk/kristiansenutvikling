@@ -70,7 +70,7 @@ export default function TjenesterSeksjon() {
           </div>
           <Link
             href={getLocalizedPath("/tjenester", currentLanguage) as any}
-            className="editorial-link text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+            className="editorial-link text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
           >
             {isEn ? "Full overview" : "Full oversikt"}
             <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
@@ -89,7 +89,7 @@ export default function TjenesterSeksjon() {
             >
               <div className="flex items-center gap-5 md:gap-8">
                 {/* Index number */}
-                <span className="text-[10px] text-[#7a7570]/50 font-mono tracking-widest w-6 shrink-0 transition-colors duration-300 group-hover:text-[#c5f135]/60">
+                <span className="text-[10px] text-[#857f7a]/50 font-mono tracking-widest w-6 shrink-0 transition-colors duration-300 group-hover:text-[#c5f135]/60">
                   {svc.index}
                 </span>
                 <h3
@@ -104,7 +104,7 @@ export default function TjenesterSeksjon() {
               <div className="flex items-center gap-4">
                 <span
                   className={`hidden md:block text-xs tracking-widest uppercase font-medium transition-colors duration-250 ${
-                    hovered === svc.id ? "text-[#7a7570]" : "text-[#7a7570]/40"
+                    hovered === svc.id ? "text-[#857f7a]" : "text-[#857f7a]/40"
                   }`}
                 >
                   {svc.tag}

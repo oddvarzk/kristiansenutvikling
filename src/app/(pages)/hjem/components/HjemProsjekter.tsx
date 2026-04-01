@@ -73,7 +73,7 @@ export default function FeaturedProjects() {
           </div>
           <Link
             href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-            className="editorial-link hidden md:inline-flex text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+            className="editorial-link hidden md:inline-flex text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
           >
             {t.home.featuredProjects.viewAll}
             <span>→</span>
@@ -182,7 +182,7 @@ export default function FeaturedProjects() {
         <div className="mt-10 md:hidden">
           <Link
             href={getLocalizedPath("/prosjekter", currentLanguage) as any}
-            className="editorial-link text-sm text-[#7a7570] hover:text-[#ede9e2] transition-colors duration-200"
+            className="editorial-link text-sm text-[#857f7a] hover:text-[#ede9e2] transition-colors duration-200"
           >
             {t.home.featuredProjects.viewAll} →
           </Link>
@@ -212,11 +212,11 @@ function ProjectMeta({
             {project.title}
           </h3>
         </div>
-        <p className="text-xs text-[#7a7570] leading-relaxed max-w-[260px]">{project.description}</p>
+        <p className="text-xs text-[#857f7a] leading-relaxed max-w-[260px]">{project.description}</p>
       </div>
       <div className="shrink-0 text-right mt-0.5">
-        <span className="block text-[10px] font-mono text-[#7a7570]/50">{project.year}</span>
-        <span className="block text-[10px] font-mono text-[#7a7570]/40 mt-0.5">{project.tag}</span>
+        <span className="block text-[10px] font-mono text-[#857f7a]/50">{project.year}</span>
+        <span className="block text-[10px] font-mono text-[#857f7a]/40 mt-0.5">{project.tag}</span>
       </div>
     </div>
   );

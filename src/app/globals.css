@@ -6,7 +6,7 @@
   --color-surface:    #131313;
   --color-surface-2:  #1b1b1b;
   --color-ink:        #ede9e2;
-  --color-ink-muted:  #7a7570;
+  --color-ink-muted:  #857f7a;
   --color-accent:     #c5f135;
   --color-accent-dim: #9cbe28;
 }
@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #7a7570;
+  color: #857f7a;
 }
 
 /* ─── Scrollbar hide ────────────────────────────────────────────── */

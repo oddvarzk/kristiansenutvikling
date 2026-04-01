@@ -51,17 +51,17 @@ export default function PrivacyPolicyClient() {
                 <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
                   {section.title}
                 </h2>
-                <p className="text-sm text-[#7a7570] leading-relaxed mb-4">{section.description}</p>
+                <p className="text-sm text-[#857f7a] leading-relaxed mb-4">{section.description}</p>
                 {section.items && (
                   <ul className="space-y-1.5 mb-4">
                     {section.items.map((item: string, j: number) => (
-                      <li key={j} className="text-sm text-[#7a7570] pl-4 relative before:absolute before:left-0 before:content-['·'] before:text-[#c5f135]/60">
+                      <li key={j} className="text-sm text-[#857f7a] pl-4 relative before:absolute before:left-0 before:content-['·'] before:text-[#c5f135]/60">
                         {item}
                       </li>
                     ))}
                   </ul>
                 )}
-                {section.footer && <p className="text-sm text-[#7a7570]">{section.footer}</p>}
+                {section.footer && <p className="text-sm text-[#857f7a]">{section.footer}</p>}
               </div>
             ))}
 
@@ -69,11 +69,11 @@ export default function PrivacyPolicyClient() {
               <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
                 {t.privacy.contact.title}
               </h2>
-              <p className="text-sm text-[#7a7570] mb-3">{t.privacy.contact.description}</p>
+              <p className="text-sm text-[#857f7a] mb-3">{t.privacy.contact.description}</p>
               <a href="mailto:hei@kristiansenutvikling.no" className="text-sm text-[#c5f135]/80 hover:text-[#c5f135] transition-colors block mb-1">
                 hei@kristiansenutvikling.no
               </a>
-              <p className="text-xs text-[#7a7570]/50 mt-3">{t.privacy.contact.updated}: {updatedDate}</p>
+              <p className="text-xs text-[#857f7a]/50 mt-3">{t.privacy.contact.updated}: {updatedDate}</p>
             </div>
           </div>
         </div>

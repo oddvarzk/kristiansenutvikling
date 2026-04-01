@@ -23,7 +23,7 @@ export default function ArticleCta() {
           : "Vil du vite hva som holder nettsiden din tilbake?"}
       </p>
       <p
-        className="text-[#7a7570] text-sm leading-relaxed mb-5"
+        className="text-[#857f7a] text-sm leading-relaxed mb-5"
         style={{ fontFamily: "Satoshi, sans-serif" }}
       >
         {isEn
