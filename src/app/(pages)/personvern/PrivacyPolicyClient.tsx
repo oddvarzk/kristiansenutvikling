@@ -34,7 +34,7 @@ export default function PrivacyPolicyClient() {
 
           <h1
             className="text-4xl md:text-5xl font-black tracking-tight text-[#ede9e2] mb-14"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {t.privacy.title}
           </h1>
@@ -48,7 +48,7 @@ export default function PrivacyPolicyClient() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ].map((section: any, i: number) => (
               <div key={i} className="border-t border-[#1a1a1a] pt-8">
-                <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                   {section.title}
                 </h2>
                 <p className="text-sm text-[#857f7a] leading-relaxed mb-4">{section.description}</p>
@@ -66,7 +66,7 @@ export default function PrivacyPolicyClient() {
             ))}
 
             <div className="border-t border-[#1a1a1a] pt-8">
-              <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <h2 className="text-base font-bold text-[#ede9e2] mb-4" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                 {t.privacy.contact.title}
               </h2>
               <p className="text-sm text-[#857f7a] mb-3">{t.privacy.contact.description}</p>

@@ -90,7 +90,7 @@ export default function Footer() {
             </span>
             <p
               className="text-2xl md:text-[1.75rem] font-black tracking-tight text-[#ede9e2] leading-[1.05] mb-7"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {isEn ? "Have an idea?\nLet's build it." : "Har du en idé?\nLa oss bygge den."}
             </p>

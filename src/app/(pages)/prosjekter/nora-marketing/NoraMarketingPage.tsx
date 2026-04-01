@@ -63,13 +63,13 @@ const fonts: FontEntry[] = [
     name: "Satoshi",
     role: "Heading",
     sample: "Marketing that moves.",
-    cssFamily: "Satoshi, sans-serif",
+    cssFamily: "var(--font-satoshi), sans-serif",
   },
   {
     name: "Satoshi",
     role: "Body",
     sample: "Results-driven strategy for modern brands.",
-    cssFamily: "Satoshi, sans-serif",
+    cssFamily: "var(--font-satoshi), sans-serif",
   },
 ];
 
@@ -98,7 +98,7 @@ export default function NoraMarketingPage() {
             </div>
             <h1
               className="text-5xl md:text-7xl font-black tracking-tight text-[#ede9e2] leading-[0.9]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               Nora<br />Marketing
             </h1>
@@ -137,7 +137,7 @@ export default function NoraMarketingPage() {
               <div key={d.icon} className="flex gap-6">
                 <span className="font-mono text-[10px] text-[#857f7a]/40 tracking-widest pt-0.5 shrink-0">{d.icon}</span>
                 <div>
-                  <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  <h3 className="text-sm font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                     {isEn ? d.title : d.titleNo}
                   </h3>
                   <p className="text-xs text-[#857f7a] leading-relaxed">

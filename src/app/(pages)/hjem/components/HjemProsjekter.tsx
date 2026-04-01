@@ -66,7 +66,7 @@ export default function FeaturedProjects() {
             </span>
             <h2
               className="text-3xl md:text-4xl font-black tracking-tight text-[#ede9e2] leading-tight"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {t.home.featuredProjects.title}
             </h2>
@@ -207,7 +207,7 @@ function ProjectMeta({
         <div className="flex items-center gap-2.5 mb-1">
           <h3
             className={`${large ? "text-base" : "text-sm"} font-bold text-[#ede9e2]/80 group-hover:text-[#ede9e2] transition-colors duration-200`}
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {project.title}
           </h3>

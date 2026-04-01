@@ -121,7 +121,7 @@ export default function Projekter() {
           <h1
             ref={headingRef}
             className="text-[10vw] md:text-[5vw] font-black tracking-tight text-[#1a1a1a] leading-[0.92]"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {t.projects.title}
           </h1>
@@ -191,7 +191,7 @@ export default function Projekter() {
                         <div className="flex items-center gap-2">
                           <h2
                             className="text-sm font-bold tracking-tight text-[#1a1a1a] group-hover:text-[#0b0b0b] transition-colors duration-200"
-                            style={{ fontFamily: "Satoshi, sans-serif" }}
+                            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                           >
                             {project.title}
                           </h2>
@@ -241,7 +241,7 @@ export default function Projekter() {
                       <div>
                         <h2
                           className="text-sm font-bold tracking-tight text-[#1a1a1a]"
-                          style={{ fontFamily: "Satoshi, sans-serif" }}
+                          style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                         >
                           {project.title}
                         </h2>
@@ -275,7 +275,7 @@ export default function Projekter() {
                   </span>
                   <h2
                     className="text-4xl md:text-5xl font-black tracking-tight text-[#1a1a1a] leading-[0.92]"
-                    style={{ fontFamily: "Satoshi, sans-serif" }}
+                    style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                   >
                     {isEn ? "Let's make\nsomething\ngreat." : "La oss lage\nnoe\nflott."}
                   </h2>

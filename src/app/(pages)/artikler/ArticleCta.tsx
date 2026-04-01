@@ -16,7 +16,7 @@ export default function ArticleCta() {
     >
       <p
         className="text-[#ede9e2] font-bold text-lg leading-snug mb-1"
-        style={{ fontFamily: "Satoshi, sans-serif" }}
+        style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
       >
         {isEn
           ? "Want to know what's holding your website back?"
@@ -24,7 +24,7 @@ export default function ArticleCta() {
       </p>
       <p
         className="text-[#857f7a] text-sm leading-relaxed mb-5"
-        style={{ fontFamily: "Satoshi, sans-serif" }}
+        style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
       >
         {isEn
           ? "I'll do a free review of your website and tell you concretely what can be improved. No sales pitch — just honest feedback."
@@ -33,7 +33,7 @@ export default function ArticleCta() {
       <Link
         href={getLocalizedPath("/kontakt", currentLanguage) as any}
         className="inline-flex items-center gap-2.5 px-5 py-3 bg-[#c5f135] text-[#0b0b0b] text-sm font-bold tracking-wide hover:bg-[#d4ff40] transition-colors duration-200"
-        style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
+        style={{ borderRadius: "2px", fontFamily: "var(--font-satoshi), sans-serif" }}
       >
         {isEn ? "Get free review" : "Få gratis gjennomgang"}
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

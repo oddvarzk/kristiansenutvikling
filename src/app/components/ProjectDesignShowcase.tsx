@@ -15,7 +15,7 @@ export interface FontEntry {
   name: string;
   role: string;      // e.g. "Heading", "Body"
   sample: string;    // displayed in that font
-  cssFamily: string; // e.g. "Satoshi, sans-serif"
+  cssFamily: string; // e.g. var(--font-satoshi), sans-serif
 }
 
 interface Props {

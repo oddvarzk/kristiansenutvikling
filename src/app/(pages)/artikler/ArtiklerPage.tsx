@@ -114,7 +114,7 @@ export default function ArtiklerPage() {
             <span className="hero-label section-label">{art.label}</span>
             <p
               className="hero-tagline hidden md:block text-right text-sm text-[#857f7a] leading-relaxed max-w-[260px]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {art.tagline}
             </p>
@@ -124,7 +124,7 @@ export default function ArtiklerPage() {
           <div className="hero-title">
             <h1
               className="text-[15vw] md:text-[11vw] font-black tracking-tight leading-[0.88] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               <span className="block line-wrap">
                 <span className="line-inner">{art.title1}</span>
@@ -138,7 +138,7 @@ export default function ArtiklerPage() {
           {/* Mobile tagline */}
           <p
             className="hero-tagline md:hidden mt-6 text-sm text-[#857f7a] leading-relaxed max-w-xs"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {art.tagline}
           </p>
@@ -172,7 +172,7 @@ export default function ArtiklerPage() {
             <span className="section-label pt-1 shrink-0">{art.list.label}</span>
             <h2
               className="text-[8vw] md:text-[5vw] font-black tracking-tight leading-[0.92] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {art.list.heading1}<br />{art.list.heading2}
             </h2>
@@ -202,13 +202,13 @@ export default function ArtiklerPage() {
                   <div className="flex-1 min-w-0">
                     <h3
                       className="text-xl md:text-2xl font-bold tracking-tight text-[#ede9e2]/80 group-hover:text-[#ede9e2] leading-tight transition-colors duration-300 mb-3"
-                      style={{ fontFamily: "Satoshi, sans-serif" }}
+                      style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                     >
                       {isEn ? article.titleEn : article.title}
                     </h3>
                     <p
                       className="text-sm text-[#857f7a] leading-relaxed max-w-xl"
-                      style={{ fontFamily: "Satoshi, sans-serif" }}
+                      style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                     >
                       {isEn ? article.excerptEn : article.excerpt}
                     </p>
@@ -241,21 +241,21 @@ export default function ArtiklerPage() {
           <div className="max-w-3xl">
             <h2
               className="text-[11vw] md:text-[7vw] font-black tracking-tight leading-[0.9] text-[#ede9e2] mb-8 md:mb-10"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {art.cta.heading1}<br />
               <span className="text-[#c5f135]">{art.cta.heading2}</span>
             </h2>
             <p
               className="text-[#857f7a] text-base md:text-lg leading-relaxed mb-10"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {art.cta.sub}
             </p>
             <Link
               href={getLocalizedPath("/kontakt", currentLanguage) as any}
               className="inline-flex items-center gap-3 px-7 py-4 bg-[#c5f135] text-[#0b0b0b] text-sm font-bold tracking-wide hover:bg-[#d4ff40] transition-colors duration-200"
-              style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
+              style={{ borderRadius: "2px", fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {art.cta.button}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">

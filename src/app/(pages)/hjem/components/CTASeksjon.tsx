@@ -45,7 +45,7 @@ export default function CTASeksjon() {
         {/* Large editorial heading — left-aligned */}
         <h2
           className="cta-reveal text-[11vw] md:text-[6.5vw] font-black tracking-tight text-[#ede9e2] leading-[0.9] mb-12 md:mb-16 max-w-4xl"
-          style={{ fontFamily: "Satoshi, sans-serif" }}
+          style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
         >
           {t.home.cta.title}
         </h2>

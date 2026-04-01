@@ -74,7 +74,7 @@ export default function OmMegPage() {
             <span className="hero-label section-label">{om.label}</span>
             <p
               className="hero-tagline hidden md:block text-right text-sm text-[#857f7a] leading-relaxed max-w-[260px]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.tagline}
             </p>
@@ -84,7 +84,7 @@ export default function OmMegPage() {
           <div className="hero-title">
             <h1
               className="text-[16vw] md:text-[11vw] font-black tracking-tight leading-[0.88] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               <span className="block line-wrap">
                 <span className="line-inner">{om.title1}</span>
@@ -100,7 +100,7 @@ export default function OmMegPage() {
           {/* Mobile tagline */}
           <p
             className="hero-tagline md:hidden mt-6 text-sm text-[#857f7a] leading-relaxed max-w-xs"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {om.tagline}
           </p>
@@ -128,7 +128,7 @@ export default function OmMegPage() {
             <span className="section-label pt-1 shrink-0">{om.story.label}</span>
             <h2
               className="story-heading text-[8vw] md:text-[5vw] font-black tracking-tight leading-[0.92] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.story.heading1}<br />{om.story.heading2}
             </h2>
@@ -153,7 +153,7 @@ export default function OmMegPage() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                   <span
                     className="text-7xl md:text-8xl font-black tracking-tighter text-[#ede9e2]/10 select-none"
-                    style={{ fontFamily: "Satoshi, sans-serif" }}
+                    style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                   >
                     OZK
                   </span>
@@ -169,7 +169,7 @@ export default function OmMegPage() {
               {/* Name badge below photo */}
               <div className="mt-5 flex items-center justify-between">
                 <div>
-                  <p className="text-[#ede9e2] text-sm font-semibold" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                  <p className="text-[#ede9e2] text-sm font-semibold" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                     Oddvar Zakarias Kristiansen
                   </p>
                   <p className="section-label mt-1">
@@ -182,13 +182,13 @@ export default function OmMegPage() {
 
             {/* Bio text */}
             <div className="story-bio flex flex-col justify-center gap-6 md:pt-4">
-              <p className="text-[#ede9e2]/80 text-base md:text-lg leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <p className="text-[#ede9e2]/80 text-base md:text-lg leading-relaxed" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                 {om.story.bio1}
               </p>
-              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                 {om.story.bio2}
               </p>
-              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "Satoshi, sans-serif" }}>
+              <p className="text-[#857f7a] text-base leading-relaxed" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                 {om.story.bio3}
               </p>
 
@@ -213,7 +213,7 @@ export default function OmMegPage() {
             <span className="section-label pt-1 shrink-0">{om.values.label}</span>
             <h2
               className="values-heading text-[8vw] md:text-[5vw] font-black tracking-tight leading-[0.92] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.values.heading1}<br />{om.values.heading2}
             </h2>
@@ -231,11 +231,11 @@ export default function OmMegPage() {
                 </span>
                 <h3
                   className="text-xl md:text-2xl font-bold tracking-tight text-[#ede9e2] leading-tight md:flex-1"
-                  style={{ fontFamily: "Satoshi, sans-serif" }}
+                  style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-[#857f7a] text-sm leading-relaxed md:max-w-[360px] md:text-right" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                <p className="text-[#857f7a] text-sm leading-relaxed md:max-w-[360px] md:text-right" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                   {item.text}
                 </p>
               </div>
@@ -255,7 +255,7 @@ export default function OmMegPage() {
             <span className="section-label pt-1 shrink-0">{om.stack.label}</span>
             <h2
               className="stack-heading text-[8vw] md:text-[5vw] font-black tracking-tight leading-[0.92] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.stack.heading1}<br />{om.stack.heading2}
             </h2>
@@ -267,7 +267,7 @@ export default function OmMegPage() {
               <span
                 key={tech}
                 className="stack-tag group inline-flex items-center gap-2 px-4 py-2.5 border border-[#ede9e2]/10 hover:border-[#c5f135]/40 hover:bg-[#c5f135]/5 transition-all duration-300 text-[#ede9e2]/70 hover:text-[#ede9e2] text-sm font-medium"
-                style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
+                style={{ borderRadius: "2px", fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 <span className="w-1 h-1 rounded-full bg-[#857f7a] group-hover:bg-[#c5f135] transition-colors duration-300 shrink-0" />
                 {tech}
@@ -285,19 +285,19 @@ export default function OmMegPage() {
           <div className="max-w-3xl">
             <h2
               className="cta-heading text-[11vw] md:text-[7vw] font-black tracking-tight leading-[0.9] text-[#ede9e2] mb-8 md:mb-10"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.cta.heading1}<br /><span className="text-[#c5f135]">{om.cta.heading2}</span>
             </h2>
 
-            <p className="cta-sub text-[#857f7a] text-base md:text-lg leading-relaxed mb-10" style={{ fontFamily: "Satoshi, sans-serif" }}>
+            <p className="cta-sub text-[#857f7a] text-base md:text-lg leading-relaxed mb-10" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
               {om.cta.sub}
             </p>
 
             <Link
               href={getLocalizedPath("/kontakt", currentLanguage) as any}
               className="cta-btn inline-flex items-center gap-3 px-7 py-4 bg-[#c5f135] text-[#0b0b0b] text-sm font-bold tracking-wide hover:bg-[#d4ff40] transition-colors duration-200"
-              style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
+              style={{ borderRadius: "2px", fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {om.cta.button}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">

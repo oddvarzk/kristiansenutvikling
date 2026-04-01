@@ -66,7 +66,7 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-xl font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "Satoshi, sans-serif" }}>
+        <h2 className="text-xl font-bold text-[#ede9e2] mb-2" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
           {isEn ? "Message sent." : "Melding sendt."}
         </h2>
         <p className="text-sm text-[#857f7a]">

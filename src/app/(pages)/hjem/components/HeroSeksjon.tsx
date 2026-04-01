@@ -81,7 +81,7 @@ export default function HeroSeksjon() {
       <div className="relative z-10 container mx-auto px-6 md:px-10 flex-1 flex items-center">
         <h1
           ref={headlineRef}
-          style={{ fontFamily: "Satoshi, sans-serif" }}
+          style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           className="w-full"
         >
           <span className="line-wrap">
@@ -104,7 +104,7 @@ export default function HeroSeksjon() {
             <span
               ref={line3Ref}
               className="line-inner block text-[14.5vw] md:text-[10vw] leading-[0.88] font-black tracking-[-0.04em] text-[#c5f135] pb-[0.35em]"
-              style={{ fontFamily: "Aktura, Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-aktura), var(--font-satoshi), sans-serif" }}
             >
               {isEn ? "experiences." : "opplevelser."}
             </span>

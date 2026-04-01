@@ -235,7 +235,7 @@ export default function Header() {
                     href={localHref as any}
                     onClick={() => setMenuOpen(false)}
                     className="block text-[12vw] leading-none font-black tracking-tight text-[#ede9e2]/70 hover:text-[#ede9e2] transition-colors duration-200"
-                    style={{ fontFamily: "Satoshi, sans-serif" }}
+                    style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                   >
                     {label}
                   </Link>
@@ -247,7 +247,7 @@ export default function Header() {
                 href={getLocalizedPath("/kontakt", currentLanguage) as any}
                 onClick={() => setMenuOpen(false)}
                 className="block text-[12vw] leading-none font-black tracking-tight text-[#c5f135]"
-                style={{ fontFamily: "Satoshi, sans-serif" }}
+                style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {t.navigation.contact}
               </Link>

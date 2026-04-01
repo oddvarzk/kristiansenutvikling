@@ -25,7 +25,7 @@ export default function LogoBanner() {
           <span key={i} className="flex items-center gap-12 shrink-0">
             <span
               className="text-xs font-medium tracking-[0.12em] uppercase text-[#ede9e2]/30"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {item.label}
             </span>

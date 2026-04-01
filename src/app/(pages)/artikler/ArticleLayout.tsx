@@ -78,7 +78,7 @@ export default function ArticleLayout({
           <div className="art-title">
             <h1
               className="text-[8.5vw] md:text-[5.5vw] font-black tracking-tight leading-[0.9] text-[#ede9e2]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               <span className="block line-wrap">
                 <span className="line-inner">{line1}</span>
@@ -114,12 +114,12 @@ export default function ArticleLayout({
                 className="w-10 h-10 bg-[#131313] border border-[#ede9e2]/10 flex items-center justify-center shrink-0"
                 style={{ borderRadius: "50%" }}
               >
-                <span className="text-xs font-black text-[#ede9e2]/40" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                <span className="text-xs font-black text-[#ede9e2]/40" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                   OZK
                 </span>
               </div>
               <div>
-                <p className="text-[#ede9e2] text-sm font-semibold" style={{ fontFamily: "Satoshi, sans-serif" }}>
+                <p className="text-[#ede9e2] text-sm font-semibold" style={{ fontFamily: "var(--font-satoshi), sans-serif" }}>
                   Oddvar Zakarias Kristiansen
                 </p>
                 <p className="section-label mt-0.5">
@@ -138,7 +138,7 @@ export default function ArticleLayout({
               </p>
               <p
                 className="text-[#ede9e2] font-bold text-xl leading-snug mb-2"
-                style={{ fontFamily: "Satoshi, sans-serif" }}
+                style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {isEn
                   ? "Wondering what this costs for your business?"
@@ -146,7 +146,7 @@ export default function ArticleLayout({
               </p>
               <p
                 className="text-[#857f7a] text-sm leading-relaxed mb-6 max-w-md"
-                style={{ fontFamily: "Satoshi, sans-serif" }}
+                style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {isEn
                   ? "Send me a message describing what you need. I'll get back to you within one business day with an honest assessment — no commitments, no sales pitch."
@@ -155,7 +155,7 @@ export default function ArticleLayout({
               <Link
                 href={getLocalizedPath("/kontakt", currentLanguage) as any}
                 className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#c5f135] text-[#0b0b0b] text-sm font-bold tracking-wide hover:bg-[#d4ff40] transition-colors duration-200"
-                style={{ borderRadius: "2px", fontFamily: "Satoshi, sans-serif" }}
+                style={{ borderRadius: "2px", fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {isEn ? "Get a free quote" : "Få uforpliktende pristilbud"}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">

@@ -63,7 +63,7 @@ export default function TjenesterSeksjon() {
             </span>
             <h2
               className="text-3xl md:text-4xl font-black tracking-tight text-[#ede9e2] leading-tight"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {isEn ? "Services" : "Tjenester"}
             </h2>
@@ -96,7 +96,7 @@ export default function TjenesterSeksjon() {
                   className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-250 ${
                     hovered === svc.id ? "text-[#ede9e2]" : "text-[#ede9e2]/70"
                   }`}
-                  style={{ fontFamily: "Satoshi, sans-serif" }}
+                  style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                 >
                   {svc.title}
                 </h3>

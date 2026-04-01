@@ -35,7 +35,7 @@ function ExpandableServiceItem({ service, isOpen, toggleOpen }: { service: Servi
           <div>
             <h2
               className={`text-base md:text-lg font-bold tracking-tight transition-colors duration-200 ${isOpen ? "text-[#ede9e2]" : "text-[#ede9e2]/70"}`}
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {service.title}
             </h2>

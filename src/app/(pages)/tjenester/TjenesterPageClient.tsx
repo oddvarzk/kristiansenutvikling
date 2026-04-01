@@ -36,7 +36,7 @@ export default function TjenesterPage() {
           </span>
           <h1
             className="text-[11vw] md:text-[5.5vw] font-black tracking-tight text-[#ede9e2] leading-[0.9] mb-10"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {t.services.title}
           </h1>
@@ -72,7 +72,7 @@ export default function TjenesterPage() {
                 </span>
                 <h3
                   className="text-base font-bold text-[#ede9e2] mb-2.5 leading-snug"
-                  style={{ fontFamily: "Satoshi, sans-serif" }}
+                  style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
                 >
                   {step.title}
                 </h3>
@@ -94,7 +94,7 @@ export default function TjenesterPage() {
               <span className="section-label block mb-4">FAQ</span>
               <h2
                 className="text-2xl md:text-3xl font-black tracking-tight text-[#ede9e2] leading-tight"
-                style={{ fontFamily: "Satoshi, sans-serif" }}
+                style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {isEn ? "Common questions" : "Vanlige spørsmål"}
               </h2>
@@ -127,7 +127,7 @@ export default function TjenesterPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 max-w-5xl">
             <h2
               className="text-[9vw] md:text-[4.5vw] font-black tracking-tight text-[#ede9e2] leading-[0.92]"
-              style={{ fontFamily: "Satoshi, sans-serif" }}
+              style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
             >
               {isEn ? "Ready to start?" : "Klar til å starte?"}
             </h2>

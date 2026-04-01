@@ -43,7 +43,7 @@ export default function WhyChooseMe() {
           </span>
           <h2
             className="why-heading text-[9vw] md:text-[5vw] font-black tracking-tight text-[#ede9e2] leading-[0.92] md:max-w-2xl"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {t.whyChooseMe.heading}
           </h2>
@@ -66,7 +66,7 @@ export default function WhyChooseMe() {
               {/* Title */}
               <h3
                 className="text-xl md:text-2xl font-bold tracking-tight text-[#ede9e2] leading-tight md:flex-1"
-                style={{ fontFamily: "Satoshi, sans-serif" }}
+                style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
               >
                 {card.title}
               </h3>

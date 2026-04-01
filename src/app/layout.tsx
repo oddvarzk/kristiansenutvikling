@@ -1,5 +1,6 @@
 // src/app/layout.tsx — server component, true root layout
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import ClientLayout from "./ClientLayout";
 import { defaultMetadata } from "./metadata";
 import "./globals.css";
@@ -55,26 +56,28 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const satoshi = localFont({
+  src: "../../public/fonts/Satoshi-Variable.woff2",
+  variable: "--font-satoshi",
+  display: "swap",
+  weight: "300 900",
+});
+
+const aktura = localFont({
+  src: "../../public/fonts/Aktura-Regular.woff2",
+  variable: "--font-aktura",
+  display: "swap",
+  weight: "400",
+});
+
 export const metadata = defaultMetadata;
 
 export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="no" className={inter.variable} data-scroll-behavior="smooth">
-      <head>
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.fontshare.com" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=aktura@700,400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="no" className={`${inter.variable} ${satoshi.variable} ${aktura.variable}`} data-scroll-behavior="smooth">
+      <head />
       <body className={`${inter.variable} antialiased flex flex-col min-h-screen`}>
         <script
           type="application/ld+json"

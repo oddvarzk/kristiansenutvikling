@@ -47,7 +47,7 @@ export default function CookieBanner() {
           backgroundColor: "#131313",
           borderColor: "rgba(237,233,226,0.08)",
           boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
-          fontFamily: "Satoshi, sans-serif",
+          fontFamily: "var(--font-satoshi), sans-serif",
           borderRadius: "3px",
         }}
       >

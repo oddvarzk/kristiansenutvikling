@@ -19,7 +19,7 @@ export default function KontaktPage() {
           </span>
           <h1
             className="text-[10vw] md:text-[4vw] font-black tracking-tight text-[#ede9e2] leading-[0.92]"
-            style={{ fontFamily: "Satoshi, sans-serif" }}
+            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
           >
             {t.contact.title}
           </h1>
