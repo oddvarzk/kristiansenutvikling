@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSeksjon() {
   const { currentLanguage } = useTranslations();
   const sectionRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
@@ -35,7 +36,7 @@ export default function HeroSeksjon() {
         .from(subRef.current, { y: 16, opacity: 0, duration: 0.6 }, 1.1)
         .from(ctaRef.current, { y: 16, opacity: 0, duration: 0.6 }, 1.2);
 
-      // Parallax as next section scrolls over
+      // Parallax on headline as next section scrolls over
       gsap.to(headlineRef.current, {
         y: "-8%",
         opacity: 0.25,
@@ -47,6 +48,24 @@ export default function HeroSeksjon() {
           scrub: true,
         },
       });
+
+      // Background image: zoom out + blur + fade as you scroll (replicates the CodePen effect)
+      gsap.fromTo(
+        bgRef.current,
+        { backgroundSize: "250%", opacity: 1, filter: "blur(0px)" },
+        {
+          backgroundSize: "100%",
+          opacity: 0,
+          filter: "blur(8px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -56,13 +75,47 @@ export default function HeroSeksjon() {
     <section
       ref={sectionRef}
       id="top"
-      className="sticky top-0 h-screen flex flex-col justify-between overflow-hidden bg-[#0b0b0b]"
+      className="sticky top-0 h-screen flex flex-col justify-between overflow-hidden"
       style={{ zIndex: 1 }}
     >
+      {/* Fixed background image — zooms out, blurs and fades on scroll */}
+      <div
+        ref={bgRef}
+        className="fixed top-0 left-0 w-full h-full pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/kristianenutviklingbG.jpg')",
+          backgroundSize: "250%",
+          backgroundPosition: "center 70%",
+          backgroundRepeat: "no-repeat",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Dark overlay for text readability over the image */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 1,
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
+
+      {/* Bottom vignette — mirrors the original pen's inset box-shadow */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{
+          zIndex: 2,
+          height: "140px",
+          background: "linear-gradient(to top, rgba(11,11,11,1) 0%, transparent 100%)",
+        }}
+      />
+
       {/* Grain texture overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
+          zIndex: 3,
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           opacity: 0.028,
         }}
