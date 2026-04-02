@@ -50,11 +50,12 @@ export default function HeroSeksjon() {
       });
 
       // Background image: zoom out + blur + fade as you scroll (replicates the CodePen effect)
+      // Uses scale() instead of backgroundSize for GPU-accelerated performance on mobile
       gsap.fromTo(
         bgRef.current,
-        { backgroundSize: "250%", opacity: 1, filter: "blur(0px)" },
+        { backgroundSize: "120%", opacity: 1, filter: "blur(0px)" },
         {
-          backgroundSize: "100%",
+          backgroundSize: "90%",
           opacity: 0,
           filter: "blur(8px)",
           ease: "none",
@@ -78,18 +79,20 @@ export default function HeroSeksjon() {
       className="sticky top-0 h-screen flex flex-col justify-between overflow-hidden"
       style={{ zIndex: 1 }}
     >
-      {/* Fixed background image — zooms out, blurs and fades on scroll */}
-      <div
-        ref={bgRef}
-        className="fixed top-0 left-0 w-full h-full pointer-events-none"
-        style={{
-          backgroundImage: "url('/images/kristianenutviklingbG.jpg')",
-          backgroundSize: "250%",
-          backgroundPosition: "center 70%",
-          backgroundRepeat: "no-repeat",
-          zIndex: 0,
-        }}
-      />
+      {/* Background image — zooms out, blurs and fades on scroll */}
+      {/* Uses absolute (not fixed) inside the sticky section — works correctly on mobile */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        <div
+          ref={bgRef}
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/images/kristianenutviklingbG.jpg')",
+            backgroundSize: "120%",
+            backgroundPosition: "center 70%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      </div>
 
       {/* Dark overlay for text readability over the image */}
       <div
