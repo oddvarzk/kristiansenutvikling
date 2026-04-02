@@ -53,9 +53,9 @@ export default function HeroSeksjon() {
       // Uses scale() instead of backgroundSize for GPU-accelerated performance on mobile
       gsap.fromTo(
         bgRef.current,
-        { backgroundSize: "120%", opacity: 1, filter: "blur(0px)" },
+        { scale: 1.2, opacity: 1, filter: "blur(0px)" },
         {
-          backgroundSize: "90%",
+          scale: 1,
           opacity: 0,
           filter: "blur(8px)",
           ease: "none",
@@ -87,9 +87,11 @@ export default function HeroSeksjon() {
           className="absolute inset-0"
           style={{
             backgroundImage: "url('/images/kristianenutviklingbG.jpg')",
-            backgroundSize: "120%",
+            backgroundSize: "cover",
             backgroundPosition: "center 70%",
             backgroundRepeat: "no-repeat",
+            transform: "scale(1.2)",
+            transformOrigin: "center 70%",
           }}
         />
       </div>
