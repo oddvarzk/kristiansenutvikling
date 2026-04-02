@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -49,24 +50,22 @@ export default function HeroSeksjon() {
         },
       });
 
-      // Background image: zoom out + blur + fade as you scroll (replicates the CodePen effect)
-      // Uses scale() instead of backgroundSize for GPU-accelerated performance on mobile
-      gsap.fromTo(
-        bgRef.current,
-        { scale: 1.2, opacity: 1, filter: "blur(0px)" },
-        {
-          scale: 1,
-          opacity: 0,
-          filter: "blur(8px)",
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
+      // Set initial bg state immediately so there's no flash before GSAP takes over
+      gsap.set(bgRef.current, { scale: 1.2, transformOrigin: "center 70%" });
+
+      // Background image: zoom out + blur + fade as you scroll
+      gsap.to(bgRef.current, {
+        scale: 1,
+        opacity: 0,
+        filter: "blur(8px)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -80,19 +79,18 @@ export default function HeroSeksjon() {
       style={{ zIndex: 1 }}
     >
       {/* Background image — zooms out, blurs and fades on scroll */}
-      {/* Uses absolute (not fixed) inside the sticky section — works correctly on mobile */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-        <div
-          ref={bgRef}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/kristianenutviklingbG.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center 70%",
-            backgroundRepeat: "no-repeat",
-            transform: "scale(1.2)",
-            transformOrigin: "center 70%",
-          }}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
+        <Image
+          src="/images/kristianenutviklingbG.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 70%" }}
         />
       </div>
 
