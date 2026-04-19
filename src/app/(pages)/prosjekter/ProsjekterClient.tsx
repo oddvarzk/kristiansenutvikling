@@ -40,12 +40,14 @@ export default function Projekter() {
         { id: "nora-marketing",        title: "Nora Marketing",        description: "Marketing agency site focused on conversions.",       href: "/en/prosjekter/nora-marketing",        image: null,                               video: "/videos/projects/noraVid-web.mp4",           placeholder: "#16141b", tag: "React / Headless CMS", year: "2026", rotation: 0 },
         { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Website for a local Norwegian construction company.", href: "/en/prosjekter/bygg-mester-danielsen", image: null,                               video: "/videos/projects/bygg-mester-danielsen.mp4", placeholder: "#141419", tag: "Web / Construction",   year: "2026", rotation: 0 },
         { id: "holidaze",              title: "Holidaze",              description: "Modern booking platform for holiday homes.",          href: "/en/prosjekter/holidaze",              image: "/images/projects/holidaze-1.jpg", video: null,                                         placeholder: null,      tag: "React / TypeScript",   year: "2025", rotation: 0 },
+        { id: "vates",                 title: "Vates",                 description: "Application under development.",                       href: null,                                   image: null,                              video: null,                                         placeholder: "#16181c", tag: "Applikasjon",          year: "2026", rotation: 0, badge: "Coming soon" },
       ]
     : [
         { id: "kragero-naturstein",    title: "Kragerø Naturstein",    description: "Nettside for en norsk natursteinleverandør.",             href: "/prosjekter/kragero-naturstein",    image: null,                               video: "/videos/projects/krageroVid-web.mp4",        placeholder: "#181815", tag: "WordPress / SEO",      year: "2026", rotation: 0 },
         { id: "nora-marketing",        title: "Nora Marketing",        description: "Markedsføringsbyrå-nettside med fokus på konverteringer.", href: "/prosjekter/nora-marketing",        image: null,                               video: "/videos/projects/noraVid-web.mp4",           placeholder: "#16141b", tag: "React / Headless CMS", year: "2026", rotation: 0 },
         { id: "bygg-mester-danielsen", title: "Bygg Mester Danielsen", description: "Nettside for et lokalt norsk byggefirma.",                href: "/prosjekter/bygg-mester-danielsen", image: null,                               video: "/videos/projects/bygg-mester-danielsen.mp4", placeholder: "#141419", tag: "Web / Bygg",           year: "2026", rotation: 0 },
         { id: "holidaze",              title: "Holidaze",              description: "Moderne bookingplattform for ferieboliger.",              href: "/prosjekter/holidaze",              image: "/images/projects/holidaze-1.jpg", video: null,                                         placeholder: null,      tag: "React / TypeScript",   year: "2025", rotation: 0 },
+        { id: "vates",                 title: "Vates",                 description: "Applikasjon under utvikling.",                           href: null,                                image: null,                               video: null,                                         placeholder: "#16181c", tag: "Applikasjon",          year: "2026", rotation: 0, badge: "Kommer snart" },
       ];
 
   useEffect(() => {
@@ -239,12 +241,19 @@ export default function Projekter() {
                     </div>
                     <div className="mt-3 px-0.5 flex items-start justify-between gap-2">
                       <div>
-                        <h2
-                          className="text-sm font-bold tracking-tight text-[#1a1a1a]"
-                          style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
-                        >
-                          {project.title}
-                        </h2>
+                        <div className="flex items-center gap-2">
+                          <h2
+                            className="text-sm font-bold tracking-tight text-[#1a1a1a]"
+                            style={{ fontFamily: "var(--font-satoshi), sans-serif" }}
+                          >
+                            {project.title}
+                          </h2>
+                          {project.badge && (
+                            <span className="text-[9px] font-mono tracking-widest uppercase px-1.5 py-0.5 border border-[#1a1a1a]/20 text-[#1a1a1a]/40" style={{ borderRadius: "2px" }}>
+                              {project.badge}
+                            </span>
+                          )}
+                        </div>
                         <p className="text-xs text-[#8a8278] mt-0.5 leading-relaxed">{project.description}</p>
                       </div>
                       <div className="shrink-0 text-right mt-0.5">
